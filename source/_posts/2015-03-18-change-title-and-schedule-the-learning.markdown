@@ -3,7 +3,7 @@ layout: post
 title: "Change title and schedule the learning"
 date: 2015-03-18 16:00:26 -0400
 comments: true
-categories: 
+categories: [jekyll, blog]
 ---
 I changed the title to 
 ``` c title expression 
@@ -17,3 +17,10 @@ for:
 {% blockquote Bob Parsons, GoDaddy Founder %}
 Never stop investing. Never stop improving. Never stop doing something new.
 {% endblockquote %}
+
+The study board for mastering octopress or jekyll framework:  
+1. Be familiar with the jekyll structure.  
+2. Master the method to style the context.  
+3. _config.yml file  
+4. study liquid    
+5. Create the sidebar for convenience of retrieving the other info, like: good ruby on rails books.
