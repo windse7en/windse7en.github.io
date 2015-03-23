@@ -8,3 +8,6 @@ categories: [vim]
 
 Use the [spf13-vim](http://vim.spf13.com) to make the default configuration of the vim, quite helpful.
 Store all my own vimrc settings in the .vimrc.local
+
+The color schemes for spf13:
+fruity, ir_black, molokai, peaksea

@@ -1,0 +1,8 @@
+
+$font-body-stack: Georgia, Cambria, "Times New Roma", Times, serif;
+$font-body-size: 22px;
+
+body {
+    font-family: $font-body-stack; !important
+    font-size: $font-body-size; !important
+}

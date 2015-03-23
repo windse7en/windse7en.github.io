@@ -5,8 +5,8 @@ $max-width: 1000px;
 	padding: 0;
 }
 body{
-	font-family: "proxima-nova-1", "proxima-nova-2", "Helvetica Neue", Arial, sans-serif;
-	font-size: 16px;
+	font-size: 22px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	line-height: 1.5;
 	background: $color-background;
@@ -19,15 +19,18 @@ body{
 		margin: 0 20px;
 	}
 }
+.content{
+	font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
 
 h1{
 	margin: 35px 0 15px 0;
-	font-size: 25px;
+	font-size: 52px !important;
 	font-weight: bold;
 }
 h2{
 	margin: 20px 0 10px 0;
-	font-size: 22px;
+	font-size: 31.5px !important;
 	font-weight: bold;
 	border-bottom: 1px solid $color06;
 }
