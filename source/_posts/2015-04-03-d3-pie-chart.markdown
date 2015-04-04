@@ -1,0 +1,25 @@
+---
+layout: post
+title: "d3 Pie Chart"
+date: 2015-04-03 10:08:40 -0400
+comments: true
+categories: [d3, chart]
+---
+
+Donut Chart, Pie Chart, 大饼图，经常用来展示部分和总体之间的关系，数据比例。  
+
+[TUTORIAL](http://www.ourd3js.com/wordpress/?p=190)
+
+1.  绑定数据：d3.layout.pie(),从数据算出弧的角度。padAngle(.02)设定每个pie之间的间隔角度。  
+
+2.  设定arc大小：d3.svg.arc() 设定弧的外径，内径设置大小。  
+[d3 arc Original Doc](https://github.com/mbostock/d3/wiki/SVG-Shapes#arc)  
+
+3.  绑定数据，绑定group。  
+
+4.  绘制path图形：在group里面进行绘制，绘制内外径填充颜色。  
+
+5.  加上text：arcs.append(“text”)  
+
+
+<iframe width=”100%” height=”300” src=”htt://jsfiddle.net/windse7en/x6n8roe2/embedded/” allowfullscreen=”allowfullscreen” frameborder=”0”></iframe>
