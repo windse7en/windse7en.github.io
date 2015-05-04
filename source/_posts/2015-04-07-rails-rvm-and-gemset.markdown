@@ -22,7 +22,13 @@ rvm gemset create rails_name/project_name   usually for different rails version
 
 rvm gemset use the_name_above
 
+gem list  ; list all the installed gems
+
 ## Use rvm to deploy passenger+nginx
 gem install passenger
 rvmsudo passenger-install-nginx-module
+
+![RVM manual](https://rvm.io/gemsets/using)
+
+
 

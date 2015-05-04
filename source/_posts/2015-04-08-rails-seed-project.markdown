@@ -43,4 +43,6 @@ devise的views修改相应内容。
 [step 1](https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/)
 [step 2](http://stackoverflow.com/questions/23251943/why-are-my-authentication-emails-not-working-i-get-an-authenticationerror)引申出一个问题，在rails，project下怎么保存secure信息，通过[Figaro](https://github.com/laserlemon/figaro)  
 
-
+Ruby Performance Optimization:
+    Nginx, Passenger help us to handle the message queue. Configuration of the Nginx, Passenger server, Linux for optimizing the server.  
+    How to benchmark the server.  

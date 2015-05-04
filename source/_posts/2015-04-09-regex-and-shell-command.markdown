@@ -15,5 +15,8 @@ categories: [regex, shell]
 [Link 2](http://www.360doc.com/content/12/0907/08/1317564_234758909.shtml)  
 [Link 3](http://www.cnblogs.com/hexapodsoft/archive/2007/04/24/724902.html)  
 
+cmd >> file  >> 代表追加的方法，不会把原有的内容覆盖掉。  
+
+
 
 

@@ -15,3 +15,10 @@ categories: [life]
 任何的存在都是合理的，每个人都有自己的理由。
 做好自己，当痛苦选择的时候，其实是没有能力提供更好的选择。
 
+Linkedin HAS COST ME $300, unconsciously!!!  
+
+以后任何填写卡的信息的都要特别注意，动不动就自动付钱，一扣就是一个月，伤不起啊！！！！  
+
+[Ruby doc gems](http://www.rubydoc.info/gems/slim/Slim/ERBConverter)  
+
+
