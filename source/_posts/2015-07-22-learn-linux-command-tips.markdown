@@ -8,6 +8,7 @@ categories: [linux, command]
 
 # info
 帮助的中级文档，可以入手学习Emacs。主要的操作
+
 | Command   | Description              |
 | ---       | ---                      |
 | h, ?      | help                     |
@@ -20,6 +21,7 @@ categories: [linux, command]
 # sed
 [Sed 详解](http://coolshell.cn/articles/9104.html)
 大神级的全能文件处理工具。
+
 | Sign               | Description                    |
 | ---                | ---                            |
 | $                  | last line                      |
@@ -34,6 +36,7 @@ categories: [linux, command]
 | 1 a Test; 1 i Test | insert and append context      |
 
 pattern space是测试和输出的buffer，hold space是装要测试的下步数据的内容。
+
 | HoldSpace | Description                                |
 | ---       | ---                                        |
 | g         | hold space 放到pattern space，原有内容清除 |
