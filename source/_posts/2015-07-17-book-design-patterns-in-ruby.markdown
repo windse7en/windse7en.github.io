@@ -36,7 +36,156 @@ Thought: Separate the things that stay the same.
 Template Method Patterm Example, hook methods:
 {% img http://snag.gy/vkB9S.jpg %}
 
+## Templates in the Wild
+WEBrick, 跑一个httpserver用到了Template，可以overrite run method。
+
 # Chapter 4. Replacing the Algorithm with the Strategy
 
 加入了Strategy对象来描述
 {% img http://snag.gy/fkwNm.jpg %}
+
+Strategy 就指得是一些知道how to do something的executable code。就像Proc(&proc_variable)
+就像sort的使用就用的是Strategy Pattern，穿进去Proc知道怎么排序
+
+Ruby rdoc 用的就是Strategy Pattern
+{% img http://snag.gy/PXBE1.jpg %}
+
+## Strategy in the Wild
+Ruby 中rdoc用Strategy Pattern来定义显示format
+
+# Chapter 5. Keeping up with the Times with the Observer
+
+Core Challenge: building a system that is highly integrated that a system where every part is aware of the sate of the whole.
+P.104 Explain the observer module
+
+{% img http://snag.gy/Qtwd2.jpg %}
+
+## Observer in the Wild
+ActiveRecord::Observer中用Observer来观察database records，created，read，written and deleted。
+
+# Chapter 6. Assembling the Whole from the Parts with the Composite
+
+Core Challenge: build up bigger objects from small sub-objects, which might themseleve be made up of still smaller sub-sub-objects.
+
+{% img http://snag.gy/ybQ34.jpg %}
+
+## Sprucing Up the Composite with Operators
+It turns out that we can get this done by simply renaming the add_sub_task method:
+{% codeblock lang:ruby %}
+composite = CompositeTask.new(‘example’)
+composite << MixTask.new
+def <<(task)
+  @sub_tasks << task
+end
+
+def [](index)
+  @sub_tasks[index]
+end
+
+def []=(index, new_value)
+  @sub_tasks[index] = new_value
+end
+{% endcodeblock %}
+
+## An Inconvenient Difference
+How to handle the difference between the leaf and the composite:
+1.  leaf和composite不一样，addChild，deleteChild这样的方法leaf没有
+2.  leaf也加入这两种方法，但是如果被调用了怎么响应是个问题，ignore，exception，还是怎么样？
+
+最容易犯的问题：
+Mistake：容易把Composite当成one level deeper，但实际上，composite是multiple levels的。
+
+## Composites in the Wild
+
+在Ruby中，GUI libraries就是基于Composite Pattern实现的。
+
+# Chapter 7. Reaching into a Collection with the Iterator
+Core Challenge: allows an aggregate object to provide the outsite wolrd with a way to access its collection of subobjects.
+
+## External Iterators
+Java’s iterator is external iterator, ‘external’- a separate object from the aggregate
+
+## Internal Iterators
+Ruby’s iterator, inside the aggregate object, the code block-based iterators.
+
+## The Inimitable Enumerable
+要实现iterator在ruby中，一般就include Enumerable方法，有了，覆盖each和<=>方法。
+包括方法：all?, any?, include? ...
+
+## Using and Abusing the Iterator Pattern
+Mistake: What happens if the aggregate object changes while you are iterating through it?
+
+## Iterators in the Wild
+Ruby的各种each method
+
+IO object，File.open(), Pathname.new，都是很好的iterator
+
+ObjectSpace module each_object 显示interpreter中的所有object。
+{% codeblock lang:ruby %}
+ObjectSpace.each_object { |o| puts “Object: #{o}” }
+{% endcodeblock %}
+
+# Chapter 8. Getting Things Done with Commands
+Core Challenge: an instruction to do something, something specific when something happens.
+
+{% img http://snag.gy/RNTAs.jpg %}
+
+## Using and Abusing the Command Pattern
+The key thing about the Command pattern is that it separates the thought from the deed. When you use this pattern, you are no longer simply saying, “Do this”; instead, you are saying, “Remember how to do this,” and, sometime later, “Do that thing that I told you to remember.”
+用的太频繁，本来很简单的内容用pattern去实现了。
+
+## The Command Pattern in the Wild
+ActiveRecord Migrations, up, down, change, Madeleine
+
+# Chapter 9. Filling in the Gaps with the Adapter
+Core Chanllenge: bridge the gap between mismatching software interfaces. Ruby 运行时修改类和对象来创建adapter。
+
+Adapter就是用来帮你给你要用的和你有的interface搭桥的。
+{% img http://snag.gy/uSoFP.jpg %}
+
+Ruby中可以对实例添加方法的实例：
+{% img http://snag.gy/oCtix.jpg %}
+
+{% codeblock lang:ruby %}
+bto = BritishTextObject.new(‘hello’, 50.8, :blue)
+class << bto
+  def color
+    colour
+  end
+  def text
+    string
+  end
+  def size_inches
+    return size_mm/25.4
+  end
+end
+
+def bto.color
+  colour
+end
+def bto.text
+  string
+end
+{% endcodeblock %}
+
+## Using and Abusing the Adapter Pattern
+It’s hard to call a method client decided but you didn’t think you needed.我很奇怪这个问题在哪里。
+
+## Adapters in the Wild
+ActiveRecord, AbstractAdapter 用来解决数据库的adapter的问题。
+
+# Chapter 10. Getting in Front of Your Object with a Proxy
+Core Chanllenge: controll access to an object or providing a location-independent way of getting at the object or delaying its creations.
+
+{% img http://snag.gy/DvfH4.jpg %}
+
+Protection proxy 可以把check安全性的和功能性的放到一个class里面，这样以后容易修改。
+
+RPC system soap/wsdl get weather information.
+
+## Message passing
+method_missing(:symbol__name, \*args), 方法名和参数
+
+
+
+
