@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Book: Design Patterns in Ruby"
+title: "B: Design Patterns in Ruby"
 date: 2015-07-17 15:08:30 -0400
 comments: true
 categories: [ruby, design pattern]
@@ -11,6 +11,9 @@ categories: [ruby, design pattern]
 GoF(Gang of Four) book: *Design Patterns: Elements of Reusable Object-Oriented Software.*
 
 prefer composition to inheritancy. Internal Domain-Specific Language(DSL), metaprogramming, convention not configuration
+
+怎么用？
+How do you add features to your program without turning the whole thing into a huge, unmanageable mess? So far, you have seen how to split the internal workings of your objects up among a family of classes with the Template Method pattern and how to use the Strategy pattern to split off whole chunks of algorithms. You have also seen how to react to requests coming into your objects with the Command pattern and how to keep up with changes made to other objects with the Observer pattern. Composites and iterators each help in their own way in dealing with collections of objects.
 
 14 Design Patterns:
 
@@ -186,6 +189,326 @@ RPC system soap/wsdl get weather information.
 ## Message passing
 method_missing(:symbol__name, \*args), 方法名和参数
 
+## Using and Abusing Proxies
 
+As method_missing is slow and obsure for the code.
 
+## Proxies in the Wild
 
+Ruby SOAP, Ruby package method
+{% codeblock lang:ruby %}
+class MathService
+  def add(a, b)
+    return a + b
+  end
+end
+
+require ‘drb/drb’
+
+math_service=MathService.new
+DRb.start_service(“druby://localhost:3030”, math_service)
+DRb.thread.join
+{% endcodeblock %}
+
+client part:
+{% codeblock lang:ruby %}
+require ‘drb/drb’
+DRb.start_service
+
+math_service = DRbObject.new_with_uri(“druby://localhost:3030”)
+
+sum=math_service.add(2,2)
+{% endcodeblock %}
+
+## Wrapping Up Pattern
+
+主要解决的三个问题：
+1.  保护对象，授权通信  protection proxy
+2.  隐藏对象在其他地方  remote proxy
+3.  延迟创建复杂对象    virtual proxy
+
+# Chapter 11. Improving your objects with a decorator
+
+Core Chanllenge: add an enhancement to an existing object.
+
+{% codeblock lang:ruby %}
+writer = CheckSummingWriter.new(TimeStampingWriter.new(NumberingWriter.new(SimpleWriter.new(‘final.txt’))))
+writer.write_line(‘Hello out there’)
+{% endcodeblock %}
+{% img http://snag.gy/2fCuf.jpg %}
+
+extend Forwardable module for delegating the methods(use extend to add class-level methods)
+{% codeblock lang:ruby %}
+require ‘forwardable’
+
+class WriterDecorator
+  extend Forwardable
+  def_delegators :@real_writer, :write_line, :rewind, :pos, :close
+
+  def initialize(real_writer)
+    @real_writer = real_writer
+  end
+end
+{% endcodeblock %}
+
+## Using and Abusing the Decorator Pattern
+
+1.  harder to debug, different decorator class,
+2.  multiplying the number of objects floating around in your program创建对象太多了。
+
+## Decorators in the Wild
+
+ActiveRecord 中有个alias_method_chain, 可以改变老的方法的名字，和新的进行置换。
+链式修改，在所有修改装饰之后才调用开始类的输出。
+
+# Chapter 12. Making sure there is only one with the Singleton
+
+ Core Chanllenge: there are some things that are unique.
+
+ 实现Singleton的三种方法：
+ 1. include singleton module
+ 2. Global variable and constant technique
+ 3. class as singleton
+ 3. Module as singleton
+
+ Singleton: 只有一个、全局可用的实例
+
+@@variable for the class cariable. Java中是static
+
+def self.method for the class method.
+
+Ruby里面Singleton的使用过程，include之后，直接用SimpleLogger.instance得到唯一值
+{% codeblock lang:ruby %}
+require ‘singleton’
+
+class SimpleLogger
+  include Singleton
+  # Lots of code deleted...
+end
+{% endcodeblock %}
+
+## Using and Abusing the Singleton Pattern
+1.  How many of the singletons needed?
+2.  Singletons on a need-to-know basis
+3.  Cure the Testing Blues. As singleton called by multiple class, there will be a lot independence.
+
+## Singletons in the Wild
+
+rake, Inflections(单复数的), are singletons 
+
+# Chapter 13. Picking the Right Class with a Factory
+
+Core Challenge: How to pick the right class for the circumstance?
+
+{% img http://snag.gy/vuATB.jpg %}
+
+It just likes the templete pattern, share a common type. Because they implement a common set of methods.
+
+## Parameterize Factory Methods
+
+Give many parameters to the factory methods, use case switch to define which class to call.
+
+Pond Example:
+{% codeblock lang:ruby %}
+class Pond
+  def initialize(number_animals, animal_class, number_plants, plant_class)
+    @animal_class = animal_class
+    @plant_class = plant_class
+    @animals = []
+    number_animals.times do |i|
+      animal = new_organism(:animal, “Animal#{i}”)
+      @animals << animal
+    end
+    @plants = []
+    number_plants.times do |i|
+      plant = new_organism(:plant, “Plant#{i}”)
+      @plants << plant
+    end
+  end
+
+  def simulate_one_day
+    @plants.each {|plant| plant.grow}
+    @animals.each {|animal| animal.speak}
+    @animals.each {|animal| animal.eat}
+    @animals.each {|animal| animal.sleep}
+  end
+
+  def new_organism(type, name)
+    if type == :animal
+      @animal_class.new(name)
+    elsif type == :plant
+      @plant_class.new(name)
+    else
+      raise “Unknown organism type: #{type}”
+    end
+  end
+end
+{% endcodeblock %}
+
+An object dedicated to creating a compatible set of objects is called an abstract factory.
+一个用来创建一堆对象的对象:Abstract Factory
+
+{% codeblock lang:ruby %}.
+class PondOrganismFactory
+  def new_animal(name)
+    Frog.new(name)
+  end
+  def new_plant(name)
+    Algae.new(name)
+  end
+end
+
+class JungleOrganismFactory
+  def new_animal(name)
+    Tiger.new(name)
+  end
+  def new_plant(name)
+    Tree.new(name)
+  end
+end
+
+class Habitat
+
+  def initialize(number_animals, number_plants, organism_factory)
+  @organism_factory = organism_factory
+  @animals = []
+  number_animals.times do |i|
+    animal = @organism_factory.new_animal(“Animal#{i}”)
+    @animals << animal
+  end
+  @plants = []
+  number_plants.times do |i|
+    plant = @organism_factory.new_plant(“Plant#{i}”)
+    @plants << plant
+  end
+end
+{% endcodeblock %}
+
+{% img http://snag.gy/BXYm8.jpg %}
+
+In the same way that the Factory Method pattern is really the Template Method pattern applied to object creation, so the Abstract Factory pattern is simply the Strategy pattern applied to the same problem.
+
+## Using and Abusing the Factory Patterns
+
+Balance the cost of the additional.
+
+## Factory Patterns in the Wild
+
+ActiveRecord::Base use Factory Pattern to map the database connection.
+
+# Chapter 14. Easier Object Construction with the Builder
+
+Core Chanllenge: a pattern designed to help you configure those complex objects.
+
+{% img http://snag.gy/qis6x.jpg %}
+
+## Polymorphic Builders
+Builder 更关注怎么configure object而不是pick right class。
+{% img http://snag.gy/il4mO.jpg %}
+
+通过method_missing方法，支持，例如add_trubo_adn_dvd_and_harddisk这样的方法
+{% codeblock lang:ruby %}
+def method_missing(name, *args)
+  words = name.to_s.split(“_”)
+  return super(name, *args) unless words.shift == ‘add’
+  words.each do |word|
+    next if word == ‘and’
+    add_cd if word == ‘cd’
+    add_dvd if word == ‘dvd’
+    add_hard_disk(100000) if word == ‘harddisk’
+    turbo if word == ‘turbo’
+  end
+end
+{% endcodeblock %}
+
+## Using and Abusing the Builder Pattern
+不太复杂的事情结果用Builder造成complex。
+
+## Builders in the Wild
+MailFactory in ruby, config the mail and send it.
+
+# Chapter 15. Assembling your system with the interpreter
+Core Chanllenge: need an interpreter for a domain problem.
+
+What kind of problems are good candidates for the Interpreter pattern? As a general rule, problems well suited to the Interpreter pattern tend to be selfcontained, with crisp boundaries around them. For example, if you are writing code that searches for specific objects based on some specification, you might consider creating a query language.1 Conversely, if you are faced with the task of creating complex object configurations, you might think about building a configuration language. Another clue that your problem might be right for the Interpreter pattern is that you find yourself creating lots of discrete chunks of code, chunks that seem easy enough to write in themselves
+什么问题需要Interpreter Pattern呢？
+1.  当这个问题可以被更小的边界包含的时候，例如需要对特殊对象的查询，query language，需要复杂配置，configuration language。
+2.  另一个是，你发现有很多离散的可重复代码块。
+
+## Building an Interpreter
+{% img http://snag.gy/7jOFa.jpg %}
+1.  AST: abstract syntax tree. 
+
+If the language is fairly complex and neither XML nor YAML seems appropriate, using a parser generator Racc.
+
+## Using and Abusing the interpreter Pattern
+1.  The complexity issure, how complex your language will be.
+2.  Program efficiency. good choice for 80% code that really is performance insensitive.
+
+## Interpreters in the wild
+Regular Expression for string matching.
+
+Runt: expressing things like date and time ranges and schedules.
+
+# Chapter 16. Opening Up Your System with Domain-Specific Languages
+Core Chanllenge: provider the language that used by the users.
+
+## Using and Abusing the DSL
+
+1.  error message is unfriendly.
+2.  If security is an issue, stay away from internal DSLs.
+
+## Internal DSLs in the Wild
+
+rake, task based on tasks. 
+
+# Chapter 17. Creating Custom Objects with Meta-programming
+Core Chanllenge: Change the functionality in the runtime.
+
+Use extend for the object insludes some module.对象mix Module用extend，class包含module用include。
+
+The subclasses of Base do not automatically inherit any Composite pattern behavior. Instead, they inherit the member_of and composite_of class method to add the composite methods to the subclass.
+
+## Using and Abusing Meta-programming
+
+Meta-programming: writing programs that augment or change themseleves as they run.
+The key danger is the unexpected interaction between features.
+
+## Meta-programming in the Wild
+
+attr_reader, attr_writer, attr_accessor. The three are meta-programming. like:
+
+{% codeblock lang:ruby %}
+class Object
+  def self.readable_attribute(name)
+    code = %Q{
+      def #{name}
+        @#{name}
+      end
+    }
+    class_eval(code)
+  end
+
+end
+
+class BankAccount
+  readable_attribute :balance
+  def initialize(balance)
+    @balance = balance
+  end
+end
+{% endcodeblock %}
+
+Forwardable module to delegae the methods.
+
+# Chapter 18. Convention Over Configuration
+Core Chanllenge: How to make software systems extensible via configuration.
+
+1.  Convention focuses to making it wasy to add adapters.
+2.  Some constraints on the adapter.
+
+## Using and Abusing the Convention Over Configuration Pattern
+1.  The convention might be incomplete.
+2.  hard to write and no documentation for the operational road map.
+
+# Chapter 19. Conclusion
