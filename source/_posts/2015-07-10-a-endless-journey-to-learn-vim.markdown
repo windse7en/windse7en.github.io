@@ -19,9 +19,10 @@ VIM keystrokes的评价体系：VImGolf按了几个键，Repitation容不容易r
 习惯用<Esc>o来取代<CR>因为undo会根据最近的change。
 用思想来切换mode，如果信息输入完了，应该习惯切回normal
 vim的熟练过程开始是熟悉keystoke，之后要有逻辑，motion和change分开，可以repeat motion或者change，DRY。
-VIM思想Pattern：
+VIM思想Pattern
+
 | VIM Pattern        | 描述                                                                |
-| --                 | --                                                                  |
+| ---                | ---                                                                 |
 | Dot Formula        | One Keystroke to move, one keystroke to execute                     |
 | Series or Parallel | 例如可以22@q的方式去修改，亦可以VG:`<,`>normal @a的方式parallel修改 |
 
@@ -29,8 +30,9 @@ VIM思想Pattern：
 1.  Normal下操作的互动
 2.  Visual下的互动命令
 3.  :h 的使用不熟练，找不到想要的帮助内容
-4.  :set 的内容不了解具体效果
-VIM mode:
+4.  :set 的内容不了解具体效果 VIM mode   
+
+
 | Mode                              | 功能描述                             |
 | ---                               | ---                                  |
 | Normal                            | 操作                                 |
@@ -48,9 +50,9 @@ VIM mode:
 
 ##开始掌握不好的操作：
 1.  normal Mode：=, `, q, ;, . , r
-2.  Ex Mode: Q, ebw, HL, {}, C-i, C-o
+2.  Ex Mode: Q, ebw, HL, {}, C-i, C-o illustion   
 
-illustion:
+
 | keystroke        | 描述                                             |
 | ---              | ---                                              |
 | ;                | 重复之前的f或者t motion操作                      |
@@ -71,6 +73,7 @@ illustion:
 | “ayy; “ap        | copy into the register a, put from register a    |
 | yy; “0p; :reg “0 | yank always copy into reg 0                      |
 | ”_; “+; “*       | black hole reg, system clipboard, selection reg  |
+
 
 #重要的Plugin：
 
