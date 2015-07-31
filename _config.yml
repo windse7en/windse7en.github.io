@@ -99,3 +99,6 @@ google_analytics_tracking_id: "UA-65569497-1"
 
 # Facebook Like
 facebook_like: true
+
+# add related posts
+# lsi: true
