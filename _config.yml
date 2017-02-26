@@ -70,4 +70,6 @@ theme: yilia
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/windse7en/windse7en.github.io.git
+  branch: master
