@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Leetcode, practise algorithm in ruby"
+date: 2015-05-06 12:56:46 -0400
+comments: true
+categories: [leetcode, algorithm, ruby]
+---
+
+Enumerable, partition, method, partition the enumerable(like array) into two sets, one is true based on the block result.  
+inject(:+), get the sum of the enumerable.
+
+
+
