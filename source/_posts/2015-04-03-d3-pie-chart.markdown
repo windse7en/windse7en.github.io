@@ -3,7 +3,7 @@ layout: post
 title: "d3 Pie Chart"
 date: 2015-04-03 10:08:40 -0400
 comments: true
-categories: [d3, chart]
+tags: [d3, chart]
 ---
 
 Donut Chart, Pie Chart, 大饼图，经常用来展示部分和总体之间的关系，数据比例。  

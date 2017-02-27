@@ -3,7 +3,7 @@ layout: post
 title: "Integrate solar search sunspot with rails"
 date: 2015-06-04 14:12:49 -0400
 comments: true
-categories: [rails, solar, sunspot, search]
+tags: [rails, solar, sunspot, search]
 ---
 
 [Sunspot Github](https://github.com/sunspot/sunspot)

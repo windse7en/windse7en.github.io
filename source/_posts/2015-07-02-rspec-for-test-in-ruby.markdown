@@ -3,7 +3,7 @@ layout: post
 title: "Rspec for Test in Ruby"
 date: 2015-07-02 11:15:13 -0400
 comments: true
-categories: [rspec, test, ruby]
+tags: [rspec, test, ruby]
 ---
 
 [Excel for summary of ruby test](https://docs.google.com/spreadsheets/d/1KGqJEmfUaLwrieckqc9x80sNLf0Qpq9I6Mpl9rv4LpY/edit#gid=1111651514)

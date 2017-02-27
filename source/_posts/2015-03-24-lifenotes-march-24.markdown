@@ -3,7 +3,7 @@ layout: post
 title: "Lifenotes: March 24"
 date: 2015-03-24 14:31:33 -0400
 comments: true
-categories: [life]
+tags: [life]
 ---
 
 今天和李哥，聊了挺多关于人生、男人的话题，总结如下：

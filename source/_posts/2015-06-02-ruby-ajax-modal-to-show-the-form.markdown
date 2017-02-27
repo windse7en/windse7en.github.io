@@ -3,7 +3,7 @@ layout: post
 title: "Ruby AJAX modal to show the form"
 date: 2015-06-02 15:43:09 -0400
 comments: true
-categories: [ruby, ajax, modal]
+tags: [ruby, ajax, modal]
 ---
 
 1. set the link tag to remote:true  

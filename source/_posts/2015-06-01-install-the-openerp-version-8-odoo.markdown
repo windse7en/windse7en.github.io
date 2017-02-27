@@ -3,7 +3,7 @@ layout: post
 title: "Install the OpenERP version 8 ODOO"
 date: 2015-06-01 14:21:24 -0400
 comments: true
-categories: [openerp, odoo, python]
+tags: [openerp, odoo, python]
 ---
 
 [tutorial video](https://www.youtube.com/watch?v=FTrDT7Ovjs0)

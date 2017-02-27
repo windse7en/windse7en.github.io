@@ -9,5 +9,9 @@ tags:
 ## Steps
 1. 安装[hexo](https://hexo.io/zh-tw/docs/commands.html)，新建一个project
 2. pull [yilia project](https://github.com/litten/hexo-theme-yilia)，安装主题
+  * 从头yilia切换到[next](http://theme-next.iissnan.com/)，因为next提供更丰富的功能
 3. 把原来的post复制到hexo的`source/post`下面
 4. 原来的文章里面有两个}的情况，需要去掉
+
+## 更新
+1. [更新字体样式和大小](http://theme-next.iissnan.com/faqs.html#custom-font)

@@ -3,7 +3,7 @@ layout: post
 title: "d3 Tree Chart"
 date: 2015-04-03 11:32:19 -0400
 comments: true
-categories: [d3, chart]
+tags: [d3, chart]
 ---
 
 Tree图，主要为了表现层次关系，类似家谱，年表。他和cluster不一样是，每个level之间是同一层次的。  

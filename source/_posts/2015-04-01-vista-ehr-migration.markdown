@@ -3,7 +3,7 @@ layout: post
 title: "Vista EHR migration"
 date: 2015-04-01 15:06:07 -0400
 comments: true
-categories: [vista]
+tags: [vista]
 ---
 
 HL7 manual  

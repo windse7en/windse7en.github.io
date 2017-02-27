@@ -3,7 +3,7 @@ layout: post
 title: "Rails development ridiculous problem sets"
 date: 2015-06-23 10:15:58 -0400
 comments: true
-categories: [rails, development, problem]
+tags: [rails, development, problem]
 ---
 
 1. Ridiculous Problem 1:

@@ -3,7 +3,7 @@ layout: post
 title: "Change title and schedule the learning"
 date: 2015-03-18 16:00:26 -0400
 comments: true
-categories: [jekyll, blog]
+tags: [jekyll, blog]
 ---
 I changed the title to 
 ``` c title expression 

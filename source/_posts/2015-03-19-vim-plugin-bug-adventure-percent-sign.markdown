@@ -3,7 +3,7 @@ layout: post
 title: "VIM plugin bug adventure '%' sign"
 date: 2015-03-19 13:57:50 -0400
 comments: true
-categories: [vim, vimrc]
+tags: [vim, vimrc]
 ---
 
 Today, I tried to use % to jump between (), use %x``x to delte a pair of () in the markdown file. But I found the situation is :

@@ -3,7 +3,7 @@ layout: post
 title: "Scrapy: python module to web crawling and scrapying"
 date: 2015-03-19 14:48:25 -0400
 comments: true
-categories: [scrapy, python, crawl, scrapy]
+tags: [scrapy, python, crawl, scrapy]
 ---
 
 Use [scrapy](http://doc.scrapy.org/en/latest/) to crawl the amazon products' comments:

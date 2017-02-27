@@ -3,7 +3,7 @@ layout: post
 title: "linux command learn tips"
 date: 2015-06-15 15:31:22 -0400
 comments: true
-categories: [linux, shell]
+tags: [linux, shell]
 ---
 
 [awk](http://www.techug.com/awk)强大的文件操作，从Alfred Aho，Peter Weinberger and Brain Kernighan

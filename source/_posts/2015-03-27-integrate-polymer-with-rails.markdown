@@ -3,7 +3,7 @@ layout: post
 title: "Integrate polymer with rails"
 date: 2015-03-27 10:09:35 -0400
 comments: true
-categories: [web component, polymer]
+tags: [web component, polymer]
 ---
 
 Polymer is the Google new designed web component solution. It aims to solve the structure the confusing css and js files.

@@ -3,7 +3,7 @@ layout: post
 title: "a endless journey to learn vim"
 date: 2015-07-10 10:12:52 -0400
 comments: true
-categories: [vim]
+tags: [vim]
 ---
 
 This description to the VIM journey is to descript my learning process of VIM:

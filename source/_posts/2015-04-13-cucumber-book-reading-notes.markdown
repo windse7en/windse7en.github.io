@@ -3,7 +3,7 @@ layout: post
 title: "Cucumber Book Reading Notes"
 date: 2015-04-13 17:23:15 -0400
 comments: true
-categories: [rails, test, bdd, cucumber]
+tags: [rails, test, bdd, cucumber]
 ---
 
 [Great Cheatsheet to remember the capybara command](https://gist.github.com/zhengjia/428105)  

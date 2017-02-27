@@ -3,7 +3,7 @@ layout: post
 title: "Algorithm: The Shortest Path, 关于最短路径的算法"
 date: 2015-03-24 13:42:16 -0400
 comments: true
-categories: [algorithm, graph, dfs, bfs]
+tags: [algorithm, graph, dfs, bfs]
 ---
 
 A*, DFS, BFS, Dijkstra, Prim Tree.

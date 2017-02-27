@@ -3,7 +3,7 @@ layout: post
 title: "Difference between Alibaba"
 date: 2015-05-11 16:00:01 -0400
 comments: true
-categories: [e-commerce, ebay, amazon]
+tags: [e-commerce, ebay, amazon]
 ---
 
 ![tao bao](http://snag.gy/YexSJ.jpg)

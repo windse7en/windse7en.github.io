@@ -3,7 +3,7 @@ layout: post
 title: "d3 Book: Interactive Data Visualization for the Web"
 date: 2015-04-06 23:53:22 -0400
 comments: true
-categories: [d3, book, turning, scott murray]
+tags: [d3, book, turning, scott murray]
 ---
 
 ## Interactive Data Visualization for the Web, Written by Scott Murray  

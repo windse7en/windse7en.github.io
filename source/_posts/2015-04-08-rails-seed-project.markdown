@@ -3,7 +3,7 @@ layout: post
 title: "Rails Seed Project"
 date: 2015-04-08 12:00:19 -0400
 comments: true
-categories: [rails, seed project]
+tags: [rails, seed project]
 ---
 
 The aim of this blog is to memorize the process of customizing the Seed Project for future development.     

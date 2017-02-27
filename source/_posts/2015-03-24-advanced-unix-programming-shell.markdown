@@ -3,10 +3,10 @@ layout: post
 title: "Advanced Unix Programming: Shell"
 date: 2015-03-24 23:03:19 -0400
 comments: true
-categories: [unix, shell]
+tags: [unix, shell]
 ---
 
-Shell categories: [Bourne shell](http://tldp.org/LDP/abs/html/), Korn shell, C shell.
+Shell tags: [Bourne shell](http://tldp.org/LDP/abs/html/), Korn shell, C shell.
 其他和bash的功能差距主要是补充了作业控制，历史记忆机制和命令行编辑。
 
 

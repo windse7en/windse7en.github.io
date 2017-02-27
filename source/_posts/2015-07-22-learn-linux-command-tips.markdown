@@ -3,7 +3,7 @@ layout: post
 title: "Learn: linux command tips"
 date: 2015-07-22 11:48:10 -0400
 comments: true
-categories: [linux, command]
+tags: [linux, command]
 ---
 
 # info

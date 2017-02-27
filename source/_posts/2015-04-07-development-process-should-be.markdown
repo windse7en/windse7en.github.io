@@ -3,7 +3,7 @@ layout: post
 title: "Development Process Should Be?"
 date: 2015-04-07 00:38:07 -0400
 comments: true
-categories: [development process, scrum, agile]
+tags: [development process, scrum, agile]
 ---
 
 看了下一本javascript全栈开发的介绍，Aatz写的，引发了对开发过程的思考。  

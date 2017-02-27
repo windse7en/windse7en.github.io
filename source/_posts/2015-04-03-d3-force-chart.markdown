@@ -3,7 +3,7 @@ layout: post
 title: "d3 Force Chart"
 date: 2015-04-03 11:37:53 -0400
 comments: true
-categories: [d3, chart]
+tags: [d3, chart]
 ---
 
 Force Chart: 力学图，通过引力斥力展现数据点之间的关系强弱。  

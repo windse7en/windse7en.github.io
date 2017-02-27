@@ -3,7 +3,7 @@ layout: post
 title: "Ruby Programmint Recommendation and Tips"
 date: 2015-05-12 14:39:57 -0400
 comments: true
-categories: [ruby]
+tags: [ruby]
 ---
 
 [Ruby](http:www.ruby-lang.org)  

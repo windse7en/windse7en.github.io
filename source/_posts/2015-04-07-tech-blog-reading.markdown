@@ -3,7 +3,7 @@ layout: post
 title: "Tech Blog Reading"
 date: 2015-04-07 09:34:19 -0400
 comments: true
-categories: [js, blog, angularjs, backbonejs]
+tags: [js, blog, angularjs, backbonejs]
 ---
 
 [Blog Source: Backbonejs vs ANGULARJS: Demysifying the myths](http://blog.nebithi.com/backbone-and-angular-demystifying-the-myths/)  

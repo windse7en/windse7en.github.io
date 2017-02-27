@@ -3,7 +3,7 @@ layout: post
 title: "L: Chef online tutorial"
 date: 2015-07-31 11:13:48 -0400
 comments: true
-categories: [chef, tutorial]
+tags: [chef, tutorial]
 ---
 
 [Chef Online Tutorial](https://learn.chef.io/)

@@ -3,7 +3,7 @@ layout: post
 title: "d3 Chord Chart"
 date: 2015-04-02 10:54:04 -0400
 comments: true
-categories: [d3, chart]
+tags: [d3, chart]
 ---
 
 弦图（ Chord ），主要用于表示两个节点之间的联系。  

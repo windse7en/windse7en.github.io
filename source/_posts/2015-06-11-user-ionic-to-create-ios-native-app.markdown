@@ -3,7 +3,7 @@ layout: post
 title: "User ionic to create ios native app"
 date: 2015-06-11 16:00:10 -0400
 comments: true
-categories: [ios, ionic, cordova, ios-sim]
+tags: [ios, ionic, cordova, ios-sim]
 ---
 
 [ionic](http://ionicframework.com/getting-started/)

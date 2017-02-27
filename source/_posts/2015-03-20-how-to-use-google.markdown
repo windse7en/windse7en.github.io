@@ -3,7 +3,7 @@ layout: post
 title: "How to use google"
 date: 2015-03-20 11:26:46 -0400
 comments: true
-categories: [search, google]
+tags: [search, google]
 ---
 
 How to use google?

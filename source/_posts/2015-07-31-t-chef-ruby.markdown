@@ -3,7 +3,7 @@ layout: post
 title: "T: Chef Ruby"
 date: 2015-07-31 09:39:50 -0400
 comments: true
-categories: [chef, ruby, infrastructure]
+tags: [chef, ruby, infrastructure]
 ---
 
 [chef component](http://docs.chef.io/client/_images/chef_overview.pl()ng)

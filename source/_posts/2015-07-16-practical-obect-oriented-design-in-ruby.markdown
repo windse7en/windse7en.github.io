@@ -3,7 +3,7 @@ layout: post
 title: "Practical Obect Oriented Design in Ruby"
 date: 2015-07-16 11:54:10 -0400
 comments: true
-categories: [ruby, ood]
+tags: [ruby, ood]
 ---
 
 # Practical Object-Oriented Design in Ruby

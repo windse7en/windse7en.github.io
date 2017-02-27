@@ -3,7 +3,7 @@ layout: post
 title: "D3 js learning process"
 date: 2015-04-01 10:53:00 -0400
 comments: true
-categories: [d3, data visualization]
+tags: [d3, data visualization]
 ---
 
 强烈推荐的Blog，里面的资料整理很全面：  

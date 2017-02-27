@@ -3,7 +3,7 @@ layout: post
 title: "Regex and Shell Command"
 date: 2015-04-09 14:50:41 -0400
 comments: true
-categories: [regex, shell]
+tags: [regex, shell]
 ---
 
 [Test Regex Online](http://www.regexr.com/)  

@@ -3,7 +3,7 @@ layout: post
 title: "B: Design Patterns in Ruby"
 date: 2015-07-17 15:08:30 -0400
 comments: true
-categories: [ruby, design pattern]
+tags: [ruby, design pattern, metaprogramming]
 ---
 
 # Design Patterns in Ruby
@@ -294,7 +294,7 @@ end
 
 ## Singletons in the Wild
 
-rake, Inflections(单复数的), are singletons 
+rake, Inflections(单复数的), are singletons
 
 # Chapter 13. Picking the Right Class with a Factory
 
@@ -437,7 +437,7 @@ What kind of problems are good candidates for the Interpreter pattern? As a gene
 
 ## Building an Interpreter
 {% img http://snag.gy/7jOFa.jpg %}
-1.  AST: abstract syntax tree. 
+1.  AST: abstract syntax tree.
 
 If the language is fairly complex and neither XML nor YAML seems appropriate, using a parser generator Racc.
 
@@ -460,7 +460,7 @@ Core Chanllenge: provider the language that used by the users.
 
 ## Internal DSLs in the Wild
 
-rake, task based on tasks. 
+rake, task based on tasks.
 
 # Chapter 17. Creating Custom Objects with Meta-programming
 Core Chanllenge: Change the functionality in the runtime.

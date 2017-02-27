@@ -3,7 +3,7 @@ layout: post
 title: "B: Metaprogramming Ruby"
 date: 2015-07-27 15:28:22 -0400
 comments: true
-categories: [ruby, metaprogramming]
+tags: [ruby, metaprogramming]
 ---
 
 _Metaprogramming is writing code that writes codes._
@@ -34,7 +34,7 @@ obj.instance\_variable\_set(“@x”,10) 设定实例参数。
 2. It executes the method. To do that, Ruby needs something called self.
 
 ### Method Lookup
-the receiver and the ancestors chain. 
+the receiver and the ancestors chain.
 
 ### Kernel Method
 
@@ -127,11 +127,11 @@ x=”Hello”
 my\_method { |y| “#{x} #{y} world”}      # => “Hello cruel world”
 {% endcodeblock %}
 
-use _local-variables_ to track the local\_variables 
+use _local-variables_ to track the local\_variables
 
 *Whenever the program changes scope, some bindings are replaced by a new set of bindings.*
 
-Scope Gates keywords: class, module, def, end 
+Scope Gates keywords: class, module, def, end
 
 ### Beyond the Scope Gates
 
@@ -171,7 +171,7 @@ counter # => 4
 
 ### instance\_eval()
 
-用这个方法可以做Context Probe，把变量放入object中 
+用这个方法可以做Context Probe，把变量放入object中
 {% codeblock %}
 v = 2
 obj.instance\_eval { @v = v }
@@ -367,8 +367,8 @@ class Object
   def tap
     yield self
     self
-  end 
-end 
+  end
+end
 {% endcodeblock %}
 
 Symbol#to\_proc
@@ -393,7 +393,7 @@ class CArray < Array
   def c(&block)
     collect! &block  # 等于把block的字符串都考过来collect! { |e| e*2 }
   end
-end 
+end
 
 class CArray < Array
   def c

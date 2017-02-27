@@ -3,7 +3,7 @@ layout: post
 title: "Rails Test with Rspec FactoryGirl Guard and Capybara"
 date: 2015-04-09 16:34:52 -0400
 comments: true
-categories: [test, rspec, factorygirl, capybara, guard-rspec]
+tags: [test, rspec, factorygirl, capybara, guard-rspec]
 ---
 
 rspec                   主要的测试gem   

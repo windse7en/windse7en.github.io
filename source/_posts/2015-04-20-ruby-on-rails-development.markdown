@@ -3,7 +3,7 @@ layout: post
 title: "Ruby on Rails Development"
 date: 2015-04-20 10:06:16 -0400
 comments: true
-categories: [rails, web application, redis]
+tags: [rails, web application, redis]
 ---
 
 Ruby on Rails Development:  

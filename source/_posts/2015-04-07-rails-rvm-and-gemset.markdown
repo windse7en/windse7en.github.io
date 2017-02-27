@@ -3,7 +3,7 @@ layout: post
 title: "Rails Rvm and Gemset"
 date: 2015-04-07 11:30:11 -0400
 comments: true
-categories: [rvm, gemset, rails]
+tags: [rvm, gemset, rails]
 ---
 
 This is about the summary of how to organise the rails code.    

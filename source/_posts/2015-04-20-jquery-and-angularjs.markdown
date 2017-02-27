@@ -3,7 +3,7 @@ layout: post
 title: "JQuery and AngularJS"
 date: 2015-04-20 10:35:49 -0400
 comments: true
-categories: [js, jquery, angularjs]
+tags: [js, jquery, angularjs]
 ---
 
 [jQuery video tutorial](https://www.youtube.com/watch?v=KkzVFB3Ba_o)

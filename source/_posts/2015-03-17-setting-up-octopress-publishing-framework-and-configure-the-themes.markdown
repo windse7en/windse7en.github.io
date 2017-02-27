@@ -3,7 +3,7 @@ layout: post
 title: "Setting up Octopress publishing framework and configure the themes"
 date: 2015-03-17 22:28:07 -0400
 comments: true
-categories: [Blog Engine, Jekyll]
+tags: [Blog Engine, Jekyll]
 ---
 Today, when I reorganise my bookmarks, I found I need some way to organise all the tech blog or web links I have read. After searching, I found the octopress through the rubytoolbox, this ruby blog engine is the most widely used. Before I searched for the Blog Engine, the 1st thing coming into my mind is the functionality: I CAN DO ANYTHING.
 

@@ -3,7 +3,7 @@ layout: post
 title: "Translation of Block: Towards Reusable Charts"
 date: 2015-04-04 16:52:21 -0400
 comments: true
-categories: [d3, translation, chart]
+tags: [d3, translation, chart]
 ---
 
 [原文地址](http://bost.ocks.org/mike/chart/)

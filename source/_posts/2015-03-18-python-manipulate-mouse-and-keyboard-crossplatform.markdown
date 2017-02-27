@@ -3,7 +3,7 @@ layout: post
 title: "Python manipulate Mouse and Keyboard crossplatform"
 date: 2015-03-18 21:05:58 -0400
 comments: true
-categories: [python, mouse]
+tags: [python, mouse]
 ---
 Today, my workmate tried to use MFC win32 in C++ language to manipulate the mouse in windows. But, you know, the C++ language is a very old old friend to me. For me, it's very hard to understand the C++ program in a short time. In contrast to C++,
 Python is much more friendly and directly. So I have a question, how to use python to manipulate the mouse and keyboard?

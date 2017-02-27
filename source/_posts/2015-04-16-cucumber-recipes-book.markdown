@@ -3,7 +3,7 @@ layout: post
 title: "Cucumber Recipes Book"
 date: 2015-04-16 09:36:07 -0400
 comments: true
-categories: [cucumber, recipes, test]
+tags: [cucumber, recipes, test]
 ---
 {% blockquote %}
 This book will be very useful for the future any project test process.  

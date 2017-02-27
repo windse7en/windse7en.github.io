@@ -3,7 +3,7 @@ layout: post
 title: "d3 Cluster Chart"
 date: 2015-04-02 14:53:31 -0400
 comments: true
-categories: [d3, chart]
+tags: [d3, chart]
 ---
 
 cluster 图，主要为了表现层次关系，类似家谱，年表。
