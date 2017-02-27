@@ -77,22 +77,33 @@ deploy:
   repo: https://github.com/windse7en/windse7en.github.io.git
   branch: master
 
-# jsonContent
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: true
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: false
-    tags: true
+# # jsonContent
+# jsonContent:
+#   meta: false
+#   pages: false
+#   posts:
+#     title: true
+#     date: true
+#     path: true
+#     text: true
+#     raw: false
+#     content: false
+#     slug: false
+#     updated: false
+#     comments: false
+#     link: false
+#     permalink: false
+#     excerpt: false
+#     categories: false
+#     tags: true
+
+# customized
+avatar: /images/avatar.jpg
+
+google_analytics: UA-65569497-1
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
