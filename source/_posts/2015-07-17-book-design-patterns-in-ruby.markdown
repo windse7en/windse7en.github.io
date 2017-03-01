@@ -12,6 +12,7 @@ GoF(Gang of Four) book: *Design Patterns: Elements of Reusable Object-Oriented S
 
 prefer composition to inheritancy. Internal Domain-Specific Language(DSL), metaprogramming, convention not configuration
 
+<!--more-->
 怎么用？
 How do you add features to your program without turning the whole thing into a huge, unmanageable mess? So far, you have seen how to split the internal workings of your objects up among a family of classes with the Template Method pattern and how to use the Strategy pattern to split off whole chunks of algorithms. You have also seen how to react to requests coming into your objects with the Command pattern and how to keep up with changes made to other objects with the Observer pattern. Composites and iterators each help in their own way in dealing with collections of objects.
 

@@ -11,6 +11,7 @@ This book will be very useful for the future any project test process.
 
 Cucumber Recipes is a great book for transferring the recipes of the test cross different platform and languages.  
 
+<!--more-->
 开始的时候，就讲了一个关于美式英语，英式英语用词不一样的问题。map_header, map_table 对于table的命令.  
 
 Use rtf to format the output of the cucumber result and produce the well designed word file!  

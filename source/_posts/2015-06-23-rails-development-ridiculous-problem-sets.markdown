@@ -6,6 +6,8 @@ comments: true
 tags: [rails, development, problem]
 ---
 
+Rails development related problem track blog.
+<!--more-->
 1. Ridiculous Problem 1:
     Situation: I use paperclip gem to provide the file upload functionality, after I use it the view render problems.
     Solution: The problem is in the Model referral, it influence the controller process.
@@ -23,4 +25,3 @@ tags: [rails, development, problem]
 [pry tab bug](https://github.com/pry/pry/issues/1330)
 $ pry       to locate the pry.rb file path
 modify the pry.rb file require ‘strscan’
-

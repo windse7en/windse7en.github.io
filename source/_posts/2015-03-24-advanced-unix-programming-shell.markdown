@@ -9,10 +9,11 @@ tags: [unix, shell]
 Shell tags: [Bourne shell](http://tldp.org/LDP/abs/html/), Korn shell, C shell.
 其他和bash的功能差距主要是补充了作业控制，历史记忆机制和命令行编辑。
 
-
 {% blockquote Herbert Mayer %}
 A useful language needs arrays, pointers and a generic mechanism for building data structure.
 {% endblockquote %}
+
+<!--more-->
 
 [where not to use shell scripts](http://tldp.org/LDP/abs/html/why-shell.html)  
 [shell time related command](http://tldp.org/LDP/abs/html/timedate.html#DATEREF)  
@@ -90,11 +91,3 @@ fcntl, function, ioctl function.
 这一章讲了很多文件调用的内容，打开文件的标示，异步、同步、打开文件，buffsize的大小对效率的一影响，原子操作，介绍ioctl和fcntl？，ioctl用于流I/O,fcntl用于记录锁. 3.16, P.37-P.53  
 
 ## 第四章 文件和目录  
-
-
-
-
-
-
-
-

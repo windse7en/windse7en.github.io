@@ -12,7 +12,7 @@ tags: [rspec, test, ruby]
 1. make sure install the rspec gem  
 2. Use “rspec file_name.rb” to run the rspec test
 
+<!--more-->
 Tips:
 
 1. already use expect syntax to instead of the should syntax.
-

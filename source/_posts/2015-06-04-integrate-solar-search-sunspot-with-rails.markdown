@@ -11,6 +11,7 @@ tags: [rails, solar, sunspot, search]
 rails g sunspot_rails:install
 只安装了config/sunspot.yml文件进行配置
 
+<!--more-->
 gem ‘sunspot_solr’
 rake sunspot:solr:start(stop)
 安装完了以后开启solr服务，这样在development过程中可以用solr，用完stop服务。
@@ -39,7 +40,7 @@ $("#top_search").autocomplete({
 {% endcodeblock %}
 
 修改后的代码：
- 
+
 {% codeblock lang:coffee %}
 $("#top_search").autocomplete({
     source: (request, response) ->
@@ -59,7 +60,7 @@ $("#top_search").autocomplete({
     #, appendTo: "#modal-content"
 })
 {% endcodeblock %}
- 
+
 rotate css 写法：
 
 {% codeblock lang:css %}

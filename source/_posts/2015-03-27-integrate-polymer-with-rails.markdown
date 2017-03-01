@@ -8,6 +8,8 @@ tags: [web component, polymer]
 
 Polymer is the Google new designed web component solution. It aims to solve the structure the confusing css and js files.
 
+<!--more-->
+
 [Polymer Website](https://www.polymer-project.org/0.5/docs/start/creatingelements.html)
 [Polymer Rails Github](https://github.com/alchapone/polymer-rails)
 [Polymer Core Elements Github](https://github.com/alchapone/polymer-core-rails)

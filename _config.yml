@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: windse7en
+title: windse7en's blog
 subtitle: while(1){slef++;}
 description:
 author: Tao Zhang
 language:
   - en
-  - zh
+  - zh-Hans
 timezone: America/Winnipeg
 
 # URL
@@ -41,8 +41,8 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
-  auto_detect: false
+  line_number: false
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -97,7 +97,7 @@ deploy:
 #     categories: false
 #     tags: true
 
-# customized
+# customized by Tao Zhang
 avatar: /images/avatar.jpg
 
 google_analytics: UA-65569497-1
@@ -107,3 +107,14 @@ search:
   field: post
   format: html
   limit: 10000
+
+sitemap:
+  path: sitemap.xml
+
+# Social links
+social:
+  GitHub: https://github.com/windse7en
+  Twitter: https://twitter.com/windse7en52
+
+# Share
+jiathis: true

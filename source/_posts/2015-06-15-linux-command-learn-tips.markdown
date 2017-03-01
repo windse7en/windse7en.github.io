@@ -15,6 +15,7 @@ awk Pattern {ACTIONS;}
 awk中仅有string和numeric，可以互相转换。
 文件中每一行check每一种pattern（Regex，Boolean，Special）,In Boolean Search,进行fuzzy matching，” 23”==23  
 
+<!--more-->
 
 ack, awk, grep
 
@@ -26,7 +27,7 @@ runlevel
 who -r
 {% endcodeblock %}
 
-找到/usr下面大于10M的文件，找到120天之前被修改过的文件. 找出90天内未被访问过的文件。 
+找到/usr下面大于10M的文件，找到120天之前被修改过的文件. 找出90天内未被访问过的文件。
 {% codeblock %}
 find /usr -size +10M
 

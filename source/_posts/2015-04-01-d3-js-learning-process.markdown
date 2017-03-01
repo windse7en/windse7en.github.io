@@ -11,6 +11,8 @@ tags: [d3, data visualization]
 [Mike Bostock D3 examples](http://bl.ocks.org/mbostock)
 里面有超多的Mike Bostock写的d3的例子，但是不太容易检索。
 
+<!--more-->
+
 学习d3的相关教程:
 
 1.  [为什么选择d3？](https://ruby-china.org/topics/16216)  

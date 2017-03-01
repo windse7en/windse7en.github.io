@@ -12,6 +12,7 @@ tags: [chef, ruby, infrastructure]
 
 [下载ubuntu chef](http://downloads.chef.io/chef-dk/ubuntu/#/)
 
+<!--more-->
 ## 1.  Install chef-db
 
 {% codeblock %}
@@ -116,5 +117,3 @@ But there is no such node in the server.
 
 ### Summary
 It is quite easy to delte the node. But pay an attention to the info. The node information is node deleted completely from ther server.
-
-

@@ -15,6 +15,7 @@ Tips:
 4.  DOM traverse method in jQuery, .parent(), .children(), .sibling(), .closet(), great method.
 5.  AJAX is one of coolest things, use Mustache.js to template the html code for AJAX pending.
 
+<!--more-->
 [Angularjs W3C school](http://www.w3schools.com/angular/)
 
 Tips:

@@ -9,6 +9,8 @@ tags: [search, google]
 How to use google?
 Insight:  The searching result ofen is coming form some specified websites: like stackoverflow for coding problems, stackexchange for engineering problems, vim for plugin information...   
 
+<!--more-->
+
 I try to write python importing the selenium to search keywords in specified websites. But I found some interesting things on Google Search.
 
 So let's redesign the problem:
@@ -48,4 +50,3 @@ Pros:   Some times, only cache contains some useful information.
 
 8.  -: minus, - excludes the results that include the word or site.
 Pros:   useful for some words with multiple meanings
-

@@ -13,6 +13,7 @@ guard-rspec             检测rspec修改情况，测试test之前调用起来
 gem install rb-fsevent  用来帮助guard检测文件  
 [视频地址](http://railscasts.com/episodes/275-how-i-test)
 
+<!--more-->
 THE PARAGRAPHY is from the Rspec Book By Dan North:
 
 RSpec was created by Steven Baker in 2005, inspired by Dave’s aforementioned
@@ -176,11 +177,3 @@ Set the click_link not to use Javascript.
 作为BDD，TDD有一个重要功能是，测试优先可以更清晰的分解功能需求到相关的MVC中，model，view，controller。  
 
 Last 3 Chapters are very important about how to write the rails controller and views test rspec.  
-
-
-
-
-
-
-
-

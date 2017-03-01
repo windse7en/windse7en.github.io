@@ -10,6 +10,7 @@ tags: [rails, test, bdd, cucumber]
 [How to write the simplest test in Ruby](https://github.com/windse7en/leetcodePython/blob/master/number_of_1_bits.rb)  
 
 
+<!--more-->
 Gherkin is the cucumber syntax.
 
 No Silver Bullet [Bro95], Fred Brooks says:
@@ -84,6 +85,3 @@ links and buttons, and so on.
 In this Chapter, explains us how to test the search functionality with AJAX with capybara!!!! SO COOL !!!  
 
 P.271 When the scenario fails, it can take a screenshot of the website.  
-
-
-

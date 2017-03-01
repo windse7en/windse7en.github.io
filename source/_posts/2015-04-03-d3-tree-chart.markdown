@@ -9,6 +9,7 @@ tags: [d3, chart]
 Tree图，主要为了表现层次关系，类似家谱，年表。他和cluster不一样是，每个level之间是同一层次的。  
 
 
+<!--more-->
 [TUTORIAL](http://www.ourd3js.com/wordpress/?p=254)
 
 1.  数据转换：d3.layout.tree() 转换数据  
@@ -20,5 +21,3 @@ Tree图，主要为了表现层次关系，类似家谱，年表。他和cluster
 
 最后，做完的样子：
 [Tree Chart](http://jsfiddle.net/windse7en/1db9npha/)
-
-

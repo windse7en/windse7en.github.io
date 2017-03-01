@@ -8,6 +8,7 @@ tags: [d3, chart]
 
 Donut Chart, Pie Chart, 大饼图，经常用来展示部分和总体之间的关系，数据比例。  
 
+<!--more-->
 [TUTORIAL](http://www.ourd3js.com/wordpress/?p=190)
 
 1.  绑定数据：d3.layout.pie(),从数据算出弧的角度。padAngle(.02)设定每个pie之间的间隔角度。  

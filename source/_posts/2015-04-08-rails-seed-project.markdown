@@ -10,6 +10,7 @@ The aim of this blog is to memorize the process of customizing the Seed Project 
 
 [Source Code](https://github.com/windse7en/seedProject)
 
+<!--more-->
 The branch is start_point, there is no any model or controllers except home_controller.     
 TIPS:
 1.  Gems:   

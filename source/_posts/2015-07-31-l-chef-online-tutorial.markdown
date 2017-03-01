@@ -14,6 +14,7 @@ Objectives:
 2.  be able to write Chef code that defines a basic policy.
 3.  be able to apply that policy to a server.
 
+<!--more-->
 ## a.   Get set up
 
 1.  Launch an Ubuntu virtual machine hosted by the chef.
@@ -61,7 +62,7 @@ The order in the recipe is very important. But the orders of the attributes of t
 # webserver.rb configure the apache server
 execute ‘apt-get-update’ do
   command ‘apt-get update’
-end 
+end
 
 package ‘apache2’
 
@@ -79,7 +80,7 @@ file ‘/var/www/html/index.html’ do
           end</h>
     </body>
   </html>
-end 
+end
 {% endcodeblock %}
 
 ### Verification

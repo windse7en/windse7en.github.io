@@ -14,6 +14,7 @@ d3的数据过程：
 3.  element transform 元素位置变换  
 4.  transition 数据位置变换  
 
+<!--more-->
 这本书，作为一个d3的入门级教材，很通俗易懂，语言生动幽默，总体介绍了整个流程，同时，总结了，数据呈现方面的现有技术和现有的问题。  
 
 大概分成三部分：  
@@ -82,7 +83,7 @@ http://localhost:8888/chapter_10/10_delay.html
 bar chart 效果
 http://localhost:8888/chapter_09/29_dynamic_labels.html  add and remove
 barchart
-http://localhost:8888/chapter_09/23_each_combo_transition_chained.html 
+http://localhost:8888/chapter_09/23_each_combo_transition_chained.html
 point chart
 
 p.177、189、210
@@ -95,4 +96,3 @@ d3 投影
 
 （http://www.naturalearthdata.com/）
 （http://www.census.gov/geo/www/cob/cbf_state.html）
-

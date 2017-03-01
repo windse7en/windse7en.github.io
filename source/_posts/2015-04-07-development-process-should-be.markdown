@@ -11,6 +11,7 @@ tags: [development process, scrum, agile]
 
 重点是找到能解决问题的能力的人，不是技术的能力。  
 
+<!--more-->
 
 1.自己昨天做了什么；  
 2.今天准备做什么；  
@@ -37,5 +38,3 @@ async:false,
 processdata:false, 不把数据处理成字符串，当成源数据输出。  
 
 看北京的路有多宽，看上海路有多宽，粗细结合，  
-
-

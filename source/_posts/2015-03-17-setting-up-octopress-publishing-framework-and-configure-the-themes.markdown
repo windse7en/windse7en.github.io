@@ -7,6 +7,8 @@ tags: [Blog Engine, Jekyll]
 ---
 Today, when I reorganise my bookmarks, I found I need some way to organise all the tech blog or web links I have read. After searching, I found the octopress through the rubytoolbox, this ruby blog engine is the most widely used. Before I searched for the Blog Engine, the 1st thing coming into my mind is the functionality: I CAN DO ANYTHING.
 
+<!--more-->
+
 1.  The object and yinyang theme have some problem with the SASS files. I think it dues to the diff verison of SASS.
 2.  zsh doesn't support the[] in the command, so need to make a alias to that, based on the http://octopress.org/docs/blogging/
 

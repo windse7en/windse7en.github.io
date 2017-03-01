@@ -11,6 +11,7 @@ tags: [ios, ionic, cordova, ios-sim]
 ionic integrate the nodejs, cordova, ios-sim together.
 I tried to install, build and emulate the app from tips on the ionic website. But it doesn’t work.
 
+<!--more-->
 The problem is ionic can’t launch the app in the simulator.
 
 After trying different solutions, like kill -9 the apple coresimulator process...

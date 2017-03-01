@@ -19,10 +19,11 @@ help, ls command
 5. package gem  
 6. document ruby code  
 
+<!--more-->
 # Part one- Facets of Ruby:  
 
-## Chapter 1- Getting Started 
-Rdoc and ri for Ruby documentation, pry also have the doc, 
+## Chapter 1- Getting Started
+Rdoc and ri for Ruby documentation, pry also have the doc,
 
 ## Chapter 2- Ruby.new
 Every object has a unique object identifier.
@@ -35,7 +36,7 @@ Constant Name: PI
 Array initialization: a = %w{ test tao zhang xiao}
 Hash initialization: h = Hash.new(0) for like counting the words
 
-Regex: \s \d \w, =~, is match. 
+Regex: \s \d \w, =~, is match.
 
 Block and Iterators: use yield() 反调block中的变量。
 
@@ -53,12 +54,12 @@ a[1..3], a[1...3] no include the last one, a[-3..-1]
 shift, pop and push is supported by Array by the default. push+shift=Queue, push+pop=Stack  
 
 Hash can be indexed by Regex, Symbol and String. Ruby remember insert order of hash when try to iterate it.  
-String.downcase, String.scan search the string to regex.  Hash.sort-by {block} 
+String.downcase, String.scan search the string to regex.  Hash.sort-by {block}
 
 Ruby iterator is a method that can invoke a block of code.  
-swap: a,b=b,a,  Container.each-with-index, Array.inject(:+) calculate the sum of the array. loop is while(true). 
+swap: a,b=b,a,  Container.each-with-index, Array.inject(:+) calculate the sum of the array. loop is while(true).
 
-block-given? test give block or not. 
+block-given? test give block or not.
 {% codeblock ruby %}
 lambda { p “test” }
 {% endcodeblock %}
@@ -79,7 +80,7 @@ defined? check method
 Comparing objects: ==, ===, <=>(General comparison operator), =~, eql?(same type and equal values) and equal? (same object ID
 
 ## Chapter 10- Exceptions, catch and throw
-Tiding up, begin-rescue-end. 
+Tiding up, begin-rescue-end.
 
 ## Chapter 11- Basic Input and Output
 IO Object, File, STDOUT, endl, StringIO, open()
@@ -120,13 +121,13 @@ Thor is a tool that makes it easy to write Ruby command-line tools.
 
 ## Chapter 16- Namespace, Source Files, and Distribution
 
-Math::E, Math::PI, namespace. 
+Math::E, Math::PI, namespace.
 
 ## Chapter 17- Character Encoding
 Not too much to talk about that.
 
 ## Chapter 18- Interactive Ruby Shell
-conf, configuration fo the IRB, 
+conf, configuration fo the IRB,
 
 ## Chapter 19- Documenting Ruby
 Explain how to use Rdoc and ri to document the ruby
@@ -177,9 +178,9 @@ options can be:
 | x       | allow spaces and comments |
 
 Variables :
-P.320   Pattern Matching Variables, Input/Output Variables, Exexution Environment Variables, 
+P.320   Pattern Matching Variables, Input/Output Variables, Exexution Environment Variables,
 
-break, redo and next. 
+break, redo and next.
 
 {}, Proc, lambda {}
 
@@ -196,7 +197,7 @@ P366, A Ruby object has three components:
 1.  A set of flags  
 2.  some instance variables  
 3.  an associated class  
-__self__ refers to the read-only *current object* 
+__self__ refers to the read-only *current object*
 puts 这种方法的调用过程，从self开始，把self作为method receiver，如果没有方法就继续找他的supperclass，直到最后的BasicObject，如果没有就报错。P.367有详细说明了这个过程。  
 
 P.369, 里面讲了怎么给已经有class的ruby object加入他们的method，ruby会让他们继承自一个anonymous class，singleton class，来实现这个方法。  
@@ -244,5 +245,3 @@ P.384 Class.new的神奇用法,instance_eval 将设置self，直接调用caller�
 Ruby中的safe模式，$SAFE里面存着现在的safe等级从0到4，可以用Object#taint，tainted？，trust来判断object的可信度。  
 
 Rails 里面有些ruby没有的内置方法，包括Stirng.to_time, 直接把string转换成时间格式。
-
-

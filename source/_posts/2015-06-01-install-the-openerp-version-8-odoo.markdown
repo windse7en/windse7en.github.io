@@ -15,12 +15,10 @@ This is a very famous framework for the enterprise.
 the default port for the web application is 8069  
 The default password: superadminpassword  
 
+<!--more-->
 My administrator username is admin. password is password.
 
 sudo service odoo-server start      to start the odoo server.
 sudo service odoo-server stop       to stop the odoo server.
 
 使用Digital Ocean的旧金山的服务器去建立网站。  
-
-
-

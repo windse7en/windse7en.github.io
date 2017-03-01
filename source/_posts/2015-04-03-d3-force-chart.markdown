@@ -8,6 +8,7 @@ tags: [d3, chart]
 
 Force Chart: 力学图，通过引力斥力展现数据点之间的关系强弱。  
 
+<!--more-->
 [TUTORIAL](http://www.ourd3js.com/wordpress/?p=196)
 
 1.  设定数据：nodes，links。  

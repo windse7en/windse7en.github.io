@@ -9,6 +9,7 @@ tags: [linux, command]
 # info
 帮助的中级文档，可以入手学习Emacs。主要的操作
 
+<!--more-->
 | Command   | Description              |
 | ---       | ---                      |
 | h, ?      | help                     |
@@ -44,6 +45,3 @@ pattern space是测试和输出的buffer，hold space是装要测试的下步数
 | h         | pattern space 放到hold space，原有内容清除 |
 | H         | append in hold space\n                     |
 | x         | 交换patern space和hold space               |
-
-
-

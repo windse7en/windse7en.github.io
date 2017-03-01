@@ -12,6 +12,7 @@ tags: [js, blog, angularjs, backbonejs]
 1.  Memory Management, Layout Management, Application Structure, Global Event Bus and Architectural decisions.  
 内存管理，布局管理，应用结构，事件总线，结果决策。  
 
+<!--more-->
 2.  Nested Models   
 多层的对象，不能直接通过.访问，在backbone中。
 
@@ -23,7 +24,3 @@ Need Backend support Restful, 没有很好的封装$.ajax函数。Angular支持$
 5.  Validation  
 
 6.  Templating  
-
-
-
-

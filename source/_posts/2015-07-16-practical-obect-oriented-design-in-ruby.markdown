@@ -12,6 +12,7 @@ Responsibilities, dependencies, interfaces, ducks, inheritance, behavior sharing
 
 Persist. Practice. Experiment. Imagine. Do your best work, and all else will follow.
 
+<!--more-->
 | Question                      | Information                                                                       |
 | ---                           | ---                                                                               |
 | Inject Dependency             | 为了single responsbility， 怎么做ID来减少依赖                                     |
@@ -27,7 +28,7 @@ OOD problem:
 2.  With a little knowledge of design pattern, overdesign. “ No, I can’t add that feature; it wasn’t designed to do that.”
 3.  Without the act of programming. Design pattern is relying on the feedback loop.
 
-SOLID: 
+SOLID:
 Single Responsibility( Transparent, Reasonable, Usable and Exemplary), reuse and maintain.
 If you rephrase every
 one of its methods as a question, asking the question ought to make sense. For example,
@@ -39,7 +40,7 @@ OO designers use the word cohesion to describe this concept. When everything in 
 class is related to its central purpose, the class is said to be highly cohesive or to have a
 single responsibility.P.37
 
-Do not feel compelled to make design decisions prematurely. What is the future cost of doing nothing today?” 
+Do not feel compelled to make design decisions prematurely. What is the future cost of doing nothing today?”
 
 Always wrap instance variables in accessor methods instead of directly referring to variables. In a method use variable instead of @variable. As in the future, variable may be overrided a new function.
 

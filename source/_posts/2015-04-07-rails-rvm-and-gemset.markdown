@@ -10,6 +10,7 @@ This is about the summary of how to organise the rails code.
 
 At some attempting with rails, I found using rvm to manage the rails gemset is really an important thing for multiple projects in different rails/ruby version.     
 
+<!--more-->
 List of workflow of RVM:
 
 install RVM     
@@ -29,6 +30,3 @@ gem install passenger
 rvmsudo passenger-install-nginx-module
 
 ![RVM manual](https://rvm.io/gemsets/using)
-
-
-

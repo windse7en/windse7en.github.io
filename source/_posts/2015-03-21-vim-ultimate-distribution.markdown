@@ -9,9 +9,9 @@ tags: [vim]
 Use the [spf13-vim](http://vim.spf13.com) to make the default configuration of the vim, quite helpful.
 Store all my own vimrc settings in the .vimrc.local
 
+<!--more-->
+
 The color schemes for spf13:
 fruity, ir_black, molokai, peaksea
 
 The silver search: ag, search the string from the current directory, not from the project directory.  
-
-

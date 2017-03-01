@@ -8,7 +8,7 @@ tags: [d3, chart]
 
 Pack Chart 展示打包的关系。
 
+<!--more-->
 [TUTORIAL](http://www.ourd3js.com/wordpress/?p=289)
 
 这个样例差不多，因为要引入json所以没有在fiddle上的code。
-

@@ -12,6 +12,7 @@ tags: [d3, chart]
 
 线的粗细代表权重。
 
+<!--more-->
 [TUTORIAL](http://www.ourd3js.com/wordpress/?p=213)
 
 1.  数据处理：Chord图用的是matrix数据，在一个nXn 的matrix里表现的是之间的关系，先从matix中根据chord的layout生成一个matirx的object，里面有groups和chords，group表现的是n个组的各种角度，chords里面存的是matix中每个cell的值，有权重，根据权重绘制每个arc的粗细。  

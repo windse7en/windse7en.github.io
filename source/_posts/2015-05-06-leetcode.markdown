@@ -10,4 +10,4 @@ Enumerable, partition, method, partition the enumerable(like array) into two set
 inject(:+), get the sum of the enumerable.
 
 
-
+<!--more-->

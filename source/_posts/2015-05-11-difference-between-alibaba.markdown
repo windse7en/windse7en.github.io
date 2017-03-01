@@ -14,6 +14,7 @@ tags: [e-commerce, ebay, amazon]
 
 ![ebay](http://snag.gy/zHhzk.jpg)
 
+<!--more-->
 
 Alibaba, strategy is to show the great deals and the trend, there is no any info about setting the sellers. They use beautiful model to attract users’ attention.  
 

@@ -8,6 +8,7 @@ tags: [d3, translation, chart]
 
 [原文地址](http://bost.ocks.org/mike/chart/)
 
+<!--more-->
 windse7en：程序幼猿一枚，初涉翻译深坑，喜欢加入很多个人理解一些口语化的内容，让技术文档不那么晦涩。  
 
 Towards Reusable Charts  
@@ -132,5 +133,3 @@ function my(selection) {
 ##更多的关于未来的思考  
 
 我们现在已经有了一个strawman convention的重用呈现组件。但是差的还远嘞，无论对图表还是配置。传统的图表类型学就是最好的选择吗？可以考虑一下Grammar of Graphics。那里面有很多关于模块化单元的对比。即使仅仅用传统的图表类型，我们应该配置scale，axes吗？我们应该让图表自动支持互动和动画吗？用户可以接触你的表的内部并且处理各种行为吗？对于这些可能都需要配置的方便，所以继续努力吧！
-
-

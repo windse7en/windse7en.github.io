@@ -14,6 +14,7 @@ Get all mixed modules for an object:
 {% endcodeblock %}
 在runtime下，取得obj的class，查找所有modules
 
+<!--more-->
 _Metaprogramming is writing code that manipulates language constructs at runtime._
 
 # Chapter 1. Monday: The object model

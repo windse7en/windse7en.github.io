@@ -6,7 +6,7 @@ comments: true
 tags: [vim, vimrc]
 ---
 
-Today, I tried to use % to jump between (), use %x``x to delte a pair of () in the markdown file. But I found the situation is :
+Today, I tried to use % to jump between (), use %xx to delte a pair of () in the markdown file. But I found the situation is :
 
 1.  The first time of % , work. But the trials after that, doesn't work.   
 2.  It's only appearing the editing with the MARKDOWN file no matter where the location is.
@@ -21,9 +21,9 @@ Steps to figure out problem:
 vim -N -u NONE -i NONE
 ```
 Open the file in -u(None vimrc file), -i(None viminfo file), -N(nocompatable) mode to track the problem appears or not.
-4.  use map, and nmap to check out % has been remapped to the 
+4.  use map, and nmap to check out % has been remapped to the
 ``` ruby % remap to
-n  %           * :<C-U>call <SNR>19_Match_wrapper('',1,'n') <CR> 
+n  %           * :<C-U>call <SNR>19_Match_wrapper('',1,'n') <CR>
 ```
 5.  No any map record in the -u mode of vim
 

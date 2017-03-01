@@ -8,6 +8,7 @@ tags: [d3, chart]
 
 cluster 图，主要为了表现层次关系，类似家谱，年表。
 
+<!--more-->
 [TUTORIAL](http://www.ourd3js.com/wordpress/?p=245)
 
 1.  数据转换：d3.layout.cluster() 转换数据  
@@ -19,5 +20,3 @@ cluster 图，主要为了表现层次关系，类似家谱，年表。
 
 最后，做完的样子：
 [Cluster Chart](http://jsfiddle.net/windse7en/24v9nwdf/)
-
-

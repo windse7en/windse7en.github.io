@@ -15,6 +15,7 @@ This description to the VIM journey is to descript my learning process of VIM:
 4.  掌握常用的：command
 5.  三种mode熟练切换
 
+<!--more-->
 VIM keystrokes的评价体系：VImGolf按了几个键，Repitation容不容易repete,undo 时候是否和计划的一样, keep a lean undo/redo history
 习惯用<Esc>o来取代<CR>因为undo会根据最近的change。
 用思想来切换mode，如果信息输入完了，应该习惯切回normal
