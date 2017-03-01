@@ -585,17 +585,33 @@
       
         
           
-            <h1 id="记录从Octopress迁移到hexo"><a href="#记录从Octopress迁移到hexo" class="headerlink" title="记录从Octopress迁移到hexo"></a>记录从<a href="https://hexo.io/zh-tw/docs/migration.html" target="_blank" rel="external">Octopress迁移</a>到hexo</h1><h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ol>
+            <h1 id="Hexo博客"><a href="#Hexo博客" class="headerlink" title="Hexo博客"></a>Hexo博客</h1><blockquote>
+<p>这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。</p>
+</blockquote>
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><blockquote>
+<p>记录从<a href="https://hexo.io/zh-tw/docs/migration.html" target="_blank" rel="external">Octopress迁移</a>到hexo</p>
+</blockquote>
+<ol>
 <li>安装<a href="https://hexo.io/zh-tw/docs/commands.html" target="_blank" rel="external">hexo</a>，新建一个project</li>
 <li>pull <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia project</a>，安装主题<ul>
-<li>从头yilia切换到<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">next</a>，因为next提供更丰富的功能</li>
+<li>从yilia切换到<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">next</a>，因为next提供更丰富的功能</li>
 </ul>
 </li>
 <li>把原来的post复制到hexo的<code>source/post</code>下面</li>
 <li>原来的文章里面有两个}的情况，需要去掉</li>
+<li>Update原来的categories成tags, 加入tags cloud</li>
 </ol>
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><ol>
+<h2 id="功能更新"><a href="#功能更新" class="headerlink" title="功能更新"></a>功能更新</h2><ul>
+<li>[x] 安装不蒜子浏览记数</li>
+<li>[x] 安装disqus注释系统</li>
+<li>[x] 安装search功能</li>
+<li>[x] 安装流量监测</li>
+<li>[ ] 更新背景</li>
+<li>[ ] 加入about页面</li>
+</ul>
+<h2 id="功能使用"><a href="#功能使用" class="headerlink" title="功能使用"></a>功能使用</h2><ol>
 <li><a href="http://theme-next.iissnan.com/faqs.html#custom-font" target="_blank" rel="external">更新字体样式和大小</a></li>
+<li>新建的博文，只需要<code>hexo g &amp;&amp; hexo d</code>就可以发布，不需要每次都commit一下</li>
 </ol>
 
           

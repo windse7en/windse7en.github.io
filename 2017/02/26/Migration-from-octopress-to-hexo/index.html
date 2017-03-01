@@ -87,46 +87,55 @@
 
 
 
-<meta name="description" content="记录从Octopress迁移到hexoSteps
+<meta name="description" content="Hexo博客
+这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。
+
+Steps
+记录从Octopress迁移到hexo
+
+
 安装hexo，新建一个project
 pull yilia project，安装主题
-从头yilia切换到next，因为next提供更丰富的功能
+从yilia切换到next，因为next提供更丰富的功能
 
 
 把原来的post复制到hexo的source/post下面
-原来的文章里面有两个}的情况，需要去掉
-
-更新
-更新字体样式和大小">
+原来的文章里面有两个}的情况，需要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Migration from octopress to hexo">
 <meta property="og:url" content="http://yoursite.com/2017/02/26/Migration-from-octopress-to-hexo/index.html">
 <meta property="og:site_name" content="windse7en">
-<meta property="og:description" content="记录从Octopress迁移到hexoSteps
+<meta property="og:description" content="Hexo博客
+这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。
+
+Steps
+记录从Octopress迁移到hexo
+
+
 安装hexo，新建一个project
 pull yilia project，安装主题
-从头yilia切换到next，因为next提供更丰富的功能
+从yilia切换到next，因为next提供更丰富的功能
 
 
 把原来的post复制到hexo的source/post下面
-原来的文章里面有两个}的情况，需要去掉
-
-更新
-更新字体样式和大小">
-<meta property="og:updated_time" content="2017-02-27T02:58:24.000Z">
+原来的文章里面有两个}的情况，需要">
+<meta property="og:updated_time" content="2017-03-01T03:08:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Migration from octopress to hexo">
-<meta name="twitter:description" content="记录从Octopress迁移到hexoSteps
+<meta name="twitter:description" content="Hexo博客
+这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。
+
+Steps
+记录从Octopress迁移到hexo
+
+
 安装hexo，新建一个project
 pull yilia project，安装主题
-从头yilia切换到next，因为next提供更丰富的功能
+从yilia切换到next，因为next提供更丰富的功能
 
 
 把原来的post复制到hexo的source/post下面
-原来的文章里面有两个}的情况，需要去掉
-
-更新
-更新字体样式和大小">
+原来的文章里面有两个}的情况，需要">
 
 
 
@@ -437,17 +446,33 @@ pull yilia project，安装主题
       
 
       
-        <h1 id="记录从Octopress迁移到hexo"><a href="#记录从Octopress迁移到hexo" class="headerlink" title="记录从Octopress迁移到hexo"></a>记录从<a href="https://hexo.io/zh-tw/docs/migration.html" target="_blank" rel="external">Octopress迁移</a>到hexo</h1><h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ol>
+        <h1 id="Hexo博客"><a href="#Hexo博客" class="headerlink" title="Hexo博客"></a>Hexo博客</h1><blockquote>
+<p>这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。</p>
+</blockquote>
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><blockquote>
+<p>记录从<a href="https://hexo.io/zh-tw/docs/migration.html" target="_blank" rel="external">Octopress迁移</a>到hexo</p>
+</blockquote>
+<ol>
 <li>安装<a href="https://hexo.io/zh-tw/docs/commands.html" target="_blank" rel="external">hexo</a>，新建一个project</li>
 <li>pull <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia project</a>，安装主题<ul>
-<li>从头yilia切换到<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">next</a>，因为next提供更丰富的功能</li>
+<li>从yilia切换到<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">next</a>，因为next提供更丰富的功能</li>
 </ul>
 </li>
 <li>把原来的post复制到hexo的<code>source/post</code>下面</li>
 <li>原来的文章里面有两个}的情况，需要去掉</li>
+<li>Update原来的categories成tags, 加入tags cloud</li>
 </ol>
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><ol>
+<h2 id="功能更新"><a href="#功能更新" class="headerlink" title="功能更新"></a>功能更新</h2><ul>
+<li>[x] 安装不蒜子浏览记数</li>
+<li>[x] 安装disqus注释系统</li>
+<li>[x] 安装search功能</li>
+<li>[x] 安装流量监测</li>
+<li>[ ] 更新背景</li>
+<li>[ ] 加入about页面</li>
+</ul>
+<h2 id="功能使用"><a href="#功能使用" class="headerlink" title="功能使用"></a>功能使用</h2><ol>
 <li><a href="http://theme-next.iissnan.com/faqs.html#custom-font" target="_blank" rel="external">更新字体样式和大小</a></li>
+<li>新建的博文，只需要<code>hexo g &amp;&amp; hexo d</code>就可以发布，不需要每次都commit一下</li>
 </ol>
 
       
@@ -616,7 +641,7 @@ pull yilia project，安装主题
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记录从Octopress迁移到hexo"><span class="nav-number">1.</span> <span class="nav-text">记录从Octopress迁移到hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps"><span class="nav-number">1.1.</span> <span class="nav-text">Steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新"><span class="nav-number">1.2.</span> <span class="nav-text">更新</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo博客"><span class="nav-number">1.</span> <span class="nav-text">Hexo博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps"><span class="nav-number">1.1.</span> <span class="nav-text">Steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能更新"><span class="nav-number">1.2.</span> <span class="nav-text">功能更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能使用"><span class="nav-number">1.3.</span> <span class="nav-text">功能使用</span></a></li></ol></li></ol></div>
             
 
           </div>
