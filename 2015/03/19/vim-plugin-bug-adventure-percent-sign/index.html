@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en,zh,default">
+<html class="theme-next muse use-motion" lang="en,zh,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -93,7 +93,7 @@ The first time of % , work. But the trials after that, doesn’t work.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VIM plugin bug adventure '%' sign">
 <meta property="og:url" content="http://yoursite.com/2015/03/19/vim-plugin-bug-adventure-percent-sign/index.html">
-<meta property="og:site_name" content="windse7en">
+<meta property="og:site_name" content="windse7en's blog">
 <meta property="og:description" content="Today, I tried to use % to jump between (), use %xx to delte a pair of () in the markdown file. But I found the situation is :
 
 The first time of % , work. But the trials after that, doesn’t work.">
@@ -110,7 +110,7 @@ The first time of % , work. But the trials after that, doesn’t work.">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -136,7 +136,7 @@ The first time of % , work. But the trials after that, doesn’t work.">
 
 
 
-  <title> VIM plugin bug adventure '%' sign | windse7en </title>
+  <title> VIM plugin bug adventure '%' sign | windse7en's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -181,7 +181,7 @@ The first time of % , work. But the trials after that, doesn’t work.">
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">windse7en</span>
+        <span class="site-title">windse7en's blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -212,26 +212,6 @@ The first time of % , work. But the trials after that, doesn’t work.">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
           </a>
         </li>
       
@@ -325,7 +305,7 @@ The first time of % , work. But the trials after that, doesn’t work.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="windse7en">
+      <meta itemprop="name" content="windse7en's blog">
     </span>
 
     
@@ -344,6 +324,16 @@ The first time of % , work. But the trials after that, doesn’t work.">
         
 
         <div class="post-meta">
+          
+          <span class="post-letters-count">
+            <i class="fa fa-file-o"></i>
+            <span>233 Words </span>
+            &nbsp; | &nbsp;
+            <i class="fa fa-clock-o"></i>
+            <span>1 Min</span>
+            &nbsp; | &nbsp;
+          </span>
+          
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -413,13 +403,13 @@ The first time of % , work. But the trials after that, doesn’t work.">
 <ol>
 <li>open ~/.vimrc check func   </li>
 <li>open file in other location to test   </li>
-<li>use the command:   <figure class="highlight ruby"><figcaption><span>trouble shooting in vim</span><a href="http://vim.wikia.com/wiki/Troubleshooting" target="_blank" rel="external">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim -N -u NONE -i NONE</div></pre></td></tr></table></figure>
+<li>use the command:   <figure class="highlight ruby"><figcaption><span>trouble shooting in vim</span><a href="http://vim.wikia.com/wiki/Troubleshooting" target="_blank" rel="external">link</a></figcaption><table><tr><td class="code"><pre><div class="line">vim -N -u NONE -i NONE</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>Open the file in -u(None vimrc file), -i(None viminfo file), -N(nocompatable) mode to track the problem appears or not.</p>
 <ol>
 <li><p>use map, and nmap to check out % has been remapped to the</p>
-<figure class="highlight ruby"><figcaption><span>% remap to</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">n  %           * <span class="symbol">:&lt;C-U&gt;call</span> &lt;SNR&gt;<span class="number">19_</span>Match_wrapper(<span class="string">''</span>,<span class="number">1</span>,<span class="string">'n'</span>) &lt;CR&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><figcaption><span>% remap to</span></figcaption><table><tr><td class="code"><pre><div class="line">n  %           * <span class="symbol">:&lt;C-U&gt;call</span> &lt;SNR&gt;<span class="number">19_</span>Match_wrapper(<span class="string">''</span>,<span class="number">1</span>,<span class="string">'n'</span>) &lt;CR&gt;</div></pre></td></tr></table></figure>
 </li>
 <li><p>No any map record in the -u mode of vim</p>
 </li>
@@ -659,7 +649,7 @@ The first time of % , work. But the trials after that, doesn’t work.">
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en,zh,default">
+<html class="theme-next muse use-motion" lang="en,zh,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -99,7 +99,7 @@ document ruby code">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ruby Programmint Recommendation and Tips">
 <meta property="og:url" content="http://yoursite.com/2015/05/12/ruby-programmint-recommendation-and-tips/index.html">
-<meta property="og:site_name" content="windse7en">
+<meta property="og:site_name" content="windse7en's blog">
 <meta property="og:description" content="Ruby  
 pryTips:help, ls command
 
@@ -128,7 +128,7 @@ document ruby code">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -154,7 +154,7 @@ document ruby code">
 
 
 
-  <title> Ruby Programmint Recommendation and Tips | windse7en </title>
+  <title> Ruby Programmint Recommendation and Tips | windse7en's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -199,7 +199,7 @@ document ruby code">
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">windse7en</span>
+        <span class="site-title">windse7en's blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -230,26 +230,6 @@ document ruby code">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
           </a>
         </li>
       
@@ -343,7 +323,7 @@ document ruby code">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="windse7en">
+      <meta itemprop="name" content="windse7en's blog">
     </span>
 
     
@@ -362,6 +342,16 @@ document ruby code">
         
 
         <div class="post-meta">
+          
+          <span class="post-letters-count">
+            <i class="fa fa-file-o"></i>
+            <span>1,364 Words </span>
+            &nbsp; | &nbsp;
+            <i class="fa fa-clock-o"></i>
+            <span>8 Min</span>
+            &nbsp; | &nbsp;
+          </span>
+          
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -443,7 +433,7 @@ document ruby code">
 <h2 id="Chapter-4-Containers-Blocks-and-Iterators"><a href="#Chapter-4-Containers-Blocks-and-Iterators" class="headerlink" title="Chapter 4- Containers, Blocks, and Iterators"></a>Chapter 4- Containers, Blocks, and Iterators</h2><p>Arrays, can be accessed by the negative index which is calculated from the end.<br>a[1..3], a[1…3] no include the last one, a[-3..-1]<br>shift, pop and push is supported by Array by the default. push+shift=Queue, push+pop=Stack  </p>
 <p>Hash can be indexed by Regex, Symbol and String. Ruby remember insert order of hash when try to iterate it.<br>String.downcase, String.scan search the string to regex.  Hash.sort-by {block}</p>
 <p>Ruby iterator is a method that can invoke a block of code.<br>swap: a,b=b,a,  Container.each-with-index, Array.inject(:+) calculate the sum of the array. loop is while(true).</p>
-<p>block-given? test give block or not.<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lambda &#123; p “test” &#125;</div></pre></td></tr></table></figure><br>lambda will create a Proc.new for the block.  </p>
+<p>block-given? test give block or not.<br><figure class="highlight nginx"><figcaption><span>ruby</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="section">lambda</span> &#123; <span class="attribute">p</span> “test” &#125;</div></pre></td></tr></table></figure><br>lambda will create a Proc.new for the block.  </p>
 <h2 id="Chapter-5-Sharing-Functionality-Inheritance-Modules-and-Mixins"><a href="#Chapter-5-Sharing-Functionality-Inheritance-Modules-and-Mixins" class="headerlink" title="Chapter 5- Sharing Functionality: Inheritance, Modules, and Mixins"></a>Chapter 5- Sharing Functionality: Inheritance, Modules, and Mixins</h2><p>Inheritance &lt;,  mixins include keyword</p>
 <h2 id="Chapter-6-Standard-Types"><a href="#Chapter-6-Standard-Types" class="headerlink" title="Chapter 6- Standard Types"></a>Chapter 6- Standard Types</h2><p>3.times, 1.upto(5), 10.downto(1), 50.step(10,2)  iterator generate way.  </p>
 <h2 id="Chapter-7-Regular-Expression"><a href="#Chapter-7-Regular-Expression" class="headerlink" title="Chapter 7- Regular Expression"></a>Chapter 7- Regular Expression</h2><h2 id="Chapter-8-More-about-Method"><a href="#Chapter-8-More-about-Method" class="headerlink" title="Chapter 8- More about Method"></a>Chapter 8- More about Method</h2><h2 id="Chapter-9-Expressions"><a href="#Chapter-9-Expressions" class="headerlink" title="Chapter 9- Expressions"></a>Chapter 9- Expressions</h2><p>defined? check method<br>Comparing objects: ==, ===, &lt;=&gt;(General comparison operator), =~, eql?(same type and equal values) and equal? (same object ID</p>
@@ -453,7 +443,7 @@ document ruby code">
 <p><a href="http://stackoverflow.com/questions/9052621/why-do-we-need-fibers" target="_blank" rel="external">Fiber</a>, Fiber.new, Fiber.yield, Fiber is used for abstractions, like enumerate.<br>Fiber can transfer the control, continuation is a way of recording the state of the running program, like web app request.  </p>
 <p>Multiple thread, green thread by Ruby. Multiple Processes, system(“linux system command”).  </p>
 <h2 id="Chapter-13-Unit-Testing"><a href="#Chapter-13-Unit-Testing" class="headerlink" title="Chapter 13- Unit Testing"></a>Chapter 13- Unit Testing</h2><p>Test::Unit::TestCase, assert-equal(), assert-match, assert-empty, assert-same</p>
-<h2 id="Chapter-14-When-Trouble-Strikes"><a href="#Chapter-14-When-Trouble-Strikes" class="headerlink" title="Chapter 14- When Trouble Strikes"></a>Chapter 14- When Trouble Strikes</h2><p>Use nonbuffered I/O(set sync=true) for debug messages.<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">num1, num2 = line.split(/,/).map &#123; |val| Integer(val) &#125;</div></pre></td></tr></table></figure><br>has.rehash to rehash the elements in hash, like object hash value.<br>benchmark to test the performance.  </p>
+<h2 id="Chapter-14-When-Trouble-Strikes"><a href="#Chapter-14-When-Trouble-Strikes" class="headerlink" title="Chapter 14- When Trouble Strikes"></a>Chapter 14- When Trouble Strikes</h2><p>Use nonbuffered I/O(set sync=true) for debug messages.<br><figure class="highlight coq"><figcaption><span>ruby</span></figcaption><table><tr><td class="code"><pre><div class="line">num1, num2 = line.<span class="built_in">split</span>(/,/).map &#123; |<span class="type">val</span>| <span class="type">Integer</span>(val) &#125;</div></pre></td></tr></table></figure><br>has.rehash to rehash the elements in hash, like object hash value.<br>benchmark to test the performance.  </p>
 <h1 id="Part-two-Ruby-in-Its-Setting"><a href="#Part-two-Ruby-in-Its-Setting" class="headerlink" title="Part two- Ruby in Its Setting"></a>Part two- Ruby in Its Setting</h1><h2 id="Chapter-15-Ruby-and-Its-World"><a href="#Chapter-15-Ruby-and-Its-World" class="headerlink" title="Chapter 15- Ruby and Its World"></a>Chapter 15- Ruby and Its World</h2><p>gem query –details –remote –name-matches builder<br>gem list –all, list all versions<br>gem environment gemdir<br>gem server, open a gem document server for listing the installed gems.</p>
 <p>rake developed by Jim Weirich, was initially implemented as a Ruby version of Make. But rake is an automation tool, run tasks.<br>Thor is a tool that makes it easy to write Ruby command-line tools.</p>
 <h2 id="Chapter-16-Namespace-Source-Files-and-Distribution"><a href="#Chapter-16-Namespace-Source-Files-and-Distribution" class="headerlink" title="Chapter 16- Namespace, Source Files, and Distribution"></a>Chapter 16- Namespace, Source Files, and Distribution</h2><p>Math::E, Math::PI, namespace.</p>
@@ -514,11 +504,11 @@ document ruby code">
 <li>some instance variables  </li>
 <li>an associated class<br><strong>self</strong> refers to the read-only <em>current object</em><br>puts 这种方法的调用过程，从self开始，把self作为method receiver，如果没有方法就继续找他的supperclass，直到最后的BasicObject，如果没有就报错。P.367有详细说明了这个过程。  </li>
 </ol>
-<p>P.369, 里面讲了怎么给已经有class的ruby object加入他们的method，ruby会让他们继承自一个anonymous class，singleton class，来实现这个方法。<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">animal = ‘cat’  </div><div class="line">def animal.speak</div><div class="line">    puts “The #&#123;self&#125; speaks words”</div><div class="line">end</div></pre></td></tr></table></figure></p>
+<p>P.369, 里面讲了怎么给已经有class的ruby object加入他们的method，ruby会让他们继承自一个anonymous class，singleton class，来实现这个方法。<br><figure class="highlight ruby"><figcaption><span>ruby</span></figcaption><table><tr><td class="code"><pre><div class="line">animal = ‘cat’  </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">animal</span>.<span class="title">speak</span></span></div><div class="line">    puts “The <span class="comment">#&#123;self&#125; speaks words”</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
 <p>In ruby the instance variable is created withe the class, not the instance of the class. So use self.val to access to the variables.  </p>
-<figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">singleton = class &lt;&lt; animal</div><div class="line">    def lie</div><div class="line">        puts “The #&#123;self&#125; is lying.”</div><div class="line">    end</div><div class="line">    self</div><div class="line">end</div><div class="line">puts singleton.instance_methods - ‘animal’.methods</div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><figcaption><span>ruby</span></figcaption><table><tr><td class="code"><pre><div class="line">singleton = <span class="class"><span class="keyword">class</span> &lt;&lt; animal</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lie</span></span></div><div class="line">        puts “The <span class="comment">#&#123;self&#125; is lying.”</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">self</span></div><div class="line"><span class="keyword">end</span></div><div class="line">puts singleton.instance_methods - ‘animal’.methods</div></pre></td></tr></table></figure>
 <p>在ruby中子类修改父类的私有函数，只需要用public :method_name，ruby会建立个新的同名method然后super调用，返回结果。<br>P.376 Ruby中的Modules和Mixins的实现方式就是，用anonymous class的方式来将方法指向module同时super class保持正常，既提供了功能同时，也可以合理的建立super class chain。<br>P.378 24.5 Metaprogramming Class-Level Macros，这一块很爽，讲了关于attr_accessor还有has_many的实现技术。  </p>
-<p>通过这个方式来创建了add_logging，同时用log方法就可以调用。<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Logger</div><div class="line">    def self.add_logging(id_string)</div><div class="line">        define_method(:log) do |msg|</div><div class="line">            now = Time.now.strftime(“%H:%M:%S”)</div><div class="line">            STDERR.puts “#&#123;now&#125;-#&#123;id_string&#125;: #&#123;self&#125; (#&#123;msg&#125;)”</div><div class="line">        end</div><div class="line">    end</div><div class="line">end</div></pre></td></tr></table></figure></p>
+<p>通过这个方式来创建了add_logging，同时用log方法就可以调用。<br><figure class="highlight ruby"><figcaption><span>ruby</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logger</span></span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">self</span>.<span class="title">add_logging</span><span class="params">(id_string)</span></span></div><div class="line">        define_method(<span class="symbol">:log</span>) <span class="keyword">do</span> <span class="params">|msg|</span></div><div class="line">            now = Time.now.strftime(“%<span class="symbol">H:</span>%<span class="symbol">M:</span>%S”)</div><div class="line">            STDERR.puts “<span class="comment">#&#123;now&#125;-#&#123;id_string&#125;: #&#123;self&#125; (#&#123;msg&#125;)”</span></div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
 <p>Ruby Struct.new(:name, :address, :likes) 可以新建的class只带有attributes，并且可以被&lt; extend 继承。<br>P.384 Class.new的神奇用法,instance_eval 将设置self，直接调用caller的method。9,10小节没有怎么看明白.  </p>
 <h2 id="Chapter-26-locking-Ruby-in-Safe"><a href="#Chapter-26-locking-Ruby-in-Safe" class="headerlink" title="Chapter 26- locking Ruby in Safe"></a>Chapter 26- locking Ruby in Safe</h2><p>Ruby中的safe模式，$SAFE里面存着现在的safe等级从0到4，可以用Object#taint，tainted？，trust来判断object的可信度。  </p>
 <p>Rails 里面有些ruby没有的内置方法，包括Stirng.to_time, 直接把string转换成时间格式。</p>
@@ -776,7 +766,7 @@ document ruby code">
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 

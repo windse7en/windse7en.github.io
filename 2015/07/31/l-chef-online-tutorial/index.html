@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en,zh,default">
+<html class="theme-next muse use-motion" lang="en,zh,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,7 +96,7 @@ be able to appl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="L: Chef online tutorial">
 <meta property="og:url" content="http://yoursite.com/2015/07/31/l-chef-online-tutorial/index.html">
-<meta property="og:site_name" content="windse7en">
+<meta property="og:site_name" content="windse7en's blog">
 <meta property="og:description" content="Chef Online Tutorial
 1.    Learn the Chef basics - UbuntuObjectives:
 
@@ -119,7 +119,7 @@ be able to appl">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -145,7 +145,7 @@ be able to appl">
 
 
 
-  <title> L: Chef online tutorial | windse7en </title>
+  <title> L: Chef online tutorial | windse7en's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -190,7 +190,7 @@ be able to appl">
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">windse7en</span>
+        <span class="site-title">windse7en's blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -221,26 +221,6 @@ be able to appl">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
           </a>
         </li>
       
@@ -334,7 +314,7 @@ be able to appl">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="windse7en">
+      <meta itemprop="name" content="windse7en's blog">
     </span>
 
     
@@ -353,6 +333,16 @@ be able to appl">
         
 
         <div class="post-meta">
+          
+          <span class="post-letters-count">
+            <i class="fa fa-file-o"></i>
+            <span>471 Words </span>
+            &nbsp; | &nbsp;
+            <i class="fa fa-clock-o"></i>
+            <span>3 Min</span>
+            &nbsp; | &nbsp;
+          </span>
+          
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -455,8 +445,8 @@ be able to appl">
 </tbody>
 </table>
 <p><a href="http://docs.chef.io/resource_file.html" target="_blank" rel="external">file chef docs</a><br><a href="https://docs.chef.io/resource_directory.html" target="_blank" rel="external">directory chef docs</a></p>
-<p>chef-repo save all the resources files<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chef-apply filename.rb  #run the rb file</div></pre></td></tr></table></figure></p>
-<p>hello.rb is a recipe, motd file is the resource. Resource also can be package, service.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Example for hello.rb</div><div class="line">file ‘motd’ do</div><div class="line">    action :create  # default action, if there isn’t explicit, it will called.</div><div class="line">    content ‘hello Tao’</div><div class="line">end</div></pre></td></tr></table></figure></p>
+<p>chef-repo save all the resources files<br><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">chef-apply filename<span class="selector-class">.rb</span>  <span class="selector-id">#run</span> the rb file</div></pre></td></tr></table></figure></p>
+<p>hello.rb is a recipe, motd file is the resource. Resource also can be package, service.<br><figure class="highlight fortran"><table><tr><td class="code"><pre><div class="line"># Example for hello.rb</div><div class="line"><span class="keyword">file</span> ‘motd’ <span class="keyword">do</span></div><div class="line">    <span class="keyword">action</span> :create  # <span class="keyword">default</span> <span class="keyword">action</span>, <span class="keyword">if</span> there isn’t explicit, it will called.</div><div class="line">    content ‘hello Tao’</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
 <p>The functionalities of recipe:</p>
 <ol>
 <li>install and configure software components.</li>
@@ -465,8 +455,8 @@ be able to appl">
 <li>execute other recipes.</li>
 </ol>
 <h2 id="c-Configure-a-package-and-service"><a href="#c-Configure-a-package-and-service" class="headerlink" title="c. Configure a package and service"></a>c. <a href="https://learn.chef.io/learn-the-basics/ubuntu/configure-a-package-and-service/" target="_blank" rel="external">Configure a package and service</a></h2><p>Install the Apache package</p>
-<p>The order in the recipe is very important. But the orders of the attributes of the file is doesn’t matter.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># webserver.rb configure the apache server</div><div class="line">execute ‘apt-get-update’ do</div><div class="line">  command ‘apt-get update’</div><div class="line">end</div><div class="line"></div><div class="line">package ‘apache2’</div><div class="line"></div><div class="line">service ‘apache2’ do</div><div class="line">  supports :status =&gt; true</div><div class="line">  action [:enable, :start]</div><div class="line">end</div><div class="line"></div><div class="line">file ‘/var/www/html/index.html’ do</div><div class="line">  content ‘&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;h1&gt;hello Tao&lt;/h1&gt;</div><div class="line">          &lt;/body&gt;</div><div class="line">          &lt;/html&gt;’</div><div class="line">          end&lt;/h&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">  &lt;/html&gt;</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<h3 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl localhost      # will see hell Tao</div></pre></td></tr></table></figure>
+<p>The order in the recipe is very important. But the orders of the attributes of the file is doesn’t matter.<br><figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"># webserver.rb configure the apache server</div><div class="line"><span class="keyword">execute</span> ‘apt-<span class="built_in">get</span>-<span class="keyword">update</span>’ <span class="keyword">do</span></div><div class="line">  <span class="keyword">command</span> ‘apt-<span class="built_in">get</span> <span class="keyword">update</span>’</div><div class="line">end</div><div class="line"></div><div class="line">package ‘apache2’</div><div class="line"></div><div class="line">service ‘apache2’ <span class="keyword">do</span></div><div class="line">  supports :status =&gt; true</div><div class="line">  action [:enable, :start]</div><div class="line">end</div><div class="line"></div><div class="line"><span class="keyword">file</span> ‘/var/www/html/<span class="built_in">index</span>.html’ <span class="keyword">do</span></div><div class="line">  content ‘<span class="symbol">&lt;html&gt;</span></div><div class="line">    <span class="symbol">&lt;body&gt;</span></div><div class="line">        <span class="symbol">&lt;h1&gt;</span>hello Tao&lt;/h1&gt;</div><div class="line">          &lt;/body&gt;</div><div class="line">          &lt;/html&gt;’</div><div class="line">          end&lt;/h&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">  &lt;/html&gt;</div><div class="line">end</div></pre></td></tr></table></figure></p>
+<h3 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h3><figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">curl</span> localhost      <span class="comment"># will see hell Tao</span></div></pre></td></tr></table></figure>
 <h2 id="d-Make-your-recipe-more-manageable"><a href="#d-Make-your-recipe-more-manageable" class="headerlink" title="d.   Make your recipe more manageable"></a>d.   <a href="https://learn.chef.io/learn-the-basics/ubuntu/make-your-recipe-more-manageable/" target="_blank" rel="external">Make your recipe more manageable</a></h2><p>mkdir cookbooks,    use templates to handle html. chef-client to run the cookbooks with the recipe list.</p>
 <h1 id="2-Learn-to-manage-Ubuntu-Node"><a href="#2-Learn-to-manage-Ubuntu-Node" class="headerlink" title="2.    Learn to manage Ubuntu Node"></a>2.    <a href="https://learn.chef.io/manage-a-node/ubuntu/" target="_blank" rel="external">Learn to manage Ubuntu Node</a></h1><p>objectives:</p>
 <ol>
@@ -475,9 +465,9 @@ be able to appl">
 <li>understand how to access cookbooks written by the Chef community.</li>
 </ol>
 <h2 id="a-Get-Set-up"><a href="#a-Get-Set-up" class="headerlink" title="a.   Get Set up"></a>a.   Get Set up</h2><p>configure the chef locally</p>
-<h2 id="b-Set-up-your-Chef-server"><a href="#b-Set-up-your-Chef-server" class="headerlink" title="b.   Set up your Chef server"></a>b.   Set up your Chef server</h2><p>Download cookbook from the chef supermarkets<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">knife cookbook site download learn\_chef\_apache2</div><div class="line">knife cookbook upload learn\_chef\_apache2  #upload the cookbook</div></pre></td></tr></table></figure></p>
+<h2 id="b-Set-up-your-Chef-server"><a href="#b-Set-up-your-Chef-server" class="headerlink" title="b.   Set up your Chef server"></a>b.   Set up your Chef server</h2><p>Download cookbook from the chef supermarkets<br><figure class="highlight sqf"><table><tr><td class="code"><pre><div class="line">knife cookbook site download learn\<span class="variable">_chef</span>\<span class="variable">_apache2</span></div><div class="line">knife cookbook upload learn\<span class="variable">_chef</span>\<span class="variable">_apache2</span>  <span class="meta">#upload the cookbook</span></div></pre></td></tr></table></figure></p>
 <h2 id="c-Bootstrap-your-node"><a href="#c-Bootstrap-your-node" class="headerlink" title="c. Bootstrap your node"></a>c. Bootstrap your node</h2><p>A very long command, don’t forget to apt-get update.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">knife node list</div><div class="line">knife node show node-name</div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">knife <span class="keyword">node</span> <span class="title">list</span></div><div class="line">knife <span class="keyword">node</span> <span class="title">show</span> <span class="keyword">node</span><span class="title">-name</span></div></pre></td></tr></table></figure>
 <h2 id="d-Update-your-node’s-configuration"><a href="#d-Update-your-node’s-configuration" class="headerlink" title="d. Update your node’s configuration"></a>d. Update your node’s configuration</h2><p>You ran knife bootstrap to associate your node with the Chef server and do an initial check-in. Bootstrapping is a one-time process.<br>The knife ssh command enables you to update your node’s configuration when your cookbook changes.</p>
 
       
@@ -735,7 +725,7 @@ be able to appl">
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
