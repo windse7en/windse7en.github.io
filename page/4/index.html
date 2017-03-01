@@ -318,6 +318,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/08/rails-seed-project/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tao Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="windse7en">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/08/rails-seed-project/" itemprop="url">
+                  Rails Seed Project
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-08T11:00:19-05:00">
+                2015-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/08/rails-seed-project/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/08/rails-seed-project/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>The aim of this blog is to memorize the process of customizing the Seed Project for future development.     </p>
+<p><a href="https://github.com/windse7en/seedProject" target="_blank" rel="external">Source Code</a></p>
+<p>The branch is start_point, there is no any model or controllers except home_controller.<br>TIPS:</p>
+<ol>
+<li><p>Gems:<br>rack-mini-profiler, for monitoring the time consumption.<br>slim, templating engine for organising the html, css, javascript code.      </p>
+</li>
+<li><p>Lazy registration demos: <a href="https://github.com/mwlang/lazy_registration_demos" target="_blank" rel="external">DEMO</a></p>
+</li>
+</ol>
+<p>After: rails g devise:install create two files:<br>config/initialize/devise<strong><em>**</em></strong> * .rb  里面是devise的配置信息<br>config/locale/devise.yml    里面是devise的语言配置      </p>
+<p>rails g devise User 创建User表，model和test文件<br>rails g devise:views 创建devise的所有view       </p>
+<p>add layout function to the appliction controller 这样调用devise的时候会指定空的layout给他   </p>
+<p>devise的views修改相应内容。     </p>
+<p>在rails console中是看不到用户的密码的，只能重新设置。  </p>
+<p>在Application的方法里加入layout 或者 before-filter等方法，可以在每个controller运行之前调用。所以，加入要根据不同controller的view选择不同的layout可以加入到ApplicationController里面进行layout判定。     </p>
+<p><img src="https://shijitht.files.wordpress.com/2010/09/mvc.png?w=453&amp;h=531" alt="Rails data process Graph"><br><a href="https://github.com/slim-template/slim/wiki/Template-Converters-ERB-to-SLIM" target="_blank" rel="external">Convert erv file to slim file</a></p>
+<ol>
+<li><p>Branch: start _ point, this branch just integrate the views, there is no any model or config.  </p>
+</li>
+<li><p>Config all the devise views and finish the mailer configuration:<br><a href="https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/" target="_blank" rel="external">step 1</a><br><a href="http://stackoverflow.com/questions/23251943/why-are-my-authentication-emails-not-working-i-get-an-authenticationerror" target="_blank" rel="external">step 2</a>引申出一个问题，在rails，project下怎么保存secure信息，通过<a href="https://github.com/laserlemon/figaro" target="_blank" rel="external">Figaro</a>  </p>
+</li>
+</ol>
+<p>Ruby Performance Optimization:<br>    Nginx, Passenger help us to handle the message queue. Configuration of the Nginx, Passenger server, Linux for optimizing the server.<br>    How to benchmark the server.  </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/07/rails-rvm-and-gemset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1590,144 +1740,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/02/d3-cluster-chart/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="windse7en">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/02/d3-cluster-chart/" itemprop="url">
-                  d3 Cluster Chart
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-02T13:53:31-05:00">
-                2015-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/04/02/d3-cluster-chart/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/02/d3-cluster-chart/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>cluster 图，主要为了表现层次关系，类似家谱，年表。</p>
-<p><a href="http://www.ourd3js.com/wordpress/?p=245" target="_blank" rel="external">TUTORIAL</a></p>
-<ol>
-<li><p>数据转换：d3.layout.cluster() 转换数据  </p>
-</li>
-<li><p>生成贝赛尔曲线：d3.svg.diagonal() 生成贝塞尔曲线，绘制曲线path  </p>
-</li>
-<li><p>每个nodes配置：给每个node放置label和circle</p>
-</li>
-</ol>
-<p>最后，做完的样子：<br><a href="http://jsfiddle.net/windse7en/24v9nwdf/" target="_blank" rel="external">Cluster Chart</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1777,7 +1789,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1788,7 +1800,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

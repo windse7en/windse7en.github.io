@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Vim cheatsheat and tips]]></title>
+      <url>%2F2017%2F02%2F28%2FVim-cheatsheat-and-tips%2F</url>
+      <content type="text"><![CDATA[Vim 这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。 Vim cheatsheat Online Cheatsheats: 基本的操作 Key Feature == 整理indention ,a:: 选择的所有用冒号对齐 :nmap 显示所有可以mapping ]s 调到下一个typo zg 把typo加入字典 z= 显示spell建议 (Space)o 新建file (Space)rn 重命名 (Ctrl)e NerdTree Toggle Vim tipVim trick]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Migration from octopress to hexo]]></title>
       <url>%2F2017%2F02%2F26%2FMigration-from-octopress-to-hexo%2F</url>
       <content type="text"><![CDATA[记录从Octopress迁移到hexoSteps 安装hexo，新建一个project pull yilia project，安装主题 从头yilia切换到next，因为next提供更丰富的功能 把原来的post复制到hexo的source/post下面 原来的文章里面有两个}的情况，需要去掉 更新 更新字体样式和大小]]></content>
