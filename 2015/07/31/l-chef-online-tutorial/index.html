@@ -103,7 +103,7 @@ be able to appl">
 have a basic understanding of what happens when Chef runs.
 be able to write Chef code that defines a basic policy.
 be able to appl">
-<meta property="og:updated_time" content="2017-02-27T02:26:27.000Z">
+<meta property="og:updated_time" content="2017-03-01T19:51:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="L: Chef online tutorial">
 <meta name="twitter:description" content="Chef Online Tutorial
@@ -419,6 +419,7 @@ be able to appl">
 <li>be able to write Chef code that defines a basic policy.</li>
 <li>be able to apply that policy to a server.</li>
 </ol>
+<a id="more"></a>
 <h2 id="a-Get-set-up"><a href="#a-Get-set-up" class="headerlink" title="a.   Get set up"></a>a.   Get set up</h2><ol>
 <li>Launch an Ubuntu virtual machine hosted by the chef.</li>
 <li>use vim for text editor</li>
@@ -464,7 +465,7 @@ be able to appl">
 <li>execute other recipes.</li>
 </ol>
 <h2 id="c-Configure-a-package-and-service"><a href="#c-Configure-a-package-and-service" class="headerlink" title="c. Configure a package and service"></a>c. <a href="https://learn.chef.io/learn-the-basics/ubuntu/configure-a-package-and-service/" target="_blank" rel="external">Configure a package and service</a></h2><p>Install the Apache package</p>
-<p>The order in the recipe is very important. But the orders of the attributes of the file is doesn’t matter.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># webserver.rb configure the apache server</div><div class="line">execute ‘apt-get-update’ do</div><div class="line">  command ‘apt-get update’</div><div class="line">end </div><div class="line"></div><div class="line">package ‘apache2’</div><div class="line"></div><div class="line">service ‘apache2’ do</div><div class="line">  supports :status =&gt; true</div><div class="line">  action [:enable, :start]</div><div class="line">end</div><div class="line"></div><div class="line">file ‘/var/www/html/index.html’ do</div><div class="line">  content ‘&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;h1&gt;hello Tao&lt;/h1&gt;</div><div class="line">          &lt;/body&gt;</div><div class="line">          &lt;/html&gt;’</div><div class="line">          end&lt;/h&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">  &lt;/html&gt;</div><div class="line">end </div></pre></td></tr></table></figure></p>
+<p>The order in the recipe is very important. But the orders of the attributes of the file is doesn’t matter.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># webserver.rb configure the apache server</div><div class="line">execute ‘apt-get-update’ do</div><div class="line">  command ‘apt-get update’</div><div class="line">end</div><div class="line"></div><div class="line">package ‘apache2’</div><div class="line"></div><div class="line">service ‘apache2’ do</div><div class="line">  supports :status =&gt; true</div><div class="line">  action [:enable, :start]</div><div class="line">end</div><div class="line"></div><div class="line">file ‘/var/www/html/index.html’ do</div><div class="line">  content ‘&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;h1&gt;hello Tao&lt;/h1&gt;</div><div class="line">          &lt;/body&gt;</div><div class="line">          &lt;/html&gt;’</div><div class="line">          end&lt;/h&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">  &lt;/html&gt;</div><div class="line">end</div></pre></td></tr></table></figure></p>
 <h3 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl localhost      # will see hell Tao</div></pre></td></tr></table></figure>
 <h2 id="d-Make-your-recipe-more-manageable"><a href="#d-Make-your-recipe-more-manageable" class="headerlink" title="d.   Make your recipe more manageable"></a>d.   <a href="https://learn.chef.io/learn-the-basics/ubuntu/make-your-recipe-more-manageable/" target="_blank" rel="external">Make your recipe more manageable</a></h2><p>mkdir cookbooks,    use templates to handle html. chef-client to run the cookbooks with the recipe list.</p>
 <h1 id="2-Learn-to-manage-Ubuntu-Node"><a href="#2-Learn-to-manage-Ubuntu-Node" class="headerlink" title="2.    Learn to manage Ubuntu Node"></a>2.    <a href="https://learn.chef.io/manage-a-node/ubuntu/" target="_blank" rel="external">Learn to manage Ubuntu Node</a></h1><p>objectives:</p>
@@ -542,6 +543,29 @@ be able to appl">
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>

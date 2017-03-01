@@ -88,25 +88,22 @@
 
 
 <meta name="description" content="Metaprogramming is writing code that writes codes.
-Get all mixed modules for an object:1(class &amp;lt;&amp;lt; obj; self; end).included_modules&amp;gt;&amp;gt;)在runtime下，取得obj的class，查找所有modules
-Metaprogramming is wr">
+Get all mixed modules for an object:1(class &amp;lt;&amp;lt; obj; self; end).included_modules&amp;gt;&amp;gt;)在runtime下，取得obj的class，查找所有modules">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B: Metaprogramming Ruby">
 <meta property="og:url" content="http://yoursite.com/2015/07/27/b-metaprogramming-ruby/index.html">
 <meta property="og:site_name" content="windse7en">
 <meta property="og:description" content="Metaprogramming is writing code that writes codes.
-Get all mixed modules for an object:1(class &amp;lt;&amp;lt; obj; self; end).included_modules&amp;gt;&amp;gt;)在runtime下，取得obj的class，查找所有modules
-Metaprogramming is wr">
+Get all mixed modules for an object:1(class &amp;lt;&amp;lt; obj; self; end).included_modules&amp;gt;&amp;gt;)在runtime下，取得obj的class，查找所有modules">
 <meta property="og:image" content="http://snag.gy/8w3Cx.jpg">
 <meta property="og:image" content="http://snag.gy/oysCy.jpg">
 <meta property="og:image" content="http://snag.gy/7xT16.jpg">
 <meta property="og:image" content="http://snag.gy/d4d7T.jpg">
-<meta property="og:updated_time" content="2017-02-27T02:25:39.000Z">
+<meta property="og:updated_time" content="2017-03-01T19:51:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B: Metaprogramming Ruby">
 <meta name="twitter:description" content="Metaprogramming is writing code that writes codes.
-Get all mixed modules for an object:1(class &amp;lt;&amp;lt; obj; self; end).included_modules&amp;gt;&amp;gt;)在runtime下，取得obj的class，查找所有modules
-Metaprogramming is wr">
+Get all mixed modules for an object:1(class &amp;lt;&amp;lt; obj; self; end).included_modules&amp;gt;&amp;gt;)在runtime下，取得obj的class，查找所有modules">
 <meta name="twitter:image" content="http://snag.gy/8w3Cx.jpg">
 
 
@@ -410,6 +407,7 @@ Metaprogramming is wr">
       
         <p><em>Metaprogramming is writing code that writes codes.</em></p>
 <p>Get all mixed modules for an object:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="class"><span class="keyword">class</span> &lt;&lt; obj;</span> <span class="keyword">self</span>; <span class="keyword">end</span>).included_modules<span class="meta">&gt;&gt;</span>)</div></pre></td></tr></table></figure><br>在runtime下，取得obj的class，查找所有modules</p>
+<a id="more"></a>
 <p><em>Metaprogramming is writing code that manipulates language constructs at runtime.</em></p>
 <h1 id="Chapter-1-Monday-The-object-model"><a href="#Chapter-1-Monday-The-object-model" class="headerlink" title="Chapter 1. Monday: The object model"></a>Chapter 1. Monday: The object model</h1><p>Classes themselves are nothing but objects.</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String.<span class="keyword">class</span>        <span class="comment"># =&gt; Class</span></div><div class="line">Class.superclass    <span class="comment"># =&gt; Module</span></div><div class="line">Module.superclass   <span class="comment"># =&gt; Object</span></div></pre></td></tr></table></figure>
@@ -426,11 +424,11 @@ Metaprogramming is wr">
 <h1 id="Chapter-2-Tuesday-Methods"><a href="#Chapter-2-Tuesday-Methods" class="headerlink" title="Chapter 2. Tuesday: Methods"></a>Chapter 2. Tuesday: Methods</h1><h2 id="Dynamic-Methods"><a href="#Dynamic-Methods" class="headerlink" title="Dynamic Methods"></a>Dynamic Methods</h2><p>Where you learn how to call and define methods dynamically and remove the duplicated code.</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">obj.send(<span class="symbol">:my</span>\_method, <span class="number">3</span>) <span class="comment"># =&gt; 6</span></div></pre></td></tr></table></figure>
 <p>method_missing is Kernel#method_missing() responded to.</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Table</span></span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">method</span>\_missing<span class="params">(id,\*args,&amp;block)</span></span></div><div class="line">    <span class="keyword">return</span> as($1.to\_sym,\*args,&amp;block) <span class="keyword">if</span> id.to_s =~ <span class="regexp">/^to\_(.\*)/</span></div><div class="line">    <span class="keyword">return</span> rows\_with($1.to\_sym =&gt; args[<span class="number">0</span>]) <span class="keyword">if</span> id.to\_s =~ <span class="regexp">/^rows\_with\_(.\*)/</span></div><div class="line">    <span class="keyword">super</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="comment"># ...</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Table</span></span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">method</span>\<span class="title">_missing</span><span class="params">(id,\*args,&amp;block)</span></span></div><div class="line">    <span class="keyword">return</span> as($1.to\_sym,\*args,&amp;block) <span class="keyword">if</span> id.to_s =~ <span class="regexp">/^to\_(.\*)/</span></div><div class="line">    <span class="keyword">return</span> rows\_with($1.to\_sym =&gt; args[<span class="number">0</span>]) <span class="keyword">if</span> id.to\_s =~ <span class="regexp">/^rows\_with\_(.\*)/</span></div><div class="line">    <span class="keyword">super</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="comment"># ...</span></div></pre></td></tr></table></figure>
 <p>“string”.to_sym 生成对的symbol，用symbol调用方法。用super调用method_missing函数</p>
 <h3 id="Dynamic-Proxy"><a href="#Dynamic-Proxy" class="headerlink" title="Dynamic Proxy"></a>Dynamic Proxy</h3><p>DelegateClass( ) is a Mimic Method (241) that creates and returns a new Class. This class defines a method_missing( ) that forwards calls to a wrapped object, such as an Assistant. Manager inherits this method_missing( ), so it becomes a proxy of the wrapped object.</p>
 <p>用method_missing方法实现最好也实现respond_to这个method, const_missing可以把missed constant找到方法输出。</p>
-<p>下面程序有个bug哦<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Roulette</span></span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">method</span>\_missing<span class="params">(name, \*args)</span></span></div><div class="line">    person = name.to\_s.capitalize</div><div class="line">    <span class="number">3</span>.times <span class="keyword">do</span></div><div class="line">      number = rand(<span class="number">10</span>) + <span class="number">1</span></div><div class="line">      puts “<span class="comment">#&#123;number&#125;...”</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    “<span class="comment">#&#123;person&#125; got a #&#123;number&#125;”</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure><br>number 的scope</p>
+<p>下面程序有个bug哦<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Roulette</span></span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">method</span>\<span class="title">_missing</span><span class="params">(name, \*args)</span></span></div><div class="line">    person = name.to\_s.capitalize</div><div class="line">    <span class="number">3</span>.times <span class="keyword">do</span></div><div class="line">      number = rand(<span class="number">10</span>) + <span class="number">1</span></div><div class="line">      puts “<span class="comment">#&#123;number&#125;...”</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    “<span class="comment">#&#123;person&#125; got a #&#123;number&#125;”</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure><br>number 的scope</p>
 <p>Ruby 里面用来去掉继承来的方法的method：<br>Module#undef_method    removes all methods, including the inherited ones.<br>Module#remove_method   removes the method from the receiver, but it leaves inherited methods alone.<br>The Builder library which is an XML generator 就是用了Blank Slate把object的class去掉了。</p>
 <p>Ruby 怕方法被override，用reserved method name：__send__() and __id__()</p>
 <p>Blank Slate 的样板code：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span></div><div class="line">  instance\_methods.each <span class="keyword">do</span> <span class="params">|m|</span></div><div class="line">    <span class="keyword">undef</span>\_method m unless m.to\_s =~ <span class="regexp">/^\_\_|method\_missing|respond\_to?/</span></div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="comment"># ...</span></div></pre></td></tr></table></figure></p>
@@ -734,6 +732,29 @@ Metaprogramming is wr">
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>

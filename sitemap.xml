@@ -2,16 +2,359 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/02/26/Migration-from-octopress-to-hexo/</loc>
+    <loc>http://yoursite.com/2017/02/28/Vim-cheatsheat-and-tips/</loc>
     
-    <lastmod>2017-03-01T15:44:35.000Z</lastmod>
+    <lastmod>2017-03-01T20:06:30.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/02/28/Vim-cheatsheat-and-tips/</loc>
+    <loc>http://yoursite.com/2017/02/26/Migration-from-octopress-to-hexo/</loc>
     
-    <lastmod>2017-03-01T02:58:49.000Z</lastmod>
+    <lastmod>2017-03-01T20:06:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/04/integrate-nginx-and-socket-io-with-rails/</loc>
+    
+    <lastmod>2017-03-01T19:51:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/04/integrate-solar-search-sunspot-with-rails/</loc>
+    
+    <lastmod>2017-03-01T19:51:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/11/user-ionic-to-create-ios-native-app/</loc>
+    
+    <lastmod>2017-03-01T19:51:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/15/linux-command-learn-tips/</loc>
+    
+    <lastmod>2017-03-01T19:51:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/24/ruby-c-python-c-plus-plus-world-tips/</loc>
+    
+    <lastmod>2017-03-01T19:51:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/23/rails-development-ridiculous-problem-sets/</loc>
+    
+    <lastmod>2017-03-01T19:51:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/02/rspec-for-test-in-ruby/</loc>
+    
+    <lastmod>2017-03-01T19:51:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/16/practical-obect-oriented-design-in-ruby/</loc>
+    
+    <lastmod>2017-03-01T19:51:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/10/a-endless-journey-to-learn-vim/</loc>
+    
+    <lastmod>2017-03-01T19:51:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/17/book-design-patterns-in-ruby/</loc>
+    
+    <lastmod>2017-03-01T19:51:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/22/learn-linux-command-tips/</loc>
+    
+    <lastmod>2017-03-01T19:51:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/27/b-metaprogramming-ruby/</loc>
+    
+    <lastmod>2017-03-01T19:51:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/31/l-chef-online-tutorial/</loc>
+    
+    <lastmod>2017-03-01T19:51:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/31/t-chef-ruby/</loc>
+    
+    <lastmod>2017-03-01T19:51:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/02/ruby-ajax-modal-to-show-the-form/</loc>
+    
+    <lastmod>2017-03-01T19:50:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/01/vista-ehr-migration/</loc>
+    
+    <lastmod>2017-03-01T19:49:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/02/d3-chord-chart/</loc>
+    
+    <lastmod>2017-03-01T19:49:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/02/d3-cluster-chart/</loc>
+    
+    <lastmod>2017-03-01T19:49:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/03/d3-force-chart/</loc>
+    
+    <lastmod>2017-03-01T19:49:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/03/d3-pack-chart/</loc>
+    
+    <lastmod>2017-03-01T19:49:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/03/d3-pie-chart/</loc>
+    
+    <lastmod>2017-03-01T19:49:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/03/d3-tree-chart/</loc>
+    
+    <lastmod>2017-03-01T19:49:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/04/translation-of-block-towards-reusable-charts/</loc>
+    
+    <lastmod>2017-03-01T19:49:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/06/d3-book-interactive-data-visualization-for-the-web/</loc>
+    
+    <lastmod>2017-03-01T19:49:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/06/development-process-should-be/</loc>
+    
+    <lastmod>2017-03-01T19:49:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/07/rails-rvm-and-gemset/</loc>
+    
+    <lastmod>2017-03-01T19:49:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/07/tech-blog-reading/</loc>
+    
+    <lastmod>2017-03-01T19:49:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/08/rails-seed-project/</loc>
+    
+    <lastmod>2017-03-01T19:49:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/09/rails-test-with-rspec-factorygirl-guard-and-capybara/</loc>
+    
+    <lastmod>2017-03-01T19:49:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/09/regex-and-shell-command/</loc>
+    
+    <lastmod>2017-03-01T19:49:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/13/cucumber-book-reading-notes/</loc>
+    
+    <lastmod>2017-03-01T19:49:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/14/web-site-front-tech/</loc>
+    
+    <lastmod>2017-03-01T19:49:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/16/cucumber-recipes-book/</loc>
+    
+    <lastmod>2017-03-01T19:49:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/20/jquery-and-angularjs/</loc>
+    
+    <lastmod>2017-03-01T19:49:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/20/ruby-on-rails-development/</loc>
+    
+    <lastmod>2017-03-01T19:49:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/05/06/leetcode/</loc>
+    
+    <lastmod>2017-03-01T19:48:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/05/11/difference-between-alibaba/</loc>
+    
+    <lastmod>2017-03-01T19:48:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/05/12/ruby-programmint-recommendation-and-tips/</loc>
+    
+    <lastmod>2017-03-01T19:48:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/06/01/install-the-openerp-version-8-odoo/</loc>
+    
+    <lastmod>2017-03-01T19:48:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/04/01/d3-js-learning-process/</loc>
+    
+    <lastmod>2017-03-01T19:47:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/27/integrate-polymer-with-rails/</loc>
+    
+    <lastmod>2017-03-01T19:46:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/24/lifenotes-march-24/</loc>
+    
+    <lastmod>2017-03-01T19:46:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/24/algorithm-the-shortest-path/</loc>
+    
+    <lastmod>2017-03-01T19:46:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/24/advanced-unix-programming-shell/</loc>
+    
+    <lastmod>2017-03-01T19:46:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/21/vim-ultimate-distribution/</loc>
+    
+    <lastmod>2017-03-01T19:46:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/20/how-to-use-google/</loc>
+    
+    <lastmod>2017-03-01T19:45:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/19/vim-plugin-bug-adventure-percent-sign/</loc>
+    
+    <lastmod>2017-03-01T19:44:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/19/scrapy-python-module-to-web-crawling-and-scrapying/</loc>
+    
+    <lastmod>2017-03-01T19:44:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/03/17/setting-up-octopress-publishing-framework-and-configure-the-themes/</loc>
+    
+    <lastmod>2017-03-01T19:43:55.000Z</lastmod>
     
   </url>
   
@@ -30,203 +373,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/04/16/cucumber-recipes-book/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/20/how-to-use-google/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/21/vim-ultimate-distribution/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/24/advanced-unix-programming-shell/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/24/algorithm-the-shortest-path/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/24/lifenotes-march-24/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/27/integrate-polymer-with-rails/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/01/d3-js-learning-process/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/01/vista-ehr-migration/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/02/d3-chord-chart/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/02/d3-cluster-chart/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/03/d3-force-chart/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/03/d3-pack-chart/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/03/d3-pie-chart/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/03/d3-tree-chart/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/04/translation-of-block-towards-reusable-charts/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/06/d3-book-interactive-data-visualization-for-the-web/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/06/development-process-should-be/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/07/rails-rvm-and-gemset/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/07/tech-blog-reading/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/08/rails-seed-project/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/09/rails-test-with-rspec-factorygirl-guard-and-capybara/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/09/regex-and-shell-command/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/13/cucumber-book-reading-notes/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/18/change-title-and-schedule-the-learning/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/17/setting-up-octopress-publishing-framework-and-configure-the-themes/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/20/jquery-and-angularjs/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/20/ruby-on-rails-development/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/05/06/leetcode/</loc>
+    <loc>http://yoursite.com/2015/03/18/python-manipulate-mouse-and-keyboard-crossplatform/</loc>
     
     <lastmod>2017-02-27T02:26:27.000Z</lastmod>
     
@@ -240,142 +387,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/06/01/install-the-openerp-version-8-odoo/</loc>
+    <loc>http://yoursite.com/2015/03/18/change-title-and-schedule-the-learning/</loc>
     
     <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/05/11/difference-between-alibaba/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/05/12/ruby-programmint-recommendation-and-tips/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/06/02/ruby-ajax-modal-to-show-the-form/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/18/python-manipulate-mouse-and-keyboard-crossplatform/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/06/04/integrate-solar-search-sunspot-with-rails/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/06/11/user-ionic-to-create-ios-native-app/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/06/15/linux-command-learn-tips/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/06/23/rails-development-ridiculous-problem-sets/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/06/24/ruby-c-python-c-plus-plus-world-tips/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/02/rspec-for-test-in-ruby/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/10/a-endless-journey-to-learn-vim/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/19/scrapy-python-module-to-web-crawling-and-scrapying/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/16/practical-obect-oriented-design-in-ruby/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/22/learn-linux-command-tips/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/03/19/vim-plugin-bug-adventure-percent-sign/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/31/l-chef-online-tutorial/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/31/t-chef-ruby/</loc>
-    
-    <lastmod>2017-02-27T02:26:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/27/b-metaprogramming-ruby/</loc>
-    
-    <lastmod>2017-02-27T02:25:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/17/book-design-patterns-in-ruby/</loc>
-    
-    <lastmod>2017-02-27T02:20:36.000Z</lastmod>
     
   </url>
   
@@ -383,20 +397,6 @@
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2017-02-27T02:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/06/04/integrate-nginx-and-socket-io-with-rails/</loc>
-    
-    <lastmod>2017-02-26T16:16:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/04/14/web-site-front-tech/</loc>
-    
-    <lastmod>2017-02-26T16:16:02.000Z</lastmod>
     
   </url>
   

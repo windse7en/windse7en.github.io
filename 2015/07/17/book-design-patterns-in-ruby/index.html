@@ -110,7 +110,7 @@ prefer composition to inheritancy. Internal Domain-Specific Language(DSL), metap
 <meta property="og:image" content="http://snag.gy/qis6x.jpg">
 <meta property="og:image" content="http://snag.gy/il4mO.jpg">
 <meta property="og:image" content="http://snag.gy/7jOFa.jpg">
-<meta property="og:updated_time" content="2017-02-27T02:20:36.000Z">
+<meta property="og:updated_time" content="2017-03-01T19:51:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B: Design Patterns in Ruby">
 <meta name="twitter:description" content="Design Patterns in RubyGoF(Gang of Four) book: Design Patterns: Elements of Reusable Object-Oriented Software.
@@ -418,6 +418,7 @@ prefer composition to inheritancy. Internal Domain-Specific Language(DSL), metap
       
         <h1 id="Design-Patterns-in-Ruby"><a href="#Design-Patterns-in-Ruby" class="headerlink" title="Design Patterns in Ruby"></a>Design Patterns in Ruby</h1><p>GoF(Gang of Four) book: <em>Design Patterns: Elements of Reusable Object-Oriented Software.</em></p>
 <p>prefer composition to inheritancy. Internal Domain-Specific Language(DSL), metaprogramming, convention not configuration</p>
+<a id="more"></a>
 <p>怎么用？<br>How do you add features to your program without turning the whole thing into a huge, unmanageable mess? So far, you have seen how to split the internal workings of your objects up among a family of classes with the Template Method pattern and how to use the Strategy pattern to split off whole chunks of algorithms. You have also seen how to react to requests coming into your objects with the Command pattern and how to keep up with changes made to other objects with the Observer pattern. Composites and iterators each help in their own way in dealing with collections of objects.</p>
 <p>14 Design Patterns:</p>
 <ol>
@@ -448,7 +449,7 @@ prefer composition to inheritancy. Internal Domain-Specific Language(DSL), metap
 <h2 id="Observer-in-the-Wild"><a href="#Observer-in-the-Wild" class="headerlink" title="Observer in the Wild"></a>Observer in the Wild</h2><p>ActiveRecord::Observer中用Observer来观察database records，created，read，written and deleted。</p>
 <h1 id="Chapter-6-Assembling-the-Whole-from-the-Parts-with-the-Composite"><a href="#Chapter-6-Assembling-the-Whole-from-the-Parts-with-the-Composite" class="headerlink" title="Chapter 6. Assembling the Whole from the Parts with the Composite"></a>Chapter 6. Assembling the Whole from the Parts with the Composite</h1><p>Core Challenge: build up bigger objects from small sub-objects, which might themseleve be made up of still smaller sub-sub-objects.</p>
 <img src="http://snag.gy/ybQ34.jpg">
-<h2 id="Sprucing-Up-the-Composite-with-Operators"><a href="#Sprucing-Up-the-Composite-with-Operators" class="headerlink" title="Sprucing Up the Composite with Operators"></a>Sprucing Up the Composite with Operators</h2><p>It turns out that we can get this done by simply renaming the add_sub_task method:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">composite = CompositeTask.new(‘example’)</div><div class="line">composite &lt;&lt; MixTask.new</div><div class="line"><span class="function"><span class="keyword">def</span> &lt;&lt;<span class="params">(task)</span></span></div><div class="line">  @sub_tasks &lt;&lt; task</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> []<span class="params">(index)</span></span></div><div class="line">  @sub_tasks[index]</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> []=<span class="params">(index, new_value)</span></span></div><div class="line">  @sub_tasks[index] = new_value</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<h2 id="Sprucing-Up-the-Composite-with-Operators"><a href="#Sprucing-Up-the-Composite-with-Operators" class="headerlink" title="Sprucing Up the Composite with Operators"></a>Sprucing Up the Composite with Operators</h2><p>It turns out that we can get this done by simply renaming the add_sub_task method:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">composite = CompositeTask.new(‘example’)</div><div class="line">composite &lt;&lt; MixTask.new</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">&lt;&lt;</span><span class="params">(task)</span></span></div><div class="line">  @sub_tasks &lt;&lt; task</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">[]</span><span class="params">(index)</span></span></div><div class="line">  @sub_tasks[index]</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">[]=</span><span class="params">(index, new_value)</span></span></div><div class="line">  @sub_tasks[index] = new_value</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
 <h2 id="An-Inconvenient-Difference"><a href="#An-Inconvenient-Difference" class="headerlink" title="An Inconvenient Difference"></a>An Inconvenient Difference</h2><p>How to handle the difference between the leaf and the composite:</p>
 <ol>
 <li>leaf和composite不一样，addChild，deleteChild这样的方法leaf没有</li>
@@ -638,6 +639,29 @@ prefer composition to inheritancy. Internal Domain-Specific Language(DSL), metap
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>

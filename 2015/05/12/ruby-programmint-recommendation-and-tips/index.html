@@ -95,9 +95,7 @@ Object Model
 metaprogramming  
 tainting  
 package gem  
-document ruby code  
-
-Part one- Facets of Ruby:Chapter 1- Getting StartedRdoc and ri for Ruby d">
+document ruby code">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ruby Programmint Recommendation and Tips">
 <meta property="og:url" content="http://yoursite.com/2015/05/12/ruby-programmint-recommendation-and-tips/index.html">
@@ -110,10 +108,8 @@ Object Model
 metaprogramming  
 tainting  
 package gem  
-document ruby code  
-
-Part one- Facets of Ruby:Chapter 1- Getting StartedRdoc and ri for Ruby d">
-<meta property="og:updated_time" content="2017-02-27T02:26:27.000Z">
+document ruby code">
+<meta property="og:updated_time" content="2017-03-01T19:48:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ruby Programmint Recommendation and Tips">
 <meta name="twitter:description" content="Ruby  
@@ -124,9 +120,7 @@ Object Model
 metaprogramming  
 tainting  
 package gem  
-document ruby code  
-
-Part one- Facets of Ruby:Chapter 1- Getting StartedRdoc and ri for Ruby d">
+document ruby code">
 
 
 
@@ -437,22 +431,23 @@ Part one- Facets of Ruby:Chapter 1- Getting StartedRdoc and ri for Ruby d">
 <li>package gem  </li>
 <li>document ruby code  </li>
 </ol>
-<h1 id="Part-one-Facets-of-Ruby"><a href="#Part-one-Facets-of-Ruby" class="headerlink" title="Part one- Facets of Ruby:"></a>Part one- Facets of Ruby:</h1><h2 id="Chapter-1-Getting-Started"><a href="#Chapter-1-Getting-Started" class="headerlink" title="Chapter 1- Getting Started"></a>Chapter 1- Getting Started</h2><p>Rdoc and ri for Ruby documentation, pry also have the doc, </p>
+<a id="more"></a>
+<h1 id="Part-one-Facets-of-Ruby"><a href="#Part-one-Facets-of-Ruby" class="headerlink" title="Part one- Facets of Ruby:"></a>Part one- Facets of Ruby:</h1><h2 id="Chapter-1-Getting-Started"><a href="#Chapter-1-Getting-Started" class="headerlink" title="Chapter 1- Getting Started"></a>Chapter 1- Getting Started</h2><p>Rdoc and ri for Ruby documentation, pry also have the doc,</p>
 <h2 id="Chapter-2-Ruby-new"><a href="#Chapter-2-Ruby-new" class="headerlink" title="Chapter 2- Ruby.new"></a>Chapter 2- Ruby.new</h2><p>Every object has a unique object identifier.<br>Methods are invoked by sending a message to an object.</p>
 <p>Class Variable: @@total<br>Global Variable: $debug<br>Constant Name: PI</p>
 <p>Array initialization: a = %w{ test tao zhang xiao}<br>Hash initialization: h = Hash.new(0) for like counting the words</p>
-<p>Regex: \s \d \w, =~, is match. </p>
+<p>Regex: \s \d \w, =~, is match.</p>
 <p>Block and Iterators: use yield() 反调block中的变量。</p>
 <p>Command-Line Arguments: ARGV array, print gets, p</p>
 <h2 id="Chapter-3-Classes-Objects-and-Variables"><a href="#Chapter-3-Classes-Objects-and-Variables" class="headerlink" title="Chapter 3- Classes, Objects and Variables"></a>Chapter 3- Classes, Objects and Variables</h2><p>initialize is the constructor in Ruby.<br>attr-reader, attr-accessor method to provide set and get method.<br>CSV reader. String.dup to duplicate the string object and String.freeze the object, the object can’t be changed.</p>
 <h2 id="Chapter-4-Containers-Blocks-and-Iterators"><a href="#Chapter-4-Containers-Blocks-and-Iterators" class="headerlink" title="Chapter 4- Containers, Blocks, and Iterators"></a>Chapter 4- Containers, Blocks, and Iterators</h2><p>Arrays, can be accessed by the negative index which is calculated from the end.<br>a[1..3], a[1…3] no include the last one, a[-3..-1]<br>shift, pop and push is supported by Array by the default. push+shift=Queue, push+pop=Stack  </p>
-<p>Hash can be indexed by Regex, Symbol and String. Ruby remember insert order of hash when try to iterate it.<br>String.downcase, String.scan search the string to regex.  Hash.sort-by {block} </p>
-<p>Ruby iterator is a method that can invoke a block of code.<br>swap: a,b=b,a,  Container.each-with-index, Array.inject(:+) calculate the sum of the array. loop is while(true). </p>
+<p>Hash can be indexed by Regex, Symbol and String. Ruby remember insert order of hash when try to iterate it.<br>String.downcase, String.scan search the string to regex.  Hash.sort-by {block}</p>
+<p>Ruby iterator is a method that can invoke a block of code.<br>swap: a,b=b,a,  Container.each-with-index, Array.inject(:+) calculate the sum of the array. loop is while(true).</p>
 <p>block-given? test give block or not.<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lambda &#123; p “test” &#125;</div></pre></td></tr></table></figure><br>lambda will create a Proc.new for the block.  </p>
 <h2 id="Chapter-5-Sharing-Functionality-Inheritance-Modules-and-Mixins"><a href="#Chapter-5-Sharing-Functionality-Inheritance-Modules-and-Mixins" class="headerlink" title="Chapter 5- Sharing Functionality: Inheritance, Modules, and Mixins"></a>Chapter 5- Sharing Functionality: Inheritance, Modules, and Mixins</h2><p>Inheritance &lt;,  mixins include keyword</p>
 <h2 id="Chapter-6-Standard-Types"><a href="#Chapter-6-Standard-Types" class="headerlink" title="Chapter 6- Standard Types"></a>Chapter 6- Standard Types</h2><p>3.times, 1.upto(5), 10.downto(1), 50.step(10,2)  iterator generate way.  </p>
 <h2 id="Chapter-7-Regular-Expression"><a href="#Chapter-7-Regular-Expression" class="headerlink" title="Chapter 7- Regular Expression"></a>Chapter 7- Regular Expression</h2><h2 id="Chapter-8-More-about-Method"><a href="#Chapter-8-More-about-Method" class="headerlink" title="Chapter 8- More about Method"></a>Chapter 8- More about Method</h2><h2 id="Chapter-9-Expressions"><a href="#Chapter-9-Expressions" class="headerlink" title="Chapter 9- Expressions"></a>Chapter 9- Expressions</h2><p>defined? check method<br>Comparing objects: ==, ===, &lt;=&gt;(General comparison operator), =~, eql?(same type and equal values) and equal? (same object ID</p>
-<h2 id="Chapter-10-Exceptions-catch-and-throw"><a href="#Chapter-10-Exceptions-catch-and-throw" class="headerlink" title="Chapter 10- Exceptions, catch and throw"></a>Chapter 10- Exceptions, catch and throw</h2><p>Tiding up, begin-rescue-end. </p>
+<h2 id="Chapter-10-Exceptions-catch-and-throw"><a href="#Chapter-10-Exceptions-catch-and-throw" class="headerlink" title="Chapter 10- Exceptions, catch and throw"></a>Chapter 10- Exceptions, catch and throw</h2><p>Tiding up, begin-rescue-end.</p>
 <h2 id="Chapter-11-Basic-Input-and-Output"><a href="#Chapter-11-Basic-Input-and-Output" class="headerlink" title="Chapter 11- Basic Input and Output"></a>Chapter 11- Basic Input and Output</h2><p>IO Object, File, STDOUT, endl, StringIO, open()</p>
 <h2 id="Chapter-12-Fibers-Threads-and-Processes"><a href="#Chapter-12-Fibers-Threads-and-Processes" class="headerlink" title="Chapter 12- Fibers, Threads, and Processes"></a>Chapter 12- Fibers, Threads, and Processes</h2><p>Fiber: Fibers let u suspend execution of one part of program and run some other part. Run the code later.<br>Multiple thread, multiple process: split up cooperating tasks.  </p>
 <p><a href="http://stackoverflow.com/questions/9052621/why-do-we-need-fibers" target="_blank" rel="external">Fiber</a>, Fiber.new, Fiber.yield, Fiber is used for abstractions, like enumerate.<br>Fiber can transfer the control, continuation is a way of recording the state of the running program, like web app request.  </p>
@@ -461,9 +456,9 @@ Part one- Facets of Ruby:Chapter 1- Getting StartedRdoc and ri for Ruby d">
 <h2 id="Chapter-14-When-Trouble-Strikes"><a href="#Chapter-14-When-Trouble-Strikes" class="headerlink" title="Chapter 14- When Trouble Strikes"></a>Chapter 14- When Trouble Strikes</h2><p>Use nonbuffered I/O(set sync=true) for debug messages.<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">num1, num2 = line.split(/,/).map &#123; |val| Integer(val) &#125;</div></pre></td></tr></table></figure><br>has.rehash to rehash the elements in hash, like object hash value.<br>benchmark to test the performance.  </p>
 <h1 id="Part-two-Ruby-in-Its-Setting"><a href="#Part-two-Ruby-in-Its-Setting" class="headerlink" title="Part two- Ruby in Its Setting"></a>Part two- Ruby in Its Setting</h1><h2 id="Chapter-15-Ruby-and-Its-World"><a href="#Chapter-15-Ruby-and-Its-World" class="headerlink" title="Chapter 15- Ruby and Its World"></a>Chapter 15- Ruby and Its World</h2><p>gem query –details –remote –name-matches builder<br>gem list –all, list all versions<br>gem environment gemdir<br>gem server, open a gem document server for listing the installed gems.</p>
 <p>rake developed by Jim Weirich, was initially implemented as a Ruby version of Make. But rake is an automation tool, run tasks.<br>Thor is a tool that makes it easy to write Ruby command-line tools.</p>
-<h2 id="Chapter-16-Namespace-Source-Files-and-Distribution"><a href="#Chapter-16-Namespace-Source-Files-and-Distribution" class="headerlink" title="Chapter 16- Namespace, Source Files, and Distribution"></a>Chapter 16- Namespace, Source Files, and Distribution</h2><p>Math::E, Math::PI, namespace. </p>
+<h2 id="Chapter-16-Namespace-Source-Files-and-Distribution"><a href="#Chapter-16-Namespace-Source-Files-and-Distribution" class="headerlink" title="Chapter 16- Namespace, Source Files, and Distribution"></a>Chapter 16- Namespace, Source Files, and Distribution</h2><p>Math::E, Math::PI, namespace.</p>
 <h2 id="Chapter-17-Character-Encoding"><a href="#Chapter-17-Character-Encoding" class="headerlink" title="Chapter 17- Character Encoding"></a>Chapter 17- Character Encoding</h2><p>Not too much to talk about that.</p>
-<h2 id="Chapter-18-Interactive-Ruby-Shell"><a href="#Chapter-18-Interactive-Ruby-Shell" class="headerlink" title="Chapter 18- Interactive Ruby Shell"></a>Chapter 18- Interactive Ruby Shell</h2><p>conf, configuration fo the IRB, </p>
+<h2 id="Chapter-18-Interactive-Ruby-Shell"><a href="#Chapter-18-Interactive-Ruby-Shell" class="headerlink" title="Chapter 18- Interactive Ruby Shell"></a>Chapter 18- Interactive Ruby Shell</h2><p>conf, configuration fo the IRB,</p>
 <h2 id="Chapter-19-Documenting-Ruby"><a href="#Chapter-19-Documenting-Ruby" class="headerlink" title="Chapter 19- Documenting Ruby"></a>Chapter 19- Documenting Ruby</h2><p>Explain how to use Rdoc and ri to document the ruby</p>
 <h2 id="Chapter-20-Ruby-and-the-Web"><a href="#Chapter-20-Ruby-and-the-Web" class="headerlink" title="Chapter 20- Ruby and the Web"></a>Chapter 20- Ruby and the Web</h2><p>Talk about the CGI: common gateway interface, cookies and sessions, which includes all the lower-level details.  </p>
 <h2 id="Chapter-21-Ruby-and-Microsoft-Windows"><a href="#Chapter-21-Ruby-and-Microsoft-Windows" class="headerlink" title="Chapter 21- Ruby and Microsoft Windows"></a>Chapter 21- Ruby and Microsoft Windows</h2><p>Discuss with about the Win32API, win32ole module. to interact with windows, Windows shell.  </p>
@@ -508,8 +503,8 @@ Part one- Facets of Ruby:Chapter 1- Getting StartedRdoc and ri for Ruby d">
 <p>Array: %w only set the words array no substitution, %W will make substitution of individual word.  </p>
 <p>Symbol: In some lang is called atoms and the process is called interning.  :”#{a}ello”</p>
 <p>Regex: /pattern/options, %r{pattern}options<br>options can be:<br>| Options | Meaning                   |<br>| —     | —                       |<br>| i       | case insensitive          |<br>| o       | substitute once           |<br>| m       | match new line            |<br>| x       | allow spaces and comments |</p>
-<p>Variables :<br>P.320   Pattern Matching Variables, Input/Output Variables, Exexution Environment Variables, </p>
-<p>break, redo and next. </p>
+<p>Variables :<br>P.320   Pattern Matching Variables, Input/Output Variables, Exexution Environment Variables,</p>
+<p>break, redo and next.</p>
 <p>{}, Proc, lambda {}</p>
 <h2 id="Chapter-23-Duck-Typing"><a href="#Chapter-23-Duck-Typing" class="headerlink" title="Chapter 23- Duck Typing"></a>Chapter 23- Duck Typing</h2><p>An object’s type is determined by what it can do, not by its class!!</p>
 <p>names.map { |name| name.upcase}  is equal:  names.map(&amp;:upcase), &amp;:upcase will be changed into to_proc of upcase.  </p>
@@ -589,6 +584,29 @@ Part one- Facets of Ruby:Chapter 1- Getting StartedRdoc and ri for Ruby d">
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>

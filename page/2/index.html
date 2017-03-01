@@ -394,18 +394,18 @@
 
       
         
-          
-            <p><a href="https://docs.google.com/spreadsheets/d/1KGqJEmfUaLwrieckqc9x80sNLf0Qpq9I6Mpl9rv4LpY/edit#gid=1111651514" target="_blank" rel="external">Excel for summary of ruby test</a></p>
+          <p><a href="https://docs.google.com/spreadsheets/d/1KGqJEmfUaLwrieckqc9x80sNLf0Qpq9I6Mpl9rv4LpY/edit#gid=1111651514">Excel for summary of ruby test</a></p>
 <ol>
 <li>make sure install the rspec gem  </li>
 <li>Use “rspec file_name.rb” to run the rspec test</li>
 </ol>
-<p>Tips:</p>
-<ol>
-<li>already use expect syntax to instead of the should syntax.</li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/07/02/rspec-for-test-in-ruby/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -530,10 +530,14 @@
 
       
         
-          
-            <p><a href="http://www.rubyinside.com/how-to-create-a-ruby-extension-in-c-in-under-5-minutes-100.html" target="_blank" rel="external">Create the Ruby extension in C</a><br>里面清晰地讲明了怎么给Ruby写C的extension。<br>require mkmf, create makefile, create the extension</p>
-
-          
+          <p><a href="http://www.rubyinside.com/how-to-create-a-ruby-extension-in-c-in-under-5-minutes-100.html">Create the Ruby extension in C</a><br>里面清晰地讲明了怎么给Ruby写C的extension。<br>require mkmf, create makefile, create the extension</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/24/ruby-c-python-c-plus-plus-world-tips/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -658,19 +662,14 @@
 
       
         
-          
-            <ol>
-<li><p>Ridiculous Problem 1:<br> Situation: I use paperclip gem to provide the file upload functionality, after I use it the view render problems.<br> Solution: The problem is in the Model referral, it influence the controller process.<br> Tips: Pay attention to the stack of the Rails report, the model-controller-view.<br> 有些时候Exception，rails报错的标题是主要问题，有时候，描述是主要的问题，举例：</p>
-<ol>
-<li>Rails:3.2.19 当我把index方法删除，view,index.html.erb里面有bug的时候，<br>exception会报出NoMethodError指向Controller里面，描述里面报出view里面的问题，index方法是可以默认没有的。</li>
-<li>当model里面出现问题，exception标题指向controller，描述里堆栈指向了model里面。<br>exception一般都会报controller的问题，要看清描述，描述的堆栈是从上到下看。<br>用better errors，gems更好的进行项目开发调试。<br>better errors里面的Application Frames提供了应用框架的问题。All Frames里面提供了查看所有其他gem的机会。<br>BetterErrors::Middleware.allow_ip! ‘10.0.80.2/24’</li>
-</ol>
-</li>
-<li><p>Pry Bug:<br><a href="https://github.com/pry/pry/issues/1330" target="_blank" rel="external">pry tab bug</a><br>$ pry       to locate the pry.rb file path<br>modify the pry.rb file require ‘strscan’</p>
-</li>
-</ol>
-
-          
+          <p>Rails development related problem track blog.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/23/rails-development-ridiculous-problem-sets/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -795,95 +794,14 @@
 
       
         
-          
-            <p><a href="http://www.techug.com/awk" target="_blank" rel="external">awk</a>强大的文件操作，从Alfred Aho，Peter Weinberger and Brain Kernighan<br>找出非系统产生的账号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">awk -F “:” ‘($3 &gt;= 1000) &#123; printf $1 “\n”&#125;’ /etc/passwd</div><div class="line">awk Pattern &#123;ACTIONS;&#125;</div></pre></td></tr></table></figure><br>awk中仅有string和numeric，可以互相转换。<br>文件中每一行check每一种pattern（Regex，Boolean，Special）,In Boolean Search,进行fuzzy matching，” 23”==23  </p>
-<p>ack, awk, grep</p>
-<p><a href="http://www.techug.com/25-git-tips" target="_blank" rel="external">git 25 tips useful But a little long</a></p>
-<p>查看当前服务器的运行级别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">runlevel</div><div class="line">who -r</div></pre></td></tr></table></figure></p>
-<p>找到/usr下面大于10M的文件，找到120天之前被修改过的文件. 找出90天内未被访问过的文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">find /usr -size +10M</div><div class="line"></div><div class="line">find /home -mtime +120</div><div class="line"></div><div class="line">find /home \! -atime -90</div></pre></td></tr></table></figure></p>
-<p>alias 设置别名，方便以后使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias ls=ls -al</div></pre></td></tr></table></figure></p>
-<p>工作流程控制的几个命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">jobs [-lp] [job]</div><div class="line">bg [job]</div><div class="line">fg [job]</div><div class="line">kill [-signal] job..</div><div class="line">wait [job..]</div><div class="line"></div><div class="line">%number: refer to job by number</div><div class="line">%string: job whose name begins with string</div><div class="line">%?string: job whose name contains string</div><div class="line">%+ or %%: current job</div><div class="line">%-: previous job</div><div class="line"></div><div class="line">bg      show all jobs in the backend</div><div class="line">fg %2   put the 2 in the front</div><div class="line">jobs    show all jobs</div></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>ENV NAME</th>
-<th>MEANING</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$HISTCMD</td>
-<td>the history number of the current command</td>
-</tr>
-<tr>
-<td>$HISTSIZE</td>
-<td>number of remembered commands</td>
-</tr>
-<tr>
-<td>$HOME</td>
-<td>login directory</td>
-</tr>
-<tr>
-<td>$MAIL</td>
-<td>absolute path of mailbox</td>
-</tr>
-<tr>
-<td>$OLDPWD</td>
-<td>absolute path of previous directory</td>
-</tr>
-<tr>
-<td>$PATH</td>
-<td>command search path</td>
-</tr>
-<tr>
-<td>$PPID</td>
-<td>process ID of parent</td>
-</tr>
-<tr>
-<td>$PS1</td>
-<td>primary prompt 1</td>
-</tr>
-<tr>
-<td>$RANDOM</td>
-<td>generate random number</td>
-</tr>
-<tr>
-<td>$SECONDS</td>
-<td>number of seconds since shell started</td>
-</tr>
-<tr>
-<td>$SHELL</td>
-<td>absolute path of shell</td>
-</tr>
-<tr>
-<td>$UID</td>
-<td>user ID of the current user</td>
-</tr>
-<tr>
-<td>$$</td>
-<td>process ID of current shell</td>
-</tr>
-<tr>
-<td>$?</td>
-<td>exit status of most recent statement</td>
-</tr>
-<tr>
-<td>$#</td>
-<td>number of the argruments</td>
-</tr>
-<tr>
-<td>$x</td>
-<td>all the arguments</td>
-</tr>
-<tr>
-<td>$!</td>
-<td>PID of the moust recent background job</td>
-</tr>
-</tbody>
-</table>
-<p>shell if 语句，testing[]里面是判断，-a是and，-o是or，-e是equal，-z是zero，-n不是zero<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if [ $DEBUG -eq 1]; then</div><div class="line">elif [ -f /etc/passwd ]; then</div><div class="line">else</div><div class="line">fi</div></pre></td></tr></table></figure></p>
-
-          
+          <p><a href="http://www.techug.com/awk">awk</a>强大的文件操作，从Alfred Aho，Peter Weinberger and Brain Kernighan<br>找出非系统产生的账号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">awk -F “:” ‘($3 &gt;= 1000) &#123; printf $1 “\n”&#125;’ /etc/passwd</div><div class="line">awk Pattern &#123;ACTIONS;&#125;</div></pre></td></tr></table></figure><br>awk中仅有string和numeric，可以互相转换。<br>文件中每一行check每一种pattern（Regex，Boolean，Special）,In Boolean Search,进行fuzzy matching，” 23”==23  </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/15/linux-command-learn-tips/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1008,15 +926,15 @@
 
       
         
-          
-            <p><a href="http://ionicframework.com/getting-started/" target="_blank" rel="external">ionic</a></p>
+          <p><a href="http://ionicframework.com/getting-started/">ionic</a></p>
 <p>ionic integrate the nodejs, cordova, ios-sim together.<br>I tried to install, build and emulate the app from tips on the ionic website. But it doesn’t work.</p>
-<p>The problem is ionic can’t launch the app in the simulator.</p>
-<p>After trying different solutions, like kill -9 the apple coresimulator process…<br>I use ios-sim to launch the app project.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ios-sim launch ./platforms/ios/build/emulator/myApp.app</div></pre></td></tr></table></figure></p>
-<p>Cool</p>
-<p>Let me play in the ionic world.</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/11/user-ionic-to-create-ios-native-app/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1141,19 +1059,15 @@
 
       
         
-          
-            <p><a href="https://github.com/sunspot/sunspot" target="_blank" rel="external">Sunspot Github</a></p>
+          <p><a href="https://github.com/sunspot/sunspot">Sunspot Github</a></p>
 <p>rails g sunspot_rails:install<br>只安装了config/sunspot.yml文件进行配置</p>
-<p>gem ‘sunspot_solr’<br>rake sunspot:solr:start(stop)<br>安装完了以后开启solr服务，这样在development过程中可以用solr，用完stop服务。<br>rake sunspot:solr:reindex<br>新加了search属性，就要重新index数据.</p>
-<p>会引起问题的写法，问题：会显示前一次的结果，不显示这一次的。主要是response的更新时间<br><figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#top_search"</span>).autocomplete(&#123;</div><div class="line">    source: <span class="function"><span class="params">(request, response)</span> -&gt;</span></div><div class="line">        send_ajax_request(<span class="string">'/home/search_anything'</span>, &#123;<span class="string">'top_search'</span>: request.term&#125;, <span class="function"><span class="params">(data)</span>-&gt;</span></div><div class="line">            root.search_results = data</div><div class="line">        )</div><div class="line">        response( $.map( root.search_results, <span class="function"><span class="params">(item)</span> -&gt;</span></div><div class="line">            &#123;</div><div class="line">                label: item.label,</div><div class="line">                value: item.value</div><div class="line">            &#125;</div><div class="line">        ))</div><div class="line">    , select: <span class="function"><span class="params">(event, ui)</span>-&gt;</span></div><div class="line">        autocomplete_update_lable(event, ui, <span class="string">'top_search'</span>, <span class="string">'choosen_search_result'</span>)</div><div class="line">    , focus: <span class="function"><span class="params">(event, ui)</span>-&gt;</span></div><div class="line">        autocomplete_update_lable(event, ui, <span class="string">'top_search'</span>, <span class="string">'choosen_search_result'</span>)</div><div class="line">    <span class="comment">#, appendTo: "#modal-content"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>修改后的代码：</p>
-<figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#top_search"</span>).autocomplete(&#123;</div><div class="line">    source: <span class="function"><span class="params">(request, response)</span> -&gt;</span></div><div class="line">        send_ajax_request(<span class="string">'/home/search_anything'</span>, &#123;<span class="string">'top_search'</span>: request.term&#125;, <span class="function"><span class="params">(data)</span>-&gt;</span></div><div class="line">            root.search_results = data</div><div class="line">            response( $.map( root.search_results, <span class="function"><span class="params">(item)</span> -&gt;</span></div><div class="line">                &#123;</div><div class="line">                    label: item.label,</div><div class="line">                    value: item.value</div><div class="line">                &#125;</div><div class="line">            ))</div><div class="line">        )</div><div class="line">    , select: <span class="function"><span class="params">(event, ui)</span>-&gt;</span></div><div class="line">        autocomplete_update_lable(event, ui, <span class="string">'top_search'</span>, <span class="string">'choosen_search_result'</span>)</div><div class="line">    , focus: <span class="function"><span class="params">(event, ui)</span>-&gt;</span></div><div class="line">        autocomplete_update_lable(event, ui, <span class="string">'top_search'</span>, <span class="string">'choosen_search_result'</span>)</div><div class="line">    <span class="comment">#, appendTo: "#modal-content"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>rotate css 写法：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">style</span>:</div><div class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">-25deg</span>);</div></pre></td></tr></table></figure>
-<p>如果在layout里面想调用的方法，把方法放到controller的folder里面，在里面建一个文件，用来存rb文件<br><a href="http://stackoverflow.com/questions/6604272/call-module-function-from-controller-nomethoderror" target="_blank" rel="external">Include method in controller</a></p>
-<p><a href="http://stackoverflow.com/questions/16515460/activeadmin-cant-mass-assign-protected-attributes-email-password-password-c" target="_blank" rel="external">Attribute Can’t be Accessible</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/04/integrate-solar-search-sunspot-with-rails/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1279,7 +1193,8 @@
       
         
           
-            
+            <a id="more"></a>
+
           
         
       
@@ -1405,14 +1320,17 @@
 
       
         
-          
-            <ol>
+          <ol>
 <li>set the link tag to remote:true  </li>
 <li>in the controller route to set up the connection, respond__to do |format| format.js end  </li>
-<li>use html = ‘&lt;%= escape_javascript render(“filename_withough_underscore”) %&gt;’注意外面是单引号，里面双引号  </li>
-</ol>
-
-          
+<li>use html = ‘&lt;%= escape_javascript render(“filename_withough_underscore”) %&gt;’注意外面是单引号，里面双引号
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/02/ruby-ajax-modal-to-show-the-form/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1537,16 +1455,17 @@
 
       
         
-          
-            <p><a href="https://www.youtube.com/watch?v=FTrDT7Ovjs0" target="_blank" rel="external">tutorial video</a></p>
+          <p><a href="https://www.youtube.com/watch?v=FTrDT7Ovjs0">tutorial video</a></p>
 <p>This is a very famous framework for the enterprise.  </p>
-<p><a href="https://github.com/aschenkels-ictstudio/openerp-install-scripts" target="_blank" rel="external">Github install script</a></p>
+<p><a href="https://github.com/aschenkels-ictstudio/openerp-install-scripts">Github install script</a></p>
 <p>the default port for the web application is 8069<br>The default password: superadminpassword  </p>
-<p>My administrator username is admin. password is password.</p>
-<p>sudo service odoo-server start      to start the odoo server.<br>sudo service odoo-server stop       to stop the odoo server.</p>
-<p>使用Digital Ocean的旧金山的服务器去建立网站。  </p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/01/install-the-openerp-version-8-odoo/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1671,8 +1590,7 @@
 
       
         
-          
-            <p><a href="http:www.ruby-lang.org" target="_blank" rel="external">Ruby</a>  </p>
+          <p><a href="http:www.ruby-lang.org">Ruby</a>  </p>
 <h2 id="pry"><a href="#pry" class="headerlink" title="pry"></a>pry</h2><p>Tips:<br>help, ls command</p>
 <ol>
 <li>Duck typing  </li>
@@ -1682,98 +1600,13 @@
 <li>package gem  </li>
 <li>document ruby code  </li>
 </ol>
-<h1 id="Part-one-Facets-of-Ruby"><a href="#Part-one-Facets-of-Ruby" class="headerlink" title="Part one- Facets of Ruby:"></a>Part one- Facets of Ruby:</h1><h2 id="Chapter-1-Getting-Started"><a href="#Chapter-1-Getting-Started" class="headerlink" title="Chapter 1- Getting Started"></a>Chapter 1- Getting Started</h2><p>Rdoc and ri for Ruby documentation, pry also have the doc, </p>
-<h2 id="Chapter-2-Ruby-new"><a href="#Chapter-2-Ruby-new" class="headerlink" title="Chapter 2- Ruby.new"></a>Chapter 2- Ruby.new</h2><p>Every object has a unique object identifier.<br>Methods are invoked by sending a message to an object.</p>
-<p>Class Variable: @@total<br>Global Variable: $debug<br>Constant Name: PI</p>
-<p>Array initialization: a = %w{ test tao zhang xiao}<br>Hash initialization: h = Hash.new(0) for like counting the words</p>
-<p>Regex: \s \d \w, =~, is match. </p>
-<p>Block and Iterators: use yield() 反调block中的变量。</p>
-<p>Command-Line Arguments: ARGV array, print gets, p</p>
-<h2 id="Chapter-3-Classes-Objects-and-Variables"><a href="#Chapter-3-Classes-Objects-and-Variables" class="headerlink" title="Chapter 3- Classes, Objects and Variables"></a>Chapter 3- Classes, Objects and Variables</h2><p>initialize is the constructor in Ruby.<br>attr-reader, attr-accessor method to provide set and get method.<br>CSV reader. String.dup to duplicate the string object and String.freeze the object, the object can’t be changed.</p>
-<h2 id="Chapter-4-Containers-Blocks-and-Iterators"><a href="#Chapter-4-Containers-Blocks-and-Iterators" class="headerlink" title="Chapter 4- Containers, Blocks, and Iterators"></a>Chapter 4- Containers, Blocks, and Iterators</h2><p>Arrays, can be accessed by the negative index which is calculated from the end.<br>a[1..3], a[1…3] no include the last one, a[-3..-1]<br>shift, pop and push is supported by Array by the default. push+shift=Queue, push+pop=Stack  </p>
-<p>Hash can be indexed by Regex, Symbol and String. Ruby remember insert order of hash when try to iterate it.<br>String.downcase, String.scan search the string to regex.  Hash.sort-by {block} </p>
-<p>Ruby iterator is a method that can invoke a block of code.<br>swap: a,b=b,a,  Container.each-with-index, Array.inject(:+) calculate the sum of the array. loop is while(true). </p>
-<p>block-given? test give block or not.<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lambda &#123; p “test” &#125;</div></pre></td></tr></table></figure><br>lambda will create a Proc.new for the block.  </p>
-<h2 id="Chapter-5-Sharing-Functionality-Inheritance-Modules-and-Mixins"><a href="#Chapter-5-Sharing-Functionality-Inheritance-Modules-and-Mixins" class="headerlink" title="Chapter 5- Sharing Functionality: Inheritance, Modules, and Mixins"></a>Chapter 5- Sharing Functionality: Inheritance, Modules, and Mixins</h2><p>Inheritance &lt;,  mixins include keyword</p>
-<h2 id="Chapter-6-Standard-Types"><a href="#Chapter-6-Standard-Types" class="headerlink" title="Chapter 6- Standard Types"></a>Chapter 6- Standard Types</h2><p>3.times, 1.upto(5), 10.downto(1), 50.step(10,2)  iterator generate way.  </p>
-<h2 id="Chapter-7-Regular-Expression"><a href="#Chapter-7-Regular-Expression" class="headerlink" title="Chapter 7- Regular Expression"></a>Chapter 7- Regular Expression</h2><h2 id="Chapter-8-More-about-Method"><a href="#Chapter-8-More-about-Method" class="headerlink" title="Chapter 8- More about Method"></a>Chapter 8- More about Method</h2><h2 id="Chapter-9-Expressions"><a href="#Chapter-9-Expressions" class="headerlink" title="Chapter 9- Expressions"></a>Chapter 9- Expressions</h2><p>defined? check method<br>Comparing objects: ==, ===, &lt;=&gt;(General comparison operator), =~, eql?(same type and equal values) and equal? (same object ID</p>
-<h2 id="Chapter-10-Exceptions-catch-and-throw"><a href="#Chapter-10-Exceptions-catch-and-throw" class="headerlink" title="Chapter 10- Exceptions, catch and throw"></a>Chapter 10- Exceptions, catch and throw</h2><p>Tiding up, begin-rescue-end. </p>
-<h2 id="Chapter-11-Basic-Input-and-Output"><a href="#Chapter-11-Basic-Input-and-Output" class="headerlink" title="Chapter 11- Basic Input and Output"></a>Chapter 11- Basic Input and Output</h2><p>IO Object, File, STDOUT, endl, StringIO, open()</p>
-<h2 id="Chapter-12-Fibers-Threads-and-Processes"><a href="#Chapter-12-Fibers-Threads-and-Processes" class="headerlink" title="Chapter 12- Fibers, Threads, and Processes"></a>Chapter 12- Fibers, Threads, and Processes</h2><p>Fiber: Fibers let u suspend execution of one part of program and run some other part. Run the code later.<br>Multiple thread, multiple process: split up cooperating tasks.  </p>
-<p><a href="http://stackoverflow.com/questions/9052621/why-do-we-need-fibers" target="_blank" rel="external">Fiber</a>, Fiber.new, Fiber.yield, Fiber is used for abstractions, like enumerate.<br>Fiber can transfer the control, continuation is a way of recording the state of the running program, like web app request.  </p>
-<p>Multiple thread, green thread by Ruby. Multiple Processes, system(“linux system command”).  </p>
-<h2 id="Chapter-13-Unit-Testing"><a href="#Chapter-13-Unit-Testing" class="headerlink" title="Chapter 13- Unit Testing"></a>Chapter 13- Unit Testing</h2><p>Test::Unit::TestCase, assert-equal(), assert-match, assert-empty, assert-same</p>
-<h2 id="Chapter-14-When-Trouble-Strikes"><a href="#Chapter-14-When-Trouble-Strikes" class="headerlink" title="Chapter 14- When Trouble Strikes"></a>Chapter 14- When Trouble Strikes</h2><p>Use nonbuffered I/O(set sync=true) for debug messages.<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">num1, num2 = line.split(/,/).map &#123; |val| Integer(val) &#125;</div></pre></td></tr></table></figure><br>has.rehash to rehash the elements in hash, like object hash value.<br>benchmark to test the performance.  </p>
-<h1 id="Part-two-Ruby-in-Its-Setting"><a href="#Part-two-Ruby-in-Its-Setting" class="headerlink" title="Part two- Ruby in Its Setting"></a>Part two- Ruby in Its Setting</h1><h2 id="Chapter-15-Ruby-and-Its-World"><a href="#Chapter-15-Ruby-and-Its-World" class="headerlink" title="Chapter 15- Ruby and Its World"></a>Chapter 15- Ruby and Its World</h2><p>gem query –details –remote –name-matches builder<br>gem list –all, list all versions<br>gem environment gemdir<br>gem server, open a gem document server for listing the installed gems.</p>
-<p>rake developed by Jim Weirich, was initially implemented as a Ruby version of Make. But rake is an automation tool, run tasks.<br>Thor is a tool that makes it easy to write Ruby command-line tools.</p>
-<h2 id="Chapter-16-Namespace-Source-Files-and-Distribution"><a href="#Chapter-16-Namespace-Source-Files-and-Distribution" class="headerlink" title="Chapter 16- Namespace, Source Files, and Distribution"></a>Chapter 16- Namespace, Source Files, and Distribution</h2><p>Math::E, Math::PI, namespace. </p>
-<h2 id="Chapter-17-Character-Encoding"><a href="#Chapter-17-Character-Encoding" class="headerlink" title="Chapter 17- Character Encoding"></a>Chapter 17- Character Encoding</h2><p>Not too much to talk about that.</p>
-<h2 id="Chapter-18-Interactive-Ruby-Shell"><a href="#Chapter-18-Interactive-Ruby-Shell" class="headerlink" title="Chapter 18- Interactive Ruby Shell"></a>Chapter 18- Interactive Ruby Shell</h2><p>conf, configuration fo the IRB, </p>
-<h2 id="Chapter-19-Documenting-Ruby"><a href="#Chapter-19-Documenting-Ruby" class="headerlink" title="Chapter 19- Documenting Ruby"></a>Chapter 19- Documenting Ruby</h2><p>Explain how to use Rdoc and ri to document the ruby</p>
-<h2 id="Chapter-20-Ruby-and-the-Web"><a href="#Chapter-20-Ruby-and-the-Web" class="headerlink" title="Chapter 20- Ruby and the Web"></a>Chapter 20- Ruby and the Web</h2><p>Talk about the CGI: common gateway interface, cookies and sessions, which includes all the lower-level details.  </p>
-<h2 id="Chapter-21-Ruby-and-Microsoft-Windows"><a href="#Chapter-21-Ruby-and-Microsoft-Windows" class="headerlink" title="Chapter 21- Ruby and Microsoft Windows"></a>Chapter 21- Ruby and Microsoft Windows</h2><p>Discuss with about the Win32API, win32ole module. to interact with windows, Windows shell.  </p>
-<h1 id="Part-Three-Ruby-Crystallized"><a href="#Part-Three-Ruby-Crystallized" class="headerlink" title="Part Three- Ruby Crystallized"></a>Part Three- Ruby Crystallized</h1><p>=begin =end is ignored by Ruby and used to comment and docs.</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%q</td>
-<td>Single-quoted string</td>
-</tr>
-<tr>
-<td>%Q, %</td>
-<td>Double-quoted string</td>
-</tr>
-<tr>
-<td>%w, %W</td>
-<td>Array of strings</td>
-</tr>
-<tr>
-<td>%r</td>
-<td>Regular expression pattern</td>
-</tr>
-<tr>
-<td>%s</td>
-<td>a symbol</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>shell command</td>
-</tr>
-</tbody>
-</table>
-<p>usually %r for regex %w for string array, %x for command, %q for string for multiple lines.</p>
-<h2 id="Chapter-22-Ruby-Language"><a href="#Chapter-22-Ruby-Language" class="headerlink" title="Chapter 22- Ruby Language"></a>Chapter 22- Ruby Language</h2><h3 id="Basic-Types"><a href="#Basic-Types" class="headerlink" title="Basic Types"></a>Basic Types</h3><p>numbers, strings, arrays, hashes, ranges, symbols, regex<br>Fixnum to Bignum automatically,<br>String is different in dilimited and substitution.<br>?\C-a #=&gt; “\x01”<br>?\C-d $=&gt; “\u0004”</p>
-<p>Ranges: expr..expr like 1..3, expr…expr will exclude the last element.  </p>
-<p>Array: %w only set the words array no substitution, %W will make substitution of individual word.  </p>
-<p>Symbol: In some lang is called atoms and the process is called interning.  :”#{a}ello”</p>
-<p>Regex: /pattern/options, %r{pattern}options<br>options can be:<br>| Options | Meaning                   |<br>| —     | —                       |<br>| i       | case insensitive          |<br>| o       | substitute once           |<br>| m       | match new line            |<br>| x       | allow spaces and comments |</p>
-<p>Variables :<br>P.320   Pattern Matching Variables, Input/Output Variables, Exexution Environment Variables, </p>
-<p>break, redo and next. </p>
-<p>{}, Proc, lambda {}</p>
-<h2 id="Chapter-23-Duck-Typing"><a href="#Chapter-23-Duck-Typing" class="headerlink" title="Chapter 23- Duck Typing"></a>Chapter 23- Duck Typing</h2><p>An object’s type is determined by what it can do, not by its class!!</p>
-<p>names.map { |name| name.upcase}  is equal:  names.map(&amp;:upcase), &amp;:upcase will be changed into to_proc of upcase.  </p>
-<h2 id="Chapter-24-Metaprogramming"><a href="#Chapter-24-Metaprogramming" class="headerlink" title="Chapter 24- Metaprogramming"></a>Chapter 24- Metaprogramming</h2><p>Metaprogramming, provide the ability to design a new, domain-specific programming language to solve particular problem.<br>P366, A Ruby object has three components:   </p>
-<ol>
-<li>A set of flags  </li>
-<li>some instance variables  </li>
-<li>an associated class<br><strong>self</strong> refers to the read-only <em>current object</em><br>puts 这种方法的调用过程，从self开始，把self作为method receiver，如果没有方法就继续找他的supperclass，直到最后的BasicObject，如果没有就报错。P.367有详细说明了这个过程。  </li>
-</ol>
-<p>P.369, 里面讲了怎么给已经有class的ruby object加入他们的method，ruby会让他们继承自一个anonymous class，singleton class，来实现这个方法。<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">animal = ‘cat’  </div><div class="line">def animal.speak</div><div class="line">    puts “The #&#123;self&#125; speaks words”</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<p>In ruby the instance variable is created withe the class, not the instance of the class. So use self.val to access to the variables.  </p>
-<figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">singleton = class &lt;&lt; animal</div><div class="line">    def lie</div><div class="line">        puts “The #&#123;self&#125; is lying.”</div><div class="line">    end</div><div class="line">    self</div><div class="line">end</div><div class="line">puts singleton.instance_methods - ‘animal’.methods</div></pre></td></tr></table></figure>
-<p>在ruby中子类修改父类的私有函数，只需要用public :method_name，ruby会建立个新的同名method然后super调用，返回结果。<br>P.376 Ruby中的Modules和Mixins的实现方式就是，用anonymous class的方式来将方法指向module同时super class保持正常，既提供了功能同时，也可以合理的建立super class chain。<br>P.378 24.5 Metaprogramming Class-Level Macros，这一块很爽，讲了关于attr_accessor还有has_many的实现技术。  </p>
-<p>通过这个方式来创建了add_logging，同时用log方法就可以调用。<br><figure class="highlight plain"><figcaption><span>ruby</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Logger</div><div class="line">    def self.add_logging(id_string)</div><div class="line">        define_method(:log) do |msg|</div><div class="line">            now = Time.now.strftime(“%H:%M:%S”)</div><div class="line">            STDERR.puts “#&#123;now&#125;-#&#123;id_string&#125;: #&#123;self&#125; (#&#123;msg&#125;)”</div><div class="line">        end</div><div class="line">    end</div><div class="line">end</div></pre></td></tr></table></figure></p>
-<p>Ruby Struct.new(:name, :address, :likes) 可以新建的class只带有attributes，并且可以被&lt; extend 继承。<br>P.384 Class.new的神奇用法,instance_eval 将设置self，直接调用caller的method。9,10小节没有怎么看明白.  </p>
-<h2 id="Chapter-26-locking-Ruby-in-Safe"><a href="#Chapter-26-locking-Ruby-in-Safe" class="headerlink" title="Chapter 26- locking Ruby in Safe"></a>Chapter 26- locking Ruby in Safe</h2><p>Ruby中的safe模式，$SAFE里面存着现在的safe等级从0到4，可以用Object#taint，tainted？，trust来判断object的可信度。  </p>
-<p>Rails 里面有些ruby没有的内置方法，包括Stirng.to_time, 直接把string转换成时间格式。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/05/12/ruby-programmint-recommendation-and-tips/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -88,21 +88,18 @@
 
 
 <meta name="description" content="Sunspot Github
-rails g sunspot_rails:install只安装了config/sunspot.yml文件进行配置
-gem ‘sunspot_solr’rake sunspot:solr:start(stop)安装完了以后开启solr服务，这样在development过程中可以用solr，用完stop服务。rake sunspot:solr:reindex新加了sea">
+rails g sunspot_rails:install只安装了config/sunspot.yml文件进行配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Integrate solar search sunspot with rails">
 <meta property="og:url" content="http://yoursite.com/2015/06/04/integrate-solar-search-sunspot-with-rails/index.html">
 <meta property="og:site_name" content="windse7en">
 <meta property="og:description" content="Sunspot Github
-rails g sunspot_rails:install只安装了config/sunspot.yml文件进行配置
-gem ‘sunspot_solr’rake sunspot:solr:start(stop)安装完了以后开启solr服务，这样在development过程中可以用solr，用完stop服务。rake sunspot:solr:reindex新加了sea">
-<meta property="og:updated_time" content="2017-02-27T02:26:27.000Z">
+rails g sunspot_rails:install只安装了config/sunspot.yml文件进行配置">
+<meta property="og:updated_time" content="2017-03-01T19:51:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Integrate solar search sunspot with rails">
 <meta name="twitter:description" content="Sunspot Github
-rails g sunspot_rails:install只安装了config/sunspot.yml文件进行配置
-gem ‘sunspot_solr’rake sunspot:solr:start(stop)安装完了以后开启solr服务，这样在development过程中可以用solr，用完stop服务。rake sunspot:solr:reindex新加了sea">
+rails g sunspot_rails:install只安装了config/sunspot.yml文件进行配置">
 
 
 
@@ -405,6 +402,7 @@ gem ‘sunspot_solr’rake sunspot:solr:start(stop)安装完了以后开启solr�
       
         <p><a href="https://github.com/sunspot/sunspot" target="_blank" rel="external">Sunspot Github</a></p>
 <p>rails g sunspot_rails:install<br>只安装了config/sunspot.yml文件进行配置</p>
+<a id="more"></a>
 <p>gem ‘sunspot_solr’<br>rake sunspot:solr:start(stop)<br>安装完了以后开启solr服务，这样在development过程中可以用solr，用完stop服务。<br>rake sunspot:solr:reindex<br>新加了search属性，就要重新index数据.</p>
 <p>会引起问题的写法，问题：会显示前一次的结果，不显示这一次的。主要是response的更新时间<br><figure class="highlight coffee"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#top_search"</span>).autocomplete(&#123;</div><div class="line">    source: <span class="function"><span class="params">(request, response)</span> -&gt;</span></div><div class="line">        send_ajax_request(<span class="string">'/home/search_anything'</span>, &#123;<span class="string">'top_search'</span>: request.term&#125;, <span class="function"><span class="params">(data)</span>-&gt;</span></div><div class="line">            root.search_results = data</div><div class="line">        )</div><div class="line">        response( $.map( root.search_results, <span class="function"><span class="params">(item)</span> -&gt;</span></div><div class="line">            &#123;</div><div class="line">                label: item.label,</div><div class="line">                value: item.value</div><div class="line">            &#125;</div><div class="line">        ))</div><div class="line">    , select: <span class="function"><span class="params">(event, ui)</span>-&gt;</span></div><div class="line">        autocomplete_update_lable(event, ui, <span class="string">'top_search'</span>, <span class="string">'choosen_search_result'</span>)</div><div class="line">    , focus: <span class="function"><span class="params">(event, ui)</span>-&gt;</span></div><div class="line">        autocomplete_update_lable(event, ui, <span class="string">'top_search'</span>, <span class="string">'choosen_search_result'</span>)</div><div class="line">    <span class="comment">#, appendTo: "#modal-content"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>修改后的代码：</p>
@@ -481,6 +479,29 @@ gem ‘sunspot_solr’rake sunspot:solr:start(stop)安装完了以后开启solr�
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>

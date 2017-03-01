@@ -394,20 +394,14 @@
 
       
         
-          
-            <p>cluster 图，主要为了表现层次关系，类似家谱，年表。</p>
-<p><a href="http://www.ourd3js.com/wordpress/?p=245" target="_blank" rel="external">TUTORIAL</a></p>
-<ol>
-<li><p>数据转换：d3.layout.cluster() 转换数据  </p>
-</li>
-<li><p>生成贝赛尔曲线：d3.svg.diagonal() 生成贝塞尔曲线，绘制曲线path  </p>
-</li>
-<li><p>每个nodes配置：给每个node放置label和circle</p>
-</li>
-</ol>
-<p>最后，做完的样子：<br><a href="http://jsfiddle.net/windse7en/24v9nwdf/" target="_blank" rel="external">Cluster Chart</a></p>
-
-          
+          <p>cluster 图，主要为了表现层次关系，类似家谱，年表。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/02/d3-cluster-chart/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -532,30 +526,16 @@
 
       
         
-          
-            <p>弦图（ Chord ），主要用于表示两个节点之间的联系。  </p>
+          <p>弦图（ Chord ），主要用于表示两个节点之间的联系。  </p>
 <p>两点之间的连线，表示谁和谁具有联系：  </p>
 <p>线的粗细代表权重。</p>
-<p><a href="http://www.ourd3js.com/wordpress/?p=213" target="_blank" rel="external">TUTORIAL</a></p>
-<ol>
-<li><p>数据处理：Chord图用的是matrix数据，在一个nXn 的matrix里表现的是之间的关系，先从matix中根据chord的layout生成一个matirx的object，里面有groups和chords，group表现的是n个组的各种角度，chords里面存的是matix中每个cell的值，有权重，根据权重绘制每个arc的粗细。  </p>
-</li>
-<li><p>添加svg，控制原点：添加svg，svg中添加g，给g，设定transform(translation)，移动原点，作为chord的中心。  </p>
-</li>
-<li><p>颜色配置：d3.scale.category20(); scale 从index或得相关的颜色。  </p>
-</li>
-<li><p>弧线计算：d3.svg.arc().innerRadius.outerRadius, 设定弧线计算公式，内径外径。  </p>
-</li>
-<li><p>绘制path：g.selectAll(“path”).data.enter().append(“path”).style(fill).style(stroke).attr(d) path的d属性整个path的路径。  </p>
-</li>
-<li><p>标签text：每个标签，rotate，translate到相应的位置。</p>
-</li>
-<li><p>绘制内部弦：给弦加载数据，设置path。着色，event绑定。</p>
-</li>
-</ol>
-<p>最后，做完以后的样子<br><a href="http://jsfiddle.net/windse7en/a7dxc9vt/" target="_blank" rel="external">Chord Chart</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/02/d3-chord-chart/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -680,11 +660,14 @@
 
       
         
-          
-            <p>HL7 manual<br><a href="http://www.va.gov/vdl/documents/Infrastructure/Health_Level_7_(HL7)/hlo_system_manager_manual.pdf" target="_blank" rel="external">http://www.va.gov/vdl/documents/Infrastructure/Health_Level_7_(HL7)/hlo_system_manager_manual.pdf</a></p>
-<p><a href="http://www.va.gov/vdl/section.asp?secid=2" target="_blank" rel="external">Infrastructure of Vista</a><br><a href="http://www.eclinicalworks.com/" target="_blank" rel="external">eClinicalWorks</a><br><a href="http://www.eclinicalworks.com/products-services/pricing/" target="_blank" rel="external">Free Conversion from Your Existing EHR to eClinicalWorks</a></p>
-
-          
+          <p>HL7 manual<br><a href="http://www.va.gov/vdl/documents/Infrastructure/Health_Level_7_(HL7)/hlo_system_manager_manual.pdf">http://www.va.gov/vdl/documents/Infrastructure/Health_Level_7_(HL7)/hlo_system_manager_manual.pdf</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/01/vista-ehr-migration/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -809,37 +792,14 @@
 
       
         
-          
-            <p>强烈推荐的Blog，里面的资料整理很全面：<br><a href="http://www.ourd3js.com/wordpress/?p=396" target="_blank" rel="external">d3 学习资料OUR d3.js</a><br><a href="http://bl.ocks.org/mbostock" target="_blank" rel="external">Mike Bostock D3 examples</a><br>里面有超多的Mike Bostock写的d3的例子，但是不太容易检索。</p>
-<p>学习d3的相关教程:</p>
-<ol>
-<li><a href="https://ruby-china.org/topics/16216" target="_blank" rel="external">为什么选择d3？</a>  </li>
-<li><a href="http://www.pkuwwt.tk/d3-tutorial-cn/about.html" target="_blank" rel="external">Mike Bostock的d3教程部分中文版</a>  </li>
-<li><a href="http://chimera.labs.oreilly.com/books/1230000000345/index.html" target="_blank" rel="external">Scott Murray的d3教学</a>  </li>
-<li><a href="http://www.ourd3js.com/wordpress/" target="_blank" rel="external">关于d3关于数据可视化的blog，入门</a></li>
-</ol>
-<p>d3相关的学习Blog：  </p>
-<ol>
-<li><a href="http://www.cnblogs.com/winleisure/p/3512890.html" target="_blank" rel="external">简单入门并且有些思考</a>  </li>
-<li><a href="http://bost.ocks.org/mike/join/" target="_blank" rel="external">Mike Bostock的关于d3 joins的Blog</a>  </li>
-</ol>
-<p>JSfiddle:  </p>
-<ol>
-<li><a href="http://jsfiddle.net/" target="_blank" rel="external">windse7en’s JSFiddle</a>  </li>
-<li><a href="http://jsfiddle.net/windse7en/7c0LLvck/3/" target="_blank" rel="external">动起来的柱状图</a></li>
-<li><a href="http://jsfiddle.net/windse7en/7c0LLvck/9/" target="_blank" rel="external">让动起来的加上鼠标事件</a></li>
-</ol>
-<p>d3 学习tips：<br>不要忘记加<meta charset="”utf-8”">  </p>
-<ol>
-<li><a href="https://docs.google.com/spreadsheets/d/16xbZrVTDMZb4o06xvZJ9iKAs0Y1rjlcGMLHU-KLibpA/edit#gid=0" target="_blank" rel="external">d3学习笔记在google，doc上</a>  </li>
-</ol>
-<p>d3 学习过程：<br>选择元素– 绑定数据– 添加元素– 添加文字</p>
-<p>d3的元素：svg，scale，axis，<br><a href="http://www.ourd3js.com/wordpress/?p=156" target="_blank" rel="external">d3元素响应事件</a></p>
-<p>d3的作品：</p>
-<p>散点图（二维）：<br><a href="http://bl.ocks.org/guoweish/4a4970fb08f0dc72e45c" target="_blank" rel="external">中国2014年各省购车情况</a></p>
-<p>时间轴，方格阵：<br><a href="http://bl.ocks.org/guoweish/raw/64faa36186a5d47e4abd/" target="_blank" rel="external">中国股市晴雨图</a><br><a href="http://www.ourd3js.com/collection/sgzx/1/src/timeline.html" target="_blank" rel="external">中国历史人口150年</a><br><a href="http://bl.ocks.org/syntagmatic/4181267" target="_blank" rel="external">Great Performance Coordinates</a></p>
-
-          
+          <p>强烈推荐的Blog，里面的资料整理很全面：<br><a href="http://www.ourd3js.com/wordpress/?p=396">d3 学习资料OUR d3.js</a><br><a href="http://bl.ocks.org/mbostock">Mike Bostock D3 examples</a><br>里面有超多的Mike Bostock写的d3的例子，但是不太容易检索。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/01/d3-js-learning-process/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -964,13 +924,14 @@
 
       
         
-          
-            <p>Polymer is the Google new designed web component solution. It aims to solve the structure the confusing css and js files.</p>
-<p><a href="https://www.polymer-project.org/0.5/docs/start/creatingelements.html" target="_blank" rel="external">Polymer Website</a><br><a href="https://github.com/alchapone/polymer-rails" target="_blank" rel="external">Polymer Rails Github</a><br><a href="https://github.com/alchapone/polymer-core-rails" target="_blank" rel="external">Polymer Core Elements Github</a><br><a href="https://github.com/alchapone/polymer-paper-rails" target="_blank" rel="external">Polymer Paper Github</a><br><a href="http://stackoverflow.com/questions/26884022/google-polymer-with-rails-4" target="_blank" rel="external">Tips for how to use the polymer</a><br><a href="https://github.com/ahuth/emcee/blob/master/README.md" target="_blank" rel="external">Emcee tips for polymer</a><br><a href="https://www.polymer-project.org/0.5/components/core-elements/demo.html#core-drawer-panel" target="_blank" rel="external">Polymer Core elements</a></p>
-<p>Tag-bar-Toggle:  ,tt in the nmap mode, The , is like the leader key.<br>shift-mouse-right-click:     paste the code.<br>VIM nmap shortcuts:     ]s jump to the next misspelling word, [s, jump to the last word.<br>zg add the word to the spelling check dictionary. zug undo add the word, “z=” view the spelling suggestions.<br>autocmd BufEnter /usr/share/vim/vim73/doc/ <em> .txt  set nospell<br>autocmd BufLeave /usr/share/vim/vim73/doc/ </em> .txt  set spell</p>
-<p>In the Markdown file, <space *="" space=""> is the <em> symbol </em>emphasis*</space></p>
-
-          
+          <p>Polymer is the Google new designed web component solution. It aims to solve the structure the confusing css and js files.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/27/integrate-polymer-with-rails/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1095,42 +1056,16 @@
 
       
         
-          
-            <p>Shell tags: <a href="http://tldp.org/LDP/abs/html/" target="_blank" rel="external">Bourne shell</a>, Korn shell, C shell.<br>其他和bash的功能差距主要是补充了作业控制，历史记忆机制和命令行编辑。</p>
+          <p>Shell tags: <a href="http://tldp.org/LDP/abs/html/">Bourne shell</a>, Korn shell, C shell.<br>其他和bash的功能差距主要是补充了作业控制，历史记忆机制和命令行编辑。</p>
 <blockquote><p>A useful language needs arrays, pointers and a generic mechanism for building data structure.</p>
 <footer><strong>Herbert Mayer</strong></footer></blockquote>
-<p><a href="http://tldp.org/LDP/abs/html/why-shell.html" target="_blank" rel="external">where not to use shell scripts</a><br><a href="http://tldp.org/LDP/abs/html/timedate.html#DATEREF" target="_blank" rel="external">shell time related command</a><br><a href="http://tldp.org/LDP/abs/html/system.html#WHOREF" target="_blank" rel="external">system administrator commands</a><br><a href="http://www.360doc.com/content/11/0623/09/7102324_128871166.shtml" target="_blank" rel="external">帮助我编译手中的程序</a></p>
-<h2 id="第一章-UNIX基础知识"><a href="#第一章-UNIX基础知识" class="headerlink" title="第一章 UNIX基础知识"></a>第一章 UNIX基础知识</h2><p>第一个ls函数实现，具体讲了整个代码流程。</p>
-<h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p>文字描述符是一个小的非负整数，内核用以标识一个特定进程正在存访的文件。当内核打<br>开一个现存文件或创建一个新文件时，它就返回一个文件描述符。当读、写文件时，就可使<br>用它。</p>
-<p>每当运行一个新程序，打开三个file descriptor: stdin, stdout, stderr</p>
-<p>easy_shell.c, 里面是一个简单的shell，读入用户的输入，父进程fork一个进程，进程执行命令，执行完命令回到父进程，父进程判断子进程退出完全。  </p>
-<p>function:<br>fork(), getpid(), getuid(), getgid(), waitpid(pid, &amp;status, 0), signal(SIGNIT, sig_int), fgets(buf, MAXLINE, stdin), execlp(buf, buf, (char pointer) 0);  </p>
-<p>Command:<br>cd /usr/include<br>time grep something &gt; /dev/null, give the real time, user CPU time, system CPU time.<br>user CPU time: 用户指令时间。<br>system CPU time：系统内核执行时间。<br>time 很方便的可以看到用户指令时间和系统内核调用时间，可以用来对比ruby，python的执行效果，非常容易使用，把输出结果重定位到&gt; /dev/null 这样没有其他杂乱的显示。  </p>
-<p>分配内存：用户代码-》malloc库函数-》sbrk系统调用  </p>
-<h2 id="第一章总结"><a href="#第一章总结" class="headerlink" title="第一章总结"></a>第一章总结</h2><p>第一章里面讲了很多unix的基础知识，用一个很清晰的shell的例子，解释了shell的运行规则，c语言调用的整个程序过程，比较pragmatic的有时间time，进程的fork、wait。<br>ANSI C standard, and POSIX standard  1.12  P.1-P.17  </p>
-<h2 id="第二章-UNIX标准化及实现"><a href="#第二章-UNIX标准化及实现" class="headerlink" title="第二章 UNIX标准化及实现"></a>第二章 UNIX标准化及实现</h2><p>ANSI C, 美国国家标准学会，1990的C标准库==，系统的很多库，标准的库，之前用到的：  </p>
-<ul>
-<li>signal.h for signal  </li>
-<li>stdio.h for standard I/O, this is default  </li>
-<li>stdlib.h for standard public library, a lot of default libarry  </li>
-<li>unistd.h for unicode standard  </li>
-</ul>
-<p>For sys/**.. .h we have:  </p>
-<ul>
-<li>sys/wait.h for process management<br><img src="http://i.snag.gy/oBn5X.jpg" alt="standard library table">  </li>
-</ul>
-<p>IEEE POSIX, 1003下面有至少15个子委员会，1003.2 针对shell和公用程序的标准，1003.7针对系统管理方面的标准。  </p>
-<p>基于这三种标准，有SVR4，4.3+BSD的实现。<br><img src="http://i.snag.gy/H4yea.jpg" alt="POSIX limit"></p>
-<p><img src="http://i.snag.gy/vMBAP.jpg" alt="limit name"></p>
-<p><img src="http://i.snag.gy/ODaZr.jpg" alt="limit "></p>
-<p><img src="http://i.snag.gy/znF97.jpg" alt="limit 2"></p>
-<p><img src="http://i.snag.gy/ioevr.jpg" alt="basic system data type"></p>
-<h2 id="第二章-总结"><a href="#第二章-总结" class="headerlink" title="第二章 总结"></a>第二章 总结</h2><p>这章主要对比了unix的不同版本的标准化，并提供方法如何去找到限制。2.9 P.18-P.36  </p>
-<h2 id="第三章-文件-I-O"><a href="#第三章-文件-I-O" class="headerlink" title="第三章 文件 I/O"></a>第三章 文件 I/O</h2><p>open, read, write, lseek, close, atomic 特性，线程安全，不带缓存的系统I/O lseek 记录文件在内核中的位移量。<br>FILENO from 0 ~ OPEN _ MAX, 0 stdin, 1 stdout, 2 stderr</p>
-<p>通过lseek可以创建中间有空洞的文件，file.hole<br><img src="http://i.snag.gy/7LEaV.jpg" alt="buffsize with time"><br><img src="http://i.snag.gy/qOWsc.jpg" alt="file description data structure"><br><img src="http://i.snag.gy/MzARJ.jpg" alt="open file at the same time"><br>fcntl, function, ioctl function.</p>
-<h2 id="第三章-总结"><a href="#第三章-总结" class="headerlink" title="第三章 总结"></a>第三章 总结</h2><p>这一章讲了很多文件调用的内容，打开文件的标示，异步、同步、打开文件，buffsize的大小对效率的一影响，原子操作，介绍ioctl和fcntl？，ioctl用于流I/O,fcntl用于记录锁. 3.16, P.37-P.53  </p>
-<h2 id="第四章-文件和目录"><a href="#第四章-文件和目录" class="headerlink" title="第四章 文件和目录"></a>第四章 文件和目录</h2>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/24/advanced-unix-programming-shell/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1255,14 +1190,15 @@
 
       
         
-          
-            <p>今天和李哥，聊了挺多关于人生、男人的话题，总结如下：</p>
+          <p>今天和李哥，聊了挺多关于人生、男人的话题，总结如下：</p>
 <p>男人抓大方向，别抓细节。<br>不要纠结过去，抓住当下，未来随缘<br>人生选择A了，选择B也是合理的。<br>不要纠结理由。<br>任何的存在都是合理的，每个人都有自己的理由。<br>做好自己，当痛苦选择的时候，其实是没有能力提供更好的选择。</p>
-<p>Linkedin HAS COST ME $300, unconsciously!!!  </p>
-<p>以后任何填写卡的信息的都要特别注意，动不动就自动付钱，一扣就是一个月，伤不起啊！！！！  </p>
-<p><a href="http://www.rubydoc.info/gems/slim/Slim/ERBConverter" target="_blank" rel="external">Ruby doc gems</a>  </p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/24/lifenotes-march-24/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1387,14 +1323,15 @@
 
       
         
-          
-            <p>A*, DFS, BFS, Dijkstra, Prim Tree.</p>
+          <p>A*, DFS, BFS, Dijkstra, Prim Tree.</p>
 <p>每个算法有自己的优劣。这两篇谈的挺好。</p>
-<p><a href="http://zhidao.baidu.com/question/513691934.html" target="_blank" rel="external">A星算法</a></p>
-<p><a href="http://zh.wikipedia.org/wiki/A\*%E6%90%9C%E5%AF%BB%E7%AE%97%E6%B3%95" target="_blank" rel="external">A star wiki</a></p>
-<p>BFS, DFS 主要是面对遍历整个图找到最优解的情况，默认只有遍历整个图了以后才可能找到最优解。<br>A星算法是每次决定下一个子节点的时候进行估值，来找到最好解的方向。快速。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/24/algorithm-the-shortest-path/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1519,12 +1456,14 @@
 
       
         
-          
-            <p>Use the <a href="http://vim.spf13.com" target="_blank" rel="external">spf13-vim</a> to make the default configuration of the vim, quite helpful.<br>Store all my own vimrc settings in the .vimrc.local</p>
-<p>The color schemes for spf13:<br>fruity, ir_black, molokai, peaksea</p>
-<p>The silver search: ag, search the string from the current directory, not from the project directory.  </p>
-
-          
+          <p>Use the <a href="http://vim.spf13.com">spf13-vim</a> to make the default configuration of the vim, quite helpful.<br>Store all my own vimrc settings in the .vimrc.local</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/21/vim-ultimate-distribution/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1649,40 +1588,14 @@
 
       
         
-          
-            <p>How to use google?<br>Insight:  The searching result ofen is coming form some specified websites: like stackoverflow for coding problems, stackexchange for engineering problems, vim for plugin information…   </p>
-<p>I try to write python importing the selenium to search keywords in specified websites. But I found some interesting things on Google Search.</p>
-<p>So let’s redesign the problem:</p>
-<ol>
-<li>Originally, the problem is: Can we redesign the desplay way of the searching workflow and the search result view?</li>
-</ol>
-<p>Talk with my workmate Yu Wang. I should reclaim the problem:</p>
-<ol>
-<li>How to improve the searching result in Google Search?</li>
-</ol>
-<p>Sure, these two are quite different problems. For now, I think I should learn No.2 first. To figure out what the capability of Google Search is.</p>
-<p>Other Search Engine:<br><a href="https://duckduckgo.com/" target="_blank" rel="external">Duckduckgo</a>: Try it for searching some daily affairs.</p>
-<p>So the capabilities of <a href="https://support.google.com/websearch/answer/2466433?hl=en" target="_blank" rel="external">Google Search</a> are:</p>
-<ol>
-<li><p>Tell you what’s wrong with the search expression(I use search expression to instead of the keywords, as the search expression is more powerful)<br>Pros:   ignore invalid character, help you to make keywords precision.    </p>
-</li>
-<li><p>site:google.com, only search in the domain area.<br>Pros:   Search specified site, you don’t need try to think out some tech words for the questions.</p>
-</li>
-<li><p>link:google.com, search websites link to the domain name.<br>Pros:   Help you to find some Summarization Website or Blogs.</p>
-</li>
-<li><p>related:stackoverflow.com<br>Pros:   Find some substitutes of the website used.<br>FUN:    I find <a href="http://en.wikipedia.org/wiki/Netvibes" target="_blank" rel="external">netvibes</a> to try</p>
-</li>
-<li><p>OR check one of the two keywords<br>Pros:   Sometime, not sure which words is the best way to approach the problem</p>
-</li>
-<li><p>“google.com”, check URLS contains the term “google.com”<br>Pros:   Find some interesting functionality provided by the host.</p>
-</li>
-<li><p>cache:website.com, see the google cache of the website<br>Pros:   Some times, only cache contains some useful information.</p>
-</li>
-<li><p>-: minus, - excludes the results that include the word or site.<br>Pros:   useful for some words with multiple meanings</p>
-</li>
-</ol>
-
-          
+          <p>How to use google?<br>Insight:  The searching result ofen is coming form some specified websites: like stackoverflow for coding problems, stackexchange for engineering problems, vim for plugin information…   </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/20/how-to-use-google/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
