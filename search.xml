@@ -10,9 +10,9 @@
 
     
     <entry>
-      <title><![CDATA[Migration from octopress to hexo]]></title>
+      <title><![CDATA[Hexo Blog 更新创建]]></title>
       <url>%2F2017%2F02%2F26%2FMigration-from-octopress-to-hexo%2F</url>
-      <content type="text"><![CDATA[Hexo博客 这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。 Steps 记录从Octopress迁移到hexo 安装hexo，新建一个project pull yilia project，安装主题 从yilia切换到next，因为next提供更丰富的功能 把原来的post复制到hexo的source/post下面 原来的文章里面有两个}的情况，需要去掉 Update原来的categories成tags, 加入tags cloud 功能更新 [x] 安装不蒜子浏览记数 [x] 安装disqus注释系统 [x] 安装search功能 [x] 安装流量监测 [ ] 更新背景 [ ] 加入about页面 功能使用 更新字体样式和大小 新建的博文，只需要hexo g &amp;&amp; hexo d就可以发布，不需要每次都commit一下]]></content>
+      <content type="text"><![CDATA[Hexo博客 这是一篇不断更新的博文，为了保持其它博文的顺序，本博文不保存更新时间戳，只有创建戳。 Steps 记录从Octopress迁移到hexo 安装hexo，新建一个project pull yilia project，安装主题 从yilia切换到next，因为next提供更丰富的功能 把原来的post复制到hexo的source/post下面 原来的文章里面有两个}的情况，需要去掉 Update原来的categories成tags, 加入tags cloud 功能更新 [x] 安装不蒜子浏览记数 [x] 安装disqus注释系统 [x] 安装search功能 [x] 安装流量监测 [ ] 更新背景 [ ] 加入about页面 [ ] 安装回到顶部 [ ] 文章文章置顶功能 [x] 添加sitemap [ ] 添加阅读时间 [ ] 调整代码高亮,分享 [ ] 添加share功能 [x] 加入social [ ] 添加external link 功能使用 更新字体样式和大小 新建的博文，只需要hexo g &amp;&amp; hexo d就可以发布，不需要每次都commit一下 hexo s --debug开一个本地服务器，用来看在本地看博客的效果]]></content>
     </entry>
 
     
