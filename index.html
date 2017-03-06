@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en,zh,default">
+<html class="theme-next muse use-motion" lang="en,zh-Hans,default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -278,6 +278,189 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/04/TCP-IP-protocals-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tao Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="windse7en's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/04/TCP-IP-protocals-1/" itemprop="url">
+                  TCP/IP protocals 1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-letters-count">
+            <i class="fa fa-file-o"></i>
+            <span>656 Words </span>
+            &nbsp; | &nbsp;
+            <i class="fa fa-clock-o"></i>
+            <span>3 Min</span>
+            &nbsp; | &nbsp;
+          </span>
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T12:51:20-06:00">
+                2017-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/04/TCP-IP-protocals-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/04/TCP-IP-protocals-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="TCP-IP-protocals"><a href="#TCP-IP-protocals" class="headerlink" title="TCP/IP protocals"></a>TCP/IP protocals</h1><blockquote>
+<p>W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程</p>
+</blockquote>
+<h2 id="Chapters"><a href="#Chapters" class="headerlink" title="Chapters"></a>Chapters</h2><p>通过不同的chapter对比讲述内容</p>
+<ol>
+<li>概述，讲了TCP/IP历史，最关键的是，TCP/IP协议族只是四层，不是包括OSI的全部七层。分别是, Data-link, Network, Transport, Application. 没有的是，Physical太底层了，presentation和session，也没有。</li>
+<li>引言，主要讲了SLIP &amp; PPP, MTU</li>
+<li>IP协议是重点</li>
+<li>ARP，地址解析(Useless), Data-link</li>
+<li>RARP，逆地址解析(Useless</li>
+<li>ICMP, TCP/IP中的回显和差错应答</li>
+<li>Ping程序</li>
+<li>Traceroute程序</li>
+<li>IP选路</li>
+</ol>
+<h2 id="Useful-Commands"><a href="#Useful-Commands" class="headerlink" title="Useful Commands"></a>Useful Commands</h2><p>以下的Commands在Mac和Unix上可以用，用<code>man &lt;command&gt;</code>来看帮助文档。</p>
+<blockquote>
+<p><code>man</code>文档里面主要是三部分，第一部分功能介绍，第二部分各种参数的介绍，第三部分样例输出介绍</p>
+</blockquote>
+<h3 id="netstat-Command"><a href="#netstat-Command" class="headerlink" title="netstat Command"></a><code>netstat</code> Command</h3><ol>
+<li>Use <code>netstat</code> to analyze the system interface and MTU<br><code>netstat -i</code> 显示MTU &amp; interface.<br>Output example:<figure class="highlight tap"><table><tr><td class="code"><pre><div class="line">Name  Mtu   Network       Address            Ipkts Ierrs    Opkts Oerrs  Coll</div><div class="line">lo0  <span class="number"> 16384 </span>&lt;Link<span class="comment">#1&gt;                        196929     0   196929     0     0</span></div><div class="line">lo0  <span class="number"> 16384 </span>localhost   ::1                <span class="number"> 196929 </span>    -  <span class="number"> 196929 </span>    -     -</div><div class="line">lo0  <span class="number"> 16384 </span>127           localhost        <span class="number"> 196929 </span>    -  <span class="number"> 196929 </span>    -     -</div><div class="line">lo0  <span class="number"> 16384 </span>fe80::1%lo0 fe80:1::1          <span class="number"> 196929 </span>    -  <span class="number"> 196929 </span>    -     -</div><div class="line">en0  <span class="number"> 1500 </span> m1515198.lo fe80:4::aebc:32ff <span class="number"> 1659308 </span>    -  <span class="number"> 645371 </span>    -     -</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="ping-Command"><a href="#ping-Command" class="headerlink" title="ping Command"></a><code>ping</code> Command</h3><blockquote>
+<p>ping是通过icmp的回显请求和应答来看能不能ping通。TCP/IP协议族一般会支持ping，但也有被路由器或者防火墙封住。<br><figure class="highlight subunit"><table><tr><td class="code"><pre><div class="line">icmp_seq: ICMP datagram的学号</div><div class="line">ttl:      存活记数</div><div class="line"><span class="keyword">time:</span>     看距离多远</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="traceroute-Command"><a href="#traceroute-Command" class="headerlink" title="traceroute Command"></a><code>traceroute</code> Command</h3><h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><ol>
+<li>大部分协议的结构：<br>| 版本号 | Header的长度  |  服务类型(功能位) | 整个报文的长度(决定MTU) |<br>| 支持的协议类型 | 标识(序号) | 标志 | CRC 检验和 |<br>| TTL(Time to live: 255) | 地址(源，目的) | 数据 |</li>
+</ol>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ol>
+<li>TCP/IP协议族是世界上最成功的软件设计，这么多年不变，可以实现超多的协议和application</li>
+<li>多层封装(都是Byte)，用户数据 -&gt; App Header + 用户数据 -&gt; TCP header(20 Bytes) + App数据 -&gt; IP header(20) + … -&gt; Ethernet Header (14) + … + Ethernet tail (4)</li>
+</ol>
+<ul>
+<li>| Ethernet Header(14) | IP Header(20) | TCP Header(20) | Data(…) | Ethernet(4) |</li>
+<li>IP + TCP + Data, 从46到1500，少了补齐，多了分包, 46 + 18 = 64, <a href="https://supportforums.cisco.com/discussion/9211546/why-mtu-size-1500" target="_blank" rel="external">1500 explanation</a></li>
+</ul>
+<ol>
+<li>TCP/IP对整个功能性的分层对新的设计分层很有借鉴意义，像TCP可靠，IP不可靠，</li>
+<li>功能都可以实现，看最后哪个成为主流。ICMP，TCP都有查询时间的方法</li>
+<li>一条信道对各种不同协议的高重用性</li>
+<li>RFC用来作为规范文档，其他实现要支持的功能性</li>
+<li>A\B\C\D\E五类地址</li>
+<li>数据包超时重发的设定阙值，不过多也不过少</li>
+<li>各种名词设定，来统一理解，TCP segment，IP datagram，Ethernet frame<br>1.</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -1578,156 +1761,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/10/a-endless-journey-to-learn-vim/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tao Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="windse7en's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/07/10/a-endless-journey-to-learn-vim/" itemprop="url">
-                  a endless journey to learn vim
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-letters-count">
-            <i class="fa fa-file-o"></i>
-            <span>1 Words </span>
-            &nbsp; | &nbsp;
-            <i class="fa fa-clock-o"></i>
-            <span>0 Min</span>
-            &nbsp; | &nbsp;
-          </span>
-          
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-10T09:12:52-05:00">
-                2015-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/07/10/a-endless-journey-to-learn-vim/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/10/a-endless-journey-to-learn-vim/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>This description to the VIM journey is to descript my learning process of VIM:</p>
-<p>#开始通过看thoughtbot的vim教学视频学习怎么配置好vim的工作环境，玩vim adventure。第一部基本学会的内容：</p>
-<ol>
-<li>motion在一个文件中</li>
-<li>vim中的letter，word，sentence，paragraph的概念</li>
-<li>配置vim config文件选择template，颜色</li>
-<li>掌握常用的：command</li>
-<li>三种mode熟练切换</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/07/10/a-endless-journey-to-learn-vim/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1777,7 +1810,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1788,7 +1821,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
