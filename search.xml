@@ -3,9 +3,44 @@
   
     
     <entry>
-      <title><![CDATA[TCP/IP protocals 1]]></title>
+      <title><![CDATA[Clean code book]]></title>
+      <url>%2F2017%2F03%2F09%2FClean-code-book%2F</url>
+      <content type="text"><![CDATA[Clean code book这本书写给真正相当good programmer,在乎code的人。很多大牛讲了心目中的clean code的标准，印象深的是really care。工匠精神，craftsmanship.clean code: readability, written well, short, straightforward, easy to maintain. Meaningful Name Principle: Reveal intend. why it exists, what it does and how it is used.Say what you mean. Mean what you say. Avoid DisinformationDon’t include the type in name, avoid like hp. Distinguish NamesAvoid to use Info, Object, Data… , no a/the. Like there are no much differences in followings:getActiveAccount();getActiveAccounts();getActiveAccountInfo(); Pronounceable Namegenymdhms compare to generationTimestamp Searchable Names Avoid Encoding No member prefixAs people will ignore them. Avoid Mental Mapping Noun Class Names, Verb Method Names Pick One word per Concept, no pun Use Solution Domain, Problem Domain Names FunctionsSmall, blocks and indent should be 1 or 2 Functions should do one thing]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Effective Java book]]></title>
+      <url>%2F2017%2F03%2F07%2FEffective-Java-book%2F</url>
+      <content type="text"><![CDATA[Effective Java 2nd Edition by Joshua BlochItems: Consider to use static function instead of constructor Consider to use Builder for many constructor parameters, avoid telescoping constructor(hard to write and read), avoid JavaBean builder(not thread safe)]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Ace in IT]]></title>
+      <url>%2F2017%2F03%2F07%2FAce-in-IT%2F</url>
+      <content type="text"><![CDATA[IT的大牛们 W.Richard StevensWe come from an environment molded from 3 billion years of evolution, and when we change our behavior, there may be problems.– W.Richard Stevens 关于Unix和网络TCP/IP的每本书都很经典 1990 - UNIX Network Programming1992 - Advanced Programming in the UNIX Environment1994 - TCP/IP Illustrated, Volume 1: The Protocols1995 - TCP/IP Illustrated, Volume 2: The Implementation1996 - TCP/IP Illustrated, Volume 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols1998 - UNIX Network Programming, Volume 1, Networking APIs: Sockets and XTI1999 - UNIX Network Programming, Volume 2, Interprocess Communications]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[React Rails i18n]]></title>
+      <url>%2F2017%2F03%2F07%2FReact-Rails-i18n%2F</url>
+      <content type="text"><![CDATA[React i18n Based on RailsTranslationPlugin to consume rails yml fileBlog source]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Learn English Reduction]]></title>
+      <url>%2F2017%2F03%2F07%2FLearn-English-Reduction%2F</url>
+      <content type="text"><![CDATA[ReductionRachel’s English Apple Dumplings Conversationhttp://rachelsenglish.com/apple-dumplings-conversation/ going to you’re I’ll Just let me see them: drop ‘t’ between consonants: lemme, them: em they’re: thur COMFordable CRAP less ofensive I don’t know: I dunno To be on a kick: 最近钟情于做什么 whoops we will it has been = it’s been give me = gimme]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[TCP/IP protocals First book]]></title>
       <url>%2F2017%2F03%2F04%2FTCP-IP-protocals-1%2F</url>
-      <content type="text"><![CDATA[TCP/IP protocals W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程 Chapters通过不同的chapter对比讲述内容 概述，讲了TCP/IP历史，最关键的是，TCP/IP协议族只是四层，不是包括OSI的全部七层。分别是, Data-link, Network, Transport, Application. 没有的是，Physical太底层了，presentation和session，也没有。 引言，主要讲了SLIP &amp; PPP, MTU IP协议是重点 ARP，地址解析(Useless), Data-link RARP，逆地址解析(Useless ICMP, TCP/IP中的回显和差错应答 Ping程序 Traceroute程序 IP选路 Useful Commands以下的Commands在Mac和Unix上可以用，用man &lt;command&gt;来看帮助文档。 man文档里面主要是三部分，第一部分功能介绍，第二部分各种参数的介绍，第三部分样例输出介绍 netstat Command Use netstat to analyze the system interface and MTUnetstat -i 显示MTU &amp; interface.Output example:Name Mtu Network Address Ipkts Ierrs Opkts Oerrs Colllo0 16384 &lt;Link#1&gt; 196929 0 196929 0 0lo0 16384 localhost ::1 196929 - 196929 - -lo0 16384 127 localhost 196929 - 196929 - -lo0 16384 fe80::1%lo0 fe80:1::1 196929 - 196929 - -en0 1500 m1515198.lo fe80:4::aebc:32ff 1659308 - 645371 - - ping Command ping是通过icmp的回显请求和应答来看能不能ping通。TCP/IP协议族一般会支持ping，但也有被路由器或者防火墙封住。icmp_seq: ICMP datagram的学号ttl: 存活记数time: 看距离多远 traceroute Command理解 大部分协议的结构：| 版本号 | Header的长度 | 服务类型(功能位) | 整个报文的长度(决定MTU) || 支持的协议类型 | 标识(序号) | 标志 | CRC 检验和 || TTL(Time to live: 255) | 地址(源，目的) | 数据 | 思考 TCP/IP协议族是世界上最成功的软件设计，这么多年不变，可以实现超多的协议和application 多层封装(都是Byte)，用户数据 -&gt; App Header + 用户数据 -&gt; TCP header(20 Bytes) + App数据 -&gt; IP header(20) + … -&gt; Ethernet Header (14) + … + Ethernet tail (4) | Ethernet Header(14) | IP Header(20) | TCP Header(20) | Data(…) | Ethernet(4) | IP + TCP + Data, 从46到1500，少了补齐，多了分包, 46 + 18 = 64, 1500 explanation TCP/IP对整个功能性的分层对新的设计分层很有借鉴意义，像TCP可靠，IP不可靠， 功能都可以实现，看最后哪个成为主流。ICMP，TCP都有查询时间的方法 一条信道对各种不同协议的高重用性 RFC用来作为规范文档，其他实现要支持的功能性 A\B\C\D\E五类地址 数据包超时重发的设定阙值，不过多也不过少 各种名词设定，来统一理解，TCP segment，IP datagram，Ethernet frame1.]]></content>
+      <content type="text"><![CDATA[TCP/IP protocals一篇总体总结的很好地Blog W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程 Chapters通过不同的chapter对比讲述内容 概述，讲了TCP/IP历史，最关键的是，TCP/IP协议族只是四层，不是包括OSI的全部七层。分别是, Data-link, Network, Transport, Application. 没有的是，Physical太底层了，presentation和session，也没有。 引言，主要讲了SLIP &amp; PPP, MTU IP协议是重点 ARP，地址解析(Useless), Data-link RARP，逆地址解析(Useless ICMP, TCP/IP中的回显和差错应答 Ping程序 Traceroute程序 IP选路 IP -&gt; Ethernet 过程理解 IP datagram会被ehernet封装，加入source mac和des mac，还有一个tail，这个des mac，先在iptable里面找，如果有的话直接用，如果没有的话发送ARP（地址解析请求）来广播问谁知道，拿到以后再用。 TCP -&gt; IP 过程理解 TCP里面的header，data都不变，加入IP 20字节的头，在IP header里面主要有版本信息，头长度,TOS（Type of service），总长度, 【标识序号、标志、片偏移】（用于分片），TTL, 协议，校验。 Useful Commands以下的Commands在Mac和Unix上可以用，用man &lt;command&gt;来看帮助文档。 man文档里面主要是三部分，第一部分功能介绍，第二部分各种参数的介绍，第三部分样例输出介绍 netstat Command Use netstat to analyze the system interface and MTUnetstat -i 显示MTU &amp; interface.Output example:Name Mtu Network Address Ipkts Ierrs Opkts Oerrs Colllo0 16384 &lt;Link#1&gt; 196929 0 196929 0 0lo0 16384 localhost ::1 196929 - 196929 - -lo0 16384 127 localhost 196929 - 196929 - -lo0 16384 fe80::1%lo0 fe80:1::1 196929 - 196929 - -en0 1500 m1515198.lo fe80:4::aebc:32ff 1659308 - 645371 - - ping Command ping是通过icmp的回显请求和应答来看能不能ping通。TCP/IP协议族一般会支持ping，但也有被路由器或者防火墙封住。icmp_seq: ICMP datagram的学号ttl: 存活记数time: 看距离多远 traceroute Command理解 大部分协议的结构：| 版本号 | Header的长度 | 服务类型(功能位) | 整个报文的长度(决定MTU) || :————- | :————- | :– | :— || 支持的协议类型 | 标识(序号) | 标志 | CRC 检验和 || TTL(Time to live: 255) | 地址(源，目的) | 数据 | | 思考 TCP/IP协议族是世界上最成功的软件设计，这么多年不变，可以实现超多的协议和application 多层封装(都是Byte)，用户数据 -&gt; App Header + 用户数据 -&gt; TCP header(20 Bytes) + App数据 -&gt; IP header(20) + … -&gt; Ethernet Header (14) + … + Ethernet tail (4) | Ethernet Header(14) | IP Header(20) | TCP Header(20) | Data(…) | Ethernet(4) | IP + TCP + Data, 从46到1500，少了补齐，多了分包, 46 + 18 = 64, 1500 explanation TCP/IP对整个功能性的分层对新的设计分层很有借鉴意义，像TCP可靠，IP不可靠， 功能都可以实现，看最后哪个成为主流。ICMP，TCP都有查询时间的方法 一条信道对各种不同协议的高重用性 RFC用来作为规范文档，其他实现要支持的功能性 A\B\C\D\E五类地址 数据包超时重发的设定阙值，不过多也不过少 各种名词设定，来统一理解，TCP segment，IP datagram，Ethernet frame TCP三要素：协议，原地址，端口号 疑问 Ethernet frame里面的source MAC地址，是initial source的还是中间中继的地址？ ICMP的端口号是多少？ ICMP是IP层，没有端口号，只是协议，主要有type和code，详细discussion, ICMP 图片]]></content>
     </entry>
 
     

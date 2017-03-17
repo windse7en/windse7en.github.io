@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tcp/ip," />
+  <meta name="keywords" content="book,tcp/ip," />
 
 
 
@@ -87,31 +87,24 @@
 
 
 
-<meta name="description" content="TCP/IP protocals
-W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程
+<meta name="description" content="TCP/IP protocals一篇总体总结的很好地Blog
 
-Chapters通过不同的chapter对比讲述内容
-
-概述，讲了TCP/IP历史，最关键的是，TCP/IP协议族只是四层，不是包括OSI的全部七层。分别是, Data-link, Network, Transport, Application. 没有的是，Phy">
+W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP/IP protocals 1">
+<meta property="og:title" content="TCP/IP protocals First book">
 <meta property="og:url" content="http://yoursite.com/2017/03/04/TCP-IP-protocals-1/index.html">
 <meta property="og:site_name" content="windse7en's blog">
-<meta property="og:description" content="TCP/IP protocals
-W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程
+<meta property="og:description" content="TCP/IP protocals一篇总体总结的很好地Blog
 
-Chapters通过不同的chapter对比讲述内容
-
-概述，讲了TCP/IP历史，最关键的是，TCP/IP协议族只是四层，不是包括OSI的全部七层。分别是, Data-link, Network, Transport, Application. 没有的是，Phy">
-<meta property="og:updated_time" content="2017-03-06T05:05:46.000Z">
+W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程">
+<meta property="og:image" content="https://nmap.org/book/images/hdr/MJB-IP-Header-800x576.png">
+<meta property="og:updated_time" content="2017-03-17T18:49:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP/IP protocals 1">
-<meta name="twitter:description" content="TCP/IP protocals
-W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程
+<meta name="twitter:title" content="TCP/IP protocals First book">
+<meta name="twitter:description" content="TCP/IP protocals一篇总体总结的很好地Blog
 
-Chapters通过不同的chapter对比讲述内容
-
-概述，讲了TCP/IP历史，最关键的是，TCP/IP协议族只是四层，不是包括OSI的全部七层。分别是, Data-link, Network, Transport, Application. 没有的是，Phy">
+W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程">
+<meta name="twitter:image" content="https://nmap.org/book/images/hdr/MJB-IP-Header-800x576.png">
 
 
 
@@ -145,7 +138,7 @@ Chapters通过不同的chapter对比讲述内容
 
 
 
-  <title> TCP/IP protocals 1 | windse7en's blog </title>
+  <title> TCP/IP protocals First book | windse7en's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -326,7 +319,7 @@ Chapters通过不同的chapter对比讲述内容
             
             
               
-                TCP/IP protocals 1
+                TCP/IP protocals First book
               
             
           </h1>
@@ -336,10 +329,10 @@ Chapters通过不同的chapter对比讲述内容
           
           <span class="post-letters-count">
             <i class="fa fa-file-o"></i>
-            <span>656 Words </span>
+            <span>866 Words </span>
             &nbsp; | &nbsp;
             <i class="fa fa-clock-o"></i>
-            <span>3 Min</span>
+            <span>4 Min</span>
             &nbsp; | &nbsp;
           </span>
           
@@ -402,9 +395,11 @@ Chapters通过不同的chapter对比讲述内容
       
 
       
-        <h1 id="TCP-IP-protocals"><a href="#TCP-IP-protocals" class="headerlink" title="TCP/IP protocals"></a>TCP/IP protocals</h1><blockquote>
+        <h1 id="TCP-IP-protocals"><a href="#TCP-IP-protocals" class="headerlink" title="TCP/IP protocals"></a>TCP/IP protocals</h1><p>一篇总体总结的很好地<a href="http://blog.sina.com.cn/s/blog_611a32ff0100gxkg.html" target="_blank" rel="external">Blog</a></p>
+<blockquote>
 <p>W.Richard Stevens, 著有TCP/IP三卷，UNIX环境高级编程，UNIX网络编程</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="Chapters"><a href="#Chapters" class="headerlink" title="Chapters"></a>Chapters</h2><p>通过不同的chapter对比讲述内容</p>
 <ol>
 <li>概述，讲了TCP/IP历史，最关键的是，TCP/IP协议族只是四层，不是包括OSI的全部七层。分别是, Data-link, Network, Transport, Application. 没有的是，Physical太底层了，presentation和session，也没有。</li>
@@ -417,6 +412,13 @@ Chapters通过不同的chapter对比讲述内容
 <li>Traceroute程序</li>
 <li>IP选路</li>
 </ol>
+<h3 id="IP-gt-Ethernet-过程理解"><a href="#IP-gt-Ethernet-过程理解" class="headerlink" title="IP -&gt; Ethernet 过程理解"></a>IP -&gt; Ethernet 过程理解</h3><blockquote>
+<p>IP datagram会被ehernet封装，加入source mac和des mac，还有一个tail，这个des mac，先在iptable里面找，如果有的话直接用，如果没有的话发送ARP（地址解析请求）来广播问谁知道，拿到以后再用。</p>
+</blockquote>
+<h3 id="TCP-gt-IP-过程理解"><a href="#TCP-gt-IP-过程理解" class="headerlink" title="TCP -&gt; IP 过程理解"></a>TCP -&gt; IP 过程理解</h3><blockquote>
+<p>TCP里面的header，data都不变，加入IP 20字节的头，在IP header里面主要有版本信息，头长度,TOS（Type of service），总长度, 【标识序号、标志、片偏移】（用于分片），TTL, 协议，校验。</p>
+</blockquote>
+<p><img src="https://nmap.org/book/images/hdr/MJB-IP-Header-800x576.png" alt="IP header"></p>
 <h2 id="Useful-Commands"><a href="#Useful-Commands" class="headerlink" title="Useful Commands"></a>Useful Commands</h2><p>以下的Commands在Mac和Unix上可以用，用<code>man &lt;command&gt;</code>来看帮助文档。</p>
 <blockquote>
 <p><code>man</code>文档里面主要是三部分，第一部分功能介绍，第二部分各种参数的介绍，第三部分样例输出介绍</p>
@@ -429,24 +431,30 @@ Chapters通过不同的chapter对比讲述内容
 <p>ping是通过icmp的回显请求和应答来看能不能ping通。TCP/IP协议族一般会支持ping，但也有被路由器或者防火墙封住。<br><figure class="highlight subunit"><table><tr><td class="code"><pre><div class="line">icmp_seq: ICMP datagram的学号</div><div class="line">ttl:      存活记数</div><div class="line"><span class="keyword">time:</span>     看距离多远</div></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="traceroute-Command"><a href="#traceroute-Command" class="headerlink" title="traceroute Command"></a><code>traceroute</code> Command</h3><h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><ol>
-<li>大部分协议的结构：<br>| 版本号 | Header的长度  |  服务类型(功能位) | 整个报文的长度(决定MTU) |<br>| 支持的协议类型 | 标识(序号) | 标志 | CRC 检验和 |<br>| TTL(Time to live: 255) | 地址(源，目的) | 数据 |</li>
+<li>大部分协议的结构：<br>| 版本号 | Header的长度  |  服务类型(功能位) | 整个报文的长度(决定MTU) |<br>| :————- | :————- | :– | :— |<br>| 支持的协议类型 | 标识(序号) | 标志 | CRC 检验和 |<br>| TTL(Time to live: 255) | 地址(源，目的) | 数据 | |</li>
 </ol>
 <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ol>
 <li>TCP/IP协议族是世界上最成功的软件设计，这么多年不变，可以实现超多的协议和application</li>
-<li>多层封装(都是Byte)，用户数据 -&gt; App Header + 用户数据 -&gt; TCP header(20 Bytes) + App数据 -&gt; IP header(20) + … -&gt; Ethernet Header (14) + … + Ethernet tail (4)</li>
-</ol>
-<ul>
+<li>多层封装(都是Byte)，用户数据 -&gt; App Header + 用户数据 -&gt; TCP header(20 Bytes) + App数据 -&gt; IP header(20) + … -&gt; Ethernet Header (14) + … + Ethernet tail (4)<ul>
 <li>| Ethernet Header(14) | IP Header(20) | TCP Header(20) | Data(…) | Ethernet(4) |</li>
 <li>IP + TCP + Data, 从46到1500，少了补齐，多了分包, 46 + 18 = 64, <a href="https://supportforums.cisco.com/discussion/9211546/why-mtu-size-1500" target="_blank" rel="external">1500 explanation</a></li>
 </ul>
-<ol>
+</li>
 <li>TCP/IP对整个功能性的分层对新的设计分层很有借鉴意义，像TCP可靠，IP不可靠，</li>
 <li>功能都可以实现，看最后哪个成为主流。ICMP，TCP都有查询时间的方法</li>
 <li>一条信道对各种不同协议的高重用性</li>
 <li>RFC用来作为规范文档，其他实现要支持的功能性</li>
 <li>A\B\C\D\E五类地址</li>
 <li>数据包超时重发的设定阙值，不过多也不过少</li>
-<li>各种名词设定，来统一理解，TCP segment，IP datagram，Ethernet frame<br>1.</li>
+<li>各种名词设定，来统一理解，TCP segment，IP datagram，Ethernet frame</li>
+<li>TCP三要素：协议，原地址，端口号</li>
+</ol>
+<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><ol>
+<li>Ethernet frame里面的source MAC地址，是initial source的还是中间中继的地址？</li>
+<li>ICMP的端口号是多少？<ul>
+<li>ICMP是IP层，没有端口号，只是协议，主要有type和code，详细<a href="http://bbs.51cto.com/archiver/tid-821402.html" target="_blank" rel="external">discussion</a>, <a href="https://nmap.org/book/images/hdr/MJB-ICMP-Header-800x392.png" target="_blank" rel="external">ICMP 图片</a></li>
+</ul>
+</li>
 </ol>
 
       
@@ -471,6 +479,8 @@ Chapters通过不同的chapter对比讲述内容
       
         <div class="post-tags">
           
+            <a href="/tags/book/" rel="tag"># book</a>
+          
             <a href="/tags/tcp-ip/" rel="tag"># tcp/ip</a>
           
         </div>
@@ -493,6 +503,10 @@ Chapters通过不同的chapter对比讲述内容
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/07/Learn-English-Reduction/" rel="prev" title="Learn English Reduction">
+                Learn English Reduction <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -594,7 +608,7 @@ Chapters通过不同的chapter对比讲述内容
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -605,7 +619,7 @@ Chapters通过不同的chapter对比讲述内容
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">84</span>
+                <span class="site-state-item-count">85</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -660,7 +674,7 @@ Chapters通过不同的chapter对比讲述内容
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP-protocals"><span class="nav-number">1.</span> <span class="nav-text">TCP/IP protocals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapters"><span class="nav-number">1.1.</span> <span class="nav-text">Chapters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Useful-Commands"><span class="nav-number">1.2.</span> <span class="nav-text">Useful Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#netstat-Command"><span class="nav-number">1.2.1.</span> <span class="nav-text">netstat Command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ping-Command"><span class="nav-number">1.2.2.</span> <span class="nav-text">ping Command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traceroute-Command"><span class="nav-number">1.2.3.</span> <span class="nav-text">traceroute Command</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解"><span class="nav-number">1.3.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">1.4.</span> <span class="nav-text">思考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-IP-protocals"><span class="nav-number">1.</span> <span class="nav-text">TCP/IP protocals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapters"><span class="nav-number">1.1.</span> <span class="nav-text">Chapters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-gt-Ethernet-过程理解"><span class="nav-number">1.1.1.</span> <span class="nav-text">IP -> Ethernet 过程理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-gt-IP-过程理解"><span class="nav-number">1.1.2.</span> <span class="nav-text">TCP -> IP 过程理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Useful-Commands"><span class="nav-number">1.2.</span> <span class="nav-text">Useful Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#netstat-Command"><span class="nav-number">1.2.1.</span> <span class="nav-text">netstat Command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ping-Command"><span class="nav-number">1.2.2.</span> <span class="nav-text">ping Command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traceroute-Command"><span class="nav-number">1.2.3.</span> <span class="nav-text">traceroute Command</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解"><span class="nav-number">1.3.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">1.4.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#疑问"><span class="nav-number">1.5.</span> <span class="nav-text">疑问</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -809,7 +823,7 @@ Chapters通过不同的chapter对比讲述内容
       var disqus_shortname = 'windse7en';
       var disqus_identifier = '2017/03/04/TCP-IP-protocals-1/';
 
-      var disqus_title = "TCP/IP protocals 1";
+      var disqus_title = "TCP/IP protocals First book";
 
 
       function run_disqus_script(disqus_script) {
