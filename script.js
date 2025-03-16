@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function() {
             nav.classList.toggle('active');
+            this.classList.toggle('active');
             const icon = this.querySelector('i');
             if (icon.classList.contains('fa-bars')) {
                 icon.classList.remove('fa-bars');
@@ -244,8 +245,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Close mobile menu if open
             if (nav.classList.contains('active')) {
                 nav.classList.remove('active');
-                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon && icon.classList.contains('fa-times')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
             }
             
             const targetId = this.getAttribute('href');
