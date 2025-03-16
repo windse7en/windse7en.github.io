@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildForYou Construction</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="headerCanvas"></canvas>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>BuildForYou</h1>
+                    <p>Construction Excellence</p>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <video id="hero-video" autoplay loop muted preload="auto" class="hero-video" playsinline>
+            <source src="media/lot30 framing.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-controls">
+            <button id="sound-toggle" class="sound-toggle">
+                <i class="fas fa-volume-mute"></i>
+            </button>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Building Dream home For You</h1>
+                <p>Your Reliable Partner in Building Your Dream Home.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                    <a href="#projects" class="btn btn-secondary">View Our Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services cascade-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive construction solutions for every need</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Residential Building</h3>
+                    <p>Custom homes and residential developments built with quality craftsmanship and attention to detail.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Commercial Construction</h3>
+                    <p>From office buildings to retail spaces, we deliver commercial projects on time and within budget.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3>Home Additions</h3>
+                    <p>Add extra space to your home with our expert home addition services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Landscape</h3>
+                    <p>Create a beautiful outdoor space that complements your home's design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process cascade-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Process</h2>
+                <p>Building your dream home in 5 simple steps</p>
+            </div>
+            <div class="process-steps mobile-friendly">
+                <div class="step-card" data-step="1">
+                    <div class="step-img">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Discovery Phase">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Discovery</h3>
+                        <p>We begin with an <b>in-depth consultation</b> to understand your vision, requirements, and budget. Our team will guide you through the initial planning process.</p>
+                    </div>
+                </div>
+                <div class="step-card" data-step="2">
+                    <div class="step-img">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Quote Phase">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Quote</h3>
+                        <p>Based on your requirements, we provide a <b>detailed and transparent quote</b>. We'll work with you to refine the scope and ensure it aligns with your budget.</p>
+                    </div>
+                </div>
+                <div class="step-card" data-step="3">
+                    <div class="step-img">
+                        <img src="media/build.JPG" alt="Build Phase">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Build</h3>
+                        <p>Our experienced team brings your vision to life with <b>precision and quality craftsmanship</b>. Maintain clear communication in the construction process.</p>
+                    </div>
+                </div>
+                <div class="step-card" data-step="4">
+                    <div class="step-img">
+                        <img src="media/move-in.png" alt="Move-in Phase">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">4</div>
+                        <h3>Move-in</h3>
+                        <p>Once construction is complete, we conduct a thorough <b>walkthrough</b> with you to ensure everything meets your expectations before handing over the keys.</p>
+                    </div>
+                </div>
+                <div class="step-card" data-step="5">
+                    <div class="step-img">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Warranty Phase">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">5</div>
+                        <h3>Warranty</h3>
+                        <p>We stand behind our work with a <b>comprehensive warranty</b>. Our team remains available for any support or maintenance needs after you've moved in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects cascade-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>A showcase of our finest construction work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="media/1925.png" alt="Residential Building">
+                    </div>
+                    <div class="project-info">
+                        <h3>Residential Building</h3>
+                        <p>We specialize in creating custom homes tailored to your vision. From concept to completion, we work closely with our clients to bring their dream homes to life.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="media/twinkleland.jpg" alt="Commercial Construction">
+                    </div>
+                    <div class="project-info">
+                        <h3>Commercial Construction</h3>
+                        <p>We brings expertise and precision to every commercial project. Our work highlights our ability to design and construct spaces that meet the highest standards of functionality and aesthetics. We deliver projects on time, within budget, and built to last.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="media/addon.JPG" alt="Home Additions">
+                    </div>
+                    <div class="project-info">
+                        <h3>Home Additions</h3>
+                        <p>We transform your existing home into a space that better suits your needs. Whether it's adding a new room, expanding living areas, or enhancing functionality, our home addition projects are built with precision, attention to detail, and a focus on seamless integration with your current home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about cascade-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="media/lot38.png" alt="Construction Team">
+                </div>
+                <div class="about-text">
+                    <div class="section-header">
+                        <h2>About BuildForYou</h2>
+                        <p class="quality-badges"><i class="fas fa-check-circle"></i> Local &nbsp;<i class="fas fa-check-circle"></i> Experienced &nbsp;<i class="fas fa-check-circle"></i> Quality</p>
+                    </div>
+                    <p>A premier Seattle-based construction firm celebrated for its unwavering commitment to <b>quality</b>, forward-thinking <b> innovation</b>, and <b>trusted reliability</b>. Backed by over 10 years of expertise, our skilled team has cultivated a legacy of excellence, serving a wide range of clients—from large-scale developers to individual homeowners. </p>
+                    <p>At Build for You, we don't just construct buildings—we <b>build lasting relationships and spaces that inspire.</b></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="we-buy-land" class="we-buy-land cascade-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>We buy land</h2>
+                <p>We are always looking for new opportunities to expand our portfolio. If you have a property you would like to sell, please <b>contact us.</b></p>
+            </div>
+            <div>
+                <a href="#contact" class="btn btn-primary land-contact-btn">Contact Us About Your Land</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact cascade-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch for your next construction project</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Our Location</h3>
+                                <p>500 108th Avenue NE Suite 1100, Bellevue, WA 98004</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p>(206) 787-2345</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>buildforyou2022@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Working Hours</h3>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=500+108th+Avenue+NE+Suite+1100+Bellevue+WA+98004" target="_blank" class="map-link" title="Click to navigate using Google Maps">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.2891632647384!2d-122.19761542346155!3d47.61503239478767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906c8e419f2635%3A0x7155a7d6ede94456!2s500%20108th%20Ave%20NE%20%231100%2C%20Bellevue%2C%20WA%2098004!5e0!3m2!1sen!2sus!4v1716000000000!5m2!1sen!2sus" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div class="map-overlay">
+                                <div class="map-text">
+                                    <i class="fas fa-directions"></i>
+                                    <span>Click for Directions</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formsubmit.co/buildforyou2022@gmail.com" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Name | The Future Owner of Your Dream Home" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email | Where We'll Send Your Custom Home Plans" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Project | Custom Home, Land Development, Renovation">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Tell Us About Your Dream Property... &#10;&#10;• What style of home are you envisioning? &#10;• Do you already own land or need help finding the perfect lot? &#10;• What's your ideal timeline and budget range?" required></textarea>
+                        </div>
+                        <input type="hidden" name="_next" value="thanks.html">
+                        <input type="hidden" name="_subject" value="New BuildForYou Website Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+                        <button type="submit" class="btn btn-primary">Start Building Your Dream</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>BuildForYou</h2>
+                    <p>Construction Excellence</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Residential Building</a></li>
+                        <li><a href="#services">Commercial Construction</a></li>
+                        <li><a href="#services">Home Additions</a></li>
+                        <li><a href="#services">Landscape</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.xiaohongshu.com/user/profile/664088420000000003032722" class="little-red-book"><img src="https://user-images.githubusercontent.com/19807999/93531098-aae0bb80-f90c-11ea-9adf-77ee1e790469.png" alt="Little Red Book"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BuildForYou Construction. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
