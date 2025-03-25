@@ -467,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: '98109',
                 description: 'Classic Seattle home with modern updates.',
                 images: [
-                    'media/residential-projects/QueenAnne-A.JPG',
+                    'media/residential-projects/QueenAnne-A.jpg',
                     'media/residential-projects/1925-1.png',
                     'media/residential-projects/1925-2.png',
                     'media/residential-projects/1925-3.png',
