@@ -165,7 +165,7 @@
                 <p>A showcase of our finest construction work</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-project="redmond-a">
                     <div class="project-img">
                         <img src="media/1925.png" alt="Residential Building">
                     </div>
@@ -174,7 +174,7 @@
                         <p>We specialize in creating custom homes tailored to your vision. From concept to completion, we work closely with our clients to bring their dream homes to life.</p>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card commercial" data-project="twinkleland">
                     <div class="project-img">
                         <img src="media/twinkleland.jpg" alt="Commercial Construction">
                     </div>
@@ -195,6 +195,41 @@
             </div>
         </div>
     </section>
+
+    <!-- Project Gallery Popup -->
+    <div id="projectGalleryPopup" class="project-gallery-popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="popup-container">
+                <div class="project-list">
+                    <h3>Our Projects</h3>
+                    <ul>
+                        <li data-project="redmond-a" class="active">Redmond-A</li>
+                        <li data-project="redmond-b">Redmond-B</li>
+                        <li data-project="bellevue-a">Bellevue-A</li>
+                        <li data-project="queenanne-a">QueenAnne-A</li>
+                    </ul>
+                </div>
+                <div class="project-detail">
+                    <div class="project-main-image">
+                        <img src="media/1925.png" alt="Project Main Image" id="projectMainImage">
+                        <div class="image-nav">
+                            <button class="prev-image"><i class="fas fa-chevron-left"></i></button>
+                            <button class="next-image"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        <h3 id="projectTitle">Redmond-A</h3>
+                        <p id="projectLocation">98052</p>
+                        <p id="projectDescription">A beautiful custom home built in Redmond's exclusive neighborhood.</p>
+                    </div>
+                    <div class="project-thumbnails">
+                        <!-- Thumbnails will be loaded via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="about" class="about cascade-section">
         <div class="container">
@@ -253,7 +288,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h3>Email Us</h3>
-                                <p>buildforyou2022@gmail.com</p>
+                                <p>info@build4u.net</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -285,7 +320,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm" action="https://formsubmit.co/buildforyou2022@gmail.com" method="POST">
+                    <form id="contactForm" action="https://formsubmit.co/info@build4u.net" method="POST">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Name | The Future Owner of Your Dream Home" required>
                         </div>

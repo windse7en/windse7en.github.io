@@ -493,14 +493,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 ],
                 loaded: false
             },
-            'lash': {
-                title: 'lash',
-                location: '98006',
-                description: '',
-                images: [
-                ],
-                loaded: false
-            },
         }
     };
 
