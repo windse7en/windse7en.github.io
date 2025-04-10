@@ -1591,30 +1591,18 @@ img {
     margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
-    max-height: none; /* Remove max-height constraint to allow natural image ratio */
+    height: 500px; /* Set fixed height */
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: rgba(5, 22, 37, 0.3);
-    transition: min-height 0.3s ease; /* Smooth transition for placeholder height changes */
-}
-
-.project-main-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(5, 22, 37, 0.1);
-    z-index: 0;
 }
 
 .project-main-image img {
-    width: auto; /* Allow width to be determined by height and ratio */
-    max-width: 100%; /* Ensure image doesn't overflow container */
-    height: auto; /* Allow height to adjust based on original aspect ratio */
-    max-height: 50vh; /* Limit maximum height to 50% of viewport height */
-    object-fit: contain; /* Preserve aspect ratio without cropping */
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
     border-radius: 8px;
     transition: transform 0.3s ease, opacity 0.4s ease;
@@ -1677,12 +1665,31 @@ img {
 
 .project-thumbnails {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) rgba(5, 22, 37, 0.3);
+}
+
+.project-thumbnails::-webkit-scrollbar {
+    height: 8px;
+}
+
+.project-thumbnails::-webkit-scrollbar-track {
+    background: rgba(5, 22, 37, 0.3);
+    border-radius: 4px;
+}
+
+.project-thumbnails::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
 }
 
 .thumbnail {
-    width: calc(20% - 10px);
+    flex: 0 0 auto;
+    width: 120px;
     cursor: pointer;
     border-radius: 5px;
     overflow: hidden;

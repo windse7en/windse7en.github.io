@@ -495,24 +495,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     'media/commercial-projects/T-8.jpg',
                     'media/commercial-projects/T-9.jpg',
                     'media/commercial-projects/T-10.jpg',
-                    // 'media/commercial-projects/T-11.jpg',
-                    // 'media/commercial-projects/T-12.jpg',
-                    // 'media/commercial-projects/T-13.jpg',
-                    // 'media/commercial-projects/T-14.jpg',
-                    // 'media/commercial-projects/T-15.jpg',
-                    // 'media/commercial-projects/T-16.jpg',
-                    // 'media/commercial-projects/T-17.jpg',
-                    // 'media/commercial-projects/T-18.jpg',
-                    // 'media/commercial-projects/T-19.jpg',
-                    // 'media/commercial-projects/T-20.jpg',
-                    // 'media/commercial-projects/T-21.jpg',
-                    // 'media/commercial-projects/T-22.jpg',
-                    // 'media/commercial-projects/T-23.jpg',
-                    // 'media/commercial-projects/T-24.jpg',
-                    // 'media/commercial-projects/T-25.jpg',
-                    // 'media/commercial-projects/T-26.jpg',
-                    // 'media/commercial-projects/T-27.jpg',
-                    // 'media/commercial-projects/T-28.jpg',
+                    'media/commercial-projects/T-11.jpg',
+                    'media/commercial-projects/T-12.jpg',
+                    'media/commercial-projects/T-13.jpg',
+                    'media/commercial-projects/T-14.jpg',
+                    'media/commercial-projects/T-15.jpg',
+                    'media/commercial-projects/T-16.jpg',
+                    'media/commercial-projects/T-17.jpg',
+                    'media/commercial-projects/T-18.jpg',
+                    'media/commercial-projects/T-19.jpg',
+                    'media/commercial-projects/T-20.jpg',
+                    'media/commercial-projects/T-21.jpg',
+                    'media/commercial-projects/T-22.jpg',
+                    'media/commercial-projects/T-23.jpg',
+                    'media/commercial-projects/T-24.jpg',
+                    'media/commercial-projects/T-25.jpg',
+                    'media/commercial-projects/T-26.jpg',
+                    'media/commercial-projects/T-27.jpg',
+                    'media/commercial-projects/T-28.jpg',
                 ],
                 loaded: false
             },
@@ -531,17 +531,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     'media/commercial-projects/L8.jpg',
                     'media/commercial-projects/L9.jpg',
                     'media/commercial-projects/L10.jpg',
-                    // 'media/commercial-projects/L11.jpg',
-                    // 'media/commercial-projects/L12.jpg',
-                    // 'media/commercial-projects/L13.jpg',
-                    // 'media/commercial-projects/L14.jpg',
-                    // 'media/commercial-projects/L15.jpg',
-                    // 'media/commercial-projects/L16.jpg',
-                    // 'media/commercial-projects/L17.jpg',
-                    // 'media/commercial-projects/L18.jpg',
-                    // 'media/commercial-projects/L19.jpg',
-                    // 'media/commercial-projects/L20.jpg',
-                    // 'media/commercial-projects/L21.jpg',
+                    'media/commercial-projects/L11.jpg',
+                    'media/commercial-projects/L12.jpg',
+                    'media/commercial-projects/L13.jpg',
+                    'media/commercial-projects/L14.jpg',
+                    'media/commercial-projects/L15.jpg',
+                    'media/commercial-projects/L16.jpg',
+                    'media/commercial-projects/L17.jpg',
+                    'media/commercial-projects/L18.jpg',
+                    'media/commercial-projects/L19.jpg',
+                    'media/commercial-projects/L20.jpg',
+                    'media/commercial-projects/L21.jpg',
                 ],
                 loaded: false
             },
@@ -560,7 +560,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'media/commercial-projects/G8.jpg',
                     'media/commercial-projects/G9.jpg',
                     'media/commercial-projects/G10.jpg',
-                    // 'media/commercial-projects/G11.jpg',
+                    'media/commercial-projects/G11.jpg',
                 ],
                 loaded: false
             },
@@ -644,10 +644,6 @@ document.addEventListener('DOMContentLoaded', function() {
         projectLocation.textContent = project.location;
         projectDescription.textContent = project.description;
         
-        // Create a placeholder container with proper aspect ratio while loading
-        const mainImageContainer = projectMainImage.parentElement;
-        mainImageContainer.style.minHeight = '300px';
-        
         // Load main image with enhanced lazy loading
         projectMainImage.classList.add('lazy-loading');
         projectMainImage.style.opacity = '0';
@@ -660,25 +656,15 @@ document.addEventListener('DOMContentLoaded', function() {
             projectMainImage.classList.remove('lazy-loading');
             setTimeout(() => {
                 projectMainImage.style.opacity = '1';
-                mainImageContainer.style.minHeight = 'auto';
             }, 50);
         } else {
-            // Create a new image object to determine the actual dimensions
+            // Create a new image object to load the image
             const tempImg = new Image();
             tempImg.onload = function() {
-                const aspectRatio = tempImg.width / tempImg.height;
-                if (aspectRatio > 1) {
-                    mainImageContainer.style.minHeight = `${Math.min(window.innerHeight * 0.5, 400)}px`;
-                } else {
-                    mainImageContainer.style.minHeight = `${Math.min(window.innerHeight * 0.6, 500)}px`;
-                }
-                
                 projectMainImage.src = project.images[0];
                 projectMainImage.classList.remove('lazy-loading');
-                
                 setTimeout(() => {
                     projectMainImage.style.opacity = '1';
-                    mainImageContainer.style.minHeight = 'auto';
                 }, 50);
             };
             
@@ -715,20 +701,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (!imageCache[image]) {
                 lazyLoadObserver.observe(img);
-            }
-            
-            if (index === 0) {
-                img.onload = function() {
-                    setTimeout(() => {
-                        for (let i = 1; i < Math.min(3, project.images.length); i++) {
-                            if (!imageCache[project.images[i]]) {
-                                const preloadImg = new Image();
-                                preloadImg.src = project.images[i];
-                                imageCache[project.images[i]] = true;
-                            }
-                        }
-                    }, 200);
-                };
             }
         });
         
@@ -877,10 +849,6 @@ document.addEventListener('DOMContentLoaded', function() {
         currentImageIndex = index;
         const project = projectsData[currentCategory][currentProject];
         
-        // Get main image container for proper sizing during loading
-        const mainImageContainer = projectMainImage.parentElement;
-        mainImageContainer.style.minHeight = '300px'; // Default minimum height
-        
         // Update main image with enhanced lazy loading
         projectMainImage.classList.add('lazy-loading');
         projectMainImage.style.opacity = '0';
@@ -891,31 +859,15 @@ document.addEventListener('DOMContentLoaded', function() {
             projectMainImage.classList.remove('lazy-loading');
             setTimeout(() => {
                 projectMainImage.style.opacity = '1';
-                // Reset container min-height once image is loaded
-                mainImageContainer.style.minHeight = 'auto';
             }, 50);
         } else {
-            // Create a new image object to determine the actual dimensions
+            // Create a new image object to load the image
             const tempImg = new Image();
             tempImg.onload = function() {
-                // Calculate aspect ratio and set placeholder dimensions accordingly
-                const aspectRatio = tempImg.width / tempImg.height;
-                if (aspectRatio > 1) {
-                    // Landscape image
-                    mainImageContainer.style.minHeight = `${Math.min(window.innerHeight * 0.5, 400)}px`;
-                } else {
-                    // Portrait or square image
-                    mainImageContainer.style.minHeight = `${Math.min(window.innerHeight * 0.6, 500)}px`;
-                }
-                
-                // Load the actual image
                 projectMainImage.src = project.images[index];
                 projectMainImage.classList.remove('lazy-loading');
-                
                 setTimeout(() => {
                     projectMainImage.style.opacity = '1';
-                    // Reset container min-height once image is loaded
-                    mainImageContainer.style.minHeight = 'auto';
                 }, 50);
             };
             
