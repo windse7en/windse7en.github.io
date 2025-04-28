@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma Cello Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        #gameArea {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+
+        #characterSelector {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px;
+            font-size: 16px;
+            z-index: 100;
+        }
+
+        #bunnyArea {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #e0e0e0;
+        }
+
+        #character {
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: left 0.3s ease;
+        }
+
+        #food {
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: transform 0.3s ease;
+        }
+
+        #counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 64px;
+            color: #333;
+        }
+
+        #musicArea {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        #currentNote {
+            font-size: 72px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #noteStaff {
+            width: 100%;
+            max-width: 600px;
+            height: 200px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200"><line x1="50" y1="40" x2="550" y2="40" stroke="black" stroke-width="2"/><line x1="50" y1="60" x2="550" y2="60" stroke="black" stroke-width="2"/><line x1="50" y1="80" x2="550" y2="80" stroke="black" stroke-width="2"/><line x1="50" y1="100" x2="550" y2="100" stroke="black" stroke-width="2"/><line x1="50" y1="120" x2="550" y2="120" stroke="black" stroke-width="2"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+        }
+
+        #detectedPitch {
+            font-size: 24px;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        #micStatus {
+            font-size: 18px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .tips-section {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .tips-section h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .tips-section ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .tips-section li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        @keyframes eatFood {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(0); }
+        }
+
+        .eating {
+            animation: eatFood 0.5s forwards;
+        }
+
+        /* Celebration effects */
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 100px;
+            color: #ff0000;
+            animation: float 2s ease-in-out forwards;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: confetti 3s ease-in-out forwards;
+        }
+
+        @keyframes float {
+            0% {
+                transform: scale(0) translateY(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1) translateY(-50px);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .celebration-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: #ff0000;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: textPop 2s ease-in-out forwards;
+        }
+
+        @keyframes textPop {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="gameArea">
+        <select id="characterSelector">
+            <option value="bunny">Bunny & Carrot</option>
+            <option value="panda">Panda & Bamboo</option>
+            <option value="pooh">Winnie the Pooh & Honey</option>
+            <option value="cat">Cat & Fish</option>
+            <option value="zombie">Zombie & Brain</option>
+            <option value="tom">Tom & Jerry</option>
+            <option value="bumblebee">Bumblebee & Trump</option>
+        </select>
+        <div id="bunnyArea">
+            <div id="counter">Food eaten: 0</div>
+            <div id="character"></div>
+            <div id="food"></div>
+        </div>
+        <div id="musicArea">
+            <div id="currentNote">A2</div>
+            <div id="noteStaff"></div>
+            <div id="detectedPitch">Detected pitch: --</div>
+            <div id="micStatus">Microphone status: Waiting for permission...</div>
+            <div class="tips-section">
+                <h3>Tips</h3>
+                <ol>
+                    <li>Play the note shown on your cello</li>
+                    <li>Try to match the pitch exactly</li>
+                    <li>Keep your cello in tune</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pitch-detection@1.0.0/dist/pitch-detection.min.js"></script>
+    <script>
+        const character = document.getElementById('character');
+        const food = document.getElementById('food');
+        const counter = document.getElementById('counter');
+        const characterSelector = document.getElementById('characterSelector');
+        const currentNote = document.getElementById('currentNote');
+        const detectedPitch = document.getElementById('detectedPitch');
+        const micStatus = document.getElementById('micStatus');
+        const noteStaff = document.getElementById('noteStaff');
+
+        let foodEaten = 0;
+        let startTime = null;
+        let lastNoteTime = null;
+        let notePressTimes = [];
+        let sessionStats = [];
+        let noteTimings = {};
+
+        // Cello note ranges (A2 to C6)
+        const celloNotes = [
+            'A2', 'B2', 'C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3',
+            'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4',
+            'C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5',
+            'C6'
+        ];
+
+        let currentNoteIndex = 0;
+        let audioContext;
+        let analyser;
+        let microphone;
+        let pitchDetector;
+        let isPlaying = false;
+
+        // Character configurations
+        const characters = {
+            bunny: {
+                character: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f430.svg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f955.svg',
+                counterText: 'Carrots eaten'
+            },
+            panda: {
+                character: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43c.svg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f38d.svg',
+                counterText: 'Bamboo eaten'
+            },
+            pooh: {
+                character: 'https://i.ibb.co/Kx8X07SL/1.png',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36f.svg',
+                counterText: 'Honey pots eaten'
+            },
+            cat: {
+                character: 'https://i.ibb.co/wXtJwWY/Cat.jpg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f41f.svg',
+                counterText: 'Fish eaten'
+            },
+            zombie: {
+                character: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9df.svg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9e0.svg',
+                counterText: 'Brains eaten'
+            },
+            tom: {
+                character: 'https://i.ibb.co/bMQsT7W3/tom.png',
+                food: 'https://i.ibb.co/ksKXxbQm/62-627718-free-png-tom-and-jerry-png-images-transparent.jpg',
+                counterText: 'Jerry pots eaten'
+            },
+            bumblebee: {
+                character: 'https://i.ibb.co/TMvVw5Dz/bumblebee.png',
+                food: 'https://i.ibb.co/2Bg37tH/trump.jpg',
+                counterText: 'Trumps eaten'
+            }
+        };
+
+        // Initialize audio context and pitch detection
+        async function initAudio() {
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 2048;
+
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                microphone = audioContext.createMediaStreamSource(stream);
+                microphone.connect(analyser);
+
+                pitchDetector = new PitchDetection(analyser);
+                micStatus.textContent = 'Microphone status: Ready';
+                isPlaying = true;
+                startPitchDetection();
+            } catch (error) {
+                micStatus.textContent = 'Microphone status: Error - ' + error.message;
+            }
+        }
+
+        function startPitchDetection() {
+            if (!isPlaying) return;
+
+            const pitch = pitchDetector.getPitch();
+            if (pitch) {
+                const note = pitchDetector.getNoteFromPitch(pitch);
+                detectedPitch.textContent = `Detected pitch: ${note}`;
+                
+                // Check if the detected note matches the current target note
+                if (note === celloNotes[currentNoteIndex]) {
+                    handleCorrectNote();
+                }
+            }
+
+            requestAnimationFrame(startPitchDetection);
+        }
+
+        function handleCorrectNote() {
+            const now = Date.now();
+            
+            if (!startTime) {
+                startTime = now;
+                lastNoteTime = now;
+            } else {
+                const timeSinceLastNote = now - lastNoteTime;
+                notePressTimes.push(timeSinceLastNote);
+                
+                // Track timing for this specific note
+                if (!noteTimings[celloNotes[currentNoteIndex]]) {
+                    noteTimings[celloNotes[currentNoteIndex]] = [];
+                }
+                noteTimings[celloNotes[currentNoteIndex]].push(timeSinceLastNote);
+                
+                lastNoteTime = now;
+            }
+
+            // Move character
+            const bunnyArea = document.getElementById('bunnyArea');
+            const totalDistance = bunnyArea.offsetWidth - 200;
+            const stepSize = totalDistance / (celloNotes.length - 1);
+            const characterPosition = 50 + (stepSize * currentNoteIndex);
+            character.style.left = `${characterPosition}px`;
+
+            currentNoteIndex++;
+
+            // Update current note display
+            if (currentNoteIndex < celloNotes.length) {
+                currentNote.textContent = celloNotes[currentNoteIndex];
+            } else {
+                // Game completed
+                food.classList.add('eating');
+                
+                setTimeout(() => {
+                    foodEaten++;
+                    updateCounter();
+                    
+                    // Record stats for this run
+                    const totalTime = (Date.now() - startTime) / 1000;
+                    const averageTime = notePressTimes.reduce((a, b) => a + b, 0) / notePressTimes.length / 1000;
+                    sessionStats.push({
+                        totalTime,
+                        averageTime,
+                        notePressTimes: [...notePressTimes],
+                        noteTimings: {...noteTimings}
+                    });
+                    
+                    // Reset game
+                    resetGame();
+                }, 500);
+            }
+        }
+
+        function updateCounter() {
+            const currentCharacter = characters[characterSelector.value];
+            counter.textContent = `${currentCharacter.counterText}: ${foodEaten}`;
+            
+            // Check if we've reached a multiple of 5
+            if (foodEaten > 0 && foodEaten % 1 === 0) {
+                celebrate();
+            }
+        }
+
+        function updateCharacters() {
+            const currentCharacter = characters[characterSelector.value];
+            character.style.backgroundImage = `url('${currentCharacter.character}')`;
+            food.style.backgroundImage = `url('${currentCharacter.food}')`;
+            updateCounter();
+        }
+
+        function resetGame() {
+            currentNoteIndex = 0;
+            currentNote.textContent = celloNotes[0];
+            character.style.left = '50px';
+            food.classList.remove('eating');
+            startTime = null;
+            lastNoteTime = null;
+            notePressTimes = [];
+            noteTimings = {};
+        }
+
+        // Initialize characters
+        updateCharacters();
+
+        // Handle character selection change
+        characterSelector.addEventListener('change', () => {
+            updateCharacters();
+            resetGame();
+        });
+
+        // Start audio initialization
+        initAudio();
+    </script>
+</body>
+</html>

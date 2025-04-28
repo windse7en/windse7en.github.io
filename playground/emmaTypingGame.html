@@ -348,6 +348,40 @@
         const lettersText = letters.textContent;
         let currentIndex = 0;
         let foodEaten = 0;
+        let startTime = null;
+        let lastKeyTime = null;
+        let keyPressTimes = [];
+        let sessionStats = [];
+        let letterTimings = {}; // Track timing for each letter
+
+        // Add timing display element
+        const timingDisplay = document.createElement('div');
+        timingDisplay.id = 'timingDisplay';
+        timingDisplay.style.position = 'absolute';
+        timingDisplay.style.top = '20px';
+        timingDisplay.style.left = '50%';
+        timingDisplay.style.transform = 'translateX(-50%)';
+        timingDisplay.style.fontSize = '24px';
+        timingDisplay.style.color = '#333';
+        timingDisplay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        timingDisplay.style.padding = '10px';
+        timingDisplay.style.borderRadius = '5px';
+        timingDisplay.style.textAlign = 'center';
+        document.getElementById('gameArea').appendChild(timingDisplay);
+
+        // Add stats display element
+        const statsDisplay = document.createElement('div');
+        statsDisplay.id = 'statsDisplay';
+        statsDisplay.style.position = 'absolute';
+        statsDisplay.style.bottom = '20px';
+        statsDisplay.style.left = '50%';
+        statsDisplay.style.transform = 'translateX(-50%)';
+        statsDisplay.style.fontSize = '18px';
+        statsDisplay.style.color = '#333';
+        statsDisplay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        statsDisplay.style.padding = '10px';
+        statsDisplay.style.borderRadius = '5px';
+        document.getElementById('gameArea').appendChild(statsDisplay);
 
         // Character configurations
         const characters = {
@@ -522,6 +556,66 @@
             keys.forEach(key => {
                 key.style.opacity = '0.1';
             });
+            // Reset timing
+            startTime = null;
+            lastKeyTime = null;
+            keyPressTimes = [];
+            updateTimingDisplay();
+        }
+
+        function getSlowestLetters() {
+            // Convert letterTimings to array and sort by average time
+            const letterStats = Object.entries(letterTimings).map(([letter, times]) => ({
+                letter,
+                averageTime: times.reduce((a, b) => a + b, 0) / times.length
+            })).sort((a, b) => b.averageTime - a.averageTime);
+
+            // Return top 5 slowest letters
+            return letterStats.slice(0, 5);
+        }
+
+        function updateTimingDisplay() {
+            if (!startTime) {
+                timingDisplay.textContent = 'Ready to start!';
+                return;
+            }
+
+            const currentTime = Date.now();
+            const elapsedTime = (currentTime - startTime) / 1000;
+            const averageTime = keyPressTimes.length > 0 
+                ? (keyPressTimes.reduce((a, b) => a + b, 0) / keyPressTimes.length).toFixed(2)
+                : 0;
+            
+            const slowestLetters = getSlowestLetters();
+            let slowestLettersText = '';
+            if (slowestLetters.length > 0) {
+                slowestLettersText = '<br>Slowest letters: ' + 
+                    slowestLetters.map(stat => 
+                        `${stat.letter} (${(stat.averageTime / 1000).toFixed(2)}s)`
+                    ).join(', ');
+            }
+            
+            timingDisplay.innerHTML = `
+                Time: ${elapsedTime.toFixed(2)}s | Avg: ${averageTime}s per key
+                ${slowestLettersText}
+            `;
+        }
+
+        function updateStatsDisplay() {
+            if (sessionStats.length === 0) {
+                statsDisplay.textContent = 'No stats yet';
+                return;
+            }
+
+            const lastRun = sessionStats[sessionStats.length - 1];
+            const avgTime = sessionStats.reduce((sum, stat) => sum + stat.totalTime, 0) / sessionStats.length;
+            const bestTime = Math.min(...sessionStats.map(stat => stat.totalTime));
+            
+            statsDisplay.innerHTML = `
+                Last Run: ${lastRun.totalTime.toFixed(2)}s (${lastRun.averageTime.toFixed(2)}s/key)<br>
+                Best Time: ${bestTime.toFixed(2)}s<br>
+                Average Time: ${avgTime.toFixed(2)}s
+            `;
         }
 
         // Finger mapping for QWERTY keyboard
@@ -583,6 +677,24 @@
             const currentLetter = lettersText[currentIndex];
 
             if (key === currentLetter) {
+                const now = Date.now();
+                
+                if (!startTime) {
+                    startTime = now;
+                    lastKeyTime = now;
+                } else {
+                    const timeSinceLastKey = now - lastKeyTime;
+                    keyPressTimes.push(timeSinceLastKey);
+                    
+                    // Track timing for this specific letter
+                    if (!letterTimings[currentLetter]) {
+                        letterTimings[currentLetter] = [];
+                    }
+                    letterTimings[currentLetter].push(timeSinceLastKey);
+                    
+                    lastKeyTime = now;
+                }
+
                 // Update letter color
                 const span = document.createElement('span');
                 span.textContent = currentLetter;
@@ -597,6 +709,7 @@
 
                 // Update keyboard highlight for next letter
                 updateKeyboardHighlight(currentIndex);
+                updateTimingDisplay();
 
                 // Check if character reached the food
                 if (currentIndex >= lettersText.length) {
@@ -607,10 +720,22 @@
                         foodEaten++;
                         updateCounter();
                         
+                        // Record stats for this run
+                        const totalTime = (Date.now() - startTime) / 1000;
+                        const averageTime = keyPressTimes.reduce((a, b) => a + b, 0) / keyPressTimes.length / 1000;
+                        sessionStats.push({
+                            totalTime,
+                            averageTime,
+                            keyPressTimes: [...keyPressTimes],
+                            letterTimings: {...letterTimings}
+                        });
+                        
                         // Reset game
                         resetGame();
                         // Reset keyboard highlight to first letter
                         updateKeyboardHighlight(0);
+                        // Update stats display
+                        updateStatsDisplay();
                     }, 500);
                 }
             }
