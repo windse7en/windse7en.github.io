@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma Music Typing Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background: #111;
+            color: white;
+        }
+
+        #gameArea {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #characterSelector {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px;
+            font-size: 16px;
+            z-index: 100;
+        }
+
+        #bunnyArea {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #222;
+        }
+
+        #character {
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: left 0.3s ease;
+        }
+
+        #food {
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: transform 0.3s ease;
+        }
+
+        #counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 64px;
+            color: white;
+        }
+
+        #notesArea {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            padding: 20px;
+        }
+
+        #notes {
+            font-size: 48px;
+            letter-spacing: 10px;
+            color: #666;
+        }
+
+        .typed {
+            color: #4CAF50 !important;
+        }
+
+        #waveform {
+            width: 100%;
+            height: 200px;
+            background: #222;
+            margin-top: 20px;
+        }
+
+        #currentNote {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+
+        @keyframes eatFood {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(0); }
+        }
+
+        .eating {
+            animation: eatFood 0.5s forwards;
+        }
+
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 100px;
+            color: #ff0000;
+            animation: float 2s ease-in-out forwards;
+        }
+
+        @keyframes float {
+            0% {
+                transform: scale(0) translateY(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1) translateY(-50px);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) translateY(-100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="gameArea">
+        <div id="bunnyArea">
+            <select id="characterSelector">
+                <option value="bunny">Bunny</option>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+            </select>
+            <div id="character"></div>
+            <div id="food"></div>
+            <div id="counter">0</div>
+        </div>
+        <div id="notesArea">
+            <div id="notes"></div>
+        </div>
+        <button id="startButton">Start Microphone</button>
+        <div id="currentNote">Note: --</div>
+        <canvas id="waveform"></canvas>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const canvas = document.getElementById('waveform');
+        const ctx = canvas.getContext('2d');
+        const noteDisplay = document.getElementById('currentNote');
+        const notesDisplay = document.getElementById('notes');
+        const character = document.getElementById('character');
+        const food = document.getElementById('food');
+        const counter = document.getElementById('counter');
+        const characterSelector = document.getElementById('characterSelector');
+
+        let audioContext;
+        let analyser;
+        let dataArray;
+        let bufferLength;
+        let source;
+        let audioBuffer = [];
+        let bufferIndex = 0;
+        let lastNoteUpdate = 0;
+        const NOTE_UPDATE_INTERVAL = 500; // Update note every 0.5 seconds
+        const SAMPLE_RATE = 44100;
+        const BUFFER_SIZE = SAMPLE_RATE;
+        let currentNoteIndex = 0;
+        let score = 0;
+
+        const notes = [
+            "A2", "A#2", "B2", "C3", "C#3", "D3",
+            "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3"
+        ];
+
+        // Initialize the game
+        function initGame() {
+            // Generate random sequence of notes
+            const noteSequence = [];
+            for (let i = 0; i < 10; i++) {
+                noteSequence.push(notes[Math.floor(Math.random() * notes.length)]);
+            }
+            
+            // Display the notes
+            notesDisplay.innerHTML = noteSequence.map((note, index) => 
+                `<span class="${index === 0 ? 'current' : ''}">${note}</span>`
+            ).join(' ');
+            
+            // Set character and food images
+            character.style.backgroundImage = `url('${characterSelector.value}.png')`;
+            food.style.backgroundImage = "url('carrot.png')";
+            
+            currentNoteIndex = 0;
+            score = 0;
+            counter.textContent = score;
+        }
+
+        startButton.onclick = async () => {
+            startButton.disabled = true;
+            initGame();
+
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            source = audioContext.createMediaStreamSource(stream);
+
+            analyser = audioContext.createAnalyser();
+            analyser.fftSize = 2048;
+            bufferLength = analyser.fftSize;
+            dataArray = new Float32Array(bufferLength);
+            audioBuffer = new Float32Array(BUFFER_SIZE);
+            bufferIndex = 0;
+
+            source.connect(analyser);
+            draw();
+        };
+
+        function draw() {
+            requestAnimationFrame(draw);
+
+            analyser.getFloatTimeDomainData(dataArray);
+
+            // Store the current frame in the buffer
+            for (let i = 0; i < dataArray.length; i++) {
+                audioBuffer[bufferIndex] = dataArray[i];
+                bufferIndex = (bufferIndex + 1) % BUFFER_SIZE;
+            }
+
+            // Draw waveform
+            ctx.fillStyle = '#222';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#0f0';
+            ctx.beginPath();
+
+            const sliceWidth = canvas.width * 1.0 / bufferLength;
+            let x = 0;
+
+            for(let i = 0; i < bufferLength; i++) {
+                const v = dataArray[i] * 0.5 + 0.5;
+                const y = v * canvas.height;
+
+                if(i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+
+                x += sliceWidth;
+            }
+
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.stroke();
+
+            // Check note every 0.5 seconds
+            const now = Date.now();
+            if (now - lastNoteUpdate >= NOTE_UPDATE_INTERVAL) {
+                lastNoteUpdate = now;
+                
+                const analysisBuffer = new Float32Array(BUFFER_SIZE);
+                for (let i = 0; i < BUFFER_SIZE; i++) {
+                    analysisBuffer[i] = audioBuffer[(bufferIndex + i) % BUFFER_SIZE];
+                }
+
+                const pitch = autoCorrelate(analysisBuffer, audioContext.sampleRate);
+                if (pitch !== -1) {
+                    const note = frequencyToNote(pitch);
+                    noteDisplay.textContent = `Note: ${note}`;
+                    
+                    // Check if the note matches the current target note
+                    const currentTargetNote = notesDisplay.children[currentNoteIndex].textContent;
+                    if (note === currentTargetNote) {
+                        // Move character forward
+                        const currentLeft = parseInt(character.style.left) || 50;
+                        character.style.left = (currentLeft + 50) + 'px';
+                        
+                        // Update note display
+                        notesDisplay.children[currentNoteIndex].classList.remove('current');
+                        notesDisplay.children[currentNoteIndex].classList.add('typed');
+                        currentNoteIndex++;
+                        
+                        if (currentNoteIndex < notesDisplay.children.length) {
+                            notesDisplay.children[currentNoteIndex].classList.add('current');
+                        } else {
+                            // Game completed
+                            createCelebration();
+                            startButton.disabled = false;
+                            return;
+                        }
+                        
+                        // Update score
+                        score++;
+                        counter.textContent = score;
+                        
+                        // Animate food
+                        food.classList.add('eating');
+                        setTimeout(() => {
+                            food.classList.remove('eating');
+                        }, 500);
+                    }
+                } else {
+                    noteDisplay.textContent = `Note: --`;
+                }
+            }
+        }
+
+        function autoCorrelate(buffer, sampleRate) {
+            let SIZE = buffer.length;
+            let MAX_SAMPLES = Math.floor(SIZE/2);
+            let best_offset = -1;
+            let best_correlation = 0;
+            let rms = 0;
+            let foundGoodCorrelation = false;
+            let correlations = new Array(MAX_SAMPLES);
+
+            for (let i=0;i<SIZE;i++) {
+                let val = buffer[i];
+                rms += val*val;
+            }
+            rms = Math.sqrt(rms/SIZE);
+            if (rms<0.01) return -1;
+
+            let lastCorrelation=1;
+            for (let offset = 0; offset < MAX_SAMPLES; offset++) {
+                let correlation = 0;
+
+                for (let i=0; i<MAX_SAMPLES; i++) {
+                    correlation += Math.abs((buffer[i])-(buffer[i+offset]));
+                }
+                correlation = 1 - (correlation/MAX_SAMPLES);
+                correlations[offset] = correlation;
+
+                if ((correlation > 0.9) && (correlation > lastCorrelation)) {
+                    foundGoodCorrelation = true;
+                    if (correlation > best_correlation) {
+                        best_correlation = correlation;
+                        best_offset = offset;
+                    }
+                } else if (foundGoodCorrelation) {
+                    let shift = (correlations[best_offset+1] - correlations[best_offset-1])/correlations[best_offset];  
+                    return sampleRate/(best_offset+(8*shift));
+                }
+                lastCorrelation = correlation;
+            }
+            if (best_correlation > 0.01) {
+                return sampleRate/best_offset;
+            }
+            return -1;
+        }
+
+        function frequencyToNote(freq) {
+            const A4 = 440;
+            const semitone = 69 + 12 * Math.log2(freq / A4);
+            const noteIndex = Math.round(semitone);
+            const noteName = notes[(noteIndex + 120) % 12];
+            const octave = Math.floor((noteIndex) / 12) - 1;
+            return `${noteName}${octave}`;
+        }
+
+        function createCelebration() {
+            const celebration = document.createElement('div');
+            celebration.className = 'celebration';
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                celebration.appendChild(heart);
+            }
+            
+            document.body.appendChild(celebration);
+            setTimeout(() => {
+                celebration.remove();
+            }, 3000);
+        }
+
+        // Handle character selection
+        characterSelector.addEventListener('change', () => {
+            character.style.backgroundImage = `url('${characterSelector.value}.png')`;
+        });
+    </script>
+</body>
+</html> 
