@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Microphone Waveform Visualizer</title>
+  <title>Microphone Waveform and Note Detector</title>
   <style>
     body {
       background: #111;
@@ -23,23 +23,42 @@
       font-size: 18px;
       cursor: pointer;
     }
+    #note {
+      margin-top: 20px;
+      font-size: 36px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
-<h1>Microphone Voice Waveform</h1>
+<h1>Microphone Waveform and Note Detector</h1>
 <button id="startButton">Start Microphone</button>
+<div id="note">Note: --</div>
 <canvas id="waveform"></canvas>
 
 <script>
   const startButton = document.getElementById('startButton');
   const canvas = document.getElementById('waveform');
   const ctx = canvas.getContext('2d');
+  const noteDisplay = document.getElementById('note');
 
   let audioContext;
   let analyser;
   let dataArray;
+  let bufferLength;
   let source;
+  let audioBuffer = [];
+  let bufferIndex = 0;
+  let lastNoteUpdate = 0;
+  const NOTE_UPDATE_INTERVAL = 1000; // Update note every 1 second
+  const SAMPLE_RATE = 44100; // Standard sample rate
+  const BUFFER_SIZE = SAMPLE_RATE; // 1 second buffer
+
+  const notes = [
+    "C", "C#", "D", "D#", "E", "F",
+    "F#", "G", "G#", "A", "A#", "B"
+  ];
 
   startButton.onclick = async () => {
     startButton.disabled = true;
@@ -50,8 +69,10 @@
 
     analyser = audioContext.createAnalyser();
     analyser.fftSize = 2048;
-    const bufferLength = analyser.fftSize;
-    dataArray = new Uint8Array(bufferLength);
+    bufferLength = analyser.fftSize;
+    dataArray = new Float32Array(bufferLength);
+    audioBuffer = new Float32Array(BUFFER_SIZE);
+    bufferIndex = 0;
 
     source.connect(analyser);
 
@@ -61,7 +82,13 @@
   function draw() {
     requestAnimationFrame(draw);
 
-    analyser.getByteTimeDomainData(dataArray);
+    analyser.getFloatTimeDomainData(dataArray);
+
+    // Store the current frame in the buffer
+    for (let i = 0; i < dataArray.length; i++) {
+      audioBuffer[bufferIndex] = dataArray[i];
+      bufferIndex = (bufferIndex + 1) % BUFFER_SIZE;
+    }
 
     ctx.fillStyle = '#222';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -71,12 +98,12 @@
 
     ctx.beginPath();
 
-    const sliceWidth = canvas.width * 1.0 / dataArray.length;
+    const sliceWidth = canvas.width * 1.0 / bufferLength;
     let x = 0;
 
-    for(let i = 0; i < dataArray.length; i++) {
-      const v = dataArray[i] / 128.0;
-      const y = v * canvas.height / 2;
+    for(let i = 0; i < bufferLength; i++) {
+      const v = dataArray[i] * 0.5 + 0.5;
+      const y = v * canvas.height;
 
       if(i === 0) {
         ctx.moveTo(x, y);
@@ -89,9 +116,83 @@
 
     ctx.lineTo(canvas.width, canvas.height / 2);
     ctx.stroke();
+
+    // Only update note every second
+    const now = Date.now();
+    if (now - lastNoteUpdate >= NOTE_UPDATE_INTERVAL) {
+      lastNoteUpdate = now;
+      
+      // Create a copy of the buffer for analysis
+      const analysisBuffer = new Float32Array(BUFFER_SIZE);
+      for (let i = 0; i < BUFFER_SIZE; i++) {
+        analysisBuffer[i] = audioBuffer[(bufferIndex + i) % BUFFER_SIZE];
+      }
+
+      const pitch = autoCorrelate(analysisBuffer, audioContext.sampleRate);
+      if (pitch !== -1) {
+        const note = frequencyToNote(pitch);
+        noteDisplay.textContent = `Note: ${note}`;
+      } else {
+        noteDisplay.textContent = `Note: --`;
+      }
+    }
+  }
+
+  function autoCorrelate(buffer, sampleRate) {
+    // Auto-correlation pitch detection
+    let SIZE = buffer.length;
+    let MAX_SAMPLES = Math.floor(SIZE/2);
+    let best_offset = -1;
+    let best_correlation = 0;
+    let rms = 0;
+    let foundGoodCorrelation = false;
+    let correlations = new Array(MAX_SAMPLES);
+
+    for (let i=0;i<SIZE;i++) {
+      let val = buffer[i];
+      rms += val*val;
+    }
+    rms = Math.sqrt(rms/SIZE);
+    if (rms<0.01) // too quiet
+      return -1;
+
+    let lastCorrelation=1;
+    for (let offset = 0; offset < MAX_SAMPLES; offset++) {
+      let correlation = 0;
+
+      for (let i=0; i<MAX_SAMPLES; i++) {
+        correlation += Math.abs((buffer[i])-(buffer[i+offset]));
+      }
+      correlation = 1 - (correlation/MAX_SAMPLES);
+      correlations[offset] = correlation;
+
+      if ((correlation > 0.9) && (correlation > lastCorrelation)) {
+        foundGoodCorrelation = true;
+        if (correlation > best_correlation) {
+          best_correlation = correlation;
+          best_offset = offset;
+        }
+      } else if (foundGoodCorrelation) {
+        let shift = (correlations[best_offset+1] - correlations[best_offset-1])/correlations[best_offset];  
+        return sampleRate/(best_offset+(8*shift));
+      }
+      lastCorrelation = correlation;
+    }
+    if (best_correlation > 0.01) {
+      return sampleRate/best_offset;
+    }
+    return -1;
+  }
+
+  function frequencyToNote(freq) {
+    const A4 = 440;
+    const semitone = 69 + 12 * Math.log2(freq / A4);
+    const noteIndex = Math.round(semitone);
+    const noteName = notes[(noteIndex + 120) % 12];
+    const octave = Math.floor((noteIndex) / 12) - 1;
+    return `${noteName}${octave}`;
   }
 </script>
 
 </body>
 </html>
-jk
