@@ -233,8 +233,9 @@
             ).join(' ');
             
             // Set character and food images
-            character.style.backgroundImage = `url('${characterSelector.value}.png')`;
-            food.style.backgroundImage = "url('carrot.png')";
+            const selectedCharacter = characters[characterSelector.value];
+            character.style.backgroundImage = `url('${selectedCharacter.character}')`;
+            food.style.backgroundImage = `url('${selectedCharacter.food}')`;
             
             currentNoteIndex = 0;
             score = 0;
@@ -421,9 +422,50 @@
             }, 3000);
         }
 
+                // Character configurations
+         const characters = {
+            bunny: {
+                character: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f430.svg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f955.svg',
+                counterText: 'Carrots eaten'
+            },
+            panda: {
+                character: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43c.svg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f38d.svg',
+                counterText: 'Bamboo eaten'
+            },
+            pooh: {
+                character: 'https://i.ibb.co/Kx8X07SL/1.png',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36f.svg',
+                counterText: 'Honey pots eaten'
+            },
+            cat: {
+                character: 'https://i.ibb.co/wXtJwWY/Cat.jpg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f41f.svg',
+                counterText: 'Fish eaten'
+            },
+            zombie: {
+                character: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9df.svg',
+                food: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9e0.svg',
+                counterText: 'Brains eaten'
+            },
+            tom: {
+                character: 'https://i.ibb.co/bMQsT7W3/tom.png',
+                food: 'https://i.ibb.co/ksKXxbQm/62-627718-free-png-tom-and-jerry-png-images-transparent.jpg',
+                counterText: 'Jerry pots eaten'
+            },
+            bumblebee: {
+                character: 'https://i.ibb.co/TMvVw5Dz/bumblebee.png',
+                food: 'https://i.ibb.co/2Bg37tH/trump.jpg',
+                counterText: 'Trumps eaten'
+            }
+        };
         // Handle character selection
         characterSelector.addEventListener('change', () => {
-            character.style.backgroundImage = `url('${characterSelector.value}.png')`;
+            const selectedCharacter = characters[characterSelector.value];
+            character.style.backgroundImage = `url('${selectedCharacter.character}')`;
+            food.style.backgroundImage = `url('${selectedCharacter.food}')`;
+            counter.textContent = selectedCharacter.counterText;
         });
     </script>
 </body>
