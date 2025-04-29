@@ -82,7 +82,7 @@
             padding: 20px;
         }
 
-        #notes {
+        #testMusicNotes {
             font-size: 48px;
             letter-spacing: 10px;
             color: #666;
@@ -178,7 +178,7 @@
             <div id="counter">0</div>
         </div>
         <div id="notesArea">
-            <div id="notes"></div>
+            <div id="testMusicNotes"></div>
         </div>
         <button id="startButton">Start Microphone</button>
         <div id="currentNote">Note: --</div>
@@ -190,7 +190,7 @@
         const canvas = document.getElementById('waveform');
         const ctx = canvas.getContext('2d');
         const noteDisplay = document.getElementById('currentNote');
-        const notesDisplay = document.getElementById('notes');
+        const notesDisplay = document.getElementById('testMusicNotes');
         const character = document.getElementById('character');
         const food = document.getElementById('food');
         const counter = document.getElementById('counter');
@@ -210,9 +210,13 @@
         let currentNoteIndex = 0;
         let score = 0;
 
-        const notes = [
+        const testMusicNotes = [
             "A2", "A#2", "B2", "C3", "C#3", "D3",
             "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3"
+        ];
+        const basicNotes = [
+            "A", "A#", "B", "C", "C#", "D",
+            "D#", "E", "F", "F#", "G", "G#"
         ];
 
         // Initialize the game
@@ -220,11 +224,11 @@
             // Generate random sequence of notes
             const noteSequence = [];
             for (let i = 0; i < 10; i++) {
-                noteSequence.push(notes[Math.floor(Math.random() * notes.length)]);
+                noteSequence.push(testMusicNotes[Math.floor(Math.random() * testMusicNotes.length)]);
             }
             
-            // Display the notes
-            notesDisplay.innerHTML = noteSequence.map((note, index) => 
+            // Display the testMusicNotes
+            notesDisplay.innerHTML = testMusicNotes.map((note, index) => 
                 `<span class="${index === 0 ? 'current' : ''}">${note}</span>`
             ).join(' ');
             
@@ -393,7 +397,7 @@
             const A4 = 440;
             const semitone = 69 + 12 * Math.log2(freq / A4);
             const noteIndex = Math.round(semitone);
-            const noteName = notes[(noteIndex + 120) % 12];
+            const noteName = basicNotes[(noteIndex + 120) % 12];
             const octave = Math.floor((noteIndex) / 12) - 1;
             return `${noteName}${octave}`;
         }
