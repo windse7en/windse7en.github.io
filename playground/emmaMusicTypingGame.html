@@ -242,27 +242,49 @@
             counter.textContent = score;
         }
 
+        // Function to create and initialize audio context
+        async function createAudioContext() {
+            // Create audio context
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            // iOS requires the context to be resumed after creation
+            if (audioContext.state === 'suspended') {
+                await audioContext.resume();
+            }
+            
+            return audioContext;
+        }
+
         startButton.onclick = async () => {
             startButton.disabled = true;
             initGame();
 
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            source = audioContext.createMediaStreamSource(stream);
+            try {
+                // Create audio context first
+                audioContext = await createAudioContext();
+                
+                // Get microphone access
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                source = audioContext.createMediaStreamSource(stream);
 
-            analyser = audioContext.createAnalyser();
-            analyser.fftSize = 2048;
-            bufferLength = analyser.fftSize;
-            dataArray = new Float32Array(bufferLength);
-            audioBuffer = new Float32Array(BUFFER_SIZE);
-            bufferIndex = 0;
-            const biquadFilter = audioContext.createBiquadFilter();
-            biquadFilter.type = "bandpass";
-            biquadFilter.frequency.value = 440; // center frequency
-            biquadFilter.Q.value = 1.5; // Quality factor
-            source.connect(biquadFilter);
-            biquadFilter.connect(analyser);
-            draw();
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 2048;
+                bufferLength = analyser.fftSize;
+                dataArray = new Float32Array(bufferLength);
+                audioBuffer = new Float32Array(BUFFER_SIZE);
+                bufferIndex = 0;
+                const biquadFilter = audioContext.createBiquadFilter();
+                biquadFilter.type = "bandpass";
+                biquadFilter.frequency.value = 440; // center frequency
+                biquadFilter.Q.value = 1.5; // Quality factor
+                source.connect(biquadFilter);
+                biquadFilter.connect(analyser);
+                draw();
+            } catch (error) {
+                console.error('Error initializing audio:', error);
+                alert('Error accessing microphone. Please make sure you have granted microphone permissions.');
+                startButton.disabled = false;
+            }
         };
 
         function draw() {
