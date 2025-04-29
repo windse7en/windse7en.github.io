@@ -256,8 +256,12 @@
             dataArray = new Float32Array(bufferLength);
             audioBuffer = new Float32Array(BUFFER_SIZE);
             bufferIndex = 0;
-
-            source.connect(analyser);
+            const biquadFilter = audioContext.createBiquadFilter();
+            biquadFilter.type = "bandpass";
+            biquadFilter.frequency.value = 440; // center frequency
+            biquadFilter.Q.value = 1.5; // Quality factor
+            source.connect(biquadFilter);
+            biquadFilter.connect(analyser);
             draw();
         };
 
@@ -302,12 +306,19 @@
             const now = Date.now();
             if (now - lastNoteUpdate >= NOTE_UPDATE_INTERVAL) {
                 lastNoteUpdate = now;
-                
-                const analysisBuffer = new Float32Array(BUFFER_SIZE);
+
+                 function applyHannWindow(buffer) {
+                    const N = buffer.length;
+                    for (let i = 0; i < N; i++) {
+                        buffer[i] *= 0.5 * (1 - Math.cos(2 * Math.PI * i / (N - 1)));
+                    }
+                }
+                let analysisBuffer = new Float32Array(BUFFER_SIZE);
                 for (let i = 0; i < BUFFER_SIZE; i++) {
                     analysisBuffer[i] = audioBuffer[(bufferIndex + i) % BUFFER_SIZE];
                 }
 
+                applyHannWindow(analysisBuffer);
                 const pitch = autoCorrelate(analysisBuffer, audioContext.sampleRate);
                 if (pitch !== -1) {
                     const note = frequencyToNote(pitch);
