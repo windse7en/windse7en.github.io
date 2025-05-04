@@ -25,7 +25,7 @@
         }
 
         #fallingGame {
-            flex: 1;
+            flex: 2;
             width: 100%;
             position: relative;
             background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
@@ -45,6 +45,18 @@
             top: 20px;
             right: 20px;
             font-size: 36px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            z-index: 100;
+        }
+
+        #stats {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
             color: #333;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 10px 20px;
@@ -79,15 +91,6 @@
             100% { transform: scale(0); opacity: 0; }
         }
 
-        #typingArea {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ffffff;
-        }
-
         #keyboardArea {
             flex: 1;
             width: 100%;
@@ -97,16 +100,6 @@
             background-color: #f8f8f8;
             padding: 20px;
             gap: 20px;
-        }
-
-        #letters {
-            font-size: 48px;
-            letter-spacing: 10px;
-            color: #cccccc;
-        }
-
-        .typed {
-            color: black !important;
         }
 
         .keyboard {
@@ -210,10 +203,8 @@
     <div id="gameArea">
         <div id="fallingGame">
             <div id="score">Score: 0</div>
+            <div id="stats">Slowest Letters: -</div>
             <div id="ground"></div>
-        </div>
-        <div id="typingArea">
-            <div id="letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
         </div>
         <div id="keyboardArea">
             <div class="tips-section">
@@ -248,20 +239,15 @@
     </div>
 
     <script>
-        const letters = document.getElementById('letters');
         const keyboard = document.getElementById('keyboard');
-        const lettersText = letters.textContent;
         const fallingGame = document.getElementById('fallingGame');
         const scoreElement = document.getElementById('score');
-        let currentIndex = 0;
-        let startTime = null;
-        let lastKeyTime = null;
-        let keyPressTimes = [];
-        let sessionStats = [];
-        let letterTimings = {};
+        const statsElement = document.getElementById('stats');
         let score = 0;
         let activeLetters = new Set();
         let letterToStuffy = {};
+        let letterTimings = {};
+        let currentFallingLetter = null;
 
         // Stuffy toy backgrounds for each letter
         const stuffyToys = {
@@ -293,6 +279,21 @@
             'Z': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42a.svg'  // camel
         };
 
+        function updateStats() {
+            const letterStats = Object.entries(letterTimings).map(([letter, times]) => ({
+                letter,
+                averageTime: times.reduce((a, b) => a + b, 0) / times.length
+            })).sort((a, b) => b.averageTime - a.averageTime);
+
+            const top5 = letterStats.slice(0, 5);
+            if (top5.length > 0) {
+                statsElement.innerHTML = 'Slowest Letters: ' + 
+                    top5.map(stat => 
+                        `${stat.letter} (${(stat.averageTime / 1000).toFixed(2)}s)`
+                    ).join(', ');
+            }
+        }
+
         function createFallingLetter() {
             const letter = String.fromCharCode(65 + Math.floor(Math.random() * 26)); // Random letter A-Z
             if (activeLetters.has(letter)) return; // Don't create duplicate letters
@@ -305,7 +306,23 @@
             letterElement.style.top = '0px';
             fallingGame.appendChild(letterElement);
             activeLetters.add(letter);
-            letterToStuffy[letter] = letterElement;
+            letterToStuffy[letter] = {
+                element: letterElement,
+                startTime: Date.now(),
+                fallInterval: null
+            };
+
+            // Highlight the corresponding key
+            const keys = document.querySelectorAll('.key');
+            keys.forEach(key => {
+                key.classList.remove('current');
+                if (key.textContent === letter) {
+                    key.classList.add('current');
+                    key.style.opacity = '1';
+                } else {
+                    key.style.opacity = '0.1';
+                }
+            });
 
             let position = 0;
             const fallInterval = setInterval(() => {
@@ -317,8 +334,59 @@
                     letterElement.remove();
                     activeLetters.delete(letter);
                     delete letterToStuffy[letter];
+                    
+                    // Reset keyboard highlight
+                    const keys = document.querySelectorAll('.key');
+                    keys.forEach(key => {
+                        key.classList.remove('current');
+                        key.style.opacity = '0.1';
+                    });
                 }
             }, 20);
+
+            // Store the interval ID so we can clear it when the letter is popped
+            letterToStuffy[letter].fallInterval = fallInterval;
+        }
+
+        function popLetter(letter) {
+            const letterData = letterToStuffy[letter];
+            if (!letterData) return;
+
+            // Clear the falling animation
+            clearInterval(letterData.fallInterval);
+
+            // Calculate response time
+            const responseTime = Date.now() - letterData.startTime;
+            
+            // Track timing for this letter
+            if (!letterTimings[letter]) {
+                letterTimings[letter] = [];
+            }
+            letterTimings[letter].push(responseTime);
+            
+            // Update stats
+            updateStats();
+
+            // Calculate score based on response time (faster = more points)
+            const maxPoints = 100;
+            const timeLimit = 2000; // 2 seconds
+            const points = Math.max(10, Math.floor(maxPoints * (1 - Math.min(responseTime, timeLimit) / timeLimit)));
+            updateScore(points);
+
+            // Pop the letter with animation
+            letterData.element.classList.add('popped');
+            setTimeout(() => {
+                letterData.element.remove();
+                activeLetters.delete(letter);
+                delete letterToStuffy[letter];
+                
+                // Reset keyboard highlight
+                const keys = document.querySelectorAll('.key');
+                keys.forEach(key => {
+                    key.classList.remove('current');
+                    key.style.opacity = '0.1';
+                });
+            }, 500);
         }
 
         // Start creating falling letters
@@ -327,105 +395,6 @@
         function updateScore(points) {
             score += points;
             scoreElement.textContent = `Score: ${score}`;
-        }
-
-        // Add timing display element
-        const timingDisplay = document.createElement('div');
-        timingDisplay.id = 'timingDisplay';
-        timingDisplay.style.position = 'absolute';
-        timingDisplay.style.top = '20px';
-        timingDisplay.style.left = '50%';
-        timingDisplay.style.transform = 'translateX(-50%)';
-        timingDisplay.style.fontSize = '24px';
-        timingDisplay.style.color = '#333';
-        timingDisplay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-        timingDisplay.style.padding = '10px';
-        timingDisplay.style.borderRadius = '5px';
-        timingDisplay.style.textAlign = 'center';
-        document.getElementById('gameArea').appendChild(timingDisplay);
-
-        // Add stats display element
-        const statsDisplay = document.createElement('div');
-        statsDisplay.id = 'statsDisplay';
-        statsDisplay.style.position = 'absolute';
-        statsDisplay.style.bottom = '20px';
-        statsDisplay.style.left = '50%';
-        statsDisplay.style.transform = 'translateX(-50%)';
-        statsDisplay.style.fontSize = '18px';
-        statsDisplay.style.color = '#333';
-        statsDisplay.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-        statsDisplay.style.padding = '10px';
-        statsDisplay.style.borderRadius = '5px';
-        document.getElementById('gameArea').appendChild(statsDisplay);
-
-        function resetGame() {
-            letters.innerHTML = lettersText;
-            currentIndex = 0;
-            // Reset all keys to semi-transparent
-            const keys = document.querySelectorAll('.key');
-            keys.forEach(key => {
-                key.style.opacity = '0.1';
-            });
-            // Reset timing
-            startTime = null;
-            lastKeyTime = null;
-            keyPressTimes = [];
-            updateTimingDisplay();
-        }
-
-        function getSlowestLetters() {
-            // Convert letterTimings to array and sort by average time
-            const letterStats = Object.entries(letterTimings).map(([letter, times]) => ({
-                letter,
-                averageTime: times.reduce((a, b) => a + b, 0) / times.length
-            })).sort((a, b) => b.averageTime - a.averageTime);
-
-            // Return top 5 slowest letters
-            return letterStats.slice(0, 5);
-        }
-
-        function updateTimingDisplay() {
-            if (!startTime) {
-                timingDisplay.textContent = 'Ready to start!';
-                return;
-            }
-
-            const currentTime = Date.now();
-            const elapsedTime = (currentTime - startTime) / 1000;
-            const averageTime = keyPressTimes.length > 0 
-                ? (keyPressTimes.reduce((a, b) => a + b, 0) / keyPressTimes.length).toFixed(2)
-                : 0;
-            
-            const slowestLetters = getSlowestLetters();
-            let slowestLettersText = '';
-            if (slowestLetters.length > 0) {
-                slowestLettersText = '<br>Slowest letters: ' + 
-                    slowestLetters.map(stat => 
-                        `${stat.letter} (${(stat.averageTime / 1000).toFixed(2)}s)`
-                    ).join(', ');
-            }
-            
-            timingDisplay.innerHTML = `
-                Time: ${elapsedTime.toFixed(2)}s | Avg: ${averageTime}s per key
-                ${slowestLettersText}
-            `;
-        }
-
-        function updateStatsDisplay() {
-            if (sessionStats.length === 0) {
-                statsDisplay.textContent = 'No stats yet';
-                return;
-            }
-
-            const lastRun = sessionStats[sessionStats.length - 1];
-            const avgTime = sessionStats.reduce((sum, stat) => sum + stat.totalTime, 0) / sessionStats.length;
-            const bestTime = Math.min(...sessionStats.map(stat => stat.totalTime));
-            
-            statsDisplay.innerHTML = `
-                Last Run: ${lastRun.totalTime.toFixed(2)}s (${lastRun.averageTime.toFixed(2)}s/key)<br>
-                Best Time: ${bestTime.toFixed(2)}s<br>
-                Average Time: ${avgTime.toFixed(2)}s
-            `;
         }
 
         // Finger mapping for QWERTY keyboard
@@ -463,91 +432,12 @@
         // Initialize keyboard
         createKeyboard();
 
-        // Update keyboard highlight
-        function updateKeyboardHighlight(currentIndex) {
-            const keys = document.querySelectorAll('.key');
-            const nextLetter = lettersText[currentIndex];
-            
-            keys.forEach(key => {
-                key.classList.remove('current');
-                if (key.textContent === nextLetter) {
-                    key.classList.add('current');
-                    key.style.opacity = '1';
-                } else {
-                    key.style.opacity = '0.1';
-                }
-            });
-        }
-
-        // Initialize with first letter highlighted
-        updateKeyboardHighlight(0);
-
         document.addEventListener('keydown', (event) => {
             const key = event.key.toUpperCase();
-            const currentLetter = lettersText[currentIndex];
 
             // Check if the pressed key matches any falling letter
             if (activeLetters.has(key) && letterToStuffy[key]) {
-                const letterElement = letterToStuffy[key];
-                letterElement.classList.add('popped');
-                setTimeout(() => {
-                    letterElement.remove();
-                    activeLetters.delete(key);
-                    delete letterToStuffy[key];
-                }, 500);
-                updateScore(10);
-            }
-
-            if (key === currentLetter) {
-                const now = Date.now();
-                
-                if (!startTime) {
-                    startTime = now;
-                    lastKeyTime = now;
-                } else {
-                    const timeSinceLastKey = now - lastKeyTime;
-                    keyPressTimes.push(timeSinceLastKey);
-                    
-                    // Track timing for this specific letter
-                    if (!letterTimings[currentLetter]) {
-                        letterTimings[currentLetter] = [];
-                    }
-                    letterTimings[currentLetter].push(timeSinceLastKey);
-                    
-                    lastKeyTime = now;
-                }
-
-                // Update letter color
-                const span = document.createElement('span');
-                span.textContent = currentLetter;
-                span.className = 'typed';
-                letters.innerHTML = letters.innerHTML.replace(currentLetter, span.outerHTML);
-
-                currentIndex++;
-
-                // Update keyboard highlight for next letter
-                updateKeyboardHighlight(currentIndex);
-                updateTimingDisplay();
-
-                // Check if we've completed the sequence
-                if (currentIndex >= lettersText.length) {
-                    // Record stats for this run
-                    const totalTime = (Date.now() - startTime) / 1000;
-                    const averageTime = keyPressTimes.reduce((a, b) => a + b, 0) / keyPressTimes.length / 1000;
-                    sessionStats.push({
-                        totalTime,
-                        averageTime,
-                        keyPressTimes: [...keyPressTimes],
-                        letterTimings: {...letterTimings}
-                    });
-                    
-                    // Reset game
-                    resetGame();
-                    // Reset keyboard highlight to first letter
-                    updateKeyboardHighlight(0);
-                    // Update stats display
-                    updateStatsDisplay();
-                }
+                popLetter(key);
             }
         });
     </script>
