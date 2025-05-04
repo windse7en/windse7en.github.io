@@ -248,6 +248,9 @@
         let letterToStuffy = {};
         let letterTimings = {};
         let currentFallingLetter = null;
+        let letterCount = 0;
+        let fastLettersCount = 0;
+        const MAX_FAST_LETTERS = 2;
 
         // Stuffy toy backgrounds for each letter
         const stuffyToys = {
@@ -306,10 +309,19 @@
             letterElement.style.top = '0px';
             fallingGame.appendChild(letterElement);
             activeLetters.add(letter);
+
+            // Determine if this should be a fast letter
+            const shouldBeFast = letterCount % 10 === 0 && fastLettersCount < MAX_FAST_LETTERS;
+            if (shouldBeFast) {
+                letterElement.classList.add('fast-letter');
+                fastLettersCount++;
+            }
+
             letterToStuffy[letter] = {
                 element: letterElement,
                 startTime: Date.now(),
-                fallInterval: null
+                fallInterval: null,
+                isFast: shouldBeFast
             };
 
             // Highlight the corresponding key
@@ -326,13 +338,16 @@
 
             let position = 0;
             const fallInterval = setInterval(() => {
-                position += 2;
+                position += shouldBeFast ? 4 : 2; // Double speed for fast letters
                 letterElement.style.top = `${position}px`;
 
                 if (position > fallingGame.offsetHeight - 100) {
                     clearInterval(fallInterval);
                     letterElement.remove();
                     activeLetters.delete(letter);
+                    if (letterToStuffy[letter].isFast) {
+                        fastLettersCount--;
+                    }
                     delete letterToStuffy[letter];
                     
                     // Reset keyboard highlight
@@ -346,6 +361,7 @@
 
             // Store the interval ID so we can clear it when the letter is popped
             letterToStuffy[letter].fallInterval = fallInterval;
+            letterCount++;
         }
 
         function popLetter(letter) {
@@ -367,9 +383,9 @@
             // Update stats
             updateStats();
 
-            // Calculate score based on response time (faster = more points)
-            const maxPoints = 100;
-            const timeLimit = 2000; // 2 seconds
+            // Calculate score based on response time and letter speed
+            const maxPoints = letterData.isFast ? 200 : 100; // Double points for fast letters
+            const timeLimit = letterData.isFast ? 1000 : 2000; // Half time for fast letters
             const points = Math.max(10, Math.floor(maxPoints * (1 - Math.min(responseTime, timeLimit) / timeLimit)));
             updateScore(points);
 
@@ -378,6 +394,9 @@
             setTimeout(() => {
                 letterData.element.remove();
                 activeLetters.delete(letter);
+                if (letterData.isFast) {
+                    fastLettersCount--;
+                }
                 delete letterToStuffy[letter];
                 
                 // Reset keyboard highlight
