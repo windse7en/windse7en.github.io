@@ -24,6 +24,61 @@
             background-color: #f0f0f0;
         }
 
+        #fallingGame {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+            overflow: hidden;
+        }
+
+        #ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to bottom, #8B4513, #A0522D);
+        }
+
+        #score {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            z-index: 100;
+        }
+
+        .falling-letter {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.2s ease;
+        }
+
+        .falling-letter.popped {
+            animation: pop 0.5s ease-out forwards;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(0); opacity: 0; }
+        }
+
         #typingArea {
             flex: 1;
             width: 100%;
@@ -153,6 +208,10 @@
 </head>
 <body>
     <div id="gameArea">
+        <div id="fallingGame">
+            <div id="score">Score: 0</div>
+            <div id="ground"></div>
+        </div>
         <div id="typingArea">
             <div id="letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
         </div>
@@ -192,12 +251,83 @@
         const letters = document.getElementById('letters');
         const keyboard = document.getElementById('keyboard');
         const lettersText = letters.textContent;
+        const fallingGame = document.getElementById('fallingGame');
+        const scoreElement = document.getElementById('score');
         let currentIndex = 0;
         let startTime = null;
         let lastKeyTime = null;
         let keyPressTimes = [];
         let sessionStats = [];
-        let letterTimings = {}; // Track timing for each letter
+        let letterTimings = {};
+        let score = 0;
+        let activeLetters = new Set();
+        let letterToStuffy = {};
+
+        // Stuffy toy backgrounds for each letter
+        const stuffyToys = {
+            'A': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f430.svg', // rabbit
+            'B': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43b.svg', // bear
+            'C': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f408.svg', // cat
+            'D': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f415.svg', // dog
+            'E': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42d.svg', // mouse
+            'F': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42f.svg', // tiger
+            'G': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f405.svg', // tiger face
+            'H': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f412.svg', // monkey
+            'I': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f426.svg', // bird
+            'J': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f427.svg', // penguin
+            'K': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f414.svg', // chicken
+            'L': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f40d.svg', // snake
+            'M': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42e.svg', // cow
+            'N': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f402.svg', // ox
+            'O': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f40e.svg', // horse
+            'P': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43a.svg', // wolf
+            'Q': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f418.svg', // elephant
+            'R': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f40f.svg', // ram
+            'S': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f411.svg', // sheep
+            'T': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f401.svg', // mouse
+            'U': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f400.svg', // rat
+            'V': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f439.svg', // hamster
+            'W': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43d.svg', // pig
+            'X': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f428.svg', // koala
+            'Y': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43c.svg', // panda
+            'Z': 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42a.svg'  // camel
+        };
+
+        function createFallingLetter() {
+            const letter = String.fromCharCode(65 + Math.floor(Math.random() * 26)); // Random letter A-Z
+            if (activeLetters.has(letter)) return; // Don't create duplicate letters
+
+            const letterElement = document.createElement('div');
+            letterElement.className = 'falling-letter';
+            letterElement.textContent = letter;
+            letterElement.style.backgroundImage = `url('${stuffyToys[letter]}')`;
+            letterElement.style.left = `${Math.random() * (fallingGame.offsetWidth - 60)}px`;
+            letterElement.style.top = '0px';
+            fallingGame.appendChild(letterElement);
+            activeLetters.add(letter);
+            letterToStuffy[letter] = letterElement;
+
+            let position = 0;
+            const fallInterval = setInterval(() => {
+                position += 2;
+                letterElement.style.top = `${position}px`;
+
+                if (position > fallingGame.offsetHeight - 100) {
+                    clearInterval(fallInterval);
+                    letterElement.remove();
+                    activeLetters.delete(letter);
+                    delete letterToStuffy[letter];
+                }
+            }, 20);
+        }
+
+        // Start creating falling letters
+        setInterval(createFallingLetter, 2000);
+
+        function updateScore(points) {
+            score += points;
+            scoreElement.textContent = `Score: ${score}`;
+        }
 
         // Add timing display element
         const timingDisplay = document.createElement('div');
@@ -355,6 +485,18 @@
         document.addEventListener('keydown', (event) => {
             const key = event.key.toUpperCase();
             const currentLetter = lettersText[currentIndex];
+
+            // Check if the pressed key matches any falling letter
+            if (activeLetters.has(key) && letterToStuffy[key]) {
+                const letterElement = letterToStuffy[key];
+                letterElement.classList.add('popped');
+                setTimeout(() => {
+                    letterElement.remove();
+                    activeLetters.delete(key);
+                    delete letterToStuffy[key];
+                }, 500);
+                updateScore(10);
+            }
 
             if (key === currentLetter) {
                 const now = Date.now();
