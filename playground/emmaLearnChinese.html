@@ -130,6 +130,33 @@
             gap: 10px;
             margin-top: 10px;
         }
+
+        .stats-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .stats-title {
+            color: #3498db;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .stats-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .stats-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            border-bottom: 1px solid #eee;
+        }
     </style>
 </head>
 
@@ -156,6 +183,13 @@
                 <button id="animate-button" class="animation-button">动画演示</button>
                 <button id="quiz-button" class="animation-button">练习书写</button>
             </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stats-title">学习统计</div>
+            <ul id="stats-list" class="stats-list">
+                <!-- Statistics will be displayed here -->
+            </ul>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
@@ -293,12 +327,56 @@
         const animateButton = document.getElementById('animate-button');
         const quizButton = document.getElementById('quiz-button');
 
+        // 字符查询统计
+        let characterStats = {};
+
+        // 从localStorage加载统计数据
+        loadStats();
+
         // 初始化HanziWriter
         let writer = null;
         let currentCharacter = '学';
 
         // 初始默认汉字
         initHanziWriter(currentCharacter);
+
+        // 加载统计数据
+        function loadStats() {
+            const savedStats = localStorage.getItem('characterStats');
+            if (savedStats) {
+                characterStats = JSON.parse(savedStats);
+                updateStatsDisplay();
+            }
+        }
+
+        // 保存统计数据
+        function saveStats() {
+            localStorage.setItem('characterStats', JSON.stringify(characterStats));
+            updateStatsDisplay();
+        }
+
+        // 更新统计显示
+        function updateStatsDisplay() {
+            const statsList = document.getElementById('stats-list');
+            statsList.innerHTML = '';
+
+            // 获取排序后的字符统计
+            const sortedStats = Object.entries(characterStats)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10); // 只显示前10个
+
+            if (sortedStats.length === 0) {
+                statsList.innerHTML = '<li class="stats-item">暂无查询记录</li>';
+                return;
+            }
+
+            sortedStats.forEach(([char, count]) => {
+                const li = document.createElement('li');
+                li.className = 'stats-item';
+                li.innerHTML = `<span>${char}</span><span>${count}次</span>`;
+                statsList.appendChild(li);
+            });
+        }
 
         function initHanziWriter(character) {
             // 如果已存在writer，先销毁它
@@ -321,6 +399,7 @@
                 radicalColor: '#e74c3c',
                 outlineColor: '#ddd',
                 drawingColor: '#3498db',
+                strokeAnimationSpeed: 3,
                 highlightOnComplete: true,
                 showHintAfterMisses: 3
             });
@@ -431,6 +510,16 @@
         function lookupCharacter(character) {
             characterDisplay.textContent = character;
             status.textContent = '正在查询汉字信息...';
+
+            // 更新统计数据
+            if (characterStats[character]) {
+                characterStats[character]++;
+            } else {
+                characterStats[character] = 1;
+            }
+
+            // 保存统计数据
+            saveStats();
 
             // 初始化HanziWriter
             initHanziWriter(character);
