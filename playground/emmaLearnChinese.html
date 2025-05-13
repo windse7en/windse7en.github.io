@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习中文字</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            padding: 20px 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        .search-form {
+            display: flex;
+            margin: 1.5rem 0;
+            width: 100%;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #e74c3c;
+        }
+
+        .search-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-button:hover {
+            background-color: #c0392b;
+        }
+
+        .character-display {
+            margin-top: 2rem;
+            font-size: 4rem;
+            height: 80px;
+        }
+
+        .pinyin {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .strokes {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .example {
+            margin-top: 0.5rem;
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        .writer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        #character-target {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .animation-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .animation-button:hover {
+            background-color: #2980b9;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>中文字学习</h1>
+        <p>输入您的问题，比如"游泳的第一个字"</p>
+
+        <form id="searchForm" class="search-form">
+            <input type="text" id="searchInput" class="search-input" placeholder="请输入您的问题..." required>
+            <button type="submit" class="search-button">查询</button>
+        </form>
+        <div class="example">例如: "如何写门字"、"游泳的第一个字"</div>
+
+        <div id="status" class="status">请输入您的问题</div>
+
+        <div id="characterDisplay" class="character-display"></div>
+        <div id="pinyin" class="pinyin"></div>
+        <div id="strokes" class="strokes"></div>
+
+        <div class="writer-container">
+            <div id="character-target"></div>
+            <div class="button-container">
+                <button id="animate-button" class="animation-button">动画演示</button>
+                <button id="quiz-button" class="animation-button">练习书写</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+
+    <script>
+        // 本地汉字数据库 - 常用汉字
+        const localCharacterData = {
+            '爱': { pinyin: ['ài'], strokes: 13 },
+            '安': { pinyin: ['ān'], strokes: 6 },
+            '八': { pinyin: ['bā'], strokes: 2 },
+            '白': { pinyin: ['bái'], strokes: 5 },
+            '百': { pinyin: ['bǎi'], strokes: 6 },
+            '北': { pinyin: ['běi'], strokes: 5 },
+            '本': { pinyin: ['běn'], strokes: 5 },
+            '不': { pinyin: ['bù'], strokes: 4 },
+            '才': { pinyin: ['cái'], strokes: 3 },
+            '菜': { pinyin: ['cài'], strokes: 11 },
+            '茶': { pinyin: ['chá'], strokes: 9 },
+            '车': { pinyin: ['chē'], strokes: 4 },
+            '吃': { pinyin: ['chī'], strokes: 6 },
+            '出': { pinyin: ['chū'], strokes: 5 },
+            '大': { pinyin: ['dà'], strokes: 3 },
+            '到': { pinyin: ['dào'], strokes: 8 },
+            '的': { pinyin: ['de'], strokes: 8 },
+            '地': { pinyin: ['dì'], strokes: 6 },
+            '东': { pinyin: ['dōng'], strokes: 5 },
+            '都': { pinyin: ['dōu'], strokes: 10 },
+            '对': { pinyin: ['duì'], strokes: 7 },
+            '多': { pinyin: ['duō'], strokes: 6 },
+            '儿': { pinyin: ['ér'], strokes: 6 },
+            '二': { pinyin: ['èr'], strokes: 2 },
+            '方': { pinyin: ['fāng'], strokes: 4 },
+            '飞': { pinyin: ['fēi'], strokes: 9 },
+            '分': { pinyin: ['fēn'], strokes: 4 },
+            '风': { pinyin: ['fēng'], strokes: 9 },
+            '服': { pinyin: ['fú'], strokes: 8 },
+            '高': { pinyin: ['gāo'], strokes: 10 },
+            '个': { pinyin: ['gè'], strokes: 3 },
+            '工': { pinyin: ['gōng'], strokes: 3 },
+            '关': { pinyin: ['guān'], strokes: 6 },
+            '国': { pinyin: ['guó'], strokes: 8 },
+            '果': { pinyin: ['guǒ'], strokes: 10 },
+            '孩': { pinyin: ['hái'], strokes: 8 },
+            '汉': { pinyin: ['hàn'], strokes: 5 },
+            '好': { pinyin: ['hǎo'], strokes: 6 },
+            '和': { pinyin: ['hé'], strokes: 8 },
+            '河': { pinyin: ['hé'], strokes: 8 },
+            '很': { pinyin: ['hěn'], strokes: 9 },
+            '后': { pinyin: ['hòu'], strokes: 6 },
+            '话': { pinyin: ['huà'], strokes: 8 },
+            '回': { pinyin: ['huí'], strokes: 6 },
+            '家': { pinyin: ['jiā'], strokes: 10 },
+            '见': { pinyin: ['jiàn'], strokes: 7 },
+            '叫': { pinyin: ['jiào'], strokes: 5 },
+            '京': { pinyin: ['jīng'], strokes: 8 },
+            '九': { pinyin: ['jiǔ'], strokes: 2 },
+            '开': { pinyin: ['kāi'], strokes: 4 },
+            '看': { pinyin: ['kàn'], strokes: 9 },
+            '客': { pinyin: ['kè'], strokes: 9 },
+            '来': { pinyin: ['lái'], strokes: 7 },
+            '老': { pinyin: ['lǎo'], strokes: 6 },
+            '了': { pinyin: ['le'], strokes: 2 },
+            '里': { pinyin: ['lǐ'], strokes: 7 },
+            '六': { pinyin: ['liù'], strokes: 4 },
+            '妈': { pinyin: ['mā'], strokes: 6 },
+            '没': { pinyin: ['méi'], strokes: 7 },
+            '门': { pinyin: ['mén'], strokes: 8 },
+            '名': { pinyin: ['míng'], strokes: 6 },
+            '明': { pinyin: ['míng'], strokes: 8 },
+            '你': { pinyin: ['nǐ'], strokes: 7 },
+            '年': { pinyin: ['nián'], strokes: 6 },
+            '女': { pinyin: ['nǚ'], strokes: 3 },
+            '朋': { pinyin: ['péng'], strokes: 8 },
+            '七': { pinyin: ['qī'], strokes: 2 },
+            '前': { pinyin: ['qián'], strokes: 9 },
+            '去': { pinyin: ['qù'], strokes: 5 },
+            '人': { pinyin: ['rén'], strokes: 2 },
+            '日': { pinyin: ['rì'], strokes: 4 },
+            '三': { pinyin: ['sān'], strokes: 3 },
+            '山': { pinyin: ['shān'], strokes: 3 },
+            '上': { pinyin: ['shàng'], strokes: 3 },
+            '生': { pinyin: ['shēng'], strokes: 5 },
+            '师': { pinyin: ['shī'], strokes: 10 },
+            '十': { pinyin: ['shí'], strokes: 2 },
+            '是': { pinyin: ['shì'], strokes: 10 },
+            '书': { pinyin: ['shū'], strokes: 4 },
+            '水': { pinyin: ['shuǐ'], strokes: 4 },
+            '说': { pinyin: ['shuō'], strokes: 9 },
+            '四': { pinyin: ['sì'], strokes: 5 },
+            '天': { pinyin: ['tiān'], strokes: 4 },
+            '听': { pinyin: ['tīng'], strokes: 7 },
+            '同': { pinyin: ['tóng'], strokes: 6 },
+            '头': { pinyin: ['tóu'], strokes: 5 },
+            '外': { pinyin: ['wài'], strokes: 5 },
+            '玩': { pinyin: ['wán'], strokes: 8 },
+            '我': { pinyin: ['wǒ'], strokes: 7 },
+            '五': { pinyin: ['wǔ'], strokes: 4 },
+            '习': { pinyin: ['xí'], strokes: 3 },
+            '下': { pinyin: ['xià'], strokes: 3 },
+            '先': { pinyin: ['xiān'], strokes: 6 },
+            '小': { pinyin: ['xiǎo'], strokes: 3 },
+            '写': { pinyin: ['xiě'], strokes: 5 },
+            '谢': { pinyin: ['xiè'], strokes: 12 },
+            '心': { pinyin: ['xīn'], strokes: 4 },
+            '新': { pinyin: ['xīn'], strokes: 13 },
+            '学': { pinyin: ['xué'], strokes: 8 },
+            '言': { pinyin: ['yán'], strokes: 7 },
+            '羊': { pinyin: ['yáng'], strokes: 6 },
+            '要': { pinyin: ['yào'], strokes: 9 },
+            '也': { pinyin: ['yě'], strokes: 3 },
+            '一': { pinyin: ['yī'], strokes: 1 },
+            '有': { pinyin: ['yǒu'], strokes: 6 },
+            '友': { pinyin: ['yǒu'], strokes: 4 },
+            '语': { pinyin: ['yǔ'], strokes: 9 },
+            '月': { pinyin: ['yuè'], strokes: 4 },
+            '再': { pinyin: ['zài'], strokes: 6 },
+            '在': { pinyin: ['zài'], strokes: 6 },
+            '早': { pinyin: ['zǎo'], strokes: 6 },
+            '这': { pinyin: ['zhè'], strokes: 7 },
+            '中': { pinyin: ['zhōng'], strokes: 4 },
+            '字': { pinyin: ['zì'], strokes: 6 },
+            '走': { pinyin: ['zǒu'], strokes: 7 },
+            '做': { pinyin: ['zuò'], strokes: 9 },
+            '坐': { pinyin: ['zuò'], strokes: 7 },
+            '游': { pinyin: ['yóu'], strokes: 12 },
+            '泳': { pinyin: ['yǒng'], strokes: 8 }
+        };
+
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+        const status = document.getElementById('status');
+        const characterDisplay = document.getElementById('characterDisplay');
+        const pinyinDisplay = document.getElementById('pinyin');
+        const strokesDisplay = document.getElementById('strokes');
+        const animateButton = document.getElementById('animate-button');
+        const quizButton = document.getElementById('quiz-button');
+
+        // 初始化HanziWriter
+        let writer = null;
+        let currentCharacter = '学';
+
+        // 初始默认汉字
+        initHanziWriter(currentCharacter);
+
+        function initHanziWriter(character) {
+            // 如果已存在writer，先销毁它
+            if (writer) {
+                writer.cancelQuiz();
+                writer = null;
+            }
+
+            // 清空目标容器
+            const targetDiv = document.getElementById('character-target');
+            targetDiv.innerHTML = '';
+
+            // 创建新的HanziWriter实例
+            writer = HanziWriter.create('character-target', character, {
+                width: 200,
+                height: 200,
+                padding: 5,
+                showOutline: true,
+                strokeColor: '#333',
+                radicalColor: '#e74c3c',
+                outlineColor: '#ddd',
+                drawingColor: '#3498db',
+                highlightOnComplete: true,
+                showHintAfterMisses: 3
+            });
+
+            currentCharacter = character;
+
+            // 更新按钮状态
+            animateButton.disabled = false;
+            quizButton.disabled = false;
+        }
+
+        // 动画演示按钮事件
+        animateButton.addEventListener('click', function () {
+            if (writer) {
+                writer.cancelQuiz();
+                writer.animateCharacter();
+            }
+        });
+
+        // 练习书写按钮事件
+        quizButton.addEventListener('click', function () {
+            if (writer) {
+                writer.quiz();
+            }
+        });
+
+        searchForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const query = searchInput.textContent || searchInput.value;
+
+            if (!query.trim()) {
+                status.textContent = '请输入一个问题';
+                return;
+            }
+
+            status.textContent = '正在处理您的问题...';
+
+            // 清空之前的结果
+            characterDisplay.textContent = '';
+            pinyinDisplay.textContent = '';
+            strokesDisplay.textContent = '';
+
+            // 处理用户输入的问题
+            processQuery(query);
+        });
+
+        function processQuery(query) {
+            // 匹配"如何写X字"或"怎么写X字"的模式
+            const regex1 = /[如怎]何写([\u4e00-\u9fa5])字/;
+            const regex2 = /[如怎]么写([\u4e00-\u9fa5])字/;
+            const regex3 = /[如怎]何写([\u4e00-\u9fa5]{1,3})的([\u4e00-\u9fa5])字/;
+            const regex4 = /[如怎]么写([\u4e00-\u9fa5]{1,3})的([\u4e00-\u9fa5])字/;
+
+            // 匹配"X的第一个字"模式
+            const regex5 = /([\u4e00-\u9fa5]{1,5})的第([一二三四五六七八九]|[1-9])个字/;
+
+            let match = query.match(regex1) || query.match(regex2);
+
+            if (match && match[1]) {
+                lookupCharacter(match[1]);
+                return;
+            }
+
+            match = query.match(regex3) || query.match(regex4);
+
+            if (match && match[2]) {
+                lookupCharacter(match[2]);
+                return;
+            }
+
+            match = query.match(regex5);
+            if (match && match[1]) {
+                // 获取词语
+                const word = match[1];
+                // 获取位置（第几个字）
+                let position = match[2];
+
+                // 将中文数字转换为阿拉伯数字
+                if (position === '一') position = 0;
+                else if (position === '二') position = 1;
+                else if (position === '三') position = 2;
+                else if (position === '四') position = 3;
+                else if (position === '五') position = 4;
+                else if (position === '六') position = 5;
+                else if (position === '七') position = 6;
+                else if (position === '八') position = 7;
+                else if (position === '九') position = 8;
+                else position = parseInt(position) - 1; // 阿拉伯数字转换为索引
+
+                if (position >= 0 && position < word.length) {
+                    const character = word.charAt(position);
+                    lookupCharacter(character);
+                    return;
+                }
+            }
+
+            // 尝试匹配任何单个汉字
+            const charMatch = query.match(/[\u4e00-\u9fa5]/);
+            if (charMatch) {
+                lookupCharacter(charMatch[0]);
+                return;
+            }
+
+            status.textContent = '无法识别您的问题。请尝试使用"如何写X字"或"X的第一个字"的格式。';
+        }
+
+        function lookupCharacter(character) {
+            characterDisplay.textContent = character;
+            status.textContent = '正在查询汉字信息...';
+
+            // 初始化HanziWriter
+            initHanziWriter(character);
+
+            // 首先尝试使用本地数据
+            if (localCharacterData[character]) {
+                const data = localCharacterData[character];
+                if (data.pinyin) {
+                    pinyinDisplay.textContent = `拼音: ${data.pinyin.join(', ')}`;
+                }
+                if (data.strokes) {
+                    strokesDisplay.textContent = `笔画数: ${data.strokes}`;
+                }
+                status.textContent = '查询完成 (本地数据)';
+                return;
+            }
+
+            // 如果本地没有，尝试使用API
+            fetch(`https://cdn.jsdelivr.net/gh/nk2028/opencc-js@2.0.0/data/dictionary/STCharacters.txt`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('API请求失败');
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    // 这个API返回的是文本文件，需要解析
+                    const lines = text.split('\n');
+                    for (const line of lines) {
+                        if (line.startsWith(character)) {
+                            // 简单显示拼音
+                            pinyinDisplay.textContent = `拼音: 请查询其他来源`;
+                            strokesDisplay.textContent = `笔画数: 请查询其他来源`;
+                            status.textContent = '查询完成 (兼容模式)';
+                            return;
+                        }
+                    }
+                    throw new Error('未找到汉字');
+                })
+                .catch(error => {
+                    console.error('获取汉字信息失败:', error);
+
+                    // 所有API都失败，显示基本信息
+                    pinyinDisplay.textContent = '无法获取拼音信息';
+                    strokesDisplay.textContent = '无法获取笔画信息';
+                    status.textContent = '无法连接到服务器，但您可以查看这个汉字的样式';
+                });
+        }
+    </script>
+</body>
+
+</html>
