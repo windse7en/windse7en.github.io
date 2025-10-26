@@ -18,15 +18,46 @@ const ContactUsSection: React.FC = () => {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate form submission
-        console.log('Form submitted:', formData);
-        setSubmitStatus('success');
-        setTimeout(() => {
-            setSubmitStatus('idle');
-            setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-        }, 3000);
+
+        try {
+            // Prepare form data for Formspree
+            const formDataToSend = new FormData();
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('name', formData.name);
+            formDataToSend.append('phone', formData.phone);
+            formDataToSend.append('_subject', `[FixerUp-Home-Contact] ${formData.subject}`);
+            formDataToSend.append('message', formData.message);
+
+            // Send to Formspree
+            const response = await fetch('https://formspree.io/f/xanlneoy', {
+                method: 'POST',
+                body: formDataToSend,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setSubmitStatus('success');
+                setTimeout(() => {
+                    setSubmitStatus('idle');
+                    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+                }, 3000);
+            } else {
+                setSubmitStatus('error');
+                setTimeout(() => {
+                    setSubmitStatus('idle');
+                }, 3000);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setSubmitStatus('error');
+            setTimeout(() => {
+                setSubmitStatus('idle');
+            }, 3000);
+        }
     };
 
     return (
@@ -60,8 +91,8 @@ const ContactUsSection: React.FC = () => {
                                     </div>
                                     <div className="ml-4">
                                         <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
-                                        <a href="mailto:hello@fixerup.com" className="text-gray-600 hover:text-yellow-600 transition-colors">
-                                            wilsonli@fixerup.com
+                                        <a href="mailto:tao@fixerup.com" className="text-gray-600 hover:text-yellow-600 transition-colors">
+                                            tao@fixerup.com
                                         </a>
                                     </div>
                                 </div>
@@ -213,6 +244,16 @@ const ContactUsSection: React.FC = () => {
                                     <p className="flex items-center">
                                         <i className="ri-checkbox-circle-fill mr-2"></i>
                                         Message sent successfully! We'll get back to you soon.
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* Error Message */}
+                            {submitStatus === 'error' && (
+                                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                                    <p className="flex items-center">
+                                        <i className="ri-error-warning-fill mr-2"></i>
+                                        Failed to send message. Please try again or contact us directly.
                                     </p>
                                 </div>
                             )}
