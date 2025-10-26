@@ -29,7 +29,7 @@ const HowItWorksSection: React.FC = () => {
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Smart Matching</h3>
             <p className="text-gray-600 text-lg">
-              We bundle nearby projects and match you with qualified contractors in your neighborhood
+              We efficiently match projects with professionals in your area
             </p>
           </div>
 

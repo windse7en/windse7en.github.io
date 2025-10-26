@@ -4,6 +4,8 @@ import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import HeroSection from './components/HeroSection';
 import HowItWorksSection from './components/HowItWorksSection';
+import AboutUsSection from './components/AboutUsSection';
+import ContactUsSection from './components/ContactUsSection';
 
 const Home: React.FC = () => {
   return (
@@ -12,6 +14,8 @@ const Home: React.FC = () => {
       <main>
         <HeroSection />
         <HowItWorksSection />
+        <AboutUsSection />
+        <ContactUsSection />
       </main>
       <Footer />
     </div>
