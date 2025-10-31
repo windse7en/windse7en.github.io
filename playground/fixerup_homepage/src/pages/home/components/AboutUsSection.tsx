@@ -1,11 +1,14 @@
 import React from 'react';
+import taoImage from '../../../assets/tao.jpg';
+import wilsonImage from '../../../assets/wilson.jpg';
+import leoImage from '../../../assets/leo.jpg';
 
 const AboutUsSection: React.FC = () => {
     const founders = [
         {
             name: 'Wilson Li',
             role: 'CEO & Co-Founder',
-            image: 'https://media.licdn.com/dms/image/v2/C5603AQFOJJ3_Uo8aLw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517453882015?e=1762992000&v=beta&t=AiyJxvV0G0nJw0oG0HtnGERUwa2QMFbUyfGtrDtDZzg',
+            image: wilsonImage,
             bio: '9 years at Amazon leading cross-functional teams, turning user pain points into fast, scalable product launches.',
             linkedin: 'https://www.linkedin.com/in/wilsonli5000/',
             email: 'wilsonli@fixerup.com'
@@ -13,7 +16,7 @@ const AboutUsSection: React.FC = () => {
         {
             name: 'Tao Zhang',
             role: 'CTO & Co-Founder',
-            image: 'https://media.licdn.com/dms/image/v2/C5603AQHQTlalMzDF5w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1581106236362?e=1762992000&v=beta&t=YPfZZukqNpXIxr3i3Xt7OwlcIQrmusGuJ4Xf_6EmzgY',
+            image: taoImage,
             bio: '10 years at Microsoft and Meta building scalable backend systems and AI-powered solutions.',
             linkedin: 'https://www.linkedin.com/in/tao-zhang-ab0b6956/',
             email: 'tao@fixerup.com',
@@ -21,7 +24,7 @@ const AboutUsSection: React.FC = () => {
         {
             name: 'Leo Zhao',
             role: 'COO & Co-Founder',
-            image: '',
+            image: leoImage,
             bio: '10+ construction experience, building several successful businesses entrepreneur.',
             linkedin: '',
             email: 'leo@fixerup.com'
