@@ -126,6 +126,82 @@ VITE_SUPABASE_ANON_KEY=your_supabase_key
 4. **Components**: Keep components small and reusable
 5. **Assets**: Add images to `src/assets/` directory
 
+## 🌍 Deployment to GitHub Pages
+
+### Step 1: Build the Project
+
+```bash
+npm run build
+```
+
+This will create an optimized production build in the `out/` directory.
+
+### Step 2: Configure GitHub Pages
+
+1. Go to your GitHub repository
+2. Navigate to **Settings** → **Pages**
+3. Under "Build and deployment":
+   - **Source**: Deploy from a branch
+   - **Branch**: Select your main/master branch
+   - **Folder**: Select `/` (root) or the folder where you want to deploy from
+
+### Step 3: Push the `out` Directory
+
+You have two options:
+
+#### Option A: Deploy the `out` folder to the repository root
+
+Copy the contents of `out/` to your repository root or a `docs/` folder, then push to GitHub.
+
+#### Option B: Use GitHub Actions (Recommended)
+
+Create `.github/workflows/deploy.yml`:
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./out
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v2
+        id: deployment
+```
+
+### Access Your Site
+
+After deployment, your site will be available at:
+```
+https://windse7en.github.io/playground/fixerup_homepage/
+```
+
 ## 🐛 Troubleshooting
 
 ### Port already in use

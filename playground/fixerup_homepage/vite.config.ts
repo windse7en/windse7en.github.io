@@ -65,7 +65,7 @@ export default defineConfig({
     dts: true,
   }),
   ],
-  base: './',
+  base: '/playground/fixerup_homepage/',
   build: {
     sourcemap: true,
     outDir: 'out',
