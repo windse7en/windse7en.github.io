@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets_fixerup/fixerup-icon-BKJdRXF-.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FixerUp | Privacy Policy</title>
+    <meta name="description" content="Learn how FixerUp collects, uses, and protects your information." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
+    <link rel="stylesheet" crossorigin href="/assets_fixerup/index-CkUL15vj.css">
+    <style>
+        :root {
+            color-scheme: light;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background: #f7f9fb;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .legal-shell {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 64px 20px 96px;
+        }
+
+        .legal-card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.08);
+            padding: 56px 48px;
+            border: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #0b152e;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            margin: 32px 0 12px;
+            font-size: 20px;
+            color: #0b152e;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #1f2937;
+        }
+
+        .legal-list {
+            margin: 10px 0 0 16px;
+            padding-left: 12px;
+            color: #1f2937;
+        }
+
+        .legal-list li {
+            margin-bottom: 8px;
+        }
+
+        .contact-block {
+            margin-top: 10px;
+            color: #1f2937;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .legal-card {
+                padding: 36px 28px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="legal-shell">
+        <article class="legal-card">
+            <header>
+                <h1>Privacy Policy</h1>
+                <p class="meta">Effective Date: 2026-1-1</p>
+            </header>
+
+            <section>
+                <p>This Privacy Policy explains how FixerUp Inc ("FixerUp," "we," "us," or "our") collects, uses,
+                    shares, and protects information when you use our mobile applications, website, and related services
+                    (the "Services").</p>
+            </section>
+
+            <section>
+                <h2>Contact</h2>
+                <p>FixerUp Inc</p>
+                <p>500 108TH AVE NE, Bellevue, WA 98004, USA</p>
+                <p class="contact-block">Support: <a href="mailto:support@fixerupus.com">support@fixerupus.com</a></p>
+            </section>
+
+            <section>
+                <h2>Information We Collect</h2>
+                <ul class="legal-list">
+                    <li>Information you provide (such as phone number, email, and account details).</li>
+                    <li>Information generated when you use the Services (such as usage logs, diagnostics, and crash
+                        reports).</li>
+                    <li>Device and technical information (such as device model, operating system version, IP address,
+                        and identifiers used for security and fraud prevention).</li>
+                    <li>For SMS verification, we collect your phone number and may collect message delivery metadata
+                        such as timestamps and delivery status.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How We Use Information</h2>
+                <p>We use information to provide and operate the Services, create and secure accounts (including OTP/2FA
+                    verification), prevent fraud and abuse, provide customer support, improve performance and
+                    reliability, and comply with legal obligations.</p>
+            </section>
+
+            <section>
+                <h2>How We Share Information</h2>
+                <p>We may share information with service providers that help us operate the Services (such as cloud
+                    infrastructure providers, SMS delivery providers, and analytics/crash providers) and with
+                    telecommunications carriers as needed to deliver SMS messages. We may also share information to
+                    comply with law, respond to lawful requests, or protect the rights, safety, and security of users
+                    and FixerUp. We do not sell your personal information.</p>
+            </section>
+
+            <section>
+                <h2>Data Retention</h2>
+                <p>We retain information for as long as necessary to provide the Services and for legitimate business
+                    purposes such as security, compliance, dispute resolution, and enforcement of agreements.
+                    Verification and security logs may be retained for a limited period.</p>
+            </section>
+
+            <section>
+                <h2>Security</h2>
+                <p>We use reasonable administrative, technical, and physical safeguards designed to protect information.
+                    No method of transmission or storage is completely secure.</p>
+            </section>
+
+            <section>
+                <h2>Your Choices</h2>
+                <p>You may be able to update certain account information in the app. You can request access or deletion
+                    (where applicable) by contacting us at <a
+                        href="mailto:support@fixerupus.com">support@fixerupus.com</a>.</p>
+            </section>
+
+            <section>
+                <h2>Children's Privacy</h2>
+                <p>The Services are not directed to children under 13, and we do not knowingly collect personal
+                    information from children under 13.</p>
+            </section>
+
+            <section>
+                <h2>Updates</h2>
+                <p>We may update this Privacy Policy from time to time. We will post the updated policy and change the
+                    effective date.</p>
+            </section>
+
+            <section>
+                <h2>SMS Privacy Notes</h2>
+                <p>We use SMS only for OTP/2FA account verification. Message and data rates may apply. Reply STOP to opt
+                    out and HELP for help. For support, contact <a
+                        href="mailto:support@fixerupus.com">support@fixerupus.com</a>.</p>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>
