@@ -5,6 +5,7 @@ import Footer from '../../components/feature/Footer';
 import HeroSection from './components/HeroSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import AboutUsSection from './components/AboutUsSection';
+import WaitlistSection from './components/WaitlistSection';
 import ContactUsSection from './components/ContactUsSection';
 
 const Home: React.FC = () => {
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
         <HeroSection />
         <HowItWorksSection />
         <AboutUsSection />
+        <WaitlistSection />
         <ContactUsSection />
       </main>
       <Footer />

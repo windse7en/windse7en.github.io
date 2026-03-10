@@ -33,6 +33,12 @@ const Header: React.FC = () => {
               About Us
             </button>
             <button
+              onClick={() => scrollToSection('waitlist')}
+              className="px-4 py-2 text-gray-700 hover:text-yellow-600 font-medium transition-colors duration-200"
+            >
+              Join Beta
+            </button>
+            <button
               onClick={() => scrollToSection('contact')}
               className="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
             >
