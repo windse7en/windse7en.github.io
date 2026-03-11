@@ -47,9 +47,7 @@ const WaitlistSection = () => {
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-3 mb-6">
               <p className="text-yellow-800 font-semibold text-sm flex items-center">
                 <i className="ri-gift-line mr-2 text-lg"></i>
-                Beta testers receive a{' '}
-                <span className="text-yellow-600 mx-1">$50 gift card</span>{' '}
-                toward their first service!
+                Beta testers receive a $50 gift card toward their first service!
               </p>
             </div>
             <button
