@@ -33,6 +33,9 @@
   "private": true,
   "scripts": {
     "build": "vite build",
+    "build:root": "vite build --base=/ --outDir=out --assetsDir=assets_fixerup",
+    "copy:root": "cp out/index.html ../../index.html && rm -rf ../../assets_fixerup && mkdir -p ../../assets_fixerup && cp -R out/assets_fixerup/. ../../assets_fixerup/",
+    "deploy:root": "npm run build:root && npm run copy:root",
     "dev": "vite",
     "preview": "vite preview"
   },

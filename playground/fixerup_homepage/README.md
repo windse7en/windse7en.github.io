@@ -233,6 +233,6 @@ This project is private and proprietary.
 ## 📧 Contact
 
 For questions or support, reach out to:
-- Email: info@fixerup.com
+- Email: info@fixerupus.com
 - Website: [fixerup.com](https://fixerup.com)
 

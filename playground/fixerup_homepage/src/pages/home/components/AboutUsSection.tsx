@@ -11,7 +11,7 @@ const AboutUsSection: React.FC = () => {
             image: wilsonImage,
             bio: '9 years at Amazon leading cross-functional teams, turning user pain points into fast, scalable product launches.',
             linkedin: 'https://www.linkedin.com/in/wilsonli5000/',
-            email: 'wilsonli@fixerup.com'
+            email: 'wilsonli@fixerupus.com'
         },
         {
             name: 'Tao Zhang',
@@ -19,7 +19,7 @@ const AboutUsSection: React.FC = () => {
             image: taoImage,
             bio: '10 years at Microsoft and Meta building scalable backend systems and AI-powered solutions.',
             linkedin: 'https://www.linkedin.com/in/tao-zhang-ab0b6956/',
-            email: 'tao@fixerup.com',
+            email: 'tao@fixerupus.com',
         },
         {
             name: 'Leo Zhao',
@@ -27,7 +27,7 @@ const AboutUsSection: React.FC = () => {
             image: leoImage,
             bio: '10+ construction experience, building several successful businesses entrepreneur.',
             linkedin: '',
-            email: 'leo@fixerup.com'
+            email: 'leo@fixerupus.com'
         }
     ];
 
