@@ -91,8 +91,8 @@ const ContactUsSection: React.FC = () => {
                                     </div>
                                     <div className="ml-4">
                                         <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
-                                        <a href="mailto:info@fixerupus.com" className="text-gray-600 hover:text-yellow-600 transition-colors">
-                                            info@fixerupus.com
+                                        <a href="mailto:support@fixerupus.com" className="text-gray-600 hover:text-yellow-600 transition-colors">
+                                            support@fixerupus.com
                                         </a>
                                     </div>
                                 </div>
