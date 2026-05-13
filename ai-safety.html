@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets_fixerup/fixerup-icon-BKJdRXF-.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FixerUp | AI Safety & Privacy</title>
+    <meta name="description"
+        content="Learn how FixerUp's AI assistant Fixa uses OpenAI to help create repair quotes, including what data is sent and how you stay in control." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
+    <link rel="stylesheet" crossorigin href="/assets_fixerup/index-CkUL15vj.css">
+    <style>
+        :root {
+            color-scheme: light;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background: #f7f9fb;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+
+        .legal-shell {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 64px 20px 96px;
+        }
+
+        .legal-card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.08);
+            padding: 56px 48px;
+            border: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #0b152e;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            margin: 32px 0 12px;
+            font-size: 20px;
+            color: #0b152e;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #1f2937;
+        }
+
+        .legal-list {
+            margin: 10px 0 0 16px;
+            padding-left: 12px;
+            color: #1f2937;
+        }
+
+        .legal-list li {
+            margin-bottom: 8px;
+        }
+
+        .contact-block {
+            margin-top: 10px;
+            color: #1f2937;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .legal-card {
+                padding: 36px 28px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="legal-shell">
+        <article class="legal-card">
+            <header>
+                <h1>AI Safety &amp; Privacy</h1>
+                <p class="meta">Last updated: Jan 1, 2026</p>
+            </header>
+
+            <section>
+                <p>FixerUp uses an AI assistant called Fixa to help you describe a repair and get an instant quote. To
+                    do that, Fixa sends a small amount of your input to a third-party AI provider for processing. This
+                    page explains exactly what we send, what we don't, and how you're in control.</p>
+            </section>
+
+            <section>
+                <h2>The AI provider we use</h2>
+                <p>Fixa is powered by <a href="https://openai.com/">OpenAI</a>. We call OpenAI's API to turn your
+                    description of a repair into the questions Fixa asks you and the quote you eventually see.</p>
+            </section>
+
+            <section>
+                <h2>What we send to OpenAI</h2>
+                <p>When you chat with Fixa, we send the following to OpenAI:</p>
+                <ul class="legal-list">
+                    <li>The text you type in the chat (e.g. "my kitchen faucet is leaking from the base").</li>
+                    <li>Photos you take or attach to the conversation (e.g. a picture of the leaking faucet).</li>
+                </ul>
+                <p>That's it. We send only what Fixa needs to understand and price the repair.</p>
+                <p>Please note: anything you type into the Fixa chat is sent to OpenAI as part of the message. If you
+                    don't want OpenAI to see something, don't type it into the chat.</p>
+            </section>
+
+            <section>
+                <h2>What we never send to OpenAI</h2>
+                <p>We never send the following to OpenAI:</p>
+                <ul class="legal-list">
+                    <li>Audio recordings — even if you describe a repair using voice input, the voice is converted to
+                        text on your device first; only the resulting text reaches OpenAI.</li>
+                    <li>Video files — Fixa works from still photos only.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How OpenAI handles your data</h2>
+                <p>Per OpenAI's API privacy terms:</p>
+                <ul class="legal-list">
+                    <li>Data sent through their API is not used to train OpenAI's models.</li>
+                    <li>Data may be retained for up to 30 days for OpenAI's abuse and misuse monitoring, then
+                        permanently deleted.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Your consent</h2>
+                <p>The first time you sign in to FixerUp before starting a quote with Fixa, we explicitly tell you the
+                    AI Chat will use your account to store your data and progress, and link you to this page. By
+                    continuing through sign-in, you agree to this data flow. You can revoke that consent at any time by
+                    deleting your account from the app.</p>
+            </section>
+
+            <section>
+                <h2>How to stop</h2>
+                <p>You can stop using Fixa at any time — simply don't start a new quote chat. If you'd like to delete
+                    your FixerUp account along with the content you've shared, open the app and go to Profile → Privacy
+                    &amp; Security → Delete Account.</p>
+            </section>
+
+            <section>
+                <h2>Questions</h2>
+                <p class="contact-block">Email us at <a href="mailto:support@fixerupus.com">support@fixerupus.com</a>
+                    and we'll get back to you.</p>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>
