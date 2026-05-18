@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why does my circuit breaker keep tripping? — FixerUp</title>
+  <meta name="description" content="A breaker that won&#x27;t stay on isn&#x27;t broken — it&#x27;s working exactly the way it&#x27;s supposed to, and I&#x27;ll walk you through what it&#x27;s trying to tell you.">
+  <meta property="og:title" content="Why does my circuit breaker keep tripping?">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://fixerupus.com/blog/why-does-my-circuit-breaker-keep-tripping/">
+  <meta property="og:image" content="https://fixerupus.com/blog/why-does-my-circuit-breaker-keep-tripping/hero.webp">
+  <link rel="canonical" href="https://fixerupus.com/blog/why-does-my-circuit-breaker-keep-tripping/">
+  <link rel="icon" type="image/png" href="/assets_fixerup/fixerup-icon-BKJdRXF-.png">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --ink-muted: #5b6168;
+      --rule: #e4e6e9;
+      --bg: #ffffff;
+      --accent: #1f6feb;
+      --serif: "Source Serif Pro", "Iowan Old Style", "Charter", "Cambria", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+    body {
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .topbar {
+      font-family: var(--sans);
+      border-bottom: 1px solid var(--rule);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .topbar a { color: var(--ink); text-decoration: none; font-weight: 600; }
+    .topbar a:hover { color: var(--accent); }
+    .topbar .brand { font-size: 18px; }
+    .topbar .nav { font-size: 14px; color: var(--ink-muted); }
+    article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    article .meta {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+    }
+    article h1 {
+      font-size: 42px;
+      line-height: 1.18;
+      margin: 0 0 28px;
+      letter-spacing: -0.01em;
+    }
+    article h2 {
+      font-family: var(--sans);
+      font-size: 26px;
+      line-height: 1.3;
+      margin: 56px 0 16px;
+      letter-spacing: -0.005em;
+    }
+    article h3 {
+      font-family: var(--sans);
+      font-size: 20px;
+      margin: 36px 0 12px;
+    }
+    article p { margin: 0 0 22px; }
+    article ul { padding-left: 24px; margin: 0 0 22px; }
+    article ul li { margin-bottom: 8px; }
+    article strong { font-weight: 700; }
+    .post-figure {
+      margin: 36px 0;
+    }
+    .post-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 1px 0 var(--rule), 0 8px 24px rgba(20, 24, 28, 0.06);
+    }
+    .footer-cta {
+      max-width: 720px;
+      margin: 48px auto 96px;
+      padding: 24px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+    .footer-cta a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .footer-cta a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      body { font-size: 17px; }
+      article { padding: 32px 18px 64px; }
+      article h1 { font-size: 32px; }
+      article h2 { font-size: 22px; margin: 40px 0 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">FixerUp</a>
+    <nav class="nav"><a href="/blog/">Fix Tips</a></nav>
+  </header>
+  <article>
+    <div class="meta">Electrical · May 18, 2026</div>
+<h1>Why does my circuit breaker keep tripping?</h1>
+<p>A breaker that won&#x27;t stay on isn&#x27;t broken — it&#x27;s working exactly the way it&#x27;s supposed to, and I&#x27;ll walk you through what it&#x27;s trying to tell you.</p>
+<figure class="post-figure"><img src="hero.webp" alt="" loading="lazy"></figure>
+<h2>What&#x27;s actually happening when a breaker trips</h2>
+<figure class="post-figure"><img src="panel-overview.webp" alt="" loading="lazy"></figure>
+<p>Every breaker in your panel is a tiny guard standing watch over one circuit. If too much current flows, or current goes somewhere it shouldn&#x27;t, the guard flips off the switch before a wire overheats. So a tripped breaker is a <strong>save, not a failure</strong> — the real question is which kind of save you just witnessed. In a US home, the answer is almost always one of five things.</p>
+<ul><li><strong>Overload.</strong> A single circuit is rated for <strong>15 or 20 amps</strong>. Plug in a space heater on the same circuit as a hair dryer and a microwave and you&#x27;ll cross that line in about a minute. The tell is timing — the circuit holds fine until you turn on that one extra appliance.</li><li><strong>Short circuit.</strong> Inside an outlet, a lamp cord, or an appliance, a hot wire is touching a neutral wire directly. Current spikes hard and fast, and the breaker snaps off in milliseconds. The tell is immediacy — it trips the instant you flip it back on, sometimes with a pop or a burnt-plastic smell.</li><li><strong>Ground fault or AFCI sensitivity.</strong> GFCI outlets in bathrooms, kitchens, garages, and outdoors watch for current <strong>leaking</strong> through water or a damaged appliance. <strong>AFCI</strong> breakers in bedrooms and living rooms listen for the stuttering arcs of a loose wire starting to spark inside a wall. Either one trips on the smallest hint of trouble — that&#x27;s the job.</li><li><strong>A specific appliance is the bad actor.</strong> Old microwaves, window AC units, mini fridges, and space heaters pull a big <strong>startup surge</strong> when their motor or heating element kicks in. A failing one will push past what the circuit can hand off, every single time it cycles on.</li><li><strong>The breaker itself is worn out.</strong> Standard residential breakers are good for <strong>20 to 40 years</strong>; AFCI and GFCI devices wear out closer to <strong>10 to 15</strong>. A tired breaker trips at random — no appliance pattern, no room pattern, just nuisance trips that get worse over time.</li></ul>
+<p>Those are the five suspects. Next, let&#x27;s narrow it down without calling anyone yet.</p>
+<h2>How to diagnose this yourself</h2>
+<figure class="post-figure"><img src="self-diagnose.webp" alt="" loading="lazy"></figure>
+<p>Most breaker mysteries get solved in fifteen quiet minutes at the panel and a slow walk through the house. Here&#x27;s the order I&#x27;d go in.</p>
+<p>Start at the <strong>panel</strong>. Open the door and look for the breaker that&#x27;s flipped — it&#x27;ll sit slightly out of line with the others, often resting in a middle &quot;tripped&quot; position rather than fully OFF. Note which room or which outlets went dark when it tripped; the label on the panel door is your map, even if it&#x27;s old handwriting. If more than one breaker is flipped, that&#x27;s a different story and you&#x27;ll want a pro — keep reading to the next section.</p>
+<p>Now figure out which <strong>circuit</strong> you&#x27;re on. Walk that room with a phone flashlight and find every outlet, every light switch, and every hardwired appliance that lost power. That whole group is your circuit, and somewhere in that group is your answer.</p>
+<p>Next, <strong>unplug everything</strong> on the circuit — lamps, chargers, the toaster, the space heater, the window AC, all of it. Then go back to the panel and <strong>reset</strong> the breaker. Push it firmly to OFF first, then back to ON. If it holds with nothing plugged in, you&#x27;ve already ruled out a wall-side short or a worn-out breaker — the trouble is one of the things you just unplugged.</p>
+<p>Now <strong>plug things back in one at a time</strong>, starting with the smallest. After each one, wait a beat. If the breaker trips when you plug in a specific lamp or cord, that lamp or cord is the bad actor — retire it or swap it out. If it trips the moment a big appliance like a space heater or window AC <strong>kicks on</strong> (not when you plug it in, but when its motor cycles), that&#x27;s the startup-surge story and the appliance is asking for a circuit that can handle it.</p>
+<p>Finally, <strong>watch for the pattern over a day or two</strong>. A breaker that holds with nothing plugged in but trips at random in normal use is leaning toward GFCI/AFCI sensitivity or a tired breaker. A breaker that trips only when one specific appliance runs is an appliance-and-circuit-sizing problem. A breaker that won&#x27;t even reset is something else entirely — and that&#x27;s the line where DIY stops.</p>
+<h2>When to stop and call a pro — and what a FixerUp electrician will do</h2>
+<figure class="post-figure"><img src="call-the-pro.webp" alt="" loading="lazy"></figure>
+<p>Some signs aren&#x27;t for diagnosing — they&#x27;re for closing the panel door and picking up the phone. <strong>Stop and call an electrician same-day</strong> if you smell <strong>burning plastic</strong>, see <strong>scorch marks</strong> on a breaker or outlet, feel <strong>heat</strong> coming off the panel face, hear a <strong>buzzing or humming</strong> from one slot, see the breaker <strong>spark or refuse to reset</strong>, or if any of the trouble involves <strong>water</strong> near the panel or near an outlet. Same goes for a breaker that trips with everything unplugged, or trips at the same time every day with no pattern you can name — that means the trouble lives inside the wall, and that&#x27;s not a homeowner job.</p>
+<p>When a <strong>FixerUp verified electrician</strong> comes out, here&#x27;s what the visit actually looks like. They start with a <strong>visual panel inspection</strong> — pulling the dead front cover off so they can see every lug, wire, and breaker face. They use an <strong>infrared thermometer</strong> to check each breaker&#x27;s running temperature against its neighbors; a hot breaker is a dying breaker. They put a <strong>clamp meter</strong> on the suspect circuit to measure real current draw under your normal load, and an <strong>inrush reading</strong> on any appliance that&#x27;s been kicking the breaker — that tells them whether the appliance, the circuit sizing, or the breaker itself is the failure. For GFCI and AFCI trips they use a <strong>plug-in tester</strong> to confirm the device is functioning, then trace which junction is leaking. Loose screw terminals get retorqued; that alone fixes a surprising number of nuisance trips.</p>
+<p>Scope of work follows from what they find. A like-for-like <strong>breaker swap</strong> typically runs <strong>$100 to $200</strong> installed and takes under an hour. A damaged outlet is about <strong>$15 in parts</strong> plus labor. A fuller <strong>panel tune-up</strong> — torquing every lug, replacing aged breakers, rebalancing the load — runs <strong>$100 to $300</strong> in most US markets. If the real answer is a <strong>dedicated 20-amp circuit</strong> pulled to a heavy appliance, expect a half-day job. Your electrician will explain which of these you actually need before any work starts, and an honest pro will tell you when the answer is &quot;nothing — just stop running the heater and the microwave together.&quot;</p>
+<h2>One more thing</h2>
+<p>If this sounds like a one-call job and you&#x27;d rather not chase down five quotes, Fixa can match you with a background-checked electrician in your area and bring you an honest price after a free home visit.</p>
+  </article>
+  <div class="footer-cta">
+    Need a hand with a home repair? <a href="/">Try Fixa</a> — I'll find a fixer in your area.
+  </div>
+</body>
+</html>
