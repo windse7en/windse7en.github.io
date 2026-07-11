@@ -74,3 +74,6 @@ Use the blog for durable public learning. Keep company strategy in private found
 
 5. Add build-time tests.
    Check that the sitemap has only public URLs, search does not include archived posts, and every legacy page has a `noindex` tag.
+
+6. Remove vendored legacy dependencies.
+   GitHub currently reports dependency vulnerabilities on the default branch. The likely cause is old generated/vendor folders such as playground dependency assets. The safest fix is to remove unused vendor trees from the published repo or move them to a private archive.
