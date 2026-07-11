@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Legacy Archive | TaoThinks</title>
+  <meta name="description" content="Archived legacy posts kept for personal reference.">
+  <link rel="canonical" href="https://taothinks.live/legacy/">
+  <style>
+    :root {
+      --ink: #1f2328;
+      --muted: #5d6673;
+      --line: #d9dee7;
+      --paper: #f7f4ec;
+      --surface: #fff;
+      --sage: #496b59;
+      --brick: #9a4f3f;
+      --blue: #2d5f7a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    .shell {
+      width: min(860px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(31, 35, 40, .1);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 72px 0 96px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--brick);
+      font-size: 13px;
+      font-weight: 720;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 8vw, 78px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .links {
+      display: grid;
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .archive-link {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .archive-link strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue);
+    }
+
+    .archive-link span {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .arrow {
+      color: var(--sage);
+      font-size: 24px;
+    }
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid rgba(31, 35, 40, .1);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 680px) {
+      .shell {
+        width: min(100% - 28px, 860px);
+      }
+
+      .nav,
+      .archive-link {
+        align-items: flex-start;
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="/">TaoThinks</a>
+      <nav aria-label="Legacy navigation">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <p class="eyebrow">Hidden archive / noindex</p>
+    <h1>Legacy Archive</h1>
+    <p class="lead">
+      Older posts are preserved here for personal reference. They are intentionally removed from the homepage, tag discovery, local search index, and public sitemap.
+    </p>
+
+    <div class="links">
+      <a class="archive-link" href="/archives/">
+        <span><strong>Full old archive</strong>Browse the previous generated archive index.</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="archive-link" href="/2017/">
+        <span><strong>2017 posts</strong>Open the preserved 2017 technical notes by their original path.</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="archive-link" href="/2015/">
+        <span><strong>2015 posts</strong>Open the preserved 2015 technical notes by their original path.</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="archive-link" href="/tags/">
+        <span><strong>Legacy tags gateway</strong>The old tag surface is hidden, but the route is kept for continuity.</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">© 2026 TaoThinks. Legacy content is retained but not promoted.</div>
+  </footer>
+</body>
+</html>

@@ -199,7 +199,7 @@ jobs:
 
 After deployment, your site will be available at:
 ```
-https://windse7en.github.io/playground/fixerup_homepage/
+https://taothinks.live/playground/fixerup_homepage/
 ```
 
 ## 🐛 Troubleshooting
@@ -235,4 +235,3 @@ This project is private and proprietary.
 For questions or support, reach out to:
 - Email: support@fixerupus.com
 - Website: [fixerup.com](https://fixerup.com)
-

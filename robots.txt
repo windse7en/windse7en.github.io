@@ -1,0 +1,20 @@
+User-agent: *
+Disallow: /2015/
+Disallow: /2017/
+Disallow: /archives/
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /page/
+Disallow: /legacy/
+Disallow: /blog/
+Disallow: /playground/
+Disallow: /quote_test/
+Disallow: /quote_demo_test/
+Disallow: /assets_fixerup/
+Disallow: /media/
+Disallow: /privacy.html
+Disallow: /terms.html
+Disallow: /ai-safety.html
+Disallow: /buildforyou.html
+
+Sitemap: https://taothinks.live/sitemap.xml
