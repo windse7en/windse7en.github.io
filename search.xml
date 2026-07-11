@@ -3,11 +3,31 @@
   <entry>
     <title><![CDATA[TaoThinks]]></title>
     <url><![CDATA[https://taothinks.live/]]></url>
-    <content><![CDATA[Daily questions for an AI-native founder. Bilingual thinking notes for AI, product, and founder operating systems.]]></content>
+    <content><![CDATA[Daily questions, AI-native founder thinking, and printable mental model cards.]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Daily Questions]]></title>
+    <url><![CDATA[https://taothinks.live/daily/]]></url>
+    <content><![CDATA[Bilingual daily AI thinking posts.]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Tags]]></title>
+    <url><![CDATA[https://taothinks.live/tags/]]></url>
+    <content><![CDATA[Browse TaoThinks posts by tag.]]></content>
   </entry>
   <entry>
     <title><![CDATA[About TaoThinks]]></title>
     <url><![CDATA[https://taothinks.live/about/]]></url>
-    <content><![CDATA[TaoThinks is Tao Zhang's 2026 personal publishing home. Confidential FixerUp strategy, customer data, financial assumptions, roadmap details, and operating data should stay private.]]></content>
+    <content><![CDATA[The TaoThinks publishing and print system.]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[The Untrainable Edge in the AI Era]]></title>
+    <url><![CDATA[https://taothinks.live/daily/2026-07-07-untrainable-ai-era/]]></url>
+    <content><![CDATA[Abilities that can be publicly benchmarked will keep being compressed by AI. Long-term value moves toward harder-to-train territory: self-generated traits, judgment, real-world permission, repeated good judgment, and the right to define what Good means.]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[What Big Tech Fears Most About AI Disruption]]></title>
+    <url><![CDATA[https://taothinks.live/daily/2026-07-05-big-tech-ai-disruption/]]></url>
+    <content><![CDATA[AI reprices the structure of advantage: entry points, resource advantages, talent barriers, and organizational speed. The dangerous shift is not one feature being replaced; it is users expressing intent to AI first while incumbent products move into the execution layer.]]></content>
   </entry>
 </search>

@@ -11,11 +11,16 @@ This repo is the static GitHub Pages output repo for `taothinks.live`.
 - Custom domain file: `/CNAME`
 - Public homepage: `/index.html`
 - Public about page: `/about/index.html`
+- Public daily index: `/daily/index.html`
+- Public tag index: `/tags/index.html`
+- Public print pack: `/prints/ai-mindset-book.html`
+- Public AI MindSet source data: `/data/ai-mindset-posts.json`
+- Publishing script: `/scripts/publish_ai_mindset.py`
 - Search feed: `/search.xml`
 - Public sitemap: `/sitemap.xml`
 - Search crawler policy: `/robots.txt`
 
-The repo currently contains generated static HTML rather than a clean source/content system. That means quick deployment is easy, but editing many posts manually is fragile.
+The repo currently contains generated static HTML, plus a small TaoThinks generator for AI MindSet posts. Quick deployment is easy, but old generated pages and legacy vendor folders still make the repo heavier than it should be.
 
 ## Public Surface
 
@@ -23,10 +28,33 @@ New visitors should primarily see:
 
 - `/`
 - `/about/`
+- `/daily/`
+- `/daily/YYYY-MM-DD-slug/`
+- `/tags/`
+- `/tags/tag-name/`
+- `/prints/ai-mindset-book.html`, which is noindexed and meant for direct printing
 - `sitemap.xml`, which only lists the public TaoThinks pages
 - `search.xml`, which only indexes TaoThinks public pages
 
-All public copy has been updated to `TaoThinks` and 2026.
+All public copy uses `TaoThinks`, 2026, and the bilingual language switcher.
+
+## AI MindSet Publishing
+
+FounderOS daily cards are not published directly.
+
+The public flow is:
+
+```text
+FounderOS daily markdown
+↓
+reviewed public bilingual JSON
+↓
+scripts/publish_ai_mindset.py
+↓
+TaoThinks static pages
+```
+
+The reviewed JSON removes or generalizes company, customer, and non-public operating details before generation.
 
 ## Legacy Archive
 
@@ -35,7 +63,8 @@ Older posts are preserved but removed from normal discovery.
 - Entry point: `/legacy/`
 - Old post years: `/2015/`, `/2017/`
 - Old archive index: `/archives/`
-- Old tags/categories: `/tags/`, `/categories/`
+- Old category index: `/categories/`
+- Old tag subpages under `/tags/...` remain noindexed, while `/tags/` is now the current public tag index
 
 Archive pages are protected in three ways:
 

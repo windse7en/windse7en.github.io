@@ -12,14 +12,47 @@
       "title": "TaoThinks",
       "url": "https://taothinks.live/",
       "date": "2026-07-11T00:00:00.000Z",
-      "content": "Daily questions for an AI-native founder. Bilingual thinking notes for AI, product, and founder operating systems."
+      "content": "Daily questions, AI-native founder thinking, and printable mental model cards."
     },
     {
-      "title": "About TaoThinks",
-      "url": "https://taothinks.live/about/",
+      "title": "Daily Questions",
+      "url": "https://taothinks.live/daily/",
       "date": "2026-07-11T00:00:00.000Z",
-      "content": "TaoThinks is Tao Zhang's 2026 personal publishing home. Confidential FixerUp strategy, customer information, financial assumptions, roadmap details, and operating data stay private."
+      "content": "Bilingual daily AI thinking posts."
+    },
+    {
+      "title": "Tags",
+      "url": "https://taothinks.live/tags/",
+      "date": "2026-07-11T00:00:00.000Z",
+      "content": "Browse TaoThinks posts by tag."
     }
   ],
-  "posts": []
+  "posts": [
+    {
+      "title": "The Untrainable Edge in the AI Era",
+      "url": "https://taothinks.live/daily/2026-07-07-untrainable-ai-era/",
+      "date": "2026-07-07T00:00:00.000Z",
+      "content": "Abilities that can be publicly benchmarked will keep being compressed by AI. Long-term value moves toward harder-to-train territory: self-generated traits, judgment, real-world permission, repeated good judgment, and the right to define what Good means.",
+      "tags": [
+        "ai",
+        "trainability",
+        "judgment",
+        "mental-models",
+        "founder-os"
+      ]
+    },
+    {
+      "title": "What Big Tech Fears Most About AI Disruption",
+      "url": "https://taothinks.live/daily/2026-07-05-big-tech-ai-disruption/",
+      "date": "2026-07-05T00:00:00.000Z",
+      "content": "AI reprices the structure of advantage: entry points, resource advantages, talent barriers, and organizational speed. The dangerous shift is not one feature being replaced; it is users expressing intent to AI first while incumbent products move into the execution layer.",
+      "tags": [
+        "ai",
+        "big-tech",
+        "entry-point",
+        "mental-models",
+        "product-strategy"
+      ]
+    }
+  ]
 }

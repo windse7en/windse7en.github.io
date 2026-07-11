@@ -1,193 +1,81 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN" data-lang="zh">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About | TaoThinks</title>
-  <meta name="description" content="About TaoThinks, Tao Zhang's 2026 bilingual publishing home.">
-  <meta property="og:title" content="About TaoThinks">
-  <meta property="og:description" content="A bilingual publishing home for daily questions and AI-native founder thinking.">
+  <title>关于 | TaoThinks</title>
+  <meta name="description" content="The bilingual publishing and print system behind TaoThinks.">
+  <meta property="og:title" content="About | TaoThinks">
+  <meta property="og:description" content="The bilingual publishing and print system behind TaoThinks.">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://taothinks.live/about/">
   <meta property="og:site_name" content="TaoThinks">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About | TaoThinks">
+  <meta name="twitter:description" content="The bilingual publishing and print system behind TaoThinks.">
   <link rel="canonical" href="https://taothinks.live/about/">
   <link rel="icon" href="/favicon.ico">
-  <style>
-    :root {
-      --ink: #1f2328;
-      --muted: #5d6673;
-      --line: #d9dee7;
-      --paper: #f7f4ec;
-      --surface: #fff;
-      --sage: #496b59;
-      --brick: #9a4f3f;
-      --blue: #2d5f7a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      letter-spacing: 0;
-    }
-
-    a {
-      color: inherit;
-      text-underline-offset: 4px;
-    }
-
-    .shell {
-      width: min(880px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    header,
-    footer {
-      border-bottom: 1px solid rgba(31, 35, 40, .1);
-      background: rgba(247, 244, 236, .9);
-    }
-
-    footer {
-      border-top: 1px solid rgba(31, 35, 40, .1);
-      border-bottom: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav,
-    footer .shell {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      font-weight: 760;
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    nav a {
-      text-decoration: none;
-    }
-
-    main {
-      padding: 72px 0 96px;
-    }
-
-    .eyebrow {
-      margin: 0 0 16px;
-      color: var(--brick);
-      font-size: 13px;
-      font-weight: 720;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-family: ui-serif, Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 8vw, 86px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      margin: 26px 0 0;
-      color: var(--muted);
-      font-size: 21px;
-      line-height: 1.65;
-    }
-
-    .body {
-      margin-top: 48px;
-      display: grid;
-      gap: 18px;
-    }
-
-    section {
-      padding: 24px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      color: var(--blue);
-      font-size: 18px;
-      letter-spacing: 0;
-    }
-
-    p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    @media (max-width: 680px) {
-      .shell {
-        width: min(100% - 28px, 880px);
-      }
-
-      .nav,
-      footer .shell {
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        padding: 14px 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets_taothinks/site.css">
 </head>
 <body>
-  <header>
-    <div class="shell nav">
-      <a class="brand" href="/">TaoThinks</a>
-      <nav aria-label="Main navigation">
-        <a href="/">Home</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="shell">
-    <p class="eyebrow">2026 / About</p>
-    <h1>Daily questions, kept useful.</h1>
-    <p class="lead">
-      TaoThinks is Tao Zhang's personal publishing home for daily thinking around AI, products, and founder operating systems.
-    </p>
+    <header class="site-header">
+      <div class="shell nav">
+        <a class="brand" href="/" aria-label="TaoThinks home">
+          <span class="mark">T</span>
+          <span>TaoThinks</span>
+        </a>
+        <div class="nav-actions">
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="/"><span class="lang-zh">首页</span><span class="lang-en">Home</span></a>
+            <a href="/daily/"><span class="lang-zh">每日思考</span><span class="lang-en">Daily</span></a>
+            <a href="/tags/"><span class="lang-zh">标签</span><span class="lang-en">Tags</span></a>
+            <a href="/about/"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
+          </nav>
+          <div class="language-toggle" aria-label="Language switcher">
+            <button type="button" data-lang-switch="zh">中文</button>
+            <button type="button" data-lang-switch="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <div class="body">
-      <section>
-        <h2>Publishing Principle</h2>
-        <p>Use the blog as the source of truth, then adapt the same idea into Chinese and English social posts. The long version lives here; the public network gets the distilled version.</p>
-      </section>
-      <section>
-        <h2>Confidentiality Filter</h2>
-        <p>Posts should not expose FixerUp strategy, customer information, financial assumptions, sales pipeline, internal roadmap, hiring plans, or non-public operating data.</p>
-      </section>
-      <section>
-        <h2>Archive Policy</h2>
-        <p>Older technical posts are preserved for reference, but they are no longer promoted on the homepage, tag index, search index, or sitemap.</p>
-      </section>
-    </div>
+
+  <main class="shell narrow">
+    <section class="page-title">
+      <p class="eyebrow">2026 / About</p>
+      <h1 class="lang-zh">把每日问题变成可复习的判断力。</h1><h1 class="lang-en">Turn daily questions into reusable judgment.</h1>
+      <p class="lead lang-zh">TaoThinks 是 Tao Zhang 的个人发布空间，用来沉淀 AI、产品和 founder operating system 相关的每日思考。</p><p class="lead lang-en">TaoThinks is Tao Zhang&#x27;s personal publishing space for daily thinking around AI, products, and founder operating systems.</p>
+    </section>
+
+    <section class="article-body">
+      <article class="content-block">
+        <h2 class="lang-zh">发布原则</h2><h2 class="lang-en">Publishing Principle</h2>
+        <p class="lang-zh">个人博客是 source of truth。社交平台拿到的是更短的中文和英文版本，长版本留在这里。</p><p class="lang-en">The blog is the source of truth. Social platforms get shorter Chinese and English versions; the long version lives here.</p>
+      </article>
+      <article class="content-block">
+        <h2 class="lang-zh">公开过滤</h2><h2 class="lang-en">Public Filter</h2>
+        <p class="lang-zh">公开文章只保留可复习的 mental model。公司、客户、财务、计划细节和非公开执行信息不会进入发布内容。</p><p class="lang-en">Public posts keep the reusable mental model. Company, customer, financial, planning, and non-public operating details are kept out of published content.</p>
+      </article>
+      <article class="content-block">
+        <h2 class="lang-zh">打印</h2><h2 class="lang-en">Print</h2>
+        <p class="lang-zh">每篇每日思考都有独立打印页，也有一个合并打印包，方便直接从浏览器打印成纸质复习卡。</p><p class="lang-en">Each daily post has its own print page, plus a combined print pack that can be printed directly from the browser.</p>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    <div class="shell">
-      <span>© 2026 TaoThinks</span>
-      <a href="/docs/site-architecture.md">Site architecture</a>
-    </div>
-  </footer>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span>© 2026 TaoThinks</span>
+        <div class="footer-links">
+          <a href="/daily/"><span class="lang-zh">每日思考</span><span class="lang-en">Daily Posts</span></a>
+          <a href="/tags/"><span class="lang-zh">标签</span><span class="lang-en">Tags</span></a>
+          <a href="/legacy/"><span class="lang-zh">旧文归档</span><span class="lang-en">Legacy Archive</span></a>
+        </div>
+      </div>
+    </footer>
+
+  <script src="/assets_taothinks/site.js"></script>
 </body>
 </html>

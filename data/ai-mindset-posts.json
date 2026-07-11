@@ -1,0 +1,286 @@
+{
+  "source_dir": "/Users/zhangtao/src/FounderOS/ai-mindset-book/daily",
+  "print_source": "/Users/zhangtao/src/FounderOS/exports/ai-mindset-book.html",
+  "posts": [
+    {
+      "source_file": "2026-07-05-big-tech-ai-disruption.md",
+      "date": "2026-07-05",
+      "slug": "2026-07-05-big-tech-ai-disruption",
+      "title": {
+        "zh": "大厂最怕 AI 颠覆什么",
+        "en": "What Big Tech Fears Most About AI Disruption"
+      },
+      "question": {
+        "zh": "大厂最怕被 AI 颠覆的核心是什么？",
+        "en": "What is the core threat AI creates for big technology companies?"
+      },
+      "summary": {
+        "zh": "AI 真正重定价的是优势结构：入口、资源优势、人才壁垒和组织速度。最危险的变化不是某个功能被替代，而是用户先向 AI 表达意图，原产品被推到后端执行层。",
+        "en": "AI reprices the structure of advantage: entry points, resource advantages, talent barriers, and organizational speed. The dangerous shift is not one feature being replaced; it is users expressing intent to AI first while incumbent products move into the execution layer."
+      },
+      "tags": [
+        "ai",
+        "big-tech",
+        "entry-point",
+        "mental-models",
+        "product-strategy"
+      ],
+      "directions": [
+        {
+          "title": {
+            "zh": "入口变化",
+            "en": "Entry Point Shift"
+          },
+          "body": {
+            "zh": "用户不一定再从原来的产品开始。AI 可能成为表达意图的第一站，然后决定后面调用哪个工具、服务或数据源。",
+            "en": "Users may stop starting inside the old product. AI can become the first place where intent is expressed, then decide which tool, service, or data source should be called next."
+          }
+        },
+        {
+          "title": {
+            "zh": "资源优势被重新定价",
+            "en": "Resource Advantage Reset"
+          },
+          "body": {
+            "zh": "数据、品牌、渠道和资金仍然重要，但不再自动形成决定性护城河。小团队可以借助外部模型和工具完成过去需要大组织才能完成的工作。",
+            "en": "Data, brand, distribution, and capital still matter, but they no longer guarantee a decisive moat. Small teams can use external models and tools to do work that once required a large organization."
+          }
+        },
+        {
+          "title": {
+            "zh": "人才壁垒被压缩",
+            "en": "Talent Barrier Compression"
+          },
+          "body": {
+            "zh": "AI 放大优秀 builder、designer 和 founder 的产出。壁垒不是消失，而是从“人数和头衔”转向“判断力和速度”。",
+            "en": "AI amplifies the output of strong builders, designers, and founders. The barrier does not disappear; it moves from headcount and credentials toward judgment and speed."
+          }
+        },
+        {
+          "title": {
+            "zh": "组织速度差",
+            "en": "Organizational Speed Gap"
+          },
+          "body": {
+            "zh": "大公司不一定输在技术，而可能输在组织速度：旧产品、收入保护、审批流程和品牌风险都会拖慢重组入口的速度。",
+            "en": "Large companies may not lose because of weak technology. They may lose because legacy products, business model protection, approval processes, and brand risk slow down their ability to reorganize the entry point."
+          }
+        },
+        {
+          "title": {
+            "zh": "从软件到结果",
+            "en": "From Software To Outcome"
+          },
+          "body": {
+            "zh": "用户真正要的是结果，不是软件。AI 让用户可以直接描述 outcome，降低“必须先打开某个软件”的惯性。",
+            "en": "Users want outcomes, not software for its own sake. AI lets users describe the desired outcome directly, weakening the habit of opening a specific product first."
+          }
+        },
+        {
+          "title": {
+            "zh": "后端执行层风险",
+            "en": "Backend Utility Risk"
+          },
+          "body": {
+            "zh": "当 AI 拿走入口，原产品可能仍然存在，但价值位置后移，变成 API、插件、数据源或执行工具。",
+            "en": "When AI owns the entry point, the old product may still exist, but its value position moves backward into an API, plugin, data source, or execution tool."
+          }
+        }
+      ],
+      "model": {
+        "title": {
+          "zh": "入口控制 Entry Point Control",
+          "en": "Entry Point Control"
+        },
+        "one_sentence": {
+          "zh": "谁拥有用户表达意图的入口，谁就拥有重新组织市场的机会。",
+          "en": "Whoever owns the point where users express intent gets the chance to reorganize the market."
+        },
+        "core_idea": {
+          "zh": "AI 颠覆 incumbent 的第一步，往往不是直接替代最终服务，而是拿走用户到达最终结果之前的入口和认知工作。当用户先问 AI，AI 就能决定哪些步骤被省掉、哪些产品被调用、哪些公司还能保留用户关系。",
+          "en": "The first step of AI disruption is often not replacing the final service. It is taking the entry point and the cognitive work before the user reaches the outcome. Once users ask AI first, AI can decide which steps disappear, which products are called, and which companies keep the customer relationship."
+        },
+        "pattern": {
+          "zh": "用户意图 → AI 入口 → 认知工作 → 执行层 → 结果",
+          "en": "User Intent → AI Entry Point → Cognitive Work → Execution Layer → Outcome"
+        },
+        "examples": [
+          {
+            "zh": "搜索：用户不再先输入关键词，而是直接问 AI。",
+            "en": "Search: users ask AI directly instead of starting with keywords."
+          },
+          {
+            "zh": "创意工具：用户先描述想要的结果，再由系统选择工具。",
+            "en": "Creative tools: users describe the result first, then the system chooses the tool."
+          },
+          {
+            "zh": "行业软件：原来的前台产品可能变成 AI 背后的执行层。",
+            "en": "Vertical software: the old front-office product may become an execution layer behind AI."
+          }
+        ],
+        "applications": [
+          {
+            "zh": "做产品时，不只问用户现在用什么工具，要问用户真正想完成什么 outcome。",
+            "en": "When building products, do not only ask which tool users currently use; ask what outcome they really want."
+          },
+          {
+            "zh": "看行业时，先找用户第一次表达需求的位置。",
+            "en": "When analyzing a market, first locate where users express intent."
+          },
+          {
+            "zh": "判断护城河时，区分入口、认知工作和执行层。",
+            "en": "When judging moats, separate the entry point, cognitive work, and execution layer."
+          }
+        ],
+        "quote": {
+          "zh": "AI 最先拿走的不是服务本身，而是用户通往服务的入口。",
+          "en": "AI first takes the doorway to the service, not necessarily the service itself."
+        }
+      },
+      "recall": [
+        {
+          "zh": "为什么“入口”比“功能”更危险？",
+          "en": "Why is the entry point more dangerous than a single feature?"
+        },
+        {
+          "zh": "AI 会怎样重新定价资源优势和人才壁垒？",
+          "en": "How does AI reprice resource advantages and talent barriers?"
+        },
+        {
+          "zh": "如果把这个模型套到一个新行业，第一步应该问什么？",
+          "en": "If you apply this model to a new industry, what is the first question to ask?"
+        }
+      ]
+    },
+    {
+      "source_file": "2026-07-07-untrainable-ai-era.md",
+      "date": "2026-07-07",
+      "slug": "2026-07-07-untrainable-ai-era",
+      "title": {
+        "zh": "Untrainable 与 AI 时代",
+        "en": "The Untrainable Edge in the AI Era"
+      },
+      "question": {
+        "zh": "当 AI 让越来越多能力变得 trainable，什么东西仍然长期有价值？",
+        "en": "When AI makes more abilities trainable, what remains valuable over the long run?"
+      },
+      "summary": {
+        "zh": "可被公开 benchmark 的能力会被 AI 持续压缩。长期价值会迁移到更难被训练的地方：自发特质、判断力、真实世界权限、长期 good judgment，以及定义什么叫 Good 的权利。",
+        "en": "Abilities that can be publicly benchmarked will keep being compressed by AI. Long-term value moves toward harder-to-train territory: self-generated traits, judgment, real-world permission, repeated good judgment, and the right to define what Good means."
+      },
+      "tags": [
+        "ai",
+        "trainability",
+        "judgment",
+        "mental-models",
+        "founder-os"
+      ],
+      "directions": [
+        {
+          "title": {
+            "zh": "可测量就会被训练",
+            "en": "Measurable Becomes Trainable"
+          },
+          "body": {
+            "zh": "如果一件事可以被公开评分、反复比较、自动验证，它最终就会被 AI 学会或压缩。",
+            "en": "If something can be publicly scored, repeatedly compared, and automatically verified, AI will eventually learn or compress it."
+          }
+        },
+        {
+          "title": {
+            "zh": "Untrainable 更像身份层",
+            "en": "Untrainable Lives Closer To Identity"
+          },
+          "body": {
+            "zh": "真正难训练的不是普通技能，而是没人监督时仍然学习、负责、发现问题并提高标准的自发特质。",
+            "en": "The hardest things to train are not ordinary skills, but self-generated traits: learning without supervision, taking responsibility, noticing problems, and raising standards."
+          }
+        },
+        {
+          "title": {
+            "zh": "AI 负责 How，人负责 Why 和 What",
+            "en": "AI Handles How; Humans Keep Why And What"
+          },
+          "body": {
+            "zh": "AI 越来越擅长告诉你怎么做，但什么值得做、为什么要做、什么时候不做，仍然依赖 judgment。",
+            "en": "AI gets better at explaining how to do things, but what is worth doing, why it matters, and when not to do it still depend on judgment."
+          }
+        },
+        {
+          "title": {
+            "zh": "长期价值来自定义 Good",
+            "en": "Long-Term Value Comes From Defining Good"
+          },
+          "body": {
+            "zh": "如果只追逐现有 benchmark，很容易被压缩。更深的位置，是通过长期判断和真实反馈，逐渐获得定义标准的权利。",
+            "en": "If you only chase existing benchmarks, you are easy to compress. A deeper position is earning the right to define standards through repeated judgment and real-world feedback."
+          }
+        }
+      ],
+      "model": {
+        "title": {
+          "zh": "可训练性边界 Trainability Boundary",
+          "en": "Trainability Boundary"
+        },
+        "one_sentence": {
+          "zh": "能被公开测量的能力会被 AI 压缩；长期价值会迁移到判断、权限、真实世界反馈和定义标准的权利。",
+          "en": "Abilities that can be publicly measured get compressed by AI; long-term value moves to judgment, permission, real-world feedback, and the right to define standards."
+        },
+        "core_idea": {
+          "zh": "AI 时代不要只问“这个能力厉不厉害”，要问它能不能被公开评测、自动验证、规模化训练。如果能，它会越来越 trainable。更稀缺的部分在边界之外：发现什么重要、判断什么够好、承担责任，并持续形成 good judgment。",
+          "en": "In the AI era, do not only ask whether a skill is impressive. Ask whether it can be publicly evaluated, automatically verified, and trained at scale. If yes, it becomes increasingly trainable. Scarcity moves beyond that boundary: noticing what matters, judging what is good enough, taking responsibility, and compounding good judgment."
+        },
+        "pattern": {
+          "zh": "公开 Benchmark → AI 学会 → 技能商品化 → 价值迁移到 Judgment + Permission + Definition of Good",
+          "en": "Public Benchmark → AI Learns → Skill Commodity → Value Moves To Judgment + Permission + Definition of Good"
+        },
+        "examples": [
+          {
+            "zh": "Coding benchmark 会被模型突破，但真实系统里的约束、责任边界和组织判断更难公开训练。",
+            "en": "Coding benchmarks can be beaten, but the constraints, accountability, and organizational judgment inside real systems are harder to train publicly."
+          },
+          {
+            "zh": "专业领域里，长期价值往往来自对“够好”的判断，而不只是生成答案的速度。",
+            "en": "In professional domains, long-term value often comes from judging what is good enough, not merely producing answers quickly."
+          },
+          {
+            "zh": "个人成长里，真正稀缺的是没人要求时仍然学习和提高标准。",
+            "en": "In personal growth, the scarce trait is continuing to learn and raise standards when nobody asks you to."
+          }
+        ],
+        "applications": [
+          {
+            "zh": "招聘时，不只问候选人会不会做，还要问没人告诉他时会不会主动发现并解决问题。",
+            "en": "When hiring, do not only ask whether someone can do the task; ask whether they notice and solve problems without being told."
+          },
+          {
+            "zh": "做 AI 产品时，不只问模型能不能生成，还要问谁拥有真实反馈、permission 和 accountability。",
+            "en": "When building AI products, do not only ask whether the model can generate; ask who owns real feedback, permission, and accountability."
+          },
+          {
+            "zh": "做个人知识系统时，每日问题要沉淀成可复用的判断模型，而不是停留在聊天记录。",
+            "en": "When building a personal knowledge system, daily questions should become reusable judgment models, not just chat logs."
+          }
+        ],
+        "quote": {
+          "zh": "真正长期有价值的，不是赢下一次 benchmark，而是逐渐获得定义 benchmark 的权利。",
+          "en": "The durable advantage is not winning one benchmark; it is earning the right to define the benchmark."
+        }
+      },
+      "recall": [
+        {
+          "zh": "为什么公开测量会让能力越来越 trainable？",
+          "en": "Why does public measurement make an ability increasingly trainable?"
+        },
+        {
+          "zh": "Untrainable 为什么更像 self-generated traits？",
+          "en": "Why is the untrainable edge closer to self-generated traits?"
+        },
+        {
+          "zh": "一个产品如何从追逐 benchmark 走向定义 Good？",
+          "en": "How can a product move from chasing benchmarks to defining Good?"
+        }
+      ]
+    }
+  ]
+}
