@@ -388,6 +388,22 @@ button.button {
   font-weight: 620;
 }
 
+.giscus-block {
+  background: #fff;
+}
+
+.giscus-thread {
+  margin-top: 18px;
+}
+
+.integration-note {
+  padding: 16px 18px;
+  border: 1px dashed rgba(45, 95, 122, .38);
+  background: #f7fbfc;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .archive-note {
   display: grid;
   grid-template-columns: 1fr auto;

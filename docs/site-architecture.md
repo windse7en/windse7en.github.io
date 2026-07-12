@@ -16,6 +16,8 @@ This repo is the static GitHub Pages output repo for `taothinks.live`.
 - Public print pack: `/prints/ai-mindset-book.html`
 - Public AI MindSet source data: `/data/ai-mindset-posts.json`
 - Publishing script: `/scripts/publish_ai_mindset.py`
+- Frontend behavior: `/assets_taothinks/site.js`
+- Public integrations: configured in `/data/ai-mindset-posts.json`
 - Search feed: `/search.xml`
 - Public sitemap: `/sitemap.xml`
 - Search crawler policy: `/robots.txt`
@@ -37,6 +39,24 @@ New visitors should primarily see:
 - `search.xml`, which only indexes TaoThinks public pages
 
 All public copy uses `TaoThinks`, 2026, and the bilingual language switcher.
+
+## Analytics And Discussion
+
+TaoThinks keeps the site static and uses external services for dynamic behavior.
+
+- Analytics provider: GoatCounter
+- Analytics endpoint: configured under `integrations.analytics.endpoint`
+- Language split: pageviews are sent as `canonical-path::zh` or `canonical-path::en`
+- Discussion provider: Giscus
+- Discussion repo: configured under `integrations.giscus.repo`
+
+Giscus requires three GitHub-side prerequisites before it can be fully enabled:
+
+- the repository must be public
+- GitHub Discussions must be enabled
+- the Giscus GitHub app must be installed on the repository
+
+Once those are done, fill `integrations.giscus.category` and `integrations.giscus.categoryId` in `/data/ai-mindset-posts.json`, set `integrations.giscus.enabled` to `true`, and rerun the publish script.
 
 ## AI MindSet Publishing
 

@@ -18,6 +18,29 @@ DATA_PATH = ROOT / "data" / "ai-mindset-posts.json"
 BASE_URL = "https://taothinks.live"
 PUBLIC_DATE = "2026-07-11"
 GENERATED_ROOTS = ["daily", "prints"]
+DEFAULT_INTEGRATIONS = {
+    "analytics": {
+        "provider": "goatcounter",
+        "enabled": True,
+        "endpoint": "https://taothinks.goatcounter.com/count",
+        "path_language_suffix": True,
+    },
+    "giscus": {
+        "enabled": False,
+        "repo": "windse7en/windse7en.github.io",
+        "repoId": "R_kgDOAe7UzQ",
+        "category": "",
+        "categoryId": "",
+        "mapping": "pathname",
+        "strict": "0",
+        "reactionsEnabled": "1",
+        "emitMetadata": "0",
+        "inputPosition": "top",
+        "theme": "light",
+        "languages": {"zh": "zh-CN", "en": "en"},
+    },
+}
+INTEGRATIONS: dict[str, Any] = DEFAULT_INTEGRATIONS
 
 CONFIDENTIAL_PATTERNS = [
     r"\bFixerUp\b",
@@ -102,6 +125,11 @@ def normalize_output(content: str) -> str:
     return "\n".join(line.rstrip() for line in content.rstrip().splitlines()) + "\n"
 
 
+def integrations_config_script() -> str:
+    payload = json.dumps(INTEGRATIONS, ensure_ascii=False, separators=(",", ":"))
+    return f"  <script>window.taothinksIntegrations = {payload};</script>\n"
+
+
 def nav() -> str:
     return """
     <header class="site-header">
@@ -181,6 +209,7 @@ def shell(
 {header}
 {body}
 {page_footer}
+{"" if bare else integrations_config_script()}\
   <script src="/assets_taothinks/site.js"></script>
 </body>
 </html>"""
@@ -344,6 +373,17 @@ def render_discussion_prompt(post: dict[str, Any]) -> str:
     """
 
 
+def render_comments() -> str:
+    return f"""
+        <section class="content-block giscus-block" id="comments">
+          {lang_pair("h2", "讨论区", "Discussion")}
+          {lang_pair("p", "欢迎用 GitHub 登录参与讨论。每篇文章会自动映射到独立的 GitHub Discussion。", "Sign in with GitHub to join the conversation. Each post maps to its own GitHub Discussion.")}
+          <div class="giscus giscus-thread" data-giscus-thread></div>
+          <noscript>{lang_span("需要开启 JavaScript 才能看到讨论区。", "JavaScript is required to view the discussion.")}</noscript>
+        </section>
+    """
+
+
 def render_article(post: dict[str, Any]) -> str:
     directions = "\n".join(
         f"""
@@ -410,7 +450,7 @@ def render_article(post: dict[str, Any]) -> str:
         <section class="content-block">
           {lang_pair("h2", "一句值得记住的话", "Quote")}
           <p class="quote">{lang_span(post["model"]["quote"]["zh"], post["model"]["quote"]["en"])}</p>
-        </section>{render_discussion_prompt(post)}
+        </section>{render_discussion_prompt(post)}{render_comments()}
         <section class="content-block">
           {lang_pair("h2", "Active Recall", "Active Recall")}
           <ol>{recall}</ol>
@@ -655,7 +695,9 @@ Sitemap: {BASE_URL}/sitemap.xml"""
 
 
 def generate() -> list[Path]:
+    global INTEGRATIONS
     data = load_data()
+    INTEGRATIONS = data.get("integrations", DEFAULT_INTEGRATIONS)
     source_dir = Path(data.get("source_dir", ""))
     validate_public_content(data, source_dir)
     posts = sorted(data["posts"], key=lambda item: item["date"], reverse=True)

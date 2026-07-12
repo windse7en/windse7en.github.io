@@ -1,6 +1,31 @@
 {
   "source_dir": "/Users/zhangtao/src/FounderOS/ai-mindset-book/daily",
   "print_source": "/Users/zhangtao/src/FounderOS/exports/ai-mindset-book.html",
+  "integrations": {
+    "analytics": {
+      "provider": "goatcounter",
+      "enabled": true,
+      "endpoint": "https://taothinks.goatcounter.com/count",
+      "path_language_suffix": true
+    },
+    "giscus": {
+      "enabled": false,
+      "repo": "windse7en/windse7en.github.io",
+      "repoId": "R_kgDOAe7UzQ",
+      "category": "",
+      "categoryId": "",
+      "mapping": "pathname",
+      "strict": "0",
+      "reactionsEnabled": "1",
+      "emitMetadata": "0",
+      "inputPosition": "top",
+      "theme": "light",
+      "languages": {
+        "zh": "zh-CN",
+        "en": "en"
+      }
+    }
+  },
   "posts": [
     {
       "source_file": "2026-07-05-big-tech-ai-disruption.md",
