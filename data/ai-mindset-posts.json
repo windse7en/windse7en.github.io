@@ -9,11 +9,11 @@
       "path_language_suffix": true
     },
     "giscus": {
-      "enabled": false,
+      "enabled": true,
       "repo": "windse7en/windse7en.github.io",
       "repoId": "R_kgDOAe7UzQ",
-      "category": "",
-      "categoryId": "",
+      "category": "General",
+      "categoryId": "DIC_kwDOAe7Uzc4DBAYr",
       "mapping": "pathname",
       "strict": "0",
       "reactionsEnabled": "1",
