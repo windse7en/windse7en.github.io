@@ -307,6 +307,43 @@ def render_daily_index(posts: list[dict[str, Any]]) -> str:
     return shell("每日思考", "Daily Questions", "TaoThinks 每日 AI 思考。", "TaoThinks daily AI thinking.", "/daily/", body)
 
 
+def render_essay(post: dict[str, Any]) -> str:
+    essay = post.get("essay")
+    if not essay:
+        return ""
+
+    zh_paragraphs = essay.get("zh", [])
+    en_paragraphs = essay.get("en", [])
+    paragraph_count = max(len(zh_paragraphs), len(en_paragraphs))
+    paragraphs = "\n".join(
+        lang_pair(
+            "p",
+            zh_paragraphs[index] if index < len(zh_paragraphs) else "",
+            en_paragraphs[index] if index < len(en_paragraphs) else "",
+        )
+        for index in range(paragraph_count)
+    )
+    return f"""
+        <section class="content-block essay-block">
+          {lang_pair("h2", "正文", "Essay")}
+          <div class="essay-copy">{paragraphs}</div>
+        </section>
+    """
+
+
+def render_discussion_prompt(post: dict[str, Any]) -> str:
+    prompt = post.get("discussion_prompt")
+    if not prompt:
+        return ""
+
+    return f"""
+        <section class="content-block discussion-callout" id="discussion">
+          {lang_pair("h2", "一起讨论", "Join The Discussion")}
+          {lang_pair("p", prompt["zh"], prompt["en"])}
+        </section>
+    """
+
+
 def render_article(post: dict[str, Any]) -> str:
     directions = "\n".join(
         f"""
@@ -347,7 +384,7 @@ def render_article(post: dict[str, Any]) -> str:
         <section class="content-block">
           {lang_pair("h2", "30 秒答案", "30-Second Answer")}
           {lang_pair("p", post["summary"]["zh"], post["summary"]["en"])}
-        </section>
+        </section>{render_essay(post)}
         <section>
           {lang_pair("h2", "关键方向", "Key Directions")}
           <div class="direction-list">{directions}</div>
@@ -373,7 +410,7 @@ def render_article(post: dict[str, Any]) -> str:
         <section class="content-block">
           {lang_pair("h2", "一句值得记住的话", "Quote")}
           <p class="quote">{lang_span(post["model"]["quote"]["zh"], post["model"]["quote"]["en"])}</p>
-        </section>
+        </section>{render_discussion_prompt(post)}
         <section class="content-block">
           {lang_pair("h2", "Active Recall", "Active Recall")}
           <ol>{recall}</ol>
@@ -503,6 +540,12 @@ def tag_counts(posts: list[dict[str, Any]]) -> dict[str, int]:
     return counts
 
 
+def post_search_content(post: dict[str, Any]) -> str:
+    parts = [post["summary"]["en"]]
+    parts.extend(post.get("essay", {}).get("en", []))
+    return " ".join(parts)
+
+
 def render_search(posts: list[dict[str, Any]]) -> str:
     entries = [
         ("TaoThinks", "/", "Daily questions, AI-native founder thinking, and printable mental model cards."),
@@ -511,7 +554,7 @@ def render_search(posts: list[dict[str, Any]]) -> str:
         ("About TaoThinks", "/about/", "The TaoThinks publishing and print system."),
     ]
     for post in posts:
-        entries.append((post["title"]["en"], post_url(post), post["summary"]["en"]))
+        entries.append((post["title"]["en"], post_url(post), post_search_content(post)))
     xml_entries = "\n".join(
         f"""  <entry>
     <title><![CDATA[{title}]]></title>
@@ -552,7 +595,7 @@ def render_content_json(posts: list[dict[str, Any]]) -> str:
             "title": post["title"]["en"],
             "url": f"{BASE_URL}{post_url(post)}",
             "date": f"{post['date']}T00:00:00.000Z",
-            "content": post["summary"]["en"],
+            "content": post_search_content(post),
             "tags": post["tags"],
         }
         for post in posts

@@ -334,6 +334,25 @@ button.button {
   box-shadow: none;
 }
 
+.essay-block {
+  padding: 30px;
+  border-color: rgba(73, 107, 89, .38);
+  background: rgba(255, 255, 255, .82);
+}
+
+.essay-copy {
+  display: grid;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.essay-copy p {
+  max-width: 760px;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.82;
+}
+
 .direction-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -357,6 +376,16 @@ button.button {
   font-family: ui-serif, Georgia, serif;
   font-size: 22px;
   line-height: 1.35;
+}
+
+.discussion-callout {
+  border-color: rgba(45, 95, 122, .34);
+  background: #f7fbfc;
+}
+
+.discussion-callout p {
+  color: var(--ink);
+  font-weight: 620;
 }
 
 .archive-note {
