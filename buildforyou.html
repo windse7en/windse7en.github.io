@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="build-for-you-addition.css">
 </head>
 <body>
     <canvas id="headerCanvas"></canvas>
@@ -35,6 +36,37 @@
             </div>
         </div>
     </header>
+
+
+    <!-- BEGIN additive offer + latest build section -->
+    <section class="bfu-update" id="build-update" aria-labelledby="bfu-offer-heading">
+      <div class="container">
+        <div class="bfu-update-bar"><span class="bfu-eyebrow">What's new at Build For You</span><a href="#home">Explore our homepage ↓</a></div>
+        <div class="bfu-update-grid">
+          <div class="bfu-offer">
+            <span class="bfu-eyebrow">Limited-time build deal</span>
+            <h2 id="bfu-offer-heading">Your next home.<br>Now with <span>FixerUp.</span></h2>
+            <p>Build For You has joined the FixerUp platform. Discover our limited-time offer and let's bring your dream home to life.</p>
+            <div class="bfu-offer-price"><strong>$299</strong><span>STARTING AT<b>per square foot</b></span></div>
+            <div class="bfu-offer-actions"><a class="btn btn-primary" href="https://fixerupus.com" target="_blank" rel="noopener noreferrer">Explore FixerUp ↗</a><a class="btn btn-secondary" href="sms:+12067872345">Text us about the deal</a></div>
+            <small class="bfu-offer-note">Starting price. Contact us to confirm project scope, inclusions, site requirements, and current offer availability.</small>
+          </div>
+          <article class="bfu-latest" aria-labelledby="bfu-latest-heading">
+            <div class="bfu-photos">
+              <span class="bfu-photo-badge">BUILT BY BUILD FOR YOU</span>
+              <button data-bfu-photo="0" aria-label="View the latest home's exterior"><img src="media/13344-newport/photo-00.jpg" alt="Completed Bellevue home at 13344 SE Newport Way"><span class="bfu-photo-label">See our latest build ↗</span></button>
+              <button data-bfu-photo="1" aria-label="View the living room"><img src="media/13344-newport/photo-01.jpg" alt="Finished living room with expansive windows"><span class="bfu-photo-label">Living</span></button>
+              <button data-bfu-photo="3" aria-label="View the kitchen"><img src="media/13344-newport/photo-03.jpg" alt="Finished kitchen with wood cabinetry"><span class="bfu-photo-label">Kitchen</span></button>
+            </div>
+            <div class="bfu-latest-info"><div class="bfu-latest-title"><span class="bfu-eyebrow">Our latest completed home</span><span class="bfu-status">● Now listed</span></div><h3 id="bfu-latest-heading">13344 SE Newport Way</h3><p>Bellevue, WA · 5 bedrooms · Approx. 4,200 sq ft</p><div class="bfu-latest-links"><button data-bfu-photo="0">View 40 photos ↗</button><a href="https://www.redfin.com/WA/Bellevue/13344-SE-Newport-Way-98006/home/233884" target="_blank" rel="noopener noreferrer">View on Redfin ↗</a><a href="https://www.youtube.com/watch?v=eZ-YsM-mIhs" target="_blank" rel="noopener noreferrer">Video tour ▷</a></div></div>
+          </article>
+        </div>
+        <div class="bfu-contact-strip"><strong>Like what you see? Let's talk about your build.</strong><div><a href="sms:+12067872345">Text (206) 787-2345 ↗</a><a href="mailto:info@build4u.net">info@build4u.net ↗</a></div></div>
+      </div>
+      <div class="bfu-transition"><a href="#home">YOUR RELIABLE PARTNER IN BUILDING YOUR DREAM HOUSE &nbsp; ↓</a></div>
+    </section>
+    <!-- END additive offer + latest build section -->
+
 
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
@@ -384,5 +416,8 @@
     </footer>
 
     <script src="script.js"></script>
+<dialog class="bfu-gallery" id="bfu-gallery" aria-label="Latest completed home photo gallery"><div class="bfu-gallery-top"><span>13344 SE Newport Way · Bellevue</span><button id="bfu-close" aria-label="Close latest home gallery">Close ×</button></div><img id="bfu-viewer" src="media/13344-newport/photo-00.jpg" alt="Latest home"><div class="bfu-gallery-controls"><button id="bfu-prev" aria-label="Previous latest home photo">←</button><span id="bfu-count" aria-live="polite"></span><button id="bfu-next" aria-label="Next latest home photo">→</button></div><small>Photos: Redfin / NWMLS #2577551. Listing agents: Linciya Li & Amy Zhang, Skyline Properties, Inc. Status checked September 24, 2026. <a href="https://www.redfin.com/WA/Bellevue/13344-SE-Newport-Way-98006/home/233884" target="_blank" rel="noopener noreferrer">Current listing details ↗</a><br>Completed home shown as an example of our work. Contact us for specifications included in the starting-price offer.</small></dialog>
+<script src="build-for-you-addition.js"></script>
+
 </body>
 </html>
