@@ -14,13 +14,20 @@ const fingerDefs=[
 ];
 const keyFinger={};fingerDefs.forEach(f=>[...f.keys].forEach(k=>keyFinger[k]=f));
 keyFinger[' ']={id:'thumb',name:'拇指',home:' ',keys:' ',color:'#dfcda2'};
+// Names and effects checked against the official Harry Potter spell encyclopedia.
 const spells=[
- {name:'LUMOS',meaning:'荧光闪烁 · 点亮魔法灯',icon:'☀'},
+ {name:'LUMOS',meaning:'荧光闪烁 · 点亮魔杖',icon:'☀'},
  {name:'NOX',meaning:'熄灭灯光',icon:'☾'},
+ {name:'ACCIO',meaning:'飞来咒 · 召来物品',icon:'↗'},
+ {name:'REPARO',meaning:'修复如初 · 修复物品',icon:'◇'},
  {name:'ALOHOMORA',meaning:'阿拉霍洞开 · 开启魔法门',icon:'✧'},
+ {name:'PROTEGO',meaning:'盔甲护身 · 形成护盾',icon:'◈'},
+ {name:'EXPELLIARMUS',meaning:'除你武器 · 解除武装',icon:'⚡'},
+ {name:'RIDDIKULUS',meaning:'滑稽滑稽 · 让博格特变得可笑',icon:'☺'},
+ {name:'WINGARDIUM LEVIOSA',meaning:'羽加迪姆勒维奥萨 · 让物体漂浮',icon:'❧'},
  {name:'EXPECTO PATRONUM',meaning:'呼神护卫 · 召唤守护神',icon:'✦'}
 ];
-const quest=['LUMOS','NOX','LUMOS'];
+const SPELLS_PER_ROUND=3;
 const fresh=()=>({version:2,defaults:{warmup:2,magic:3},plans:{},records:[],rounds:[],active:null});
 let data=fresh(),storageHealthy=true;
 try {
@@ -54,8 +61,8 @@ function begin(opts){
 }
 function startWarmup(){game=null;begin({mode:'warmup',zone:-1,title:'八根手指的魔法地图',description:'一轮走完八个区域。敲错不前进；敲完记得让手指回家。',sequence:fingerDefs.map(f=>f.warm).join('')});}
 function startZone(i){const f=fingerDefs[i];begin({mode:'zone',zone:i,title:f.name+' · '+f.keys.toUpperCase(),description:`从 ${f.home.toUpperCase()} 出发，敲击目标键，再回家。分区加练不计入完整热身轮数。`,sequence:f.warm});}
-function startSpell(name,fromGame=false){const item=spells.find(s=>s.name===name);begin({mode:fromGame?'game':'spell',zone:-1,title:name+' · '+item.meaning,description:fromGame?`本轮第 ${game.step+1} / 3 次施法；三次全部完成才计一轮。`:'咒语加练不计入三次施法的完整魔法轮数。',sequence:name.toLowerCase()});}
-function startGame(){game={id:crypto.randomUUID(),step:0,day:nowDate()};renderQuest();startSpell(quest[0],true);}
+function startSpell(name,fromGame=false){const item=spells.find(s=>s.name===name);begin({mode:fromGame?'game':'spell',zone:-1,title:name+' · '+item.meaning,description:fromGame?`本轮第 ${game.step+1} / 3 次施法；三次全部完成才计一轮。`:'咒语加练不计入三次施法的完整魔法轮数。',sequence:name.toLowerCase()});renderSpellScene(name,false);}
+function startGame(){const offset=data.rounds.filter(r=>r.kind==='magic').length*SPELLS_PER_ROUND;game={id:crypto.randomUUID(),step:0,day:nowDate(),spells:Array.from({length:SPELLS_PER_ROUND},(_,i)=>spells[(offset+i)%spells.length].name)};renderQuest();startSpell(game.spells[0],true);}
 function startDaily(){
  cancelNext();if(session&&!session.finished)finish(false);game=null;currentStage=null;dailyActive=true;nextDaily();
 }
@@ -87,8 +94,8 @@ function finish(completed){
  data.records.unshift(row);data.active=null;
  if(completed&&session.mode==='warmup')credit('warmup',session.id,session.day);
  if(completed&&session.mode==='game'&&game){
-  game.step++;$('#magicScene').dataset.lit=String(session.sequence!=='nox');$('#sceneCaption').textContent=session.sequence==='nox'?'NOX · 灯光轻轻熄灭':'LUMOS · 你点亮了魔法灯';
-  if(game.step===quest.length)credit('magic',game.id,game.day);
+  game.step++;renderSpellScene(session.sequence.toUpperCase(),true);
+  if(game.step===SPELLS_PER_ROUND)credit('magic',game.id,game.day);
  }
  save();renderRecords();renderDaily();renderQuest();
  $('#lessonCount').textContent=`${session.index} / ${session.sequence.length} 个正确按键 · ${session.errors} 次错键`;
@@ -97,14 +104,15 @@ function finish(completed){
  $('#progressFill').style.width='100%';$('#prompt').innerHTML='<span style="color:var(--gold)">✦ 练习完成！✦</span>';
  $('#feedback').textContent=`用时 ${formatTime(duration)} · 准确率 ${Math.round(100*session.correct/(session.correct+session.errors))}% · 错键 ${session.errors} 次。`;$('#feedback').className='feedback success';
  $('#fingerName').textContent='做得好，手指回家！';$('#moveText').textContent='放松手腕，准备下一段练习。';$('#returnText').textContent='正确比速度更重要。';
- if(game&&game.step<quest.length)later(()=>startSpell(quest[game.step],true));
+ if(game&&game.step<SPELLS_PER_ROUND)later(()=>startSpell(game.spells[game.step],true));
  else if(dailyActive)later(()=>{game=null;nextDaily();});
  else later(()=>{game=null;showScreen('history');renderRecords();showToast('加练完成，记录已保存。');});
 }
-function renderQuest(){const step=game?.step||0;$('#questMeter').style.width=100*step/3+'%';$('#questStatus').textContent=game?`${step===3?'本轮完成':'本轮进行中'} · ${step} / 3 个咒语`:'准备施法 · LUMOS → NOX → LUMOS';}
+function renderSpellScene(name,complete){const spell=spells.find(s=>s.name===name);if(!spell)return;const light=name==='LUMOS'||name==='NOX';$('#magicScene .lantern').hidden=!light;$('#spellSymbol').hidden=light;$('#spellSymbol').textContent=spell.icon;$('#magicScene').dataset.lit=String(name==='LUMOS'&&complete);$('#sceneCaption').textContent=spell.name+' · '+spell.meaning+(complete?' · 施法成功':'');}
+function renderQuest(){const step=game?.step||0;$('#questMeter').style.width=100*step/3+'%';$('#questStatus').textContent=game?`${step===3?'本轮完成':'本轮进行中'} · ${step} / 3 个咒语`:'每轮三个咒语 · 十个咒语轮换练习';}
 function renderDaily(){
  const p=plan(),n=totals(),complete=n.warmup>=p.warmup&&n.magic>=p.magic,working=dailyActive||!!game&&game.step<3||!!session&&!session.finished;
- $('#dateLabel').textContent=new Intl.DateTimeFormat('zh-CN',{month:'long',day:'numeric',weekday:'long'}).format(new Date());
+ $('#dateLabel').textContent=new Intl.DateTimeFormat(window.typingLanguage==='zh'?'zh-CN':'en-US',{month:'long',day:'numeric',weekday:'long'}).format(new Date());
  for(const [kind,id] of [['warmup','warmup'],['magic','magic']]){$('#'+id+'Progress').textContent=`${n[kind]} / ${p[kind]} 轮`;$('#'+id+'Meter').max=p[kind]||1;$('#'+id+'Meter').value=p[kind]===0?1:Math.min(n[kind],p[kind]);}
  $('#dailyBadge').textContent=complete?'✦ 今日达成':working?'练习进行中':'等待你的魔法';
  $('#dailyMessage').textContent=complete?'今天的课表已完成。你可以自由加练，或让手指休息一下。':`今日还需 ${Math.max(0,p.warmup-n.warmup)} 轮热身、${Math.max(0,p.magic-n.magic)} 轮魔法练习。完整轮次才计入目标。`;
@@ -129,10 +137,10 @@ function renderRecords(){
  spells.forEach((s,i)=>$('#count-'+i).textContent=data.records.filter(r=>r.sequence===s.name.toLowerCase()).length);
  $('#weeklyHistory').innerHTML=Array.from({length:7},(_,i)=>{const d=new Date();d.setDate(d.getDate()-i);const day=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`,n=totals(day),p=plan(day);return `<div class="week-row"><span>${day.slice(5)}</span><span>热身 ${n.warmup}/${p.warmup} · 魔法 ${n.magic}/${p.magic}</span></div>`;}).join('');
 }
-function exportCsv(){const header=['日期','模式','练习','完成','用时秒','正确按键','错键','目标错键统计','实际错键对应'];const rows=data.records.map(r=>[r.day,r.mode,r.title,r.completed?'是':'否',(r.durationMs/1000).toFixed(1),r.correct,r.errors,JSON.stringify(r.mistakes),JSON.stringify(r.wrongKeys)]);const csv='\ufeff'+[header,...rows].map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=`hogwarts-typing-${nowDate()}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-function resetRecords(){if(!confirm('清空本游戏的课表、每日轮数和全部练习记录？其他小游戏不受影响。'))return;cancelNext();clearInterval(timerId);localStorage.removeItem(STORAGE);location.reload();}
+function exportCsv(){const header=['日期','模式','练习','完成','用时秒','正确按键','错键','目标错键统计','实际错键对应'];const rows=data.records.map(r=>[r.day,r.mode,r.title,r.completed?'是':'否',(r.durationMs/1000).toFixed(1),r.correct,r.errors,JSON.stringify(r.mistakes),JSON.stringify(r.wrongKeys)]);const csv='\ufeff'+[header,...rows].map(row=>row.map(v=>'"'+window.translateTyping(String(v)).replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=`hogwarts-typing-${nowDate()}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function resetRecords(){if(!confirm(window.translateTyping('清空本游戏的课表、每日轮数和全部练习记录？其他小游戏不受影响。')))return;cancelNext();clearInterval(timerId);localStorage.removeItem(STORAGE);localStorage.removeItem('hogwarts-typing-academy-language');location.reload();}
 function direction(from,to){if(from===to)return'在基准键上轻轻敲击';const a=document.querySelector(`[data-key="${CSS.escape(from)}"]`),b=document.querySelector(`[data-key="${CSS.escape(to)}"]`);if(!a||!b)return'伸向目标键';const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect(),dx=br.x-ar.x,dy=br.y-ar.y;const vertical=dy< -12?'向上':dy>12?'向下':'';const horizontal=dx< -12?'向左':dx>12?'向右':'';return vertical+horizontal+'伸过去'}
-function renderSession(){if(!session)return;const target=currentChar(),f=keyFinger[target];$('#lessonCount').textContent=`${session.index} / ${session.sequence.length} 个正确按键 · ${session.errors} 次错键`;$('#progressFill').style.width=(100*session.index/session.sequence.length)+'%';$('#prompt').innerHTML=[...session.sequence].map((c,i)=>`<span class="glyph ${i<session.index?'done':i===session.index?'current':''}">${c===' '?'␣':c.toUpperCase()}</span>`).join('');document.querySelectorAll('.key.target-key').forEach(e=>e.classList.remove('target-key'));document.querySelectorAll('.finger.active').forEach(e=>e.classList.remove('active'));if(!f){$('#pathLayer').style.display='none';return}const k=document.querySelector(`[data-key="${CSS.escape(target)}"]`);k?.classList.add('target-key');document.querySelector(`[data-finger="${f.id}"]`)?.classList.add('active');$('#fingerName').textContent=`${f.name} → ${target===' '?'空格':target.toUpperCase()}`;$('#moveText').textContent=`从 ${f.home.toUpperCase()} ${direction(f.home,target)}，敲 ${target.toUpperCase()}。`;$('#returnText').textContent=target===' '?'拇指轻按空格，其他手指留在基准行。':`敲完后回到 ${f.home.toUpperCase()}，其他手指尽量留在基准行。`;requestAnimationFrame(()=>{updateRoute();const current=$('#prompt .current');if(current)$('#prompt').scrollTop=Math.max(0,current.offsetTop-$('#prompt').offsetTop-40);})}
+function renderSession(){if(!session)return;const target=currentChar(),f=keyFinger[target];$('#lessonCount').textContent=`${session.index} / ${session.sequence.length} 个正确按键 · ${session.errors} 次错键`;$('#progressFill').style.width=(100*session.index/session.sequence.length)+'%';$('#prompt').innerHTML=[...session.sequence].map((c,i)=>`<span class="glyph ${i<session.index?'done':i===session.index?'current':''}">${c===' '?'␣':c.toUpperCase()}</span>`).join('');document.querySelectorAll('.key.target-key').forEach(e=>e.classList.remove('target-key'));document.querySelectorAll('.finger.active').forEach(e=>e.classList.remove('active'));if(!f){$('#pathLayer').style.display='none';return}const k=document.querySelector(`[data-key="${CSS.escape(target)}"]`);k?.classList.add('target-key');document.querySelector(`[data-finger="${f.id}"]`)?.classList.add('active');$('#fingerName').textContent=`${f.name} → ${target===' '?'空格':target.toUpperCase()}`;$('#moveText').textContent=target===' '?'拇指轻按空格。':`从 ${f.home.toUpperCase()} ${direction(f.home,target)}，敲 ${target.toUpperCase()}。`;$('#returnText').textContent=target===' '?'拇指轻按空格，其他手指留在基准行。':`敲完后回到 ${f.home.toUpperCase()}，其他手指尽量留在基准行。`;requestAnimationFrame(()=>{updateRoute();const current=$('#prompt .current');if(current)$('#prompt').scrollTop=Math.max(0,current.offsetTop-$('#prompt').offsetTop-40);})}
 function updateRoute(){if(!session||session.finished)return;const t=currentChar(),f=keyFinger[t],svg=$('#pathLayer');if(!f||!t){svg.style.display='none';return}const from=document.querySelector(`[data-key="${CSS.escape(f.home)}"]`),to=document.querySelector(`[data-key="${CSS.escape(t)}"]`);if(!from||!to)return;const rect=$('#keyboard').getBoundingClientRect(),a=from.getBoundingClientRect(),b=to.getBoundingClientRect(),x1=a.left+a.width/2-rect.left,y1=a.top+a.height/2-rect.top,x2=b.left+b.width/2-rect.left,y2=b.top+b.height/2-rect.top;svg.style.display='block';svg.setAttribute('viewBox',`0 0 ${rect.width} ${rect.height}`);const path=`M ${x1} ${y1} Q ${(x1+x2)/2} ${Math.min(y1,y2)-24} ${x2} ${y2}`;$('#pathLine').setAttribute('d',path);$('#pathStart').setAttribute('cx',x1);$('#pathStart').setAttribute('cy',y1);const dot=$('#pathDot');dot.style.offsetPath=`path('${path}')`;dot.style.offsetDistance='0%';dot.setAttribute('cx','0');dot.setAttribute('cy','0')}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
@@ -148,7 +156,7 @@ function stageIntro(stage){
  currentStage=stage;renderDaily();showScreen('ready');const p=plan(),n=totals(),warm=stage==='warmup';
  $('#stageSymbol').textContent=warm?'⌨':'✧';$('#stageEyebrow').textContent=warm?'STAGE 01 · FINGER WARM-UP':'STAGE 02 · SPELL PRACTICE';
  $('#stageTitle').textContent=warm?'让手指先热起来。':'现在，施放你的魔法。';
- $('#stageDescription').textContent=warm?'找到 F 和 J 的小凸点。跟随高亮的按键，伸出手指，敲击，然后回家。':'输入 LUMOS 点亮灯，输入 NOX 熄灭，再用 LUMOS 点亮。完成三次施法，就是一轮。';
+ $('#stageDescription').textContent=warm?'找到 F 和 J 的小凸点。跟随高亮的按键，伸出手指，敲击，然后回家。':'每轮完成三个咒语，十个咒语依次轮换。看清字母，使用正确的手指。';
  $('#stageSummary').textContent=`${warm?'手指热身':'魔法练习'} · 还需 ${p[stage]-n[stage]} 轮`;
  $('#startDaily').textContent=warm?'开始热身 →':'开始魔法练习 →';
 }
@@ -164,8 +172,8 @@ function build(){
  $('#zones').innerHTML=fingerDefs.map((f,i)=>`<button class="zone" data-zone="${i}"><b>${f.name}</b><span>${f.keys.toUpperCase().split('').join(' · ')}</span><small>基准键 ${f.home.toUpperCase()}</small></button>`).join('');
  $('#spells').innerHTML=spells.map((s,i)=>`<button class="spell-card" data-spell="${i}"><span class="icon">${s.icon}</span><b>${s.name}</b><span>${s.meaning}</span><small>${s.name.length} 个按键 · 已尝试 <span id="count-${i}">0</span> 次</small></button>`).join('');
  for(const [handId,ids]of [['leftHand',['lp','lr','lm','li','thumb']],['rightHand',['rp','rr','rm','ri']]])$('#'+handId).innerHTML=ids.map(id=>`<div class="finger ${id==='thumb'?'thumb':''}" data-finger="${id}"></div>`).join('');
- const kb=$('#keyboard');['qwertyuiop','asdfghjkl;','zxcvbnm,./'].forEach((row,index)=>{const div=document.createElement('div');div.className='key-row';if(index===1)div.style.padding='0 3.5%';if(index===2)div.style.padding='0 8%';for(const k of row){const f=keyFinger[k],el=document.createElement('div');el.className='key'+(f.home===k?' home':'');el.dataset.key=k;el.textContent=k.toUpperCase();el.style.setProperty('--finger-color',f.color);div.append(el);}kb.append(div);});
- const space=document.createElement('div');space.className='key-row';space.innerHTML='<div class="key other">⌘</div><div class="key spacebar" data-key=" " style="--finger-color:#dfcda2">SPACE · 拇指</div><div class="key other">⌥</div>';kb.append(space);
+ const kb=$('#keyboard');['qwertyuiop','asdfghjkl;','zxcvbnm,./'].forEach((row,index)=>{const div=document.createElement('div');div.className='key-row';div.dataset.row=String(index);let column=[1,2,4][index];for(const k of row){const f=keyFinger[k],el=document.createElement('div');el.className='key'+(f.home===k?' home':'');el.dataset.key=k;el.textContent=k.toUpperCase();el.style.setProperty('--finger-color',f.color);el.style.gridColumn=column+' / span 4';column+=4;div.append(el);}kb.append(div);});
+ const space=document.createElement('div');space.className='key-row space-row';space.innerHTML='<div class="key other">⌘</div><div class="key spacebar" data-key=" " style="--finger-color:#dfcda2">SPACE · 拇指</div><div class="key other">⌥</div>';kb.append(space);
  document.querySelectorAll('[data-zone]').forEach(b=>b.onclick=()=>startManual(()=>startZone(Number(b.dataset.zone))));
  document.querySelectorAll('[data-spell]').forEach(b=>b.onclick=()=>startManual(()=>startSpell(spells[Number(b.dataset.spell)].name)));
  $('#startDaily').onclick=()=>{if(currentStage==='warmup')startWarmup();else if(currentStage==='magic')startGame();};$('#startWarmup').onclick=()=>startManual(startWarmup);$('#startGame').onclick=()=>startManual(startGame);$('#pausePractice').onclick=pausePractice;
@@ -176,6 +184,7 @@ function build(){
  $('#exitLesson').onclick=()=>{pausePractice();showScreen('setup');};
  $('#fullscreenButton').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{showToast('当前浏览器不支持全屏，可直接在本窗口练习。');}};
  document.addEventListener('fullscreenchange',()=>{$('#fullscreenButton').textContent=document.fullscreenElement?'退出全屏':'全屏';requestAnimationFrame(updateRoute);});
+ window.addEventListener('typing-language-change',()=>{$('#dateLabel').textContent=new Intl.DateTimeFormat(window.typingLanguage==='zh'?'zh-CN':'en-US',{month:'long',day:'numeric',weekday:'long'}).format(new Date());requestAnimationFrame(updateRoute);});
  window.addEventListener('keydown',onKey);window.addEventListener('resize',()=>requestAnimationFrame(updateRoute));
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&(session&&!session.finished||nextTimer))pausePractice();else if(lastDay!==nowDate()){lastDay=nowDate();pausePractice();renderRecords();$('#planDate').value=nowDate();loadPlanFields();}});
  window.addEventListener('pagehide',checkpoint);
