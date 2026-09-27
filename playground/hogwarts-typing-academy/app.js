@@ -51,7 +51,7 @@ function later(fn){const token=generation;nextTimer=setTimeout(()=>{nextTimer=nu
 function startManual(fn){cancelNext();if(session&&!session.finished)finish(false);dailyActive=false;game=null;fn();}
 function begin(opts){
  if(!data.plans[nowDate()])data.plans[nowDate()]={...data.defaults};
- session={...opts,id:crypto.randomUUID(),day:nowDate(),date:new Date().toISOString(),index:0,correct:0,errors:0,mistakes:{},correctLetters:{},wrongKeys:{},elapsedMs:0,tickAt:performance.now(),finished:false};
+ session={...opts,id:window.createPracticeId(),day:nowDate(),date:new Date().toISOString(),index:0,correct:0,errors:0,mistakes:{},correctLetters:{},wrongKeys:{},elapsedMs:0,tickAt:performance.now(),finished:false};
  clearInterval(timerId);timerId=setInterval(()=>{if(session&&!session.finished)$('#timer').textContent=formatTime(elapsed());},250);
  $('#timer').textContent='00:00';$('#modeLabel').textContent=dailyActive?'每日课程 · '+(opts.mode==='warmup'?'手指热身':'魔法练习'):opts.mode==='game'?'自由魔法练习':'自由指法练习';
  $('#lessonTitle').textContent=opts.title;$('#lessonDesc').textContent=opts.description;
@@ -62,7 +62,7 @@ function begin(opts){
 function startWarmup(){game=null;begin({mode:'warmup',zone:-1,title:'八根手指的魔法地图',description:'一轮走完八个区域。敲错不前进；敲完记得让手指回家。',sequence:fingerDefs.map(f=>f.warm).join('')});}
 function startZone(i){const f=fingerDefs[i];begin({mode:'zone',zone:i,title:f.name+' · '+f.keys.toUpperCase(),description:`从 ${f.home.toUpperCase()} 出发，敲击目标键，再回家。分区加练不计入完整热身轮数。`,sequence:f.warm});}
 function startSpell(name,fromGame=false){const item=spells.find(s=>s.name===name);begin({mode:fromGame?'game':'spell',zone:-1,title:name+' · '+item.meaning,description:fromGame?`本轮第 ${game.step+1} / 3 次施法；三次全部完成才计一轮。`:'咒语加练不计入三次施法的完整魔法轮数。',sequence:name.toLowerCase()});renderSpellScene(name,false);}
-function startGame(){const offset=data.rounds.filter(r=>r.kind==='magic').length*SPELLS_PER_ROUND;game={id:crypto.randomUUID(),step:0,day:nowDate(),spells:Array.from({length:SPELLS_PER_ROUND},(_,i)=>spells[(offset+i)%spells.length].name)};renderQuest();startSpell(game.spells[0],true);}
+function startGame(){const offset=data.rounds.filter(r=>r.kind==='magic').length*SPELLS_PER_ROUND;game={id:window.createPracticeId(),step:0,day:nowDate(),spells:Array.from({length:SPELLS_PER_ROUND},(_,i)=>spells[(offset+i)%spells.length].name)};renderQuest();startSpell(game.spells[0],true);}
 function startDaily(){
  cancelNext();if(session&&!session.finished)finish(false);game=null;currentStage=null;dailyActive=true;nextDaily();
 }

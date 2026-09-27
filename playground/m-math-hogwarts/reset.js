@@ -21,7 +21,7 @@
       '清空本游戏的角色、学院、拼图进度、全部学习记录和未完成题组，并从头开始？此操作无法撤销，不影响其他小游戏。'
     )))) return;
     try {
-      localStorage.setItem(signalKey, crypto.randomUUID());
+      localStorage.setItem(signalKey, window.createPracticeId());
       freeze();
       const clear = async () => {
         const db = recordsDb || await openRecords();
