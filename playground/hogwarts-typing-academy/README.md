@@ -1,0 +1,26 @@
+# Hogwarts Typing Academy
+
+根据提供的 Hogwarts_Typing_Academy 设计实现的独立指法游戏。地址：`/playground/hogwarts-typing-academy/`。静态 HTML/CSS/JavaScript，无构建依赖和外部请求。
+
+## 每日课程
+
+家长可展开「每天练习多少轮」，按日期分别设定 0–20 轮热身与魔法练习，至少一项大于零；也可作为后续未安排日期的默认计划。默认热身 2 轮、魔法 3 轮。当天已完成进度不会因为调整目标被清除。
+
+- 一轮热身：八个手指区域的完整序列，共 68 个按键。
+- 一轮魔法：LUMOS → NOX → LUMOS 三次咒语，共 13 个按键。
+- 每日课程先热身再魔法，轮次自动衔接，达标后停止。完整自由热身/魔法挑战也计入当天轮数；单独区域与咒语属于加练。
+- 按错不前进，只记录错误；忽略长按重复、快捷键、输入法组合键和设置输入框中的输入。指法图只能指导，无法识别实际使用哪根手指。
+- 暂停、离开标签页或刷新时，未完成轮次不计入目标；已完成轮次保留。跨日期停止旧课程，新一天按新课表开始。
+
+## 记录与测试
+
+存储键为 `hogwarts-typing-academy-v2`，与算术游戏独立。保存每天的课表、完成轮次、逐次按键正确/错误统计、用时和中断记录。支持最近七天概览、CSV 导出和确认清空。多标签页检测到另一标签页修改后会停用旧页面并提示重新加载，避免旧存档覆盖。
+
+从仓库根目录运行 `python3 -m http.server 8765 --bind 127.0.0.1`，在已安装 Playwright 和 Chrome 的环境运行：
+
+```sh
+node playground/hogwarts-typing-academy/tests/game.cjs
+node playground/hogwarts-typing-academy/tests/daily-boundaries.cjs
+```
+
+可用 `PLAYWRIGHT_MODULE` 指定 Playwright 模块路径，`GAME_URL` 指定页面地址。测试使用独立浏览器上下文，不影响日常存档。
