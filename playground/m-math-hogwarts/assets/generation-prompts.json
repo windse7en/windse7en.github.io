@@ -1,0 +1,32 @@
+{
+  "tool": "Built-in image_gen",
+  "stylePrompt": "Use case: stylized-concept. Asset type: creature portrait for a private Hogwarts arithmetic adventure for a child. SUBJECT Polished painterly 3D fantasy game concept art, recognizable Harry Potter creature anatomy, detailed materials, cinematic teal forest shadows and gentle warm rim light. Landscape 3:2 framing, single creature entirely within frame with breathing room, dominant centered subject readable at small size. Atmospheric background, appealing and adventurous, not gruesome, no gore, no text, no watermark, no UI.",
+  "subjects": [
+    [
+      "thestral",
+      "A Thestral from Harry Potter: anatomically recognizable skeletal black winged horse with leathery bat wings, long mane, pale eyes, gently unfolding its wings in the Forbidden Forest."
+    ],
+    [
+      "hippogriff",
+      "A Hippogriff from Harry Potter, like Buckbeak: eagle head, feathered wings and front talons, horse hindquarters. A respectful lowered head in a forest clearing."
+    ],
+    [
+      "boggart",
+      "A Boggart from Harry Potter after Riddikulus, manifesting as an amusing scarecrow in oversized fluffy slippers stepping out of a Hogwarts wardrobe; do not suggest this is its true form."
+    ],
+    [
+      "grindylow",
+      "A Grindylow from Harry Potter: small green horned water demon, long thin grasping fingers, aquatic body in shallow Black Lake water among reeds, holding a training rope."
+    ],
+    [
+      "acromantula",
+      "An Acromantula from Harry Potter: large dark hairy spider, eight legs, clearly eight small eyes, standing across a cobwebbed Forbidden Forest trail."
+    ],
+    [
+      "dementor",
+      "A Dementor from Harry Potter: a floating tall hooded wraith in ragged black robes, face in shadow, pale skeletal hands, surrounded by cold mist, distant silver Patronus light."
+    ]
+  ],
+  "revision": "Acromantula eye count corrected using image_gen edit: exactly eight eyes in two rows of four.",
+  "crests": "Existing official website house emblems, source URLs in crest-sources.json. Not AI-generated."
+}

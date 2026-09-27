@@ -1,0 +1,22 @@
+[
+  {
+    "id": "gryffindor",
+    "url": "https://www.harrypotter.com/house/gryffindor",
+    "file": "gryffindor.svg"
+  },
+  {
+    "id": "hufflepuff",
+    "url": "https://www.harrypotter.com/house/hufflepuff",
+    "file": "hufflepuff.svg"
+  },
+  {
+    "id": "ravenclaw",
+    "url": "https://www.harrypotter.com/house/ravenclaw",
+    "file": "ravenclaw.svg"
+  },
+  {
+    "id": "slytherin",
+    "url": "https://www.harrypotter.com/house/slytherin",
+    "file": "slytherin.svg"
+  }
+]

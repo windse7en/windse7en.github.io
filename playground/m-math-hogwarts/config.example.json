@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 5,
+  "ruleVersion": "timed-50-v1",
+  "language": "en",
+  "houseId": "gryffindor",
+  "practice": {
+    "range": 20,
+    "operations": "mixed",
+    "count": 50,
+    "visible": 5,
+    "budgetSeconds": 360,
+    "wrongPenaltySeconds": 5,
+    "advance": "correct-enter",
+    "timeout": "new-round-required",
+    "passing": "50-corrected-before-deadline",
+    "timerContinuesInBackground": true
+  },
+  "weeklyRules": {
+    "timeZone": "America/Los_Angeles",
+    "weekStartsOn": "Monday 00:00",
+    "dailyMaxPieces": 3,
+    "requiredPieces": 12,
+    "nextLevel": "following-week",
+    "incompleteWeek": "reset-current-pieces",
+    "historyOnReset": "preserve"
+  },
+  "records": {
+    "engine": "IndexedDB",
+    "allQuestions": true,
+    "allAttempts": true,
+    "questionTimings": true,
+    "outcomes": [
+      "running",
+      "passed",
+      "timeout",
+      "abandoned"
+    ],
+    "export": [
+      "weekly-csv",
+      "all-json"
+    ],
+    "print": [
+      "weekly-mistakes",
+      "weekly-all"
+    ]
+  },
+  "world": {
+    "entryRegion": "hogwarts",
+    "regions": [
+      {
+        "id": "hogwarts",
+        "status": "available"
+      },
+      {
+        "id": "hogsmeade",
+        "status": "planned"
+      },
+      {
+        "id": "diagon-alley",
+        "status": "planned"
+      },
+      {
+        "id": "ministry",
+        "status": "planned"
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "id": "hogwarts-01",
+      "regionId": "hogwarts",
+      "levels": [
+        {
+          "id": "thestral",
+          "order": 1,
+          "spellId": "lumos"
+        },
+        {
+          "id": "hippogriff",
+          "order": 2,
+          "spellId": "accio"
+        },
+        {
+          "id": "boggart",
+          "order": 3,
+          "spellId": "riddikulus"
+        },
+        {
+          "id": "grindylow",
+          "order": 4,
+          "spellId": "relashio"
+        },
+        {
+          "id": "acromantula",
+          "order": 5,
+          "spellId": "impedimenta"
+        },
+        {
+          "id": "dementor",
+          "order": 6,
+          "spellId": "patronus"
+        }
+      ],
+      "reward": "chapter-01-seal"
+    }
+  ],
+  "aurorGoal": {
+    "status": "future-design",
+    "requirements": null
+  }
+}
