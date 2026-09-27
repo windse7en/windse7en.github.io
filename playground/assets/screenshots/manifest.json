@@ -1,0 +1,37 @@
+{
+  "capturedFrom": "Local game pages in isolated browser contexts; no microphone access or existing user saves used.",
+  "viewport": {
+    "width": 1200,
+    "height": 800
+  },
+  "screenshots": [
+    {
+      "file": "hogwarts-typing.jpg",
+      "page": "hogwarts-typing-academy/"
+    },
+    {
+      "file": "hogwarts-math.jpg",
+      "page": "m-math-hogwarts/"
+    },
+    {
+      "file": "animal-typing.jpg",
+      "page": "emmaTypingGame.html"
+    },
+    {
+      "file": "letter-fall.jpg",
+      "page": "emmaTypingGame2.html"
+    },
+    {
+      "file": "music-quest.jpg",
+      "page": "emmaMusicTypingGame.html"
+    },
+    {
+      "file": "note-lab.jpg",
+      "page": "emmaMusicGame.html"
+    },
+    {
+      "file": "chinese-writing.jpg",
+      "page": "emmaLearnChinese.html"
+    }
+  ]
+}
